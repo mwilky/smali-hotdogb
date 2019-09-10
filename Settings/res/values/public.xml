@@ -476,6 +476,8 @@
     <public type="array" name="zen_mode_contacts_calls_entries" id="0x7f03013f" />
     <public type="array" name="zen_mode_contacts_messages_entries" id="0x7f030140" />
     <public type="array" name="zen_mode_contacts_values" id="0x7f030141" />
+    <public type="array" name="navigation_bar_keys_recents_action_entries" id="0x7f030142" />
+    <public type="array" name="navigation_bar_keys_recents_action_values" id="0x7f030143" />
     <public type="attr" name="OPAlertDialogStyle" id="0x7f040000" />
     <public type="attr" name="OPEditTextStyle" id="0x7f040001" />
     <public type="attr" name="OPFloatingActionButtonStyle" id="0x7f040002" />
