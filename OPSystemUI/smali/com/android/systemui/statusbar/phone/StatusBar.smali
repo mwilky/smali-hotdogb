@@ -16,6 +16,7 @@
 .implements Lcom/android/systemui/statusbar/notification/ActivityLaunchAnimator$Callback;
 .implements Lcom/android/systemui/statusbar/AmbientPulseManager$OnAmbientChangedListener;
 .implements Lcom/android/systemui/appops/AppOpsController$Callback;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -9702,6 +9703,10 @@
     goto :goto_0
 
     :cond_5
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->registerObserver()V
+    
     new-instance v3, Landroid/content/IntentFilter;
 
     invoke-direct {v3}, Landroid/content/IntentFilter;-><init>()V
@@ -15190,6 +15195,81 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mFalsingManager:Lcom/android/systemui/plugins/FalsingManager;
 
     invoke-interface {p0}, Lcom/android/systemui/plugins/FalsingManager;->onScreenOnFromTouch()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+    
+    const-string v0, "mwilky_example_key"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+
+    :cond_mwilky
+	return-void
+.end method
+
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+    
+    const-string v4, "mwilky_example_key"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
 
     :cond_0
     return-void
