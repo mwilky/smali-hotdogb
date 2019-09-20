@@ -1223,4 +1223,7 @@
     <item type="id" name="zen_mode_panel" />
     <item type="id" name="zen_radio_buttons" />
     <item type="id" name="zen_radio_buttons_content" />
+    <item type="id" name="right_clock" />
+    <item type="id" name="center_clock" />
+    <item type="id" name="center_clock_layout" />
 </resources>
