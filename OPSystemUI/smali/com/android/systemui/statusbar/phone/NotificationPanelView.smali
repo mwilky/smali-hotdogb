@@ -2325,14 +2325,6 @@
 .method private isOpenQsEvent(Landroid/view/MotionEvent;)Z
     .locals 5
 
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
-
-    move-result p0
-
-    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
-
-    move-result v0
-
     const/4 v1, 0x2
 
     const/4 v2, 0x1
@@ -2340,6 +2332,54 @@
     const/4 v3, 0x0
 
     const/4 v4, 0x5
+    
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->rightHandPulldown(Landroid/view/MotionEvent;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mSmartPulldown:I
+
+    if-eqz v0, :cond_stock
+    
+    const v1, 0x1
+    
+    if-eq v0, v1, :cond_clearnotif
+    
+    const v1, 0x2
+    
+    if-eq v0, v1, :cond_anynotif
+    
+    :cond_anynotif
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveNotifications()Z
+    
+    move-result v0
+    
+    if-eqz v0, :cond_6
+    
+    goto :goto_stock
+    
+    :cond_clearnotif
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveClearableNotifications()Z
+    
+    move-result v0
+    
+    if-eqz v0, :cond_6
+    
+    :goto_stock
+    :cond_stock    
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
+
+    move-result p0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v0
 
     if-ne v0, v4, :cond_0
 
@@ -10409,4 +10449,62 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->resetHorizontalPanelPosition()V
 
     return-void
+.end method
+
+.method private rightHandPulldown(Landroid/view/MotionEvent;)Z
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/16 v3, 0x78
+
+    const/4 v4, 0x0
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v0
+
+    const/4 v2, 0x0
+
+    if-ne v0, v2, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getPointerCount()I
+
+    move-result v0
+
+    const/4 v2, 0x1
+
+    if-ne v0, v2, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionIndex()I
+
+    move-result v0
+
+    invoke-virtual {p1, v0}, Landroid/view/MotionEvent;->getX(I)F
+
+    move-result v0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getWidth()I
+
+    move-result v2
+
+    sub-int v2, v2, v3
+
+    int-to-float v2, v2
+
+    cmpg-float v0, v0, v2
+
+    if-lez v0, :cond_0
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
