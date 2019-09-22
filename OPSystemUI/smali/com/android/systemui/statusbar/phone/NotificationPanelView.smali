@@ -34,6 +34,8 @@
 
 
 # instance fields
+.field private mLastTapTime:J
+
 .field private final PANEL_ALPHA:Lcom/android/systemui/statusbar/notification/AnimatableProperty;
 
 .field private final PANEL_ALPHA_IN_PROPERTIES:Lcom/android/systemui/statusbar/notification/stack/AnimationProperties;
@@ -8985,6 +8987,8 @@
 
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
+    
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->doubleTap2Sleep(Landroid/view/MotionEvent;)V
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlockTouches:Z
 
@@ -10507,4 +10511,77 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method public doubleTap2Sleep(Landroid/view/MotionEvent;)V
+    .locals 6
+
+    const-wide/16 v4, 0x12c
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v0
+
+    iget v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBarMinHeight:I
+
+    int-to-float v2, v2
+
+    cmpg-float v0, v0, v2
+
+    if-gtz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isDozing()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mDoubleTapStatusbarSleep:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mLastTapTime:J
+
+    iput-wide v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mLastTapTime:J
+
+    sub-long/2addr v0, v2
+
+    cmp-long v0, v0, v4
+
+    if-gez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    const-string v2, "power"
+
+    invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/PowerManager;
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v2
+
+    const/4 v1, 0x5
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v0, v2, v3, v1, v4}, Landroid/os/PowerManager;->goToSleep(JII)V
+
+    :cond_0
+    return-void
 .end method
