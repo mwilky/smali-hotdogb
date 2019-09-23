@@ -14,6 +14,8 @@
 # static fields
 .field private static mDefaultMaxTiles:I
 
+.field public static mQuickQsNumber:I
+
 
 # instance fields
 .field private mDisabledByPolicy:Z
@@ -120,6 +122,8 @@
     invoke-virtual {p0, p1, p3}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;I)V
 
     invoke-super {p0, p3, p3, p3, p3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->readRenovateMods()V
 
     return-void
 .end method
@@ -135,7 +139,7 @@
 
     check-cast p0, Lcom/android/systemui/tuner/TunerService;
 
-    sget v0, Lcom/android/systemui/qs/QuickQSPanel;->mDefaultMaxTiles:I
+    sget v0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
 
     const-string v1, "sysui_qqs_count"
 
@@ -406,4 +410,24 @@
 
     :goto_0
     return p0
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mQuickQsNumber:I
+    
+	sput v0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
+	
+    return-void
+.end method
+
+.method public updateTiles()V
+    .locals 1
+ 
+	sget v0, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQsNumber:I
+
+	invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QuickQSPanel;->setMaxTiles(I)V
+	
+    return-void
 .end method

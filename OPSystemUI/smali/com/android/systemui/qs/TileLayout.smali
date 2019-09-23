@@ -7,6 +7,10 @@
 
 
 # instance fields
+.field public mQsRows:I
+
+.field public mQsColumns:I
+
 .field protected mCellHeight:I
 
 .field protected mCellMarginHorizontal:I
@@ -648,6 +652,8 @@
 
 .method public updateResources()Z
     .locals 5
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/TileLayout;->readRenovateMods()V
 
     iget-object v0, p0, Landroid/view/ViewGroup;->mContext:Landroid/content/Context;
 
@@ -726,14 +732,14 @@
     invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
+    
+    iget v0, p0, Lcom/android/systemui/qs/TileLayout;->mQsRows:I
 
     iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mMaxAllowedRows:I
+    
+    iget v0, p0, Lcom/android/systemui/qs/TileLayout;->mQsColumns:I
 
-    iget v0, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
-
-    if-eq v0, v1, :cond_0
-
-    iput v1, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
+    iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mColumns:I
 
     invoke-virtual {p0}, Landroid/view/ViewGroup;->requestLayout()V
 
@@ -743,4 +749,18 @@
     const/4 p0, 0x0
 
     return p0
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+	
+	sget v0, Lcom/android/mwilky/Renovate;->mQsRows:I
+	
+	iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mQsRows:I
+	
+	sget v0, Lcom/android/mwilky/Renovate;->mQsColumns:I
+	
+	iput v0, p0, Lcom/android/systemui/qs/TileLayout;->mQsColumns:I
+	
+    return-void
 .end method
