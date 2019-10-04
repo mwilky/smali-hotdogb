@@ -1026,6 +1026,24 @@
 
     if-eqz v4, :cond_a
 
+    sget v6, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
+
+    const/4 v7, 0x0
+
+    if-eq v6, v7, :cond_mw
+    
+    const v6, 0x8
+    
+    invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
+    
+    goto :goto_mw
+
+    :cond_mw
+    const v6, 0x0
+    
+    invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
+    
+    :goto_mw
     new-instance v6, Lcom/android/systemui/qs/TouchAnimator$Builder;
 
     invoke-direct {v6}, Lcom/android/systemui/qs/TouchAnimator$Builder;-><init>()V

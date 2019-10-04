@@ -1226,4 +1226,5 @@
     <item type="id" name="right_clock" />
     <item type="id" name="center_clock" />
     <item type="id" name="center_clock_layout" />
+    <item type="id" name="brightness_layout" />
 </resources>

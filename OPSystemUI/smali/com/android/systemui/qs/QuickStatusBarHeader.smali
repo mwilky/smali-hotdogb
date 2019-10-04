@@ -6,9 +6,18 @@
 .implements Landroid/view/View$OnClickListener;
 .implements Lcom/android/systemui/statusbar/policy/NextAlarmController$NextAlarmChangeCallback;
 .implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
+.implements Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
 
 
 # instance fields
+.field private mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
+
+.field private mBrightnessMirror:Landroid/view/View;
+
+.field private mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+.field protected final mBrightnessView:Landroid/view/View;
+
 .field private mCenterClockView:Lcom/android/systemui/statusbar/policy/ClockCenterHeader;
 
 .field private mRightClockView:Lcom/android/systemui/statusbar/policy/ClockRight;
@@ -80,7 +89,7 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;Lcom/android/systemui/statusbar/policy/NextAlarmController;Lcom/android/systemui/statusbar/policy/ZenModeController;Lcom/android/systemui/statusbar/phone/StatusBarIconController;Lcom/android/systemui/plugins/ActivityStarter;)V
-    .locals 0
+    .locals 5
 
     invoke-direct {p0, p1, p2}, Landroid/widget/RelativeLayout;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -123,6 +132,78 @@
     invoke-direct {p2, p3}, Lcom/android/systemui/DualToneHandler;-><init>(Landroid/content/Context;)V
 
     iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+    
+    iget-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-static {p2}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object p2
+
+    const-string v0, "quick_settings_brightness_dialog_mod"
+
+    const-string v1, "layout"
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v0
+    
+    const/4 v1, 0x0
+
+    invoke-virtual {p2, v0, p0, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object p2
+
+    iput-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    iget-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/QuickStatusBarHeader;->addView(Landroid/view/View;)V
+    
+    iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    sget p2, Lcom/android/systemui/R$id;->slider:I
+
+    invoke-virtual {p1, p2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/settings/ToggleSeekBar;
+
+    sget-object p2, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {p1, p2}, Landroid/widget/SeekBar;->setProgressBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    new-instance p1, Lcom/android/systemui/settings/BrightnessController;
+
+    iget-object p2, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    sget v0, Lcom/android/systemui/R$id;->brightness_level:I
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    sget v1, Lcom/android/systemui/R$id;->brightness_icon:I
+
+    invoke-virtual {p0, v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    sget v2, Lcom/android/systemui/R$id;->brightness_slider:I
+
+    invoke-virtual {p0, v2}, Lcom/android/systemui/qs/QuickStatusBarHeader;->findViewById(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/settings/ToggleSlider;
+
+    invoke-direct {p1, p2, v0, v1, v2}, Lcom/android/systemui/settings/BrightnessController;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Landroid/widget/ImageView;Lcom/android/systemui/settings/ToggleSlider;)V
+
+    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
 
     return-void
 .end method
@@ -417,7 +498,7 @@
 .end method
 
 .method private updateResources()V
-    .locals 4
+    .locals 6
 
     iget-object v0, p0, Landroid/widget/RelativeLayout;->mContext:Landroid/content/Context;
 
@@ -495,11 +576,23 @@
     move-result v2
 
     sget v3, Lcom/android/systemui/R$dimen;->quick_qs_total_height:I
-
+    
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
+    
+    sget v4, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
 
+    const/4 v5, 0x1
+
+    if-eq v4, v5, :cond_mw
+    
+    goto :goto_mw
+    
+    :cond_mw
+    const v0, 0x2fe
+
+    :goto_mw
     invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
 
     move-result v0
@@ -512,6 +605,8 @@
     invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateStatusIconAlphaAnimator()V
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateHeaderTextContainerAlphaAnimator()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->refreshAllTiles()V
 
     return-void
 .end method
@@ -787,7 +882,9 @@
 .end method
 
 .method private updateThemeColor()V
-    .locals 5
+    .locals 6
+    
+    move-object v5, p0
 
     sget v0, Lcom/oneplus/util/ThemeColorUtils;->QS_TEXT:I
 
@@ -848,6 +945,8 @@
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
     invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
+    
+    invoke-virtual {v5}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateSliderThemeColor()V
 
     return-void
 .end method
@@ -1018,7 +1117,16 @@
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->addIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
 
     invoke-virtual {p0}, Landroid/widget/RelativeLayout;->requestApplyInsets()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSliderPosition()V
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->addCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
+
+    :cond_1
     return-void
 .end method
 
@@ -1164,7 +1272,9 @@
 .end method
 
 .method protected onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 1
+    .locals 2
+    
+    move-object v1, p0
 
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -1187,6 +1297,8 @@
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/policy/Clock;->useWallpaperTextColor(Z)V
+    
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateBrightnessMirror()V
 
     return-void
 .end method
@@ -1203,7 +1315,14 @@
     iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeIconGroup(Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;)V
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
 
+    if-eqz v0, :cond_mw
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->removeCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
+
+    :cond_mw
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onDetachedFromWindow()V
 
     return-void
@@ -1636,7 +1755,11 @@
 .end method
 
 .method public setListening(Z)V
-    .locals 2
+    .locals 4
+    
+    move-object v2, p0
+    
+    move v3, p1
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mListening:Z
 
@@ -1647,11 +1770,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
 
-    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSPanel;->setListening(Z)V
-
     iput-boolean p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mListening:Z
 
     if-eqz p1, :cond_1
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->refreshAllTiles()V
 
     iget-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mZenController:Lcom/android/systemui/statusbar/policy/ZenModeController;
 
@@ -1691,6 +1814,8 @@
     invoke-virtual {p1, p0}, Landroid/content/Context;->unregisterReceiver(Landroid/content/BroadcastReceiver;)V
 
     :goto_0
+    invoke-virtual {v2, v3}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setBrightnessListening(Z)V
+    
     return-void
 .end method
 
@@ -1831,5 +1956,418 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->updateClockVisibility()V
     
     :cond_exit
+    return-void
+.end method
+
+.method public updateSliderThemeColor()V
+    .locals 8
+
+    invoke-static {}, Lcom/oneplus/util/ThemeColorUtils;->getCurrentTheme()I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, -0x1
+
+    goto :goto_0
+
+    :cond_0
+    sget v0, Lcom/oneplus/util/ThemeColorUtils;->QS_ACCENT:I
+
+    invoke-static {v0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v0
+
+    :goto_0
+    sget v1, Lcom/oneplus/util/ThemeColorUtils;->QS_PROGRESS_BACKGROUND:I
+
+    invoke-static {v1}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v1
+
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_TILE_OFF:I
+
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v2
+
+    sget v3, Lcom/oneplus/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
+
+    invoke-static {v3}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v3
+
+    invoke-static {}, Lcom/oneplus/util/ThemeColorUtils;->getThumbBackground()I
+
+    move-result v4
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    sget v6, Lcom/android/systemui/R$id;->slider:I
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/settings/ToggleSeekBar;
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setProgressBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/SeekBar;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    sget v6, Lcom/android/systemui/R$id;->brightness_level:I
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    sget v6, Lcom/android/systemui/R$id;->brightness_icon:I
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v5, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    if-eqz v5, :cond_1
+
+    sget v6, Lcom/android/systemui/R$id;->slider:I
+
+    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/systemui/settings/ToggleSeekBar;
+
+    iget-object v6, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    sget v7, Lcom/android/systemui/R$id;->brightness_mirror_frame:I
+
+    invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/FrameLayout;
+
+    invoke-static {v3}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v6, v3}, Landroid/widget/FrameLayout;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v5, v3}, Landroid/widget/SeekBar;->setThumbTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v3
+
+    invoke-virtual {v5, v3}, Landroid/widget/SeekBar;->setProgressTintList(Landroid/content/res/ColorStateList;)V
+
+    invoke-static {v1}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v1
+
+    invoke-virtual {v5, v1}, Landroid/widget/SeekBar;->setProgressBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    invoke-virtual {v5, v1}, Landroid/widget/SeekBar;->setBackgroundDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    sget v3, Lcom/android/systemui/R$id;->brightness_level:I
+
+    invoke-virtual {v1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    invoke-static {v2}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    sget v2, Lcom/android/systemui/R$id;->brightness_icon:I
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/ImageView;
+
+    invoke-static {v0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    :cond_1
+    return-void
+.end method
+
+.method public setBrightnessListening(Z)V
+    .locals 2
+
+    if-eqz p1, :cond_1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_1
+
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/BrightnessController;->registerCallbacks()V
+
+    goto :goto_0
+
+    :cond_1
+    iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-virtual {p0}, Lcom/android/systemui/settings/BrightnessController;->unregisterCallbacks()V
+
+    :goto_0
+    return-void
+.end method
+
+.method public onBrightnessMirrorReinflated(Landroid/view/View;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateBrightnessMirror()V
+
+    return-void
+.end method
+
+.method public setBrightnessMirror(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->removeCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
+
+    :cond_0
+    iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->addCallback(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;)V
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateBrightnessMirror()V
+
+    return-void
+.end method
+
+.method public updateBrightnessMirror()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    if-eqz v0, :cond_0
+
+    sget v0, Lcom/android/systemui/R$id;->brightness_slider:I
+
+    invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/settings/ToggleSliderView;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->getMirror()Landroid/view/View;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/systemui/R$id;->brightness_slider:I
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/systemui/settings/ToggleSliderView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSliderView;->setMirror(Lcom/android/systemui/settings/ToggleSliderView;)V
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/ToggleSliderView;->setMirrorController(Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirrorController:Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/BrightnessMirrorController;->getMirror()Landroid/view/View;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
+
+    iget-object v1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/settings/BrightnessController;->setMirrorView(Landroid/view/View;)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessMirror:Landroid/view/View;
+
+    sget v1, Lcom/android/systemui/R$id;->slider:I
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/settings/ToggleSeekBar;
+
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v0, v1}, Landroid/widget/SeekBar;->setProgressBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+    
+    invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public refreshAllTiles()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
+
+    invoke-virtual {v0}, Lcom/android/systemui/settings/BrightnessController;->checkRestrictionAndSetEnabled()V
+
+    return-void
+.end method
+
+.method public setSliderPosition()V
+    .registers 3
+
+    .line 36
+    sget v0, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_c
+
+    .line 37
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    goto :goto_13
+
+    .line 39
+    :cond_c
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessView:Landroid/view/View;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 42
+    :goto_13
+    return-void
+.end method
+
+.method public logDimens(I)V
+    .registers 5
+    .param p1, "Dimens"    # I
+
+    .line 35
+    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 36
+    .local v0, "str1":Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "dimension is"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "mwilky"
+
+    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 37
     return-void
 .end method

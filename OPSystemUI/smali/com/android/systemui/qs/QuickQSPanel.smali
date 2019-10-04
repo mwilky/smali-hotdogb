@@ -123,6 +123,8 @@
 
     invoke-super {p0, p3, p3, p3, p3}, Landroid/widget/LinearLayout;->setPadding(IIII)V
     
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->updatePadding()V
+    
     invoke-virtual {p0}, Lcom/android/systemui/qs/QuickQSPanel;->readRenovateMods()V
 
     return-void
@@ -429,5 +431,32 @@
 
 	invoke-virtual {p0, v0}, Lcom/android/systemui/qs/QuickQSPanel;->setMaxTiles(I)V
 	
+    return-void
+.end method
+
+.method public updatePadding()V
+    .locals 3
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
+
+    const/4 v2, 0x1
+
+    if-eq v1, v2, :cond_mw
+    
+    goto :goto_0
+    
+    :cond_mw
+    const v1, 0x10
+    
+    goto :goto_padding
+    
+    :goto_0
+    const v1, 0x85
+    
+    :goto_padding
+    const/4 v0, 0x0
+    
+    invoke-super {p0, v0, v1, v0, v0}, Lcom/android/systemui/qs/QuickQSPanel;->setPadding(IIII)V
+
     return-void
 .end method

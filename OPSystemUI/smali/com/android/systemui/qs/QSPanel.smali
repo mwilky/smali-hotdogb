@@ -31,7 +31,7 @@
 
 .field private mCallback:Lcom/android/systemui/qs/QSDetail$Callback;
 
-.field protected final mContext:Landroid/content/Context;
+.field public final mContext:Landroid/content/Context;
 
 .field private mCustomizePanel:Lcom/android/systemui/qs/customize/QSCustomizer;
 
@@ -1405,6 +1405,12 @@
 
     :cond_0
     if-eqz p1, :cond_1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
+
+    const/4 v1, 0x0
+
+    if-ne v0, v1, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
 
@@ -2088,7 +2094,9 @@
 .end method
 
 .method public updateResources()V
-    .locals 3
+    .locals 6
+    
+    move-object v5, p0
 
     const-string v0, "QSPanel"
 
@@ -2103,11 +2111,23 @@
     move-result-object v0
 
     sget v1, Lcom/android/systemui/R$dimen;->qs_panel_padding_top:I
-
+    
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
+    
+    sget v3, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
 
+    const/4 v4, 0x1
+
+    if-eq v3, v4, :cond_mw
+    
+    goto :goto_0
+    
+    :cond_mw
+    const v1, 0x12d
+    
+    :goto_0
     sget v2, Lcom/android/systemui/R$dimen;->qs_panel_padding_bottom:I
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
