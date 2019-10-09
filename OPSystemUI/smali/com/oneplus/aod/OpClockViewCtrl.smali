@@ -702,3 +702,13 @@
 
     return-void
 .end method
+
+.method public updateThinText()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/oneplus/aod/OpClockViewCtrl;->mClockView:Lcom/oneplus/aod/OpTextClock;
+
+    invoke-virtual {v0}, Lcom/oneplus/aod/OpTextClock;->init()V
+
+    return-void
+.end method
