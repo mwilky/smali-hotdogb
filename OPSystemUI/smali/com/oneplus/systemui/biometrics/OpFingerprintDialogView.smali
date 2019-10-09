@@ -3103,7 +3103,34 @@
     .locals 18
 
     move-object/from16 v0, p0
+    
+    sget v2, Lcom/oneplus/aod/OpAodDisplayViewManager;->mPulseStatus:I
+	
+	const v4, 0x2
+	
+	if-ne v2, v4, :cond_stock
+	
+	sget v2, Lcom/oneplus/aod/OpAodDisplayViewManager;->mFingerprint:I
+	
+	if-nez v2, :cond_stock
 
+    iget-object v2, v0, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->mIconNormal:Lcom/oneplus/systemui/biometrics/OpCircleImageView;
+    
+    const v4, 0x8
+    
+    invoke-virtual {v2, v4}, Lcom/oneplus/systemui/biometrics/OpCircleImageView;->setVisibility(I)V
+    
+    iget-object v2, v0, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->mIconDisable:Lcom/oneplus/systemui/biometrics/OpCircleImageView;
+    
+    invoke-virtual {v2, v4}, Lcom/oneplus/systemui/biometrics/OpCircleImageView;->setVisibility(I)V
+    
+    iget-object v2, v0, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->mIconDim:Lcom/oneplus/systemui/biometrics/OpCircleImageView;
+    
+    invoke-virtual {v2, v4}, Lcom/oneplus/systemui/biometrics/OpCircleImageView;->setVisibility(I)V
+    
+    return-void    
+    
+    :cond_stock
     move/from16 v1, p1
 
     iget-object v2, v0, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->mUpdateMonitor:Lcom/android/keyguard/KeyguardUpdateMonitor;

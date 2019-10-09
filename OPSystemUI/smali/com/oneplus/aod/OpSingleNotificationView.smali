@@ -190,6 +190,8 @@
 
 .method private updateViewInternal(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
     .locals 12
+    
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpSingleNotificationView;->setViewVisibilities()V
 
     const-string v0, "SingleNotificationView"
 
@@ -825,5 +827,141 @@
 
     invoke-virtual {p0}, Landroid/widget/LinearLayout;->invalidate()V
 
+    return-void
+.end method
+
+.method public setAppIconVisibility()V
+    .registers 3
+
+    .line 90
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mAodAppIcon:Z
+
+    if-eqz v0, :cond_b
+
+    .line 91
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mIcon:Landroid/widget/ImageView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_12
+
+    .line 93
+    :cond_b
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mIcon:Landroid/widget/ImageView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    .line 95
+    :goto_12
+    return-void
+.end method
+
+.method public setAppNameVisibility()V
+    .registers 3
+
+    .line 66
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mAodAppName:Z
+
+    if-eqz v0, :cond_b
+
+    .line 67
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mHeader:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_12
+
+    .line 69
+    :cond_b
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mHeader:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 71
+    :goto_12
+    return-void
+.end method
+
+.method public setSmallTextVisibility()V
+    .registers 3
+
+    .line 82
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mAodSmallText:Z
+
+    if-eqz v0, :cond_b
+
+    .line 83
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mSmallText:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_12
+
+    .line 85
+    :cond_b
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mSmallText:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 87
+    :goto_12
+    return-void
+.end method
+
+.method public setTitleVisibility()V
+    .registers 3
+
+    .line 74
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mAodTitle:Z
+
+    if-eqz v0, :cond_b
+
+    .line 75
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mTitle:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_12
+
+    .line 77
+    :cond_b
+    iget-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mTitle:Landroid/widget/TextView;
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+
+    .line 79
+    :goto_12
+    return-void
+.end method
+
+.method public setViewVisibilities()V
+    .registers 1
+
+    .line 65
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpSingleNotificationView;->setAppNameVisibility()V
+    
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpSingleNotificationView;->setAppIconVisibility()V
+    
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpSingleNotificationView;->setTitleVisibility()V
+    
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpSingleNotificationView;->setSmallTextVisibility()V
+
+    .line 66
     return-void
 .end method

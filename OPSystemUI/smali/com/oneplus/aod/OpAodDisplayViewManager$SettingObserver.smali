@@ -163,11 +163,28 @@
 
     if-eqz v0, :cond_mw
     
-    iget-object v3, v1, Lcom/oneplus/aod/OpAodDisplayViewManager$SettingObserver;->this$0:Lcom/oneplus/aod/OpAodDisplayViewManager;
+    iget-object v0, v1, Lcom/oneplus/aod/OpAodDisplayViewManager$SettingObserver;->this$0:Lcom/oneplus/aod/OpAodDisplayViewManager;
 
-    invoke-virtual {v3}, Lcom/oneplus/aod/OpAodDisplayViewManager;->updateThinText()V
+    invoke-virtual {v0}, Lcom/oneplus/aod/OpAodDisplayViewManager;->updateThinText()V
     
     :cond_mw
+    const-string v0, "tweaks_aod_fingerprint"
+
+    invoke-static {v0}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v3, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mw2
+    
+    iget-object v0, v1, Lcom/oneplus/aod/OpAodDisplayViewManager$SettingObserver;->this$0:Lcom/oneplus/aod/OpAodDisplayViewManager;
+
+    invoke-virtual {v0}, Lcom/oneplus/aod/OpAodDisplayViewManager;->setNotificationVariables()V
+    
+    :cond_mw2
     :goto_0
     return-void
 .end method
