@@ -7,6 +7,14 @@
 .implements Lcom/android/systemui/statusbar/policy/NextAlarmController$NextAlarmChangeCallback;
 .implements Lcom/android/systemui/statusbar/policy/ZenModeController$Callback;
 .implements Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
+.implements Lcom/android/systemui/statusbar/policy/BrightnessMirrorController$BrightnessMirrorListener;
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/qs/QuickStatusBarHeader$10;
+    }
+.end annotation
 
 
 # instance fields
@@ -206,6 +214,14 @@
     iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
 
     return-void
+.end method
+
+.method static synthetic access$001(Lcom/android/systemui/qs/QuickStatusBarHeader;)Lcom/android/systemui/qs/QSPanel;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsPanel:Lcom/android/systemui/qs/QSPanel;
+
+    return-object v0
 .end method
 
 .method static synthetic access$002(Lcom/android/systemui/qs/QuickStatusBarHeader;I)I
@@ -1689,6 +1705,8 @@
     invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSPanel;->setExpanded(Z)V
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateEverything()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSwipeTileAnimation()V
 
     return-void
 .end method
@@ -2371,5 +2389,19 @@
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     .line 37
+    return-void
+.end method
+
+.method public setSwipeTileAnimation()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/systemui/qs/QuickStatusBarHeader$10;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/qs/QuickStatusBarHeader$10;-><init>(Lcom/android/systemui/qs/QuickStatusBarHeader;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     return-void
 .end method
