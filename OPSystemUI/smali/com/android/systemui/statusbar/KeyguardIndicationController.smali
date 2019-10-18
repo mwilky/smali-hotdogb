@@ -2839,7 +2839,9 @@
 .end method
 
 .method protected final updateIndication(Z)V
-    .locals 3
+    .locals 4
+    
+    move-object v3, p0
 
     iget-object p1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mTransientIndication:Ljava/lang/CharSequence;
 
@@ -3057,7 +3059,36 @@
     iget-object p0, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingInfo:Landroid/widget/TextView;
 
     invoke-virtual {p0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    
+    invoke-virtual {v3}, Lcom/android/systemui/statusbar/KeyguardIndicationController;->setViewsVisibility()V
 
     :cond_7
+    return-void
+.end method
+
+.method public setViewsVisibility()V
+    .locals 4
+
+    .prologue    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideLockscreenClock:Z
+    
+    iget-object v1, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mChargingInfo:Landroid/widget/TextView;
+    
+    iget-object v3, p0, Lcom/android/systemui/statusbar/KeyguardIndicationController;->mLockIcon:Lcom/android/systemui/statusbar/phone/LockIcon;
+    
+    if-nez v0, :cond_hide
+    
+    const v2, 0x0
+    
+    goto :goto_vis    
+    
+    :cond_hide
+    const v2, 0x8
+    
+    :goto_vis
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
+    
+    invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+    
     return-void
 .end method
