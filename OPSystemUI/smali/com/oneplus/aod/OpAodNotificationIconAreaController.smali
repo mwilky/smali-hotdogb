@@ -3,6 +3,10 @@
 .source "OpAodNotificationIconAreaController.java"
 
 
+# static fields
+.field public static mActiveNotifications:Z
+
+
 # instance fields
 .field private mContext:Landroid/content/Context;
 
@@ -236,6 +240,10 @@
     goto/16 :goto_7
 
     :cond_0
+    const/4 v0, 0x1
+    
+    sput-boolean v0,  Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
+    
     invoke-direct {p0}, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->reloadDimens()V
 
     invoke-virtual {p1}, Landroid/widget/FrameLayout;->getChildCount()I
@@ -302,6 +310,10 @@
     iget-object p0, p0, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
 
     invoke-virtual {p0, v1}, Landroid/view/View;->setVisibility(I)V
+    
+    const/4 v0, 0x0
+    
+    sput-boolean v0,  Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
 
     return-void
 

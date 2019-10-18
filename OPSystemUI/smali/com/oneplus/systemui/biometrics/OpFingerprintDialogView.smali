@@ -3110,7 +3110,7 @@
 	
 	if-ne v2, v4, :cond_stock
 	
-	sget v2, Lcom/oneplus/aod/OpAodDisplayViewManager;->mFingerprint:I
+	sget-boolean v2, Lcom/android/mwilky/Renovate;->mAodFingerprint:Z
 	
 	if-nez v2, :cond_stock
 

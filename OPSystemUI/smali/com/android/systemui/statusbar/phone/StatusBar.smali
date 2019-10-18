@@ -13277,6 +13277,16 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setBrightnessSliderPosition(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAodNotifViews(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setEdgeAnimOnUnreadNotifs(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setEdgeAnimRepeatCount(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAnimScale(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
 
     const-class v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
@@ -15374,6 +15384,169 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAodNotifViews(Landroid/content/Context;)V
 
     :cond_mwilky12
+    const-string v0, "tweaks_aod_fingerprint"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky13
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAodNotifViews(Landroid/content/Context;)V
+
+    :cond_mwilky13
+    const-string v0, "tweaks_edge_notif_repeat_count"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky14
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setEdgeAnimRepeatCount(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateEdgeNotificationAnimation()V
+
+    :cond_mwilky14
+    const-string v0, "tweaks_edge_notif_unread"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky15
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setEdgeAnimOnUnreadNotifs(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateEdgeNotificationAnimation()V
+
+    :cond_mwilky15
+    const-string v0, "tweaks_edge_notif_use_app_color"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky16
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky16
+    const-string v0, "tweaks_edge_notif_color_system_accent"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky17
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky17
+    const-string v0, "tweaks_left_edge_notif_color"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky18
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky18
+    const-string v0, "tweaks_right_edge_notif_color"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky19
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky19
+    const-string v0, "tweaks_unlock_edge_notif_colors"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky20
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky20
+    const-string v0, "oem_black_mode_accent_color"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky21
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky21
+    const-string v0, "oem_white_mode_accent_color"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky22
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky22
+    const-string v0, "oem_black_mode"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_mwilky23
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setAccentColor(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setCustomEdgeAnimColors(Landroid/content/Context;)V
+
+    :cond_mwilky23
 	return-void
 .end method
 
@@ -15429,6 +15602,50 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
     const-string v4, "tweaks_aod_small_text"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_aod_fingerprint"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_edge_notif_repeat_count"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_edge_notif_unread"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_edge_notif_use_app_color"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_edge_notif_color_system_accent"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_left_edge_notif_color"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_right_edge_notif_color"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_unlock_edge_notif_colors"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "oem_black_mode_accent_color"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "oem_white_mode_accent_color"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "oem_black_mode"
     
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -15801,3 +16018,12 @@
     return-void
 .end method
 
+.method public updateEdgeNotificationAnimation()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpStatusBar;->mAodDisplayViewManager:Lcom/oneplus/aod/OpAodDisplayViewManager;
+    
+    invoke-virtual {v0}, Lcom/oneplus/aod/OpAodDisplayViewManager;->updateAnimation()V
+
+    return-void
+.end method
