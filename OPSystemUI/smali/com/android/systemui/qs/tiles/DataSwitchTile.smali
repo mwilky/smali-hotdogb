@@ -507,6 +507,8 @@
 
 .method public handleClick()V
     .locals 3
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->setVibrateTweak()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/tiles/DataSwitchTile;->mEsportModeSetting:Lcom/oneplus/util/SystemSetting;
 
