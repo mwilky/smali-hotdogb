@@ -13307,6 +13307,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setExpandedNotifications(Landroid/content/Context;)V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsVibration(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setOreoQs(Landroid/content/Context;)V
 
     const-class v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
@@ -15701,6 +15703,21 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsVibration(Landroid/content/Context;)V
     
     :cond_33
+    const-string v0, "tweaks_oreo_qs"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_34
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setOreoQs(Landroid/content/Context;)V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->reloadTiles()V
+
+    :cond_34
 	return-void
 .end method
 
@@ -15840,6 +15857,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
     const-string v4, "tweaks_qs_vibration"
+    
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_oreo_qs"
     
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -16239,5 +16260,22 @@
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->updateLockscreenViews()V
 
+    return-void
+.end method
+
+.method public reloadTiles()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->getHost()Lcom/android/systemui/qs/QSTileHost;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSTileHost;->reloadTiles()V
+
+    :cond_0
     return-void
 .end method
