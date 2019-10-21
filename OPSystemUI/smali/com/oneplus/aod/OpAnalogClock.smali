@@ -622,14 +622,14 @@
 .method public updateClockColors()V
     .registers 12
 
-    .line 31
+    .line 33
     iget-object v0, p0, Lcom/oneplus/aod/OpAnalogClock;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 32
+    .line 34
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const/4 v1, 0x0
 
@@ -639,7 +639,7 @@
 
     move-result v2
 
-    .line 33
+    .line 35
     .local v2, "isCustomClock":I
     const-string v3, "tweaks_unlock_aod_accent_colors"
 
@@ -647,7 +647,7 @@
 
     move-result v3
 
-    .line 34
+    .line 36
     .local v3, "isCustomClockAccent":I
     const-string v4, "tweaks_aod_text_color_system_accent"
 
@@ -655,7 +655,7 @@
 
     move-result v4
 
-    .line 35
+    .line 37
     .local v4, "isCustomClockSystemAccent":I
     const-string v5, "tweaks_aod_accent_text_color_system_accent"
 
@@ -663,7 +663,7 @@
 
     move-result v1
 
-    .line 36
+    .line 38
     .local v1, "isCustomClockAccentSystemAccent":I
     iget-object v5, p0, Lcom/oneplus/aod/OpAnalogClock;->mContext:Landroid/content/Context;
 
@@ -689,7 +689,7 @@
 
     move-result v5
 
-    .line 37
+    .line 39
     .local v5, "minColor":I
     iget-object v7, p0, Lcom/oneplus/aod/OpAnalogClock;->mContext:Landroid/content/Context;
 
@@ -713,7 +713,7 @@
 
     move-result v6
 
-    .line 38
+    .line 40
     .local v6, "hourColor":I
     iget-object v7, p0, Lcom/oneplus/aod/OpAnalogClock;->mContext:Landroid/content/Context;
 
@@ -721,16 +721,16 @@
 
     move-result v7
 
-    .line 39
+    .line 41
     .local v7, "accentColor":I
     const/4 v8, 0x1
 
     if-ne v2, v8, :cond_79
 
-    .line 40
+    .line 42
     if-ne v4, v8, :cond_69
 
-    .line 43
+    .line 45
     iget-object v9, p0, Lcom/oneplus/aod/OpAnalogClock;->mMin:Landroid/view/View;
 
     invoke-static {v7}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
@@ -739,7 +739,7 @@
 
     invoke-virtual {v9, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 44
+    .line 46
     iget-object v9, p0, Lcom/oneplus/aod/OpAnalogClock;->mMin:Landroid/view/View;
 
     sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
@@ -748,7 +748,7 @@
 
     goto :goto_79
 
-    .line 48
+    .line 50
     :cond_69
     iget-object v9, p0, Lcom/oneplus/aod/OpAnalogClock;->mMin:Landroid/view/View;
 
@@ -758,33 +758,33 @@
 
     invoke-virtual {v9, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 49
+    .line 51
     iget-object v9, p0, Lcom/oneplus/aod/OpAnalogClock;->mMin:Landroid/view/View;
 
     sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v9, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    .line 52
+    .line 54
     :cond_79
     :goto_79
     const/4 v9, 0x0
 
     if-nez v2, :cond_81
 
-    .line 55
+    .line 57
     iget-object v10, p0, Lcom/oneplus/aod/OpAnalogClock;->mMin:Landroid/view/View;
 
     invoke-virtual {v10, v9}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 57
-    :cond_81
-    if-ne v3, v8, :cond_a6
-
-    .line 58
-    if-ne v1, v8, :cond_96
-
     .line 59
+    :cond_81
+    if-ne v3, v8, :cond_e6
+
+    .line 60
+    if-ne v1, v8, :cond_b6
+
+    .line 61
     iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mHour:Landroid/view/View;
 
     invoke-static {v7}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
@@ -793,17 +793,49 @@
 
     invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 60
+    .line 62
     iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mHour:Landroid/view/View;
 
     sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_a6
+    .line 63
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mDot:Landroid/view/View;
 
-    .line 68
-    :cond_96
+    invoke-static {v7}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 64
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mDot:Landroid/view/View;
+
+    sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    .line 65
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mOuter:Landroid/view/View;
+
+    invoke-static {v7}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 66
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mOuter:Landroid/view/View;
+
+    sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    goto :goto_e6
+
+    .line 74
+    :cond_b6
     iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mHour:Landroid/view/View;
 
     invoke-static {v6}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
@@ -812,24 +844,66 @@
 
     invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 69
+    .line 75
     iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mHour:Landroid/view/View;
 
     sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
 
-    .line 72
-    :cond_a6
-    :goto_a6
-    if-nez v3, :cond_ad
+    .line 76
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mDot:Landroid/view/View;
 
-    .line 75
+    invoke-static {v6}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 77
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mDot:Landroid/view/View;
+
+    sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    .line 78
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mOuter:Landroid/view/View;
+
+    invoke-static {v6}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object v10
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 79
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mOuter:Landroid/view/View;
+
+    sget-object v10, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v8, v10}, Landroid/view/View;->setBackgroundTintMode(Landroid/graphics/PorterDuff$Mode;)V
+
+    .line 82
+    :cond_e6
+    :goto_e6
+    if-nez v3, :cond_f7
+
+    .line 85
     iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mHour:Landroid/view/View;
 
     invoke-virtual {v8, v9}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
 
-    .line 77
-    :cond_ad
+    .line 86
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mDot:Landroid/view/View;
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 87
+    iget-object v8, p0, Lcom/oneplus/aod/OpAnalogClock;->mOuter:Landroid/view/View;
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->setBackgroundTintList(Landroid/content/res/ColorStateList;)V
+
+    .line 89
+    :cond_f7
     return-void
 .end method
