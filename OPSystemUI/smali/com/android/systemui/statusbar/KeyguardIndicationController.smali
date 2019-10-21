@@ -3083,7 +3083,7 @@
     goto :goto_vis    
     
     :cond_hide
-    const v2, 0x8
+    const v2, 0x4
     
     :goto_vis
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setVisibility(I)V
