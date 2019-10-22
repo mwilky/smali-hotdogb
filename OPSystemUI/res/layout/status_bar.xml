@@ -27,4 +27,5 @@
     <ViewStub android:id="@id/emergency_cryptkeeper_text" android:layout="@layout/emergency_cryptkeeper_text" android:layout_width="wrap_content" android:layout_height="fill_parent" />
     <include android:layout_width="fill_parent" android:layout_height="fill_parent" layout="@layout/carmode_highlight_hint_view" />
     <View android:id="@id/traceview" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+    <com.android.systemui.statusbar.policy.BatteryBarController android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" systemui:viewLocation="1" />
 </com.android.systemui.statusbar.phone.PhoneStatusBarView>

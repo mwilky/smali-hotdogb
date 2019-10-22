@@ -1356,4 +1356,5 @@
     <attr name="windowMinWidthMinor" format="dimension|fraction" />
     <attr name="windowNoTitle" format="boolean" />
     <attr name="yearListItemActivatedTextAppearance" format="reference" />
+    <attr name="viewLocation" format="integer" />
 </resources>
