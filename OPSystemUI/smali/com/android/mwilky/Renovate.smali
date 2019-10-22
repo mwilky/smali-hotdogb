@@ -4935,9 +4935,9 @@
     .line 1200
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -4951,9 +4951,9 @@
 
     .line 1202
     :cond_17
-    sget v1, Lcom/android/systemui/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
+    sget v1, Lcom/oneplus/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
 
-    invoke-static {v1}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v1}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v1
 
@@ -5202,9 +5202,9 @@
     .local v1, "theme":I
     sget-object v2, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
-    sget v3, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v3, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v3}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v3}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v3
 
@@ -5216,9 +5216,9 @@
     .local v2, "clock_color":I
     sget-object v3, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
-    sget v4, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v4, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v4}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v4}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v4
 
@@ -5230,9 +5230,9 @@
     .local v3, "date_color":I
     sget-object v4, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
-    sget v5, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v5, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v5}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v5}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v5
 
@@ -5244,9 +5244,9 @@
     .local v4, "wifi_color":I
     sget-object v5, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
-    sget v6, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v6, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v6}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v6}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v6
 
@@ -5258,9 +5258,9 @@
     .local v5, "data_color":I
     sget-object v6, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
-    sget v7, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v7, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v7}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v7}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v7
 
@@ -5272,9 +5272,9 @@
     .local v6, "misc_color":I
     sget-object v7, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
-    sget v8, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v8, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v8}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v8}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v8
 
@@ -5286,9 +5286,9 @@
     .local v7, "bluetooth_color":I
     sget-object v8, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
-    sget v9, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v9, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v9}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v9}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v9
 
@@ -5300,9 +5300,9 @@
     .local v8, "volume_color":I
     sget-object v9, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
-    sget v10, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v10, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v10}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v10}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v10
 
@@ -5485,9 +5485,9 @@
     .line 710
     sget-object v1, Lcom/android/mwilky/Renovate;->mGlobalQsIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5589,9 +5589,9 @@
     .line 737
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5604,9 +5604,9 @@
     .line 738
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5619,9 +5619,9 @@
     .line 739
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5634,9 +5634,9 @@
     .line 740
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5649,9 +5649,9 @@
     .line 741
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5664,9 +5664,9 @@
     .line 742
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5679,9 +5679,9 @@
     .line 743
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5694,9 +5694,9 @@
     .line 744
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5709,9 +5709,9 @@
     .line 745
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5724,9 +5724,9 @@
     .line 746
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5739,9 +5739,9 @@
     .line 747
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5754,9 +5754,9 @@
     .line 748
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5769,9 +5769,9 @@
     .line 749
     sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5784,9 +5784,9 @@
     .line 750
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5799,9 +5799,9 @@
     .line 751
     sget-object v1, Lcom/android/mwilky/Renovate;->mQSsBatteryPercentColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5814,9 +5814,9 @@
     .line 752
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5829,9 +5829,9 @@
     .line 753
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5844,9 +5844,9 @@
     .line 754
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5859,9 +5859,9 @@
     .line 755
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5874,9 +5874,9 @@
     .line 756
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsAlarmIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5889,9 +5889,9 @@
     .line 757
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5904,9 +5904,9 @@
     .line 758
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5919,9 +5919,9 @@
     .line 759
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
@@ -5934,9 +5934,9 @@
     .line 760
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsZenIconColorKey:Ljava/lang/String;
 
-    sget v2, Lcom/android/systemui/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
+    sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
-    invoke-static {v2}, Lcom/android/systemui/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v2}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
     move-result v2
 
