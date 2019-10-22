@@ -1159,6 +1159,10 @@
 
 .method private runPeekAnimation(JFZ)V
     .locals 3
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mStatusbarPeek:Z
+    
+    if-eqz v0, :cond_mw
 
     invoke-virtual {p0}, Lcom/oneplus/systemui/statusbar/phone/OpPanelView;->checkRunPeekAnimation()Z
 
@@ -1166,6 +1170,7 @@
 
     if-nez v0, :cond_0
 
+    :cond_mw
     return-void
 
     :cond_0
