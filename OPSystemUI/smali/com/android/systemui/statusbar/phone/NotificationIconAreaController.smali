@@ -8,6 +8,10 @@
 
 
 # instance fields
+.field private mDarkIconColor:I
+
+.field private mNotificationIconColor:I
+
 .field private mAnimationsEnabled:Z
 
 .field private mCenteredIcon:Lcom/android/systemui/statusbar/phone/NotificationIconContainer;
@@ -104,6 +108,12 @@
     iput-object p4, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->initializeNotificationAreaViews(Landroid/content/Context;)V
+    
+    const/4 v0, 0x0
+    
+    int-to-float v0, v0
+    
+    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->updateViews(F)V
 
     return-void
 .end method
@@ -948,63 +958,37 @@
 .end method
 
 .method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 0
+    .locals 2
 
-    if-nez p1, :cond_0
+    if-nez p1, :cond_1
 
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
 
-    invoke-virtual {p2}, Landroid/graphics/Rect;->setEmpty()V
-
-    goto :goto_0
-
-    :cond_0
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
-
-    invoke-virtual {p2, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
-
+    invoke-virtual {v0}, Landroid/graphics/Rect;->setEmpty()V
+    
     :goto_0
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconArea:Landroid/view/View;
+    float-to-int v0, p2
 
-    if-eqz p2, :cond_1
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mDarkIconColor:I #dark color
 
-    invoke-static {p1, p2}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
+    if-nez v0, :cond_mw #set to grey if dark intensity is 1
 
-    move-result p2
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I #custom color
 
-    if-eqz p2, :cond_2
-
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
-
-    goto :goto_1
-
-    :cond_1
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
-
-    :cond_2
-    :goto_1
-    iget-object p2, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mCenteredIconArea:Landroid/view/View;
-
-    if-eqz p2, :cond_3
-
-    invoke-static {p1, p2}, Lcom/android/systemui/plugins/DarkIconDispatcher;->isInArea(Landroid/graphics/Rect;Landroid/view/View;)Z
-
-    move-result p1
-
-    if-eqz p1, :cond_4
-
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mCenteredIconTint:I
-
-    goto :goto_2
-
-    :cond_3
-    iput p3, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mCenteredIconTint:I
-
-    :cond_4
-    :goto_2
+    :cond_mw
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+    
+    :cond_0
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->applyNotificationIconsTint()V
 
     return-void
+    
+    :cond_1
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mTintArea:Landroid/graphics/Rect;
+
+    invoke-virtual {v0, p1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    goto :goto_0
 .end method
 
 .method public onDensityOrFontScaleChanged(Landroid/content/Context;)V
@@ -1214,6 +1198,42 @@
     move-object v0, p0
 
     invoke-direct/range {v0 .. v8}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->updateIconsForLayout(Ljava/util/function/Function;Lcom/android/systemui/statusbar/phone/NotificationIconContainer;ZZZZZZ)V
+
+    return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mNotificationIconColorOP:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I
+	
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mDarkIconColor:I
+	
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 2
+    
+    float-to-int v0, p1
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->readRenovateMods()V
+    
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mDarkIconColor:I # dark intensity 1
+    
+    if-nez v0, :cond_dark
+    
+    iget v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mNotificationIconColor:I # dark intensity 0
+    
+    :cond_dark
+    iput v1, p0, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->mIconTint:I
+
+    .line 171
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NotificationIconAreaController;->applyNotificationIconsTint()V
 
     return-void
 .end method

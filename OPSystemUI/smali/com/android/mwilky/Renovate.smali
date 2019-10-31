@@ -2187,7 +2187,7 @@
     if-eqz v0, :cond_7
 
     .line 531
-    sget v0, Lcom/android/mwilky/Renovate;->mOPAccentColor:I
+    sget v0, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     return v0
 
@@ -2498,7 +2498,7 @@
     if-eqz v0, :cond_7
 
     .line 499
-    sget v0, Lcom/android/mwilky/Renovate;->mOPAccentColor:I
+    sget v0, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     return v0
 
@@ -5503,7 +5503,7 @@
     if-eqz v1, :cond_4d
 
     .line 712
-    sget v1, Lcom/android/mwilky/Renovate;->mOPAccentColor:I
+    sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColor:I
 
@@ -5767,7 +5767,7 @@
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
 
     .line 749
-    sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
+    sget-object v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
 
@@ -6372,7 +6372,7 @@
     if-eqz v1, :cond_60
 
     .line 609
-    sget v1, Lcom/android/mwilky/Renovate;->mOPAccentColor:I
+    sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColor:I
 

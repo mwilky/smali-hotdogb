@@ -167,7 +167,7 @@
 .end method
 
 .method protected onIconAdded(ILjava/lang/String;ZLcom/android/systemui/statusbar/phone/StatusBarIconHolder;)V
-    .locals 0
+    .locals 2
 
     invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->addHolder(ILjava/lang/String;ZLcom/android/systemui/statusbar/phone/StatusBarIconHolder;)Lcom/android/systemui/statusbar/StatusIconDisplayable;
 
@@ -188,20 +188,60 @@
     goto :goto_0
 
     :cond_0
-    iget p2, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mTag:Ljava/lang/String;
 
-    invoke-interface {p1, p2}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setStaticDrawableColor(I)V
+    const-string v1, "qs"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_qs
+    
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getLockscreenIconColors()I
+    
+    move-result v1
+    
+    goto :goto_qs
+    
+    :cond_qs
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getQsIconColors()I
+    
+    move-result v1
+    
+    :goto_qs
+    invoke-interface {p1, v1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setStaticDrawableColor(I)V
 
     :goto_0
-    iget p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mTag:Ljava/lang/String;
 
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setDecorColor(I)V
+    const-string v1, "qs"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+    
+    if-nez v0, :cond_qs2
+    
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getLockscreenIconColors()I
+    
+    move-result v1
+    
+    goto :goto_qs2
+    
+    :cond_qs2
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getQsIconColors()I
+    
+    move-result v1
+    
+    :goto_qs2
+    invoke-interface {p1, v1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setDecorColor(I)V
 
     return-void
 .end method
 
 .method public onSetIcon(ILcom/android/internal/statusbar/StatusBarIcon;)V
-    .locals 0
+    .locals 2
 
     invoke-super {p0, p1, p2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->onSetIcon(ILcom/android/internal/statusbar/StatusBarIcon;)V
 
@@ -224,16 +264,36 @@
     goto :goto_0
 
     :cond_0
-    iget p0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mTag:Ljava/lang/String;
 
-    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/StatusBarIconView;->setStaticDrawableColor(I)V
+    const-string v1, "qs"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_qs
+    
+    invoke-virtual {p1}, Lcom/android/systemui/statusbar/StatusBarIconView;->getLockscreenIconColors()I
+    
+    move-result v1
+    
+    goto :goto_qs
+    
+    :cond_qs    
+    invoke-interface {p1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getQsIconColors()I
+    
+    move-result v1
+
+    :goto_qs
+    invoke-virtual {p1, v1}, Lcom/android/systemui/statusbar/StatusBarIconView;->setStaticDrawableColor(I)V
 
     :goto_0
     return-void
 .end method
 
 .method public setTint(I)V
-    .locals 2
+    .locals 3
 
     iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
 
@@ -259,6 +319,10 @@
     if-eqz v1, :cond_1
 
     check-cast v0, Lcom/android/systemui/statusbar/StatusIconDisplayable;
+    
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getLockscreenIconColors()I
+    
+    move-result v2
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$IconManager;->isBTLowBattery(Lcom/android/systemui/statusbar/StatusIconDisplayable;)Z
 
@@ -275,20 +339,79 @@
     goto :goto_1
 
     :cond_0
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setStaticDrawableColor(I)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setStaticDrawableColor(I)V
 
     :goto_1
-    iget v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
-
-    invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setDecorColor(I)V
+    invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setDecorColor(I)V
 
     :cond_1
     add-int/lit8 p1, p1, 0x1
 
     goto :goto_0
 
+    :cond_2
+    return-void
+.end method
+
+.method public setQsTint(I)V
+    .locals 5
+    
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mColor:I
+
+    const/4 v0, 0x0
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mGroup:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v1
+
+    if-ge v0, v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->mGroup:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    instance-of v2, v1, Lcom/android/systemui/statusbar/StatusIconDisplayable;
+
+    if-eqz v2, :cond_1
+
+    move-object v2, v1
+    
+    check-cast v2, Lcom/android/systemui/statusbar/StatusIconDisplayable;
+    
+    invoke-interface {v2}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->getQsIconColors()I
+    
+    move-result v4
+    
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->isBTLowBattery(Lcom/android/systemui/statusbar/StatusIconDisplayable;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    move-object v3, v2
+
+    check-cast v3, Lcom/android/systemui/statusbar/StatusBarIconView;
+
+    invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->updateBTLowBatteryIcon(Lcom/android/systemui/statusbar/StatusBarIconView;)V
+
+    goto :goto_1
+
+    :cond_0
+    invoke-interface {v2, v4}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setStaticDrawableColor(I)V
+    
+    :goto_1
+    invoke-interface {v2, v4}, Lcom/android/systemui/statusbar/StatusIconDisplayable;->setDecorColor(I)V
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+    
     :cond_2
     return-void
 .end method

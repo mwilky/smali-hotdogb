@@ -18,6 +18,12 @@
 
 
 # instance fields
+.field private mDarkIconColor:I
+
+.field private mBatteryPercentColor:I
+
+.field private mBatteryIconColor:I
+
 .field private final POWER_SAVE_HIGHLIGHT_ENABLED:Z
 
 .field private mBatteryController:Lcom/android/systemui/statusbar/policy/BatteryController;
@@ -371,6 +377,12 @@
     move-result-object p2
 
     invoke-interface {p1, p2, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->observe(Landroidx/lifecycle/LifecycleOwner;Ljava/lang/Object;)Ljava/lang/Object;
+    
+    const/4 v0, 0x0
+    
+    int-to-float v0, v0
+    
+    invoke-virtual {p0, v0}, Lcom/android/systemui/BatteryMeterView;->updateViews(F)V
 
     return-void
 .end method
@@ -768,7 +780,7 @@
 .end method
 
 .method private updateAllBatteryColors()V
-    .locals 3
+    .locals 4
 
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mRect:Landroid/graphics/Rect;
 
@@ -791,6 +803,20 @@
     const/4 v0, 0x0
 
     :goto_0
+    float-to-int v3, v0 #convert darkintensity to integer
+    
+    if-nez v3, :cond_dark #if it is anything but 0 (light) make it dark
+    
+    const v0, 0x0 #make it light
+    
+    goto :goto_convert
+    
+    :cond_dark
+    const v0, 0x1 #make it dark
+    
+    :goto_convert
+    int-to-float v0, v0 #convert darkintensity back to float
+    
     iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
 
     invoke-virtual {v1, v0}, Lcom/android/systemui/DualToneHandler;->getSingleColor(F)I
@@ -800,11 +826,14 @@
     iput v1, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedSingleToneColor:I
 
     iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+    
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+    
+    if-nez v3, :cond_dark2
+	
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconColor:I
 
-    invoke-virtual {v1, v0}, Lcom/android/systemui/DualToneHandler;->getFillColor(F)I
-
-    move-result v1
-
+    :cond_dark2
     iput v1, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedForegroundColor:I
 
     iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
@@ -815,6 +844,15 @@
 
     iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedBackgroundColor:I
 
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+    
+    if-nez v3, :cond_dark3
+	
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+
+    :cond_dark3
+    invoke-virtual {p0, v0}, Lcom/android/systemui/BatteryMeterView;->setTextColor(I)V
+    
     iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mRect:Landroid/graphics/Rect;
 
     iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mTint:I
@@ -822,8 +860,6 @@
     invoke-static {v0, p0, v1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
 
     move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/BatteryMeterView;->setTextColor(I)V
 
     iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryDashChargeView:Lcom/oneplus/battery/OpBatteryDashChargeView;
 
@@ -1873,5 +1909,176 @@
     :cond_0
     invoke-direct {p0}, Lcom/android/systemui/BatteryMeterView;->updateShowPercent()V
 
+    return-void
+.end method
+
+.method public readRenovateMods()V
+    .locals 1
+    
+    sget v0, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
+    
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+	
+    sget v0, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconColor:I
+	
+    sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
+    
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+	
+    return-void
+.end method
+
+.method public updateViews(F)V
+    .locals 4
+    
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+
+    float-to-int v3, p1 #convert darkintensity to integer
+    
+    if-nez v3, :cond_dark #if it is anything but 0 (light) make it dark
+    
+    const v0, 0x0 #make it light
+    
+    goto :goto_convert
+    
+    :cond_dark
+    const v0, 0x1 #make it dark
+    
+    :goto_convert
+    int-to-float v0, v0 #convert darkintensity back to float
+    
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/DualToneHandler;->getSingleColor(F)I
+
+    move-result v1
+
+    iput v1, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedSingleToneColor:I
+
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+    
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+    
+    if-nez v3, :cond_dark2
+	
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconColor:I
+
+    :cond_dark2
+    iput v1, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedForegroundColor:I
+
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mDualToneHandler:Lcom/android/systemui/DualToneHandler;
+
+    invoke-virtual {v1, v0}, Lcom/android/systemui/DualToneHandler;->getBackgroundColor(F)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedBackgroundColor:I
+
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mDarkIconColor:I
+    
+    if-nez v3, :cond_dark3
+	
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I
+
+    :cond_dark3
+    invoke-virtual {p0, v0}, Lcom/android/systemui/BatteryMeterView;->setTextColor(I)V
+    
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mRect:Landroid/graphics/Rect;
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mTint:I
+
+    invoke-static {v0, p0, v1}, Lcom/android/systemui/plugins/DarkIconDispatcher;->getTint(Landroid/graphics/Rect;Landroid/view/View;I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryDashChargeView:Lcom/oneplus/battery/OpBatteryDashChargeView;
+
+    invoke-virtual {v1, v0}, Lcom/oneplus/battery/OpBatteryDashChargeView;->setIconTint(I)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/BatteryMeterView;->mUseWallpaperTextColors:Z
+
+    if-nez v0, :cond_2
+
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedForegroundColor:I
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedBackgroundColor:I
+
+    iget v2, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedSingleToneColor:I
+
+    invoke-virtual {p0, v0, v1, v2}, Lcom/android/systemui/BatteryMeterView;->updateColors(III)V
+
+    :cond_2
+    return-void
+.end method
+
+.method public updateLockscreenColors()V
+    .locals 3
+    
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+    
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+    
+    if-eqz v0, :cond_exitpercent
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I #custom color
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_exitpercent    
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconColor:I # custom color
+    
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedBackgroundColor:I
+        
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterView;->mDrawable:Lcom/oneplus/battery/OpBatteryMeterDrawable;
+    
+    if-eqz v2, :cond_exiticon
+
+    invoke-virtual {v2, v1, v0}, Lcom/oneplus/battery/OpBatteryMeterDrawable;->setColors(II)V
+
+    :cond_exiticon
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryDashChargeView:Lcom/oneplus/battery/OpBatteryDashChargeView;
+    
+    if-eqz v2, :cond_exitdash
+
+    invoke-virtual {v2, v1}, Lcom/oneplus/battery/OpBatteryDashChargeView;->setIconTint(I)V
+    
+    :cond_exitdash
+    return-void
+.end method
+
+.method public setExpandedColors()V
+    .locals 3
+    
+    invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterView;->readRenovateMods()V
+    
+    iget-object v0, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentView:Landroid/widget/TextView;
+    
+    if-eqz v0, :cond_exitpercent
+
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryPercentColor:I #custom color
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_exitpercent    
+    iget v1, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryIconColor:I # custom color
+    
+    iget v0, p0, Lcom/android/systemui/BatteryMeterView;->mNonAdaptedBackgroundColor:I
+        
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterView;->mDrawable:Lcom/oneplus/battery/OpBatteryMeterDrawable;
+    
+    if-eqz v2, :cond_exiticon
+
+    invoke-virtual {v2, v1, v0}, Lcom/oneplus/battery/OpBatteryMeterDrawable;->setColors(II)V
+
+    :cond_exiticon
+    iget-object v2, p0, Lcom/android/systemui/BatteryMeterView;->mBatteryDashChargeView:Lcom/oneplus/battery/OpBatteryDashChargeView;
+    
+    if-eqz v2, :cond_exitdash
+
+    invoke-virtual {v2, v1}, Lcom/oneplus/battery/OpBatteryDashChargeView;->setIconTint(I)V
+    
+    :cond_exitdash
     return-void
 .end method

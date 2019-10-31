@@ -28,7 +28,7 @@
 
 .field private final mHeadsUpManager:Lcom/android/systemui/statusbar/phone/HeadsUpManagerPhone;
 
-.field private final mHeadsUpStatusBarView:Lcom/android/systemui/statusbar/HeadsUpStatusBarView;
+.field public final mHeadsUpStatusBarView:Lcom/android/systemui/statusbar/HeadsUpStatusBarView;
 
 .field mIsExpanded:Z
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -1100,4 +1100,10 @@
 
     :cond_4
     return-void
+.end method
+
+.method public updateViews(F)V
+	.locals 0
+	
+	return-void
 .end method

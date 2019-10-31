@@ -149,3 +149,11 @@
 
     return-void
 .end method
+
+.method public updateViews(F)V
+    .locals 1
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->setTextColor()V
+
+    return-void
+.end method

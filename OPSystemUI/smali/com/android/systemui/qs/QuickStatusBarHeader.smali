@@ -960,7 +960,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
+    invoke-virtual {p0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setQsTint(I)V
     
     invoke-virtual {v5}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateSliderThemeColor()V
 
@@ -1519,7 +1519,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
 
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setTint(I)V
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setQsTint(I)V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mNextAlarmIcon:Landroid/widget/ImageView;
 
@@ -1909,7 +1909,9 @@
 .end method
 
 .method public setupHost(Lcom/android/systemui/qs/QSTileHost;)V
-    .locals 2
+    .locals 3
+    
+    move-object v2, p0
 
     iput-object p1, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mHost:Lcom/android/systemui/qs/QSTileHost;
 
@@ -1936,6 +1938,12 @@
     const/4 v1, -0x1
 
     invoke-virtual {p0, p1, v0, v1}, Lcom/android/systemui/BatteryMeterView;->onDarkChanged(Landroid/graphics/Rect;FI)V
+    
+    iget-object v0, v2, Lcom/android/systemui/qs/QuickStatusBarHeader;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsIconColors(Landroid/content/Context;)V
+    
+    invoke-virtual {v2}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setIconColors()V
 
     return-void
 .end method
@@ -2403,5 +2411,48 @@
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    return-void
+.end method
+
+.method public setIconColors()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+    
+    if-eqz v0, :cond_exit
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
+    
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_exit
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightClockView:Lcom/android/systemui/statusbar/policy/ClockRight;
+    
+    if-eqz v0, :cond_exit4
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
+    
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
+
+    :cond_exit4
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/BatteryMeterView;
+    
+    if-eqz v0, :cond_exit2
+    
+    invoke-virtual {v0}, Lcom/android/systemui/BatteryMeterView;->setExpandedColors()V
+    
+    :cond_exit2
+    const v1, 0x0
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mIconManager:Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController$TintedIconManager;->setQsTint(I)V
+    
+    sget v1, Lcom/android/mwilky/Renovate;->mQsDateColor:I
+    
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/DateView;->setTextColor(I)V
+    
     return-void
 .end method
