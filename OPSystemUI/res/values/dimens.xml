@@ -1925,5 +1925,5 @@
     <dimen name="zen_mode_condition_detail_button_padding">8.0dip</dimen>
     <dimen name="zen_mode_condition_detail_item_interline_spacing">4.0dip</dimen>
     <dimen name="zen_mode_condition_detail_item_spacing">12.0dip</dimen>
-    <dimen name="quick_qs_total_height_tweak">250.0dip</dimen>
+    <dimen name="quick_qs_total_height_tweak">260.0dip</dimen>
 </resources>

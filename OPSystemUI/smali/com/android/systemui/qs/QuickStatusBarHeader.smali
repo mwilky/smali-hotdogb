@@ -514,7 +514,7 @@
 .end method
 
 .method private updateResources()V
-    .locals 6
+    .locals 8
 
     iget-object v0, p0, Landroid/widget/RelativeLayout;->mContext:Landroid/content/Context;
 
@@ -606,7 +606,23 @@
     goto :goto_mw
     
     :cond_mw
-    const v0, 0x2fe
+    const-string v6, "quick_qs_total_height_tweak"
+
+    const-string v7, "dimen"
+
+    invoke-static {v6, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+    
+    iget-object v0, p0, Landroid/widget/RelativeLayout;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+    
+    invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    
+    move-result v0
 
     :goto_mw
     invoke-static {v2, v0}, Ljava/lang/Math;->max(II)I
@@ -2364,39 +2380,6 @@
 
     .line 42
     :goto_13
-    return-void
-.end method
-
-.method public logDimens(I)V
-    .registers 5
-    .param p1, "Dimens"    # I
-
-    .line 35
-    invoke-static {p1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    .line 36
-    .local v0, "str1":Ljava/lang/String;
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "dimension is"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "mwilky"
-
-    invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    .line 37
     return-void
 .end method
 
