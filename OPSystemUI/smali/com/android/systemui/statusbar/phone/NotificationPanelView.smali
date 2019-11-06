@@ -8988,6 +8988,19 @@
 .method public onTouchEvent(Landroid/view/MotionEvent;)Z
     .locals 4
     
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardShowing:Z
+
+    if-eqz v0, :cond_stock
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
+
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mLockscreenStatusbarBrightnessControl:Z
+
+    if-eqz v0, :cond_stock
+
+    invoke-virtual {v1, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->brightnessControl(Landroid/view/MotionEvent;)V
+
+    :cond_stock   
     invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->doubleTap2Sleep(Landroid/view/MotionEvent;)V
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mBlockTouches:Z
