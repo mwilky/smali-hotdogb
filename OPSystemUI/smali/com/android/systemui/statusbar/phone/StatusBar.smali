@@ -43,7 +43,7 @@
 
 
 # instance fields
-.field private final BRIGHTNESS_CONTROL_LINGER_THRESHOLD:I
+.field private mBrightnessChanged:Z
 
 .field private mDisplayManager:Landroid/hardware/display/DisplayManager;
 
@@ -793,10 +793,6 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar$14;-><init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBannerActionBroadcastReceiver:Landroid/content/BroadcastReceiver;
-    
-    const/16 v0, 0x14
-
-    iput v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->BRIGHTNESS_CONTROL_LINGER_THRESHOLD:I
 
     new-instance v0, Lcom/android/systemui/statusbar/phone/StatusBar$BrightnessRunnable;
 
@@ -7087,44 +7083,98 @@
 .end method
 
 .method public interceptTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 4
+    .locals 3
 
-    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindowState:I
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mStatusbarBrightnessControl:Z
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
-    if-nez v0, :cond_3
+    if-eqz v0, :cond_0
 
-    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->brightnessControl(Landroid/view/MotionEvent;)V
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->brightnessControl(Landroid/view/MotionEvent;)V
 
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mDisabled1:I
+
+    const/high16 v2, 0x10000
+
+    and-int/2addr v0, v2
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
 
-    if-eq v0, v2, :cond_0
+    if-eq v0, v1, :cond_2
 
-    const/4 v3, 0x3
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    if-ne v0, v3, :cond_1
+    move-result p1
 
-    :cond_0
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mExpandedVisible:Z
+    const/4 v0, 0x3
 
-    if-eqz v3, :cond_2
-
-    :cond_1
-    invoke-virtual {p0, v2, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->setInteracting(IZ)V
+    if-ne p1, v0, :cond_1
 
     goto :goto_0
 
+    :cond_1
+    move p1, v2
+
+    goto :goto_1
+
     :cond_2
-    invoke-virtual {p0, v2, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setInteracting(IZ)V
+    :goto_0
+    move p1, v1
+
+    :goto_1
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindowState:I
+
+    if-nez v0, :cond_4
+
+    if-eqz p1, :cond_3
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mExpandedVisible:Z
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/StatusBar;->setInteracting(IZ)V
+
+    goto :goto_2
 
     :cond_3
-    :goto_0
-    return v1
+    invoke-virtual {p0, v1, v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->setInteracting(IZ)V
+
+    :cond_4
+    :goto_2
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBrightnessChanged:Z
+
+    if-eqz v0, :cond_5
+
+    if-eqz p1, :cond_5
+
+    iput-boolean v2, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBrightnessChanged:Z
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mJustPeeked:Z
+
+    if-eqz p1, :cond_5
+
+    iget-boolean p1, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mExpandedVisible:Z
+
+    if-eqz p1, :cond_5
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mNotificationPanel:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    const/high16 p1, 0x41200000    # 10.0f
+
+    invoke-virtual {p0, p1, v2}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->fling(FZ)V
+
+    :cond_5
+    return v2
 .end method
 
 .method public isBouncerShowing()Z
@@ -17139,6 +17189,10 @@
 
 .method private adjustBrightness(I)V
     .locals 8
+    
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mBrightnessChanged:Z
 
     int-to-float v0, p1
 
@@ -17211,7 +17265,7 @@
     goto :goto_0
 
     :cond_0
-    const/16 v2, 0xff
+    const/16 v2, 0x3ff
 
     iget v5, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mMinBrightness:I
 
@@ -17311,7 +17365,7 @@
     return-void
 .end method
 
-.method brightnessControl(Landroid/view/MotionEvent;)V
+.method private brightnessControl(Landroid/view/MotionEvent;)V
     .locals 10
 
     sget-boolean v0, Lcom/android/mwilky/Renovate;->mStatusbarBrightnessControl:Z

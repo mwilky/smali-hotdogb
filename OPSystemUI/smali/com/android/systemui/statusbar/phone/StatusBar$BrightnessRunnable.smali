@@ -38,6 +38,14 @@
     .locals 2
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$BrightnessRunnable;->this$0:Lcom/android/systemui/statusbar/phone/StatusBar;
+    
+    iget-object v0, v0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarView:Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/FrameLayout;->performHapticFeedback(I)Z
+    
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar$BrightnessRunnable;->this$0:Lcom/android/systemui/statusbar/phone/StatusBar;
 
     invoke-static {v0}, Lcom/android/systemui/statusbar/phone/StatusBar;->access$0001(Lcom/android/systemui/statusbar/phone/StatusBar;)I #000
 
