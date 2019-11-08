@@ -7091,7 +7091,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->brightnessControl(Landroid/view/MotionEvent;)V
+    invoke-virtual {p0, p1}, Lcom/android/systemui/statusbar/phone/StatusBar;->brightnessControl(Landroid/view/MotionEvent;)V
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mDisabled1:I
 
@@ -17365,16 +17365,9 @@
     return-void
 .end method
 
-.method private brightnessControl(Landroid/view/MotionEvent;)V
+.method public brightnessControl(Landroid/view/MotionEvent;)V
     .locals 10
 
-    sget-boolean v0, Lcom/android/mwilky/Renovate;->mStatusbarBrightnessControl:Z
-
-    if-nez v0, :cond_0
-
-    return-void
-
-    :cond_0
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
