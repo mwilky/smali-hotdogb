@@ -976,19 +976,19 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mAllowTransparentNotifications:Z
 
     .line 113
-    const/4 v1, 0x1
+    const/16 v1, 0xff
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationBackgroundAlpha:I
 
     .line 120
-    const v2, -0x50506
+    const v1, -0x50506
 
-    sput v2, Lcom/android/mwilky/Renovate;->mOPNotificationBackgroundColor:I
+    sput v1, Lcom/android/mwilky/Renovate;->mOPNotificationBackgroundColor:I
 
     .line 121
-    const v2, -0x111112
+    const v1, -0x111112
 
-    sput v2, Lcom/android/mwilky/Renovate;->mOPNotificationShadeBackgroundColor:I
+    sput v1, Lcom/android/mwilky/Renovate;->mOPNotificationShadeBackgroundColor:I
 
     .line 130
     sput v0, Lcom/android/mwilky/Renovate;->mClockPosition:I
@@ -997,32 +997,32 @@
     sput v0, Lcom/android/mwilky/Renovate;->mHideBatteryView:I
 
     .line 133
-    const/4 v2, 0x3
+    const/4 v1, 0x3
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQsRows:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQsRows:I
 
     .line 134
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQsRowsLandscape:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQsRowsLandscape:I
 
     .line 135
-    const/4 v2, 0x4
+    const/4 v1, 0x4
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQsColumns:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
     .line 136
-    const/4 v2, 0x6
+    const/4 v1, 0x6
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQsColumnsLandscape:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQsColumnsLandscape:I
 
     .line 137
-    sput v2, Lcom/android/mwilky/Renovate;->mQuickQsNumber:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQuickQsNumber:I
 
     .line 138
-    const/16 v2, 0xa
+    const/16 v1, 0xa
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQuickQsNumberLandscape:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQuickQsNumberLandscape:I
 
     .line 140
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mHideIrisView:Z
@@ -1058,13 +1058,15 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mCustomThemeActive:Z
 
     .line 157
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootEmergency:Z
+    const/4 v2, 0x1
+
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mShowRebootEmergency:Z
 
     .line 158
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootDownload:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mShowRebootDownload:Z
 
     .line 159
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootRecovery:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mShowRebootRecovery:Z
 
     .line 161
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mHideBrightnessSlider:Z
@@ -1082,7 +1084,7 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mStatusbarBlur:Z
 
     .line 168
-    sput v2, Lcom/android/mwilky/Renovate;->mStatusbarBlurAmount:I
+    sput v1, Lcom/android/mwilky/Renovate;->mStatusbarBlurAmount:I
 
     .line 170
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotation:Z
@@ -1127,21 +1129,21 @@
     sput v0, Lcom/android/mwilky/Renovate;->mSmartPulldown:I
 
     .line 192
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mStatusbarPeek:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mStatusbarPeek:Z
 
     .line 194
     sput v0, Lcom/android/mwilky/Renovate;->mQsAnimationStyle:I
 
     .line 195
-    const/16 v2, 0x7d0
+    const/16 v1, 0x7d0
 
-    sput v2, Lcom/android/mwilky/Renovate;->mQsAnimationDuration:I
+    sput v1, Lcom/android/mwilky/Renovate;->mQsAnimationDuration:I
 
     .line 196
     sput v0, Lcom/android/mwilky/Renovate;->mQsAnimationInterpolator:I
 
     .line 198
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mSwapBatteryPosition:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mSwapBatteryPosition:Z
 
     .line 200
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
@@ -1159,19 +1161,19 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mExtendedVolumePanel:Z
 
     .line 208
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelMedia:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelMedia:Z
 
     .line 209
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelRinger:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelRinger:Z
 
     .line 210
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelAlarm:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelAlarm:Z
 
     .line 211
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelCall:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelCall:Z
 
     .line 212
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelBCall:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelBCall:Z
 
     .line 213
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelNotif:Z
@@ -1204,19 +1206,19 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mDarkQsIcons:Z
 
     .line 262
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodAppName:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mAodAppName:Z
 
     .line 263
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodAppIcon:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mAodAppIcon:Z
 
     .line 264
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodTitle:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mAodTitle:Z
 
     .line 265
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodSmallText:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mAodSmallText:Z
 
     .line 266
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodFingerprint:Z
+    sput-boolean v2, Lcom/android/mwilky/Renovate;->mAodFingerprint:Z
 
     .line 267
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mUnlinkVolume:Z
@@ -2218,7 +2220,7 @@
     .param p0, "SlotName"    # Ljava/lang/String;
 
     .line 538
-    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUseAccentForStatusbarIcons:Z
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUseAccentForQsIcons:Z
 
     if-eqz v0, :cond_7
 
@@ -3517,7 +3519,7 @@
 .end method
 
 .method public static setAlbumArtBlurAmount(Landroid/content/Context;)V
-    .registers 4
+    .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
     .line 1374
@@ -3527,15 +3529,23 @@
 
     .line 1375
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
-    sget-object v1, Lcom/android/mwilky/Renovate;->mAlbumArtBlurAmountKey:Ljava/lang/String;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    const/16 v2, 0x19
+    move-result-object v1
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    sget-object v2, Lcom/android/mwilky/Renovate;->mAlbumArtBlurAmountKey:Ljava/lang/String;
+
+    const/16 v3, 0x9C4
+
+    invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v1
 
     int-to-float v1, v1
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    div-float/2addr v1, v2
 
     sput v1, Lcom/android/mwilky/Renovate;->mAlbumArtBlurAmount:F
 
@@ -4713,11 +4723,11 @@
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
 
-    const/4 v2, 0x1
+    const/16 v2, 0xff
 
     const/4 v3, 0x0
 
-    if-eqz v1, :cond_5b
+    if-eqz v1, :cond_5c
 
     .line 936
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationBackgroundColorKey:Ljava/lang/String;
@@ -4807,10 +4817,10 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationCarrierTextColor:I
 
-    goto :goto_77
+    goto :goto_78
 
     .line 945
-    :cond_5b
+    :cond_5c
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationbackgroundColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
@@ -4847,7 +4857,7 @@
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationCarrierTextColor:I
 
     .line 954
-    :goto_77
+    :goto_78
     return-void
 .end method
 
