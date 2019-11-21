@@ -614,19 +614,19 @@
 
     invoke-virtual {v1}, Lcom/oneplus/aod/OpAodLightEffectContainer;->resetNotificationAnimView()V
 
-    goto/16 :goto_f7
+    goto/16 :goto_104
 
     .line 106
     :cond_55
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPlayFingerprintUnlockAnimation:Z
 
-    if-nez v1, :cond_dd
+    if-nez v1, :cond_ea
 
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPress:Z
 
     if-eqz v1, :cond_5f
 
-    goto/16 :goto_dd
+    goto/16 :goto_ea
 
     .line 113
     :cond_5f
@@ -750,41 +750,56 @@
 
     move-result v2
 
-    if-eqz v2, :cond_c9
-
-    iget v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mStatus:I
-
-    if-eq v2, v5, :cond_d1
-
-    :cond_c9
-    sget-boolean v2, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
-
-    if-eqz v2, :cond_d7
-
-    sget-boolean v2, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
-
-    if-eqz v2, :cond_d7
+    if-eqz v2, :cond_104
 
     .line 134
-    :cond_d1
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
+
+    iget v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mStatus:I
+
+    invoke-virtual {v2, v3}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setCustomEdgeColors(I)V
+
+    .line 135
+    iget v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mStatus:I
+
+    if-ne v2, v5, :cond_d6
+
+    .line 136
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
 
-    goto :goto_f7
+    goto :goto_104
 
-    .line 136
-    :cond_d7
+    .line 137
+    :cond_d6
+    sget-boolean v2, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
+
+    if-eqz v2, :cond_e4
+
+    sget-boolean v2, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
+
+    if-eqz v2, :cond_e4
+
+    .line 138
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
+
+    invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
+
+    goto :goto_104
+
+    .line 140
+    :cond_e4
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->resetNotificationAnimView()V
 
-    goto :goto_f7
+    goto :goto_104
 
     .line 107
     .end local v1    # "i":I
-    :cond_dd
-    :goto_dd
+    :cond_ea
+    :goto_ea
     iget-object v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
@@ -811,8 +826,9 @@
 
     invoke-virtual {v1, v3}, Lcom/oneplus/aod/OpAodThreeKeyStatusView;->setVisibility(I)V
 
-    .line 139
-    :goto_f7
+    .line 144
+    :cond_104
+    :goto_104
     return-void
 .end method
 

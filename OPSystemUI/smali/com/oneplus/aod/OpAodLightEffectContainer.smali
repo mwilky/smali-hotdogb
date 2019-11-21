@@ -6,8 +6,6 @@
 # static fields
 .field public static mTotalRuntime:I
 
-.field public static mAppIconColor:I
-
 .field public static mLightIndex:I
 
 
@@ -511,18 +509,10 @@
     return-void
 .end method
 
-
 .method private loadResources()V
     .registers 3
 
-    .line 70
-    sget v0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
-
-    const/16 v1, 0xa
-
-    if-eq v0, v1, :cond_24
-
-    .line 71
+    .line 130
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -537,7 +527,7 @@
 
     iput-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgRight:Landroid/graphics/Bitmap;
 
-    .line 72
+    .line 131
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -552,25 +542,21 @@
 
     iput-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
 
-    .line 74
-    :cond_24
+    .line 132
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 75
+    .line 133
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgRight:Landroid/graphics/Bitmap;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    .line 76
-    invoke-virtual {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setCustomEdgeColors()V
-
-    .line 77
+    .line 134
     return-void
 .end method
 
@@ -750,140 +736,125 @@
 .end method
 
 .method public resetNotificationAnimView()V
-    .locals 5
+    .registers 8
 
+    .line 77
     sget v0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
     const/16 v1, 0xa
 
-    if-eq v0, v1, :cond_0
+    if-eq v0, v1, :cond_d
 
+    .line 78
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setScaleY(F)V
+    invoke-virtual {p0, v0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setScaleY(F)V
 
-    invoke-virtual {p0, v0}, Landroid/widget/FrameLayout;->setAlpha(F)V
-
-    :cond_0
-    const-string v0, "OpAodLightEffectContainer"
-
-    const-string v1, "resetNotificationAnimView"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    .line 79
+    invoke-virtual {p0, v0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setAlpha(F)V
+    
+    .line 81
+    :cond_d
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
+    .line 82
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
+    .line 83
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgRight:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_1
+    .line 84
+    .local v0, "bitmap":Landroid/graphics/Bitmap;
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgRight:Landroid/graphics/Bitmap;
 
+    if-eqz v2, :cond_23
+
+    .line 85
     invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
 
+    .line 86
     iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgRight:Landroid/graphics/Bitmap;
 
-    :cond_1
-    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
+    .line 88
+    :cond_23
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
 
-    if-eqz v0, :cond_2
+    .line 89
+    .local v2, "bitmap2":Landroid/graphics/Bitmap;
+    if-eqz v2, :cond_2c
 
-    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
-
-    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
-
-    :cond_2
-    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBgHandler:Landroid/os/Handler;
-
-    if-eqz v0, :cond_3
-
-    const/16 v2, 0x100
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeMessages(I)V
-
-    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBgHandler:Landroid/os/Handler;
-
-    :cond_3
-    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandlerThread:Landroid/os/HandlerThread;
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {v0}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/os/Looper;->quit()V
-
-    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandlerThread:Landroid/os/HandlerThread;
-
-    :cond_4
-    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
-
-    if-eqz v0, :cond_5
-
-    iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v0, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
-
-    :cond_5
-    const/4 v0, 0x0
-
-    iput v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mDecodeIndex:I
-
-    iput v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimateIndex:I
-
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBitmapLeft:[Landroid/graphics/Bitmap;
-
-    if-eqz v1, :cond_7
-
-    array-length v2, v1
-
-    move v3, v0
-
-    :goto_0
-    if-ge v3, v2, :cond_7
-
-    aget-object v4, v1, v3
-
-    if-eqz v4, :cond_6
-
-    invoke-virtual {v4}, Landroid/graphics/Bitmap;->recycle()V
-
-    :cond_6
-    add-int/lit8 v3, v3, 0x1
-
-    goto :goto_0
-
-    :cond_7
-    iget-object p0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBitmapRight:[Landroid/graphics/Bitmap;
-
-    if-eqz p0, :cond_9
-
-    array-length v1, p0
-
-    :goto_1
-    if-ge v0, v1, :cond_9
-
-    aget-object v2, p0, v0
-
-    if-eqz v2, :cond_8
-
+    .line 90
     invoke-virtual {v2}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_8
-    add-int/lit8 v0, v0, 0x1
+    .line 91
+    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimationBgLeft:Landroid/graphics/Bitmap;
 
-    goto :goto_1
+    .line 93
+    :cond_2c
+    iget-object v3, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBgHandler:Landroid/os/Handler;
 
-    :cond_9
+    .line 94
+    .local v3, "handler":Landroid/os/Handler;
+    if-eqz v3, :cond_37
+
+    .line 95
+    const/16 v4, 0x100
+
+    invoke-virtual {v3, v4}, Landroid/os/Handler;->removeMessages(I)V
+
+    .line 96
+    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mBgHandler:Landroid/os/Handler;
+
+    .line 98
+    :cond_37
+    iget-object v4, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandlerThread:Landroid/os/HandlerThread;
+
+    .line 99
+    .local v4, "handlerThread":Landroid/os/HandlerThread;
+    if-eqz v4, :cond_44
+
+    .line 100
+    invoke-virtual {v4}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/os/Looper;->quit()V
+
+    .line 101
+    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandlerThread:Landroid/os/HandlerThread;
+
+    .line 103
+    :cond_44
+    iget-object v5, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
+
+    .line 104
+    .local v5, "handler2":Landroid/os/Handler;
+    if-eqz v5, :cond_4f
+
+    .line 105
+    iget-object v6, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v5, v6}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    .line 106
+    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
+
+    .line 108
+    :cond_4f
+    const/4 v1, 0x0
+
+    iput v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mDecodeIndex:I
+
+    .line 109
+    iput v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimateIndex:I
+
+    .line 126
     return-void
 .end method
 
@@ -950,46 +921,43 @@
 .method public showLight()V
     .registers 6
 
-    .line 94
-    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->prepareResources()V
-
-    .line 95
-    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->loadResources()V
-
-    .line 96
+    .line 231
     sget v0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
     const/16 v1, 0xa
 
-    if-ne v0, v1, :cond_27
+    if-ne v0, v1, :cond_24
 
-    .line 97
+    .line 232
+    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->prepareResources()V
+
+    .line 233
     iget v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimateIndex:I
 
-    .line 98
+    .line 234
     .local v0, "i":I
-    if-lez v0, :cond_16
+    if-lez v0, :cond_13
 
     const/16 v1, 0x64
 
-    if-lt v0, v1, :cond_15
+    if-lt v0, v1, :cond_12
 
-    goto :goto_16
+    goto :goto_13
 
-    .line 103
-    :cond_15
+    .line 239
+    :cond_12
     return-void
 
-    .line 99
-    :cond_16
-    :goto_16
+    .line 235
+    :cond_13
+    :goto_13
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
-    .line 100
+    .line 236
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
 
     iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
@@ -998,23 +966,29 @@
 
     invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    .line 101
+    .line 237
     return-void
 
-    .line 105
+    .line 241
     .end local v0    # "i":I
-    :cond_27
+    :cond_24
     const/high16 v0, 0x3f800000    # 1.0f
 
     invoke-virtual {p0, v0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setAlpha(F)V
 
-    .line 106
+    .line 242
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    .line 243
+    .local v0, "valueAnimator":Landroid/animation/ValueAnimator;
+    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->loadResources()V
+
+    .line 244
     invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->animateNotification()V
 
-    .line 107
+    .line 245
     return-void
 .end method
-
 
 .method public updateNotification()V
     .registers 4
@@ -1076,28 +1050,29 @@
     .end array-data
 .end method
 
-.method public setCustomEdgeColors()V
-    .registers 5
+.method public setCustomEdgeColors(I)V
+    .registers 6
+    .param p1, "status"    # I
 
-    .line 144
+    .line 304
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 145
+    .line 305
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockEdgeColors:Z
 
-    if-eqz v1, :cond_41
+    if-eqz v1, :cond_34
 
-    .line 146
+    .line 306
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentColorForEdgeNotifications:Z
 
     if-eqz v1, :cond_21
 
-    .line 147
+    .line 307
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     sget v2, Lcom/android/mwilky/Renovate;->mAccentColor:I
@@ -1106,7 +1081,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 148
+    .line 308
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     sget v2, Lcom/android/mwilky/Renovate;->mAccentColor:I
@@ -1115,27 +1090,10 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_4b
+    goto :goto_3e
 
-    .line 149
+    .line 310
     :cond_21
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
-
-    if-eqz v1, :cond_2e
-
-    sget v1, Lcom/oneplus/aod/OpAodDisplayViewManager;->mPulseStatus:I
-
-    const/4 v2, 0x2
-
-    if-ne v1, v2, :cond_2e
-
-    .line 150
-    invoke-virtual {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setEdgeToAppColor()V
-
-    goto :goto_4b
-
-    .line 152
-    :cond_2e
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     sget v2, Lcom/android/mwilky/Renovate;->mLeftEdgeNotificationColor:I
@@ -1144,7 +1102,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 153
+    .line 311
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     sget v2, Lcom/android/mwilky/Renovate;->mRightEdgeNotificationColor:I
@@ -1153,45 +1111,58 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_4b
+    goto :goto_3e
 
-    .line 156
-    :cond_41
+    .line 314
+    :cond_34
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
 
-    .line 157
+    .line 315
     iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
 
-    .line 160
-    :goto_4b
+    .line 317
+    :goto_3e
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
+
+    if-eqz v1, :cond_48
+
+    const/4 v1, 0x2
+
+    if-ne p1, v1, :cond_48
+
+    .line 318
+    invoke-virtual {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setEdgeToAppColor()V
+
+    .line 321
+    :cond_48
     return-void
 .end method
 
 .method public setEdgeToAppColor()V
     .registers 4
 
-    .line 222
+    .line 324
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
-    sget v1, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAppIconColor:I
+    sget v1, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
 
     sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 223
+    .line 325
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
-    sget v1, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAppIconColor:I
+    sget v1, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
 
     sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 224
+    .line 326
     return-void
 .end method
