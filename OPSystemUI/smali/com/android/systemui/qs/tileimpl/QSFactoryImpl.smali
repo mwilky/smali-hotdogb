@@ -7,6 +7,16 @@
 
 
 # instance fields
+.field private final mCaffeineTileProvider:Ljavax/inject/Provider;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/CaffeineTile;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private final mAirplaneModeTileProvider:Ljavax/inject/Provider;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -271,7 +281,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
+.method public constructor <init>(Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;Ljavax/inject/Provider;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -353,6 +363,9 @@
             ">;",
             "Ljavax/inject/Provider<",
             "Lcom/android/systemui/qs/tiles/OPDndTile;",
+            ">;)V",
+            "Ljavax/inject/Provider<",
+            "Lcom/android/systemui/qs/tiles/CaffeineTile;",
             ">;)V"
         }
     .end annotation
@@ -464,6 +477,10 @@
     move-object/from16 v1, p26
 
     iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOPDndTileProvider:Ljavax/inject/Provider;
+    
+    move-object/from16 v1, p27
+
+    iput-object v1, v0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCaffeineTileProvider:Ljavax/inject/Provider;
 
     return-void
 .end method
@@ -478,6 +495,19 @@
     sparse-switch v0, :sswitch_data_0
 
     goto/16 :goto_0
+    
+    :sswitch_caffeine
+    const-string v0, "caffeine"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x19
+
+    goto/16 :goto_1
 
     :sswitch_0
     const-string v0, "location"
@@ -839,6 +869,17 @@
     move-result-object p0
 
     return-object p0
+    
+    :pswitch_caffeine
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCaffeineTileProvider:Ljavax/inject/Provider;
+
+    invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;
+
+    return-object p0
 
     :pswitch_0
     new-instance p1, Lcom/android/systemui/qs/tiles/WorkLifeBalanceTile;
@@ -1189,6 +1230,7 @@
 
     :sswitch_data_0
     .sparse-switch
+        -0x14d40407 -> :sswitch_caffeine
         -0x7d2140a2 -> :sswitch_19
         -0x783813ed -> :sswitch_18
         -0x468444da -> :sswitch_17
@@ -1245,6 +1287,7 @@
         :pswitch_2
         :pswitch_1
         :pswitch_0
+        :pswitch_caffeine
     .end packed-switch
 .end method
 

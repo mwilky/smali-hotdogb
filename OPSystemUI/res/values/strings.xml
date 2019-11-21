@@ -1506,10 +1506,10 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="quick_settings_switch_user_storage_insufficient">Storage is full, cannot switch user</string>
     <string name="quick_settings_tethering_label">Tethering</string>
     <string name="quick_settings_tiles">default</string>
-    <string name="quick_settings_tiles_default">wifi,cell,bt,flashlight,rotation,battery,airplane,night,location,dataswitch,dnd,nfc,custom(com.android.phone/com.android.wificalling.OPWifiCallingTitle),game,read,hotspot,custom(com.oneplus.brickmode/.service.BreathModeTileService),custom(com.oneplus.screenrecord/.core.SystemUITileService),custom(com.oneplus.carmode/.tile.CarModeTileService)</string>
-    <string name="quick_settings_tiles_guest">wifi,bt,flashlight,rotation,powersaving,airplane,night,location,game,nfc,hotspot,saver</string>
-    <string name="quick_settings_tiles_retail_mode">wifi,cell,bt,flashlight,rotation,battery,airplane,night,location,dataswitch,dnd,nfc,custom(com.android.phone/com.android.wificalling.OPWifiCallingTitle),game,read,hotspot,custom(com.oneplus.brickmode/.service.BreathModeTileService),custom(com.oneplus.screenrecord/.service.SystemUITileService),custom(com.oneplus.carmode/.tile.CarModeTileService)</string>
-    <string name="quick_settings_tiles_stock">wifi,cell,battery,bt,rotation,flashlight,airplane,night,location,hotspot,nfc,read,game,otg,dnd,cast,saver,vpn,inversion,dark,work,dataswitch</string>
+    <string name="quick_settings_tiles_default">wifi,cell,bt,flashlight,rotation,battery,airplane,night,location,dataswitch,dnd,nfc,custom(com.android.phone/com.android.wificalling.OPWifiCallingTitle),game,read,hotspot,custom(com.oneplus.brickmode/.service.BreathModeTileService),custom(com.oneplus.screenrecord/.core.SystemUITileService),custom(com.oneplus.carmode/.tile.CarModeTileService),caffeine</string>
+    <string name="quick_settings_tiles_guest">wifi,bt,flashlight,rotation,powersaving,airplane,night,location,game,nfc,hotspot,saver,caffeine</string>
+    <string name="quick_settings_tiles_retail_mode">wifi,cell,bt,flashlight,rotation,battery,airplane,night,location,dataswitch,dnd,nfc,custom(com.android.phone/com.android.wificalling.OPWifiCallingTitle),game,read,hotspot,custom(com.oneplus.brickmode/.service.BreathModeTileService),custom(com.oneplus.screenrecord/.service.SystemUITileService),custom(com.oneplus.carmode/.tile.CarModeTileService),caffeine</string>
+    <string name="quick_settings_tiles_stock">wifi,cell,battery,bt,rotation,flashlight,airplane,night,location,hotspot,nfc,read,game,otg,dnd,cast,saver,vpn,inversion,dark,work,dataswitch,caffeine</string>
     <string name="quick_settings_time_label">Time</string>
     <string name="quick_settings_ui_mode_night_label">Dark theme</string>
     <string name="quick_settings_ui_mode_night_label_battery_saver">"Dark theme
@@ -2013,4 +2013,7 @@ Credential storage might not enable"</string>
     <string name="zen_priority_introduction">"You won't be disturbed by sounds and vibrations, except from alarms, reminders, events, and callers you specify. You'll still hear anything you choose to play including music, videos, and games."</string>
     <string name="zen_silence_introduction">This blocks ALL sounds and vibrations, including from alarms, music, videos, and games.</string>
     <string name="zen_silence_introduction_voice">"This blocks ALL sounds and vibrations, including from alarms, music, videos, and games. You'll still be able to make phone calls."</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
 </resources>
