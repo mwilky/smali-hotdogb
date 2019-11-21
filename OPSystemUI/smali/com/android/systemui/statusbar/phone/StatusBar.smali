@@ -13395,6 +13395,8 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->prepareBrightness()V
     
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarBrightnessControl(Landroid/content/Context;)V
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setUnlinkVolume(Landroid/content/Context;)V
 
     const-class v0, Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
@@ -16385,6 +16387,19 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setStatusbarBrightnessControl(Landroid/content/Context;)V
 
     :cond_69
+    const-string v0, "tweaks_unlink_volume"
+    
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_70
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mContext:Landroid/content/Context;
+    
+    invoke-static {v0}, Lcom/android/mwilky/Renovate;->setUnlinkVolume(Landroid/content/Context;)V
+
+    :cond_70
 	return-void
 .end method
 
@@ -16656,6 +16671,10 @@
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     
     const-string v4, "screen_brightness_mode"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    
+    const-string v4, "tweaks_unlink_volume"
 
     invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
