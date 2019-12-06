@@ -269,6 +269,10 @@
 
     :goto_4
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    
+    sget v2, Lcom/android/mwilky/Renovate;->mAccentColor:I
+    
+    invoke-virtual {v1, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
     new-instance v1, Lcom/android/systemui/qs/QSDetailItems$Adapter$1;
 
