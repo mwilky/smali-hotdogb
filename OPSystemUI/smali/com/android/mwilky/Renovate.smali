@@ -3571,7 +3571,7 @@
 
     sget-object v2, Lcom/android/mwilky/Renovate;->mAlbumArtBlurAmountKey:Ljava/lang/String;
 
-    const/16 v3, 0x9c4
+    const/4 v3, 0x1
 
     invoke-static {v1, v2, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
