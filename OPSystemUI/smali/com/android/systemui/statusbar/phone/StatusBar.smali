@@ -16318,6 +16318,8 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setQsIconColors(Landroid/content/Context;)V
     
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateStatusbarIconViews()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->updateLockscreenStatusbarViews()V
 
     :cond_63
     const-string v0, "tweaks_accent_statusbar_qs"
