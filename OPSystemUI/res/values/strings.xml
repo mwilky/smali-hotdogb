@@ -208,11 +208,8 @@
     <string name="accessibility_quick_settings_hotspot_changed_off">Mobile hotspot turned off.</string>
     <string name="accessibility_quick_settings_hotspot_changed_on">Mobile hotspot turned on.</string>
     <string name="accessibility_quick_settings_less_time">Less time.</string>
-   <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
     <string name="accessibility_quick_settings_location_changed_off">Location reporting turned off.</string>
     <string name="accessibility_quick_settings_location_changed_on">Location reporting turned on.</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
     <string name="accessibility_quick_settings_location_off">Location reporting off.</string>
     <string name="accessibility_quick_settings_location_on">Location reporting on.</string>
     <string name="accessibility_quick_settings_mobile">Mobile %1$s. %2$s. %3$s.</string>
@@ -1474,23 +1471,6 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="quick_settings_hotspot_ssid">SSID</string>
     <string name="quick_settings_ime_label">Input Method</string>
     <string name="quick_settings_inversion_label">Invert colors</string>
-    <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">"Battery
-saving"</string>
-    <string name="quick_settings_location_detail_menu_title">Select mode:</string>
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Use Wi‑Fi, Bluetooth, or cellular networks to determine location</string>
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Battery saving</string>
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Use GPS, Wi‑Fi, Bluetooth, or cellular networks to determine location</string>
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">High accuracy</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine location</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Device only</string>
-    <string name="quick_settings_location_detail_title">Location</string>
-    <string name="quick_settings_location_gps_only_label">Device only</string>
-    <string name="quick_settings_location_gps_only_label_twoline">"Device
-only"</string>
-    <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">"High
-accuracy"</string>
     <string name="quick_settings_location_label">Location</string>
     <string name="quick_settings_location_off_label">Location Off</string>
     <string name="quick_settings_media_device_label">Media device</string>

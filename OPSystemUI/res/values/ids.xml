@@ -1227,8 +1227,4 @@
     <item type="id" name="center_clock" />
     <item type="id" name="center_clock_layout" />
     <item type="id" name="brightness_layout" />
-    <item type="id" name="location_buttons" />
-    <item type="id" name="location_introduction" />
-    <item type="id" name="location_introduction_message" />
-    <item type="id" name="location_mode_panel" />
 </resources>
