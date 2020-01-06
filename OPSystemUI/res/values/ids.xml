@@ -1227,4 +1227,5 @@
     <item type="id" name="center_clock" />
     <item type="id" name="center_clock_layout" />
     <item type="id" name="brightness_layout" />
+    <item type="id" name="hybrid_notification" />
 </resources>
