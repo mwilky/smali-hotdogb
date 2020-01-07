@@ -116,6 +116,10 @@
 
 .field static mDarkQsIconsKey:Ljava/lang/String;
 
+.field public static mDisableSmartReplies:Z
+
+.field public static mDisableSmartRepliesKey:Ljava/lang/String;
+
 .field public static mDoubleTapStatusbarSleep:Z
 
 .field static mDoubleTapStatusbarSleepKey:Ljava/lang/String;
@@ -2030,6 +2034,11 @@
 
     sput-object v0, Lcom/android/mwilky/Renovate;->mHorizonRepeatModeKey:Ljava/lang/String;
 
+    .line 486
+    const-string v0, "tweaks_disable_smart_replies"
+
+    sput-object v0, Lcom/android/mwilky/Renovate;->mDisableSmartRepliesKey:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -2046,15 +2055,15 @@
     .registers 2
     .param p0, "Int"    # I
 
-    .line 874
+    .line 876
     if-nez p0, :cond_4
 
-    .line 875
+    .line 877
     const/4 v0, 0x0
 
     return v0
 
-    .line 877
+    .line 879
     :cond_4
     const/4 v0, 0x1
 
@@ -2065,12 +2074,12 @@
     .registers 11
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1146
+    .line 1148
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1147
+    .line 1149
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "oem_black_mode_accent_color"
 
@@ -2078,7 +2087,7 @@
 
     move-result-object v1
 
-    .line 1148
+    .line 1150
     .local v1, "HexColorBlack":Ljava/lang/String;
     const-string v2, "oem_white_mode_accent_color"
 
@@ -2086,7 +2095,7 @@
 
     move-result-object v2
 
-    .line 1149
+    .line 1151
     .local v2, "HexColorWhite":Ljava/lang/String;
     const/4 v3, 0x2
 
@@ -2096,7 +2105,7 @@
 
     move-result v4
 
-    .line 1150
+    .line 1152
     .local v4, "theme":I
     const-string v5, "oem_special_theme"
 
@@ -2106,20 +2115,20 @@
 
     move-result v5
 
-    .line 1151
+    .line 1153
     .local v5, "specialTheme":I
     const/4 v6, 0x1
 
     if-ne v5, v6, :cond_27
 
-    .line 1152
+    .line 1154
     const v3, -0x43fd3
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
     goto :goto_86
 
-    .line 1153
+    .line 1155
     :cond_27
     const/16 v7, 0xb
 
@@ -2127,7 +2136,7 @@
 
     if-ne v4, v6, :cond_55
 
-    .line 1154
+    .line 1156
     const-string v9, "oem_black_mode_accent_color_index"
 
     invoke-static {v0, v9, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -2136,14 +2145,14 @@
 
     if-ne v3, v7, :cond_42
 
-    .line 1155
+    .line 1157
     invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
-    .line 1156
+    .line 1158
     invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
@@ -2152,13 +2161,13 @@
 
     goto :goto_86
 
-    .line 1158
+    .line 1160
     :cond_42
     invoke-virtual {v1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1159
+    .line 1161
     invoke-static {v1, v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -2167,7 +2176,7 @@
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
-    .line 1160
+    .line 1162
     invoke-static {v1, v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -2178,11 +2187,11 @@
 
     goto :goto_86
 
-    .line 1162
+    .line 1164
     :cond_55
     if-nez v4, :cond_7f
 
-    .line 1163
+    .line 1165
     const-string v9, "oem_white_mode_accent_color_index"
 
     invoke-static {v0, v9, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -2191,14 +2200,14 @@
 
     if-ne v3, v7, :cond_6c
 
-    .line 1164
+    .line 1166
     invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
-    .line 1165
+    .line 1167
     invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
@@ -2207,13 +2216,13 @@
 
     goto :goto_86
 
-    .line 1167
+    .line 1169
     :cond_6c
     invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1168
+    .line 1170
     invoke-static {v2, v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -2222,7 +2231,7 @@
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
-    .line 1169
+    .line 1171
     invoke-static {v2, v8}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -2233,19 +2242,19 @@
 
     goto :goto_86
 
-    .line 1171
+    .line 1173
     :cond_7f
     if-ne v4, v3, :cond_86
 
-    .line 1172
+    .line 1174
     const/4 v3, -0x1
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationTextColor:I
 
-    .line 1173
+    .line 1175
     sput v3, Lcom/android/mwilky/Renovate;->mOPAccentColor:I
 
-    .line 1175
+    .line 1177
     :cond_86
     :goto_86
     return-void
@@ -2256,12 +2265,12 @@
     .param p0, "Context"    # Landroid/content/Context;
     .param p1, "isPrimary"    # Z
 
-    .line 986
+    .line 988
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 988
+    .line 990
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "oem_black_mode"
 
@@ -2271,34 +2280,34 @@
 
     move-result v1
 
-    .line 989
+    .line 991
     .local v1, "theme":I
     const/high16 v2, -0x22000000
 
     if-eqz p1, :cond_16
 
-    .line 990
+    .line 992
     if-eqz v1, :cond_15
 
-    .line 992
+    .line 994
     const v2, -0x22000001
 
     return v2
 
-    .line 995
+    .line 997
     :cond_15
     return v2
 
-    .line 998
+    .line 1000
     :cond_16
     if-eqz v1, :cond_1c
 
-    .line 1000
+    .line 1002
     const v2, -0x4d000001
 
     return v2
 
-    .line 1003
+    .line 1005
     :cond_1c
     return v2
 .end method
@@ -2307,17 +2316,17 @@
     .registers 2
     .param p0, "SlotName"    # Ljava/lang/String;
 
-    .line 546
+    .line 548
     sget-boolean v0, Lcom/android/mwilky/Renovate;->mUseAccentForQsIcons:Z
 
     if-eqz v0, :cond_7
 
-    .line 547
+    .line 549
     sget v0, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     return v0
 
-    .line 548
+    .line 550
     :cond_7
     const-string v0, "bluetooth"
 
@@ -2327,12 +2336,12 @@
 
     if-eqz v0, :cond_12
 
-    .line 549
+    .line 551
     sget v0, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorOP:I
 
     return v0
 
-    .line 550
+    .line 552
     :cond_12
     const-string v0, "wifi"
 
@@ -2342,12 +2351,12 @@
 
     if-eqz v0, :cond_1d
 
-    .line 551
+    .line 553
     sget v0, Lcom/android/mwilky/Renovate;->mQsWifiIconColorOP:I
 
     return v0
 
-    .line 552
+    .line 554
     :cond_1d
     const-string v0, "phone_signal"
 
@@ -2357,12 +2366,12 @@
 
     if-eqz v0, :cond_28
 
-    .line 553
+    .line 555
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 554
+    .line 556
     :cond_28
     const-string v0, "data_connection"
 
@@ -2372,12 +2381,12 @@
 
     if-eqz v0, :cond_33
 
-    .line 555
+    .line 557
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 556
+    .line 558
     :cond_33
     const-string v0, "ethernet"
 
@@ -2387,12 +2396,12 @@
 
     if-eqz v0, :cond_3e
 
-    .line 557
+    .line 559
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 558
+    .line 560
     :cond_3e
     const-string v0, "mobile"
 
@@ -2402,12 +2411,12 @@
 
     if-eqz v0, :cond_49
 
-    .line 559
+    .line 561
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 560
+    .line 562
     :cond_49
     const-string v0, "phone_evdo_signal"
 
@@ -2417,12 +2426,12 @@
 
     if-eqz v0, :cond_54
 
-    .line 561
+    .line 563
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 562
+    .line 564
     :cond_54
     const-string v0, "volte"
 
@@ -2432,12 +2441,12 @@
 
     if-eqz v0, :cond_5f
 
-    .line 563
+    .line 565
     sget v0, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
     return v0
 
-    .line 564
+    .line 566
     :cond_5f
     const-string v0, "location"
 
@@ -2447,12 +2456,12 @@
 
     if-eqz v0, :cond_6a
 
-    .line 565
+    .line 567
     sget v0, Lcom/android/mwilky/Renovate;->mQsLocationIconColorOP:I
 
     return v0
 
-    .line 566
+    .line 568
     :cond_6a
     const-string v0, "volume"
 
@@ -2462,12 +2471,12 @@
 
     if-eqz v0, :cond_75
 
-    .line 567
+    .line 569
     sget v0, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorOP:I
 
     return v0
 
-    .line 568
+    .line 570
     :cond_75
     const-string v0, "power_saver"
 
@@ -2477,12 +2486,12 @@
 
     if-eqz v0, :cond_80
 
-    .line 569
+    .line 571
     sget v0, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorOP:I
 
     return v0
 
-    .line 570
+    .line 572
     :cond_80
     const-string v0, "networkspeed"
 
@@ -2492,12 +2501,12 @@
 
     if-eqz v0, :cond_8b
 
-    .line 571
+    .line 573
     sget v0, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorOP:I
 
     return v0
 
-    .line 573
+    .line 575
     :cond_8b
     sget v0, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColor:I
 
@@ -2508,12 +2517,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1121
+    .line 1123
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1122
+    .line 1124
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mRiceTypeKey:Ljava/lang/String;
 
@@ -2525,7 +2534,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mRiceType:I
 
-    .line 1124
+    .line 1126
     return-void
 .end method
 
@@ -2533,7 +2542,7 @@
     .registers 2
     .param p0, "SlotName"    # Ljava/lang/String;
 
-    .line 498
+    .line 500
     const-string v0, "bluetooth"
 
     invoke-virtual {p0, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -2542,12 +2551,12 @@
 
     if-eqz v0, :cond_b
 
-    .line 499
+    .line 501
     sget v0, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
     return v0
 
-    .line 500
+    .line 502
     :cond_b
     const-string v0, "location"
 
@@ -2557,12 +2566,12 @@
 
     if-eqz v0, :cond_16
 
-    .line 501
+    .line 503
     sget v0, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
     return v0
 
-    .line 502
+    .line 504
     :cond_16
     const-string v0, "alarm_clock"
 
@@ -2572,12 +2581,12 @@
 
     if-eqz v0, :cond_21
 
-    .line 503
+    .line 505
     sget v0, Lcom/android/mwilky/Renovate;->mAlarmIconColor:I
 
     return v0
 
-    .line 504
+    .line 506
     :cond_21
     const-string v0, "volume"
 
@@ -2587,12 +2596,12 @@
 
     if-eqz v0, :cond_2c
 
-    .line 505
+    .line 507
     sget v0, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
     return v0
 
-    .line 506
+    .line 508
     :cond_2c
     const-string v0, "power_saver"
 
@@ -2602,12 +2611,12 @@
 
     if-eqz v0, :cond_37
 
-    .line 507
+    .line 509
     sget v0, Lcom/android/mwilky/Renovate;->mPowerSaverIconColor:I
 
     return v0
 
-    .line 509
+    .line 511
     :cond_37
     sget v0, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
@@ -2618,17 +2627,17 @@
     .registers 2
     .param p0, "SlotName"    # Ljava/lang/String;
 
-    .line 514
+    .line 516
     sget-boolean v0, Lcom/android/mwilky/Renovate;->mUseAccentForStatusbarIcons:Z
 
     if-eqz v0, :cond_7
 
-    .line 515
+    .line 517
     sget v0, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     return v0
 
-    .line 516
+    .line 518
     :cond_7
     const-string v0, "bluetooth"
 
@@ -2638,12 +2647,12 @@
 
     if-eqz v0, :cond_12
 
-    .line 517
+    .line 519
     sget v0, Lcom/android/mwilky/Renovate;->mBluetoothIconColorOP:I
 
     return v0
 
-    .line 518
+    .line 520
     :cond_12
     const-string v0, "wifi"
 
@@ -2653,12 +2662,12 @@
 
     if-eqz v0, :cond_1d
 
-    .line 519
+    .line 521
     sget v0, Lcom/android/mwilky/Renovate;->mWifiIconColorOP:I
 
     return v0
 
-    .line 520
+    .line 522
     :cond_1d
     const-string v0, "phone_signal"
 
@@ -2668,12 +2677,12 @@
 
     if-eqz v0, :cond_28
 
-    .line 521
+    .line 523
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 522
+    .line 524
     :cond_28
     const-string v0, "data_connection"
 
@@ -2683,12 +2692,12 @@
 
     if-eqz v0, :cond_33
 
-    .line 523
+    .line 525
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 524
+    .line 526
     :cond_33
     const-string v0, "ethernet"
 
@@ -2698,12 +2707,12 @@
 
     if-eqz v0, :cond_3e
 
-    .line 525
+    .line 527
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 526
+    .line 528
     :cond_3e
     const-string v0, "mobile"
 
@@ -2713,12 +2722,12 @@
 
     if-eqz v0, :cond_49
 
-    .line 527
+    .line 529
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 528
+    .line 530
     :cond_49
     const-string v0, "phone_evdo_signal"
 
@@ -2728,12 +2737,12 @@
 
     if-eqz v0, :cond_54
 
-    .line 529
+    .line 531
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 530
+    .line 532
     :cond_54
     const-string v0, "volte"
 
@@ -2743,12 +2752,12 @@
 
     if-eqz v0, :cond_5f
 
-    .line 531
+    .line 533
     sget v0, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
     return v0
 
-    .line 532
+    .line 534
     :cond_5f
     const-string v0, "location"
 
@@ -2758,12 +2767,12 @@
 
     if-eqz v0, :cond_6a
 
-    .line 533
+    .line 535
     sget v0, Lcom/android/mwilky/Renovate;->mLocationIconColorOP:I
 
     return v0
 
-    .line 534
+    .line 536
     :cond_6a
     const-string v0, "volume"
 
@@ -2773,12 +2782,12 @@
 
     if-eqz v0, :cond_75
 
-    .line 535
+    .line 537
     sget v0, Lcom/android/mwilky/Renovate;->mVolumeIconColorOP:I
 
     return v0
 
-    .line 536
+    .line 538
     :cond_75
     const-string v0, "power_saver"
 
@@ -2788,12 +2797,12 @@
 
     if-eqz v0, :cond_80
 
-    .line 537
+    .line 539
     sget v0, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorOP:I
 
     return v0
 
-    .line 538
+    .line 540
     :cond_80
     const-string v0, "networkspeed"
 
@@ -2803,12 +2812,12 @@
 
     if-eqz v0, :cond_8b
 
-    .line 539
+    .line 541
     sget v0, Lcom/android/mwilky/Renovate;->mNetSpeedColorOP:I
 
     return v0
 
-    .line 541
+    .line 543
     :cond_8b
     sget v0, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
@@ -2819,7 +2828,7 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 587
+    .line 589
     const-string v0, "qs_header_setting"
 
     const-string v1, "color"
@@ -2834,7 +2843,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockHeaderSettingsIconColor:I
 
-    .line 588
+    .line 590
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -2845,7 +2854,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockHeaderMenuIconColor:I
 
-    .line 589
+    .line 591
     const-string v0, "qs_header_clock"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2858,7 +2867,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockHeaderClockColor:I
 
-    .line 590
+    .line 592
     const-string v0, "qs_header_date"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2871,7 +2880,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockHeaderDateColor:I
 
-    .line 591
+    .line 593
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -2882,7 +2891,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockHeaderDividerColor:I
 
-    .line 592
+    .line 594
     const-string v0, "tw_system_primary_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2895,7 +2904,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsBackgroundColor:I
 
-    .line 593
+    .line 595
     const-string v2, "qs_tile_text"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2908,7 +2917,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsTextColor:I
 
-    .line 594
+    .line 596
     const-string v2, "qs_tile_divider"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2921,7 +2930,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsDividerColor:I
 
-    .line 595
+    .line 597
     const-string v2, "qs_tile_icon_on_tint_color"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2934,7 +2943,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsIconOnColor:I
 
-    .line 596
+    .line 598
     const-string v2, "qs_tile_icon_off_tint_color"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2947,7 +2956,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsIconOffColor:I
 
-    .line 597
+    .line 599
     const-string v2, "brightness_controller_seekbar_color_activated"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2960,7 +2969,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsSliderColor:I
 
-    .line 598
+    .line 600
     const-string v2, "brightness_controller_seekbar_color_activated_thumb"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2973,7 +2982,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsSliderThumbColor:I
 
-    .line 599
+    .line 601
     const-string v2, "brightness_bar_icon_tint_color"
 
     invoke-static {v2, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -2986,7 +2995,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockQsSliderIconColor:I
 
-    .line 600
+    .line 602
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -2997,7 +3006,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockQsDragHandleBackgroundColor:I
 
-    .line 601
+    .line 603
     const-string v0, "qs_handler_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3010,7 +3019,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockQsDragHandleIconColor:I
 
-    .line 602
+    .line 604
     const-string v0, "data_usage_text_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3023,7 +3032,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockQsDataUsageTextColor:I
 
-    .line 603
+    .line 605
     const-string v0, "qs_page_indicator_tint_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3036,7 +3045,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockQsPageIndicatorColor:I
 
-    .line 604
+    .line 606
     const-string v0, "notification_material_background_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3049,7 +3058,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNotificationbackgroundColor:I
 
-    .line 605
+    .line 607
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -3060,7 +3069,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNotificationPanelbackgroundColor:I
 
-    .line 606
+    .line 608
     const-string v0, "bottom_bar_button_text_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3073,7 +3082,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNotificationFooterTextColor:I
 
-    .line 607
+    .line 609
     const-string v0, "qs_detail_header_text_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3086,7 +3095,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNotificationTitleTextColor:I
 
-    .line 608
+    .line 610
     const-string v0, "notification_keyguard_original_gear_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3099,7 +3108,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNotificationSummaryTextColor:I
 
-    .line 609
+    .line 611
     const-string v0, "notification_panel_carrier_label_text_color"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3112,7 +3121,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNotificationCarrierTextColor:I
 
-    .line 610
+    .line 612
     const-string v0, "navbar_icon_color_light"
 
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -3125,7 +3134,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNavbarPinIconColor:I
 
-    .line 611
+    .line 613
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -3136,7 +3145,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNavbarBackIconColor:I
 
-    .line 612
+    .line 614
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -3147,7 +3156,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNavbarHomeIconColor:I
 
-    .line 613
+    .line 615
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -3158,7 +3167,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNavbarRecentsIconColor:I
 
-    .line 614
+    .line 616
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -3169,7 +3178,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mStockNavbarMenuIconColor:I
 
-    .line 615
+    .line 617
     invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v0
@@ -3180,7 +3189,7 @@
 
     sput v0, Lcom/android/mwilky/Renovate;->mStockNavbarImeIconColor:I
 
-    .line 617
+    .line 619
     return-void
 .end method
 
@@ -3188,12 +3197,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1046
+    .line 1048
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1047
+    .line 1049
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideBrightnessWarningKey:Ljava/lang/String;
 
@@ -3209,7 +3218,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideBrightnessWarning:Z
 
-    .line 1049
+    .line 1051
     return-void
 .end method
 
@@ -3217,12 +3226,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 852
+    .line 854
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 853
+    .line 855
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideIrisViewKey:Ljava/lang/String;
 
@@ -3238,7 +3247,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideIrisView:Z
 
-    .line 854
+    .line 856
     return-void
 .end method
 
@@ -3246,12 +3255,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1103
+    .line 1105
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1104
+    .line 1106
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideLockscreenHelpTextKey:Ljava/lang/String;
 
@@ -3267,7 +3276,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenHelpText:Z
 
-    .line 1106
+    .line 1108
     return-void
 .end method
 
@@ -3275,12 +3284,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1097
+    .line 1099
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1098
+    .line 1100
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideLockscreenClockKey:Ljava/lang/String;
 
@@ -3296,7 +3305,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenClock:Z
 
-    .line 1100
+    .line 1102
     return-void
 .end method
 
@@ -3304,12 +3313,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1091
+    .line 1093
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1092
+    .line 1094
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideNotifCarrierTextKey:Ljava/lang/String;
 
@@ -3325,7 +3334,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideNotifCarrierText:Z
 
-    .line 1094
+    .line 1096
     return-void
 .end method
 
@@ -3333,12 +3342,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1059
+    .line 1061
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1060
+    .line 1062
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideVolumeWarningKey:Ljava/lang/String;
 
@@ -3354,7 +3363,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideVolumeWarning:Z
 
-    .line 1062
+    .line 1064
     return-void
 .end method
 
@@ -3362,12 +3371,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1021
+    .line 1023
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1022
+    .line 1024
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "current_sec_active_themepackage"
 
@@ -3375,7 +3384,7 @@
 
     move-result-object v1
 
-    .line 1023
+    .line 1025
     .local v1, "isThemeActive":Ljava/lang/String;
     if-eqz v1, :cond_1f
 
@@ -3395,7 +3404,7 @@
 
     goto :goto_1f
 
-    .line 1026
+    .line 1028
     :cond_1b
     const/4 v2, 0x1
 
@@ -3403,14 +3412,14 @@
 
     goto :goto_22
 
-    .line 1024
+    .line 1026
     :cond_1f
     :goto_1f
     const/4 v2, 0x0
 
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mCustomThemeActive:Z
 
-    .line 1028
+    .line 1030
     :goto_22
     return-void
 .end method
@@ -3419,12 +3428,12 @@
     .registers 7
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1457
+    .line 1459
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1458
+    .line 1460
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const/4 v1, 0x2
 
@@ -3434,7 +3443,7 @@
 
     move-result v2
 
-    .line 1459
+    .line 1461
     .local v2, "theme":I
     const/4 v3, 0x0
 
@@ -3444,37 +3453,37 @@
 
     move-result v4
 
-    .line 1460
+    .line 1462
     .local v4, "specialTheme":I
     const/4 v5, 0x1
 
     if-ne v4, v5, :cond_16
 
-    .line 1461
+    .line 1463
     return v5
 
-    .line 1463
+    .line 1465
     :cond_16
     if-ne v2, v5, :cond_19
 
-    .line 1464
+    .line 1466
     return v5
 
-    .line 1466
+    .line 1468
     :cond_19
     if-nez v2, :cond_1c
 
-    .line 1467
+    .line 1469
     return v3
 
-    .line 1469
+    .line 1471
     :cond_1c
     if-ne v2, v1, :cond_1f
 
-    .line 1470
+    .line 1472
     return v5
 
-    .line 1472
+    .line 1474
     :cond_1f
     return v3
 .end method
@@ -3483,12 +3492,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 857
+    .line 859
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 858
+    .line 860
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mCustomThemeActive:Z
 
@@ -3513,7 +3522,7 @@
     :cond_16
     sput-boolean v2, Lcom/android/mwilky/Renovate;->mScrambleKeypad:Z
 
-    .line 860
+    .line 862
     return-void
 .end method
 
@@ -3521,12 +3530,12 @@
     .registers 11
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1392
+    .line 1394
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1393
+    .line 1395
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "oem_black_mode_accent_color"
 
@@ -3534,7 +3543,7 @@
 
     move-result-object v1
 
-    .line 1394
+    .line 1396
     .local v1, "HexColorBlack":Ljava/lang/String;
     const-string v2, "oem_white_mode_accent_color"
 
@@ -3542,7 +3551,7 @@
 
     move-result-object v2
 
-    .line 1395
+    .line 1397
     .local v2, "HexColorWhite":Ljava/lang/String;
     const/4 v3, 0x2
 
@@ -3552,7 +3561,7 @@
 
     move-result v4
 
-    .line 1396
+    .line 1398
     .local v4, "theme":I
     const-string v5, "oem_special_theme"
 
@@ -3562,20 +3571,20 @@
 
     move-result v5
 
-    .line 1397
+    .line 1399
     .local v5, "specialTheme":I
     const/4 v6, 0x1
 
     if-ne v5, v6, :cond_27
 
-    .line 1398
+    .line 1400
     const v3, -0x43fd3
 
     sput v3, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     goto :goto_68
 
-    .line 1399
+    .line 1401
     :cond_27
     const/16 v7, 0x10
 
@@ -3583,7 +3592,7 @@
 
     if-ne v4, v6, :cond_47
 
-    .line 1400
+    .line 1402
     const-string v9, "oem_black_mode_accent_color_index"
 
     invoke-static {v0, v9, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3592,7 +3601,7 @@
 
     if-ne v3, v8, :cond_3b
 
-    .line 1401
+    .line 1403
     invoke-static {v1}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
@@ -3601,13 +3610,13 @@
 
     goto :goto_68
 
-    .line 1403
+    .line 1405
     :cond_3b
     invoke-virtual {v1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v1
 
-    .line 1404
+    .line 1406
     invoke-static {v1, v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -3618,11 +3627,11 @@
 
     goto :goto_68
 
-    .line 1406
+    .line 1408
     :cond_47
     if-nez v4, :cond_64
 
-    .line 1407
+    .line 1409
     const-string v9, "oem_white_mode_accent_color_index"
 
     invoke-static {v0, v9, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3631,7 +3640,7 @@
 
     if-ne v3, v8, :cond_58
 
-    .line 1408
+    .line 1410
     invoke-static {v2}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
 
     move-result v3
@@ -3640,13 +3649,13 @@
 
     goto :goto_68
 
-    .line 1410
+    .line 1412
     :cond_58
     invoke-virtual {v2, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object v2
 
-    .line 1411
+    .line 1413
     invoke-static {v2, v7}, Ljava/lang/Long;->parseLong(Ljava/lang/String;I)J
 
     move-result-wide v6
@@ -3657,14 +3666,14 @@
 
     goto :goto_68
 
-    .line 1413
+    .line 1415
     :cond_64
     if-ne v4, v3, :cond_68
 
-    .line 1414
+    .line 1416
     sput v8, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
-    .line 1416
+    .line 1418
     :cond_68
     :goto_68
     return-void
@@ -3674,12 +3683,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1428
+    .line 1430
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1429
+    .line 1431
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -3701,7 +3710,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mAlbumArtBlurAmount:F
 
-    .line 1430
+    .line 1432
     return-void
 .end method
 
@@ -3709,12 +3718,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1443
+    .line 1445
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1444
+    .line 1446
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotificationsKey:Ljava/lang/String;
 
@@ -3730,7 +3739,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotifications:Z
 
-    .line 1445
+    .line 1447
     return-void
 .end method
 
@@ -3738,12 +3747,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1387
+    .line 1389
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1388
+    .line 1390
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mAnimScaleKey:Ljava/lang/String;
 
@@ -3755,7 +3764,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mAnimScale:F
 
-    .line 1389
+    .line 1391
     return-void
 .end method
 
@@ -3763,12 +3772,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1358
+    .line 1360
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1359
+    .line 1361
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodAppNameKey:Ljava/lang/String;
 
@@ -3784,7 +3793,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodAppName:Z
 
-    .line 1360
+    .line 1362
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodAppIconKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3797,7 +3806,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodAppIcon:Z
 
-    .line 1361
+    .line 1363
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodTitleKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3810,7 +3819,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodTitle:Z
 
-    .line 1362
+    .line 1364
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodSmallTextKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3823,7 +3832,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodSmallText:Z
 
-    .line 1363
+    .line 1365
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodFingerprintKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -3836,7 +3845,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodFingerprint:Z
 
-    .line 1364
+    .line 1366
     return-void
 .end method
 
@@ -3844,12 +3853,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1372
+    .line 1374
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1373
+    .line 1375
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mAodOnNewNotificationsKey:Ljava/lang/String;
 
@@ -3865,7 +3874,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAodOnNewNotifications:Z
 
-    .line 1374
+    .line 1376
     return-void
 .end method
 
@@ -3873,12 +3882,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1193
+    .line 1195
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1194
+    .line 1196
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mBiometricAfterRebootKey:Ljava/lang/String;
 
@@ -3894,7 +3903,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mBiometricAfterReboot:Z
 
-    .line 1195
+    .line 1197
     return-void
 .end method
 
@@ -3902,12 +3911,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1343
+    .line 1345
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1344
+    .line 1346
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mBrightnessSliderPositionKey:Ljava/lang/String;
 
@@ -3919,7 +3928,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBrightnessSliderPosition:I
 
-    .line 1345
+    .line 1347
     return-void
 .end method
 
@@ -3927,12 +3936,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1269
+    .line 1271
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1270
+    .line 1272
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mCenterClockKey:Ljava/lang/String;
 
@@ -3948,7 +3957,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mCenterClock:Z
 
-    .line 1271
+    .line 1273
     return-void
 .end method
 
@@ -3956,12 +3965,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1070
+    .line 1072
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1071
+    .line 1073
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mClockOnClickKey:Ljava/lang/String;
 
@@ -3977,7 +3986,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mClockOnClick:Z
 
-    .line 1073
+    .line 1075
     return-void
 .end method
 
@@ -3985,12 +3994,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1109
+    .line 1111
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1110
+    .line 1112
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mClockSecondsKey:Ljava/lang/String;
 
@@ -4006,7 +4015,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mClockSeconds:Z
 
-    .line 1112
+    .line 1114
     return-void
 .end method
 
@@ -4014,12 +4023,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1419
+    .line 1421
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1420
+    .line 1422
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotificationsKey:Ljava/lang/String;
 
@@ -4035,7 +4044,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
 
-    .line 1421
+    .line 1423
     sget-object v1, Lcom/android/mwilky/Renovate;->mUseAccentColorForEdgeNotificationsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4048,7 +4057,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentColorForEdgeNotifications:Z
 
-    .line 1422
+    .line 1424
     sget-object v1, Lcom/android/mwilky/Renovate;->mLeftEdgeNotificationColorKey:Ljava/lang/String;
 
     const v3, -0x712901
@@ -4059,7 +4068,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mLeftEdgeNotificationColor:I
 
-    .line 1423
+    .line 1425
     sget-object v1, Lcom/android/mwilky/Renovate;->mRightEdgeNotificationColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4068,7 +4077,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mRightEdgeNotificationColor:I
 
-    .line 1424
+    .line 1426
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockEdgeColorsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4081,7 +4090,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockEdgeColors:Z
 
-    .line 1425
+    .line 1427
     return-void
 .end method
 
@@ -4089,12 +4098,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1353
+    .line 1355
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1354
+    .line 1356
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mDarkQsIconsKey:Ljava/lang/String;
 
@@ -4110,7 +4119,36 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mDarkQsIcons:Z
 
-    .line 1355
+    .line 1357
+    return-void
+.end method
+
+.method public static setDisableSmartReplies(Landroid/content/Context;)V
+    .registers 4
+    .param p0, "Context"    # Landroid/content/Context;
+
+    .line 1478
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 1479
+    .local v0, "ContentResolver":Landroid/content/ContentResolver;
+    sget-object v1, Lcom/android/mwilky/Renovate;->mDisableSmartRepliesKey:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/mwilky/Renovate;->changeIntToBool(I)Z
+
+    move-result v1
+
+    sput-boolean v1, Lcom/android/mwilky/Renovate;->mDisableSmartReplies:Z
+
+    .line 1480
     return-void
 .end method
 
@@ -4118,12 +4156,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1036
+    .line 1038
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1037
+    .line 1039
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mDoubleTapStatusbarSleepKey:Ljava/lang/String;
 
@@ -4139,7 +4177,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mDoubleTapStatusbarSleep:Z
 
-    .line 1039
+    .line 1041
     return-void
 .end method
 
@@ -4147,12 +4185,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1377
+    .line 1379
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1378
+    .line 1380
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifsKey:Ljava/lang/String;
 
@@ -4168,7 +4206,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
 
-    .line 1379
+    .line 1381
     return-void
 .end method
 
@@ -4176,12 +4214,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1382
+    .line 1384
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1383
+    .line 1385
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCountKey:Ljava/lang/String;
 
@@ -4193,7 +4231,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCount:I
 
-    .line 1384
+    .line 1386
     return-void
 .end method
 
@@ -4201,12 +4239,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1188
+    .line 1190
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1189
+    .line 1191
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mExpandedNotificationsKey:Ljava/lang/String;
 
@@ -4222,7 +4260,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExpandedNotifications:Z
 
-    .line 1190
+    .line 1192
     return-void
 .end method
 
@@ -4230,12 +4268,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1141
+    .line 1143
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1142
+    .line 1144
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedThemingKey:Ljava/lang/String;
 
@@ -4251,7 +4289,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedTheming:Z
 
-    .line 1143
+    .line 1145
     return-void
 .end method
 
@@ -4259,12 +4297,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1234
+    .line 1236
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1235
+    .line 1237
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelKey:Ljava/lang/String;
 
@@ -4280,7 +4318,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanel:Z
 
-    .line 1236
+    .line 1238
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelMediaKey:Ljava/lang/String;
 
     const/4 v3, 0x1
@@ -4295,7 +4333,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelMedia:Z
 
-    .line 1237
+    .line 1239
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelRingerKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4308,7 +4346,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelRinger:Z
 
-    .line 1238
+    .line 1240
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelAlarmKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4321,7 +4359,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelAlarm:Z
 
-    .line 1239
+    .line 1241
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelCallKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4334,7 +4372,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelCall:Z
 
-    .line 1240
+    .line 1242
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelBCallKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4347,7 +4385,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelBCall:Z
 
-    .line 1241
+    .line 1243
     sget-object v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelNotifKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4360,7 +4398,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mExtendedVolumePanelNotif:Z
 
-    .line 1242
+    .line 1244
     return-void
 .end method
 
@@ -4368,12 +4406,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1076
+    .line 1078
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1077
+    .line 1079
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mFlashlightLowBatteryKey:Ljava/lang/String;
 
@@ -4389,7 +4427,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mFlashlightLowBattery:Z
 
-    .line 1079
+    .line 1081
     return-void
 .end method
 
@@ -4397,18 +4435,18 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 924
+    .line 926
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 925
+    .line 927
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockHeaderColors:Z
 
     if-eqz v1, :cond_3b
 
-    .line 926
+    .line 928
     sget-object v1, Lcom/android/mwilky/Renovate;->mHeaderSettingsIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockHeaderSettingsIconColor:I
@@ -4419,7 +4457,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderSettingsIconColor:I
 
-    .line 927
+    .line 929
     sget-object v1, Lcom/android/mwilky/Renovate;->mHeaderMenuIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockHeaderMenuIconColor:I
@@ -4430,7 +4468,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderMenuIconColor:I
 
-    .line 928
+    .line 930
     sget-object v1, Lcom/android/mwilky/Renovate;->mHeaderClockColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockHeaderClockColor:I
@@ -4441,7 +4479,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderClockColor:I
 
-    .line 929
+    .line 931
     sget-object v1, Lcom/android/mwilky/Renovate;->mHeaderDateColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockHeaderDateColor:I
@@ -4452,7 +4490,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderDateColor:I
 
-    .line 930
+    .line 932
     sget-object v1, Lcom/android/mwilky/Renovate;->mHeaderDividerColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockHeaderDividerColor:I
@@ -4465,33 +4503,33 @@
 
     goto :goto_4f
 
-    .line 933
+    .line 935
     :cond_3b
     sget v1, Lcom/android/mwilky/Renovate;->mStockHeaderSettingsIconColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderSettingsIconColor:I
 
-    .line 934
+    .line 936
     sget v1, Lcom/android/mwilky/Renovate;->mStockHeaderMenuIconColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderMenuIconColor:I
 
-    .line 935
+    .line 937
     sget v1, Lcom/android/mwilky/Renovate;->mStockHeaderClockColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderClockColor:I
 
-    .line 936
+    .line 938
     sget v1, Lcom/android/mwilky/Renovate;->mStockHeaderDateColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderDateColor:I
 
-    .line 937
+    .line 939
     sget v1, Lcom/android/mwilky/Renovate;->mStockHeaderDividerColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mHeaderDividerColor:I
 
-    .line 939
+    .line 941
     :goto_4f
     return-void
 .end method
@@ -4500,12 +4538,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1274
+    .line 1276
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1275
+    .line 1277
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideCallSliderKey:Ljava/lang/String;
 
@@ -4521,7 +4559,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideCallSlider:Z
 
-    .line 1276
+    .line 1278
     return-void
 .end method
 
@@ -4529,12 +4567,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1183
+    .line 1185
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1184
+    .line 1186
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideLockscreenAlbumArtKey:Ljava/lang/String;
 
@@ -4550,7 +4588,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenAlbumArt:Z
 
-    .line 1185
+    .line 1187
     return-void
 .end method
 
@@ -4558,12 +4596,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1229
+    .line 1231
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1230
+    .line 1232
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideQsLabelsKey:Ljava/lang/String;
 
@@ -4579,7 +4617,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideQsLabels:Z
 
-    .line 1231
+    .line 1233
     return-void
 .end method
 
@@ -4587,12 +4625,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1452
+    .line 1454
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1453
+    .line 1455
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHorizonRepeatModeKey:Ljava/lang/String;
 
@@ -4608,7 +4646,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHorizonRepeatMode:Z
 
-    .line 1454
+    .line 1456
     return-void
 .end method
 
@@ -4616,12 +4654,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1064
+    .line 1066
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1065
+    .line 1067
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotationKey:Ljava/lang/String;
 
@@ -4637,7 +4675,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mKeyguardScreenRotation:Z
 
-    .line 1067
+    .line 1069
     return-void
 .end method
 
@@ -4645,12 +4683,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1041
+    .line 1043
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1042
+    .line 1044
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mLockQsInLockscreenKey:Ljava/lang/String;
 
@@ -4666,7 +4704,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mLockQsInLockscreen:Z
 
-    .line 1044
+    .line 1046
     return-void
 .end method
 
@@ -4674,12 +4712,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1214
+    .line 1216
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1215
+    .line 1217
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcutsKey:Ljava/lang/String;
 
@@ -4695,7 +4733,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenShortcuts:Z
 
-    .line 1216
+    .line 1218
     return-void
 .end method
 
@@ -4703,12 +4741,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1178
+    .line 1180
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1179
+    .line 1181
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideLockscreenStatusbarKey:Ljava/lang/String;
 
@@ -4724,7 +4762,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideLockscreenStatusbar:Z
 
-    .line 1180
+    .line 1182
     return-void
 .end method
 
@@ -4732,12 +4770,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1348
+    .line 1350
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1349
+    .line 1351
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mMediaSeekbarKey:Ljava/lang/String;
 
@@ -4753,7 +4791,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mMediaSeekbar:Z
 
-    .line 1350
+    .line 1352
     return-void
 .end method
 
@@ -4761,12 +4799,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1011
+    .line 1013
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1012
+    .line 1014
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarPinIconColorKey:Ljava/lang/String;
 
@@ -4778,7 +4816,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarPinIconColor:I
 
-    .line 1013
+    .line 1015
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarBackIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNavbarBackIconColor:I
@@ -4789,7 +4827,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarBackIconColor:I
 
-    .line 1014
+    .line 1016
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarHomeIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNavbarHomeIconColor:I
@@ -4800,7 +4838,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarHomeIconColor:I
 
-    .line 1015
+    .line 1017
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarRecentsIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNavbarRecentsIconColor:I
@@ -4811,7 +4849,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarRecentsIconColor:I
 
-    .line 1016
+    .line 1018
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarMenuIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNavbarMenuIconColor:I
@@ -4822,7 +4860,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarMenuIconColor:I
 
-    .line 1017
+    .line 1019
     sget-object v1, Lcom/android/mwilky/Renovate;->mNavbarImeIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNavbarImeIconColor:I
@@ -4833,7 +4871,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNavbarImeIconColor:I
 
-    .line 1018
+    .line 1020
     return-void
 .end method
 
@@ -4841,12 +4879,12 @@
     .registers 6
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1127
+    .line 1129
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1129
+    .line 1131
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "oem_black_mode"
 
@@ -4856,13 +4894,13 @@
 
     move-result v1
 
-    .line 1130
+    .line 1132
     .local v1, "theme":I
     const-string v2, "color"
 
     if-eqz v1, :cond_26
 
-    .line 1131
+    .line 1133
     const-string v3, "black_system_primary_color"
 
     invoke-static {v3, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -4875,7 +4913,7 @@
 
     sput v4, Lcom/android/mwilky/Renovate;->mOPNotificationBackgroundColor:I
 
-    .line 1132
+    .line 1134
     invoke-static {v3, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -4888,7 +4926,7 @@
 
     goto :goto_3e
 
-    .line 1134
+    .line 1136
     :cond_26
     const-string v3, "notification_material_background_color"
 
@@ -4902,7 +4940,7 @@
 
     sput v3, Lcom/android/mwilky/Renovate;->mOPNotificationBackgroundColor:I
 
-    .line 1135
+    .line 1137
     const-string v3, "notification_shade_background_color"
 
     invoke-static {v3, v2}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -4915,7 +4953,7 @@
 
     sput v2, Lcom/android/mwilky/Renovate;->mOPNotificationShadeBackgroundColor:I
 
-    .line 1138
+    .line 1140
     :goto_3e
     return-void
 .end method
@@ -4924,12 +4962,12 @@
     .registers 6
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 942
+    .line 944
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 943
+    .line 945
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
 
@@ -4939,7 +4977,7 @@
 
     if-eqz v1, :cond_5c
 
-    .line 944
+    .line 946
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationBackgroundColorKey:Ljava/lang/String;
 
     sget v4, Lcom/android/mwilky/Renovate;->mStockNotificationbackgroundColor:I
@@ -4950,7 +4988,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
 
-    .line 945
+    .line 947
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationPanelBackgroundColorKey:Ljava/lang/String;
 
     sget v4, Lcom/android/mwilky/Renovate;->mStockNotificationbackgroundColor:I
@@ -4961,7 +4999,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationPanelbackgroundColor:I
 
-    .line 946
+    .line 948
     sget-object v1, Lcom/android/mwilky/Renovate;->mAllowTransparentNotificationsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4974,7 +5012,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAllowTransparentNotifications:Z
 
-    .line 947
+    .line 949
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationBackgroundAlphaKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -4983,7 +5021,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationBackgroundAlpha:I
 
-    .line 948
+    .line 950
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNotificationFooterTextColor:I
@@ -4994,7 +5032,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
 
-    .line 949
+    .line 951
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNotificationTitleTextColor:I
@@ -5005,7 +5043,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
 
-    .line 950
+    .line 952
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNotificationSummaryTextColor:I
@@ -5016,7 +5054,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
 
-    .line 951
+    .line 953
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationCarrierTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockNotificationCarrierTextColor:I
@@ -5029,44 +5067,44 @@
 
     goto :goto_78
 
-    .line 953
+    .line 955
     :cond_5c
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationbackgroundColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
 
-    .line 954
+    .line 956
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationPanelbackgroundColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
 
-    .line 955
+    .line 957
     sput-boolean v3, Lcom/android/mwilky/Renovate;->mAllowTransparentNotifications:Z
 
-    .line 956
+    .line 958
     sput v2, Lcom/android/mwilky/Renovate;->mNotificationBackgroundAlpha:I
 
-    .line 957
+    .line 959
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationFooterTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationFooterTextColor:I
 
-    .line 958
+    .line 960
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationTitleTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
 
-    .line 959
+    .line 961
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationSummaryTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
 
-    .line 960
+    .line 962
     sget v1, Lcom/android/mwilky/Renovate;->mStockNotificationCarrierTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationCarrierTextColor:I
 
-    .line 962
+    .line 964
     :goto_78
     return-void
 .end method
@@ -5075,12 +5113,12 @@
     .registers 8
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 965
+    .line 967
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 966
+    .line 968
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const/4 v1, 0x0
 
@@ -5090,7 +5128,7 @@
 
     move-result v2
 
-    .line 967
+    .line 969
     .local v2, "mUseAccentForPrimaryTextColor":I
     const-string v3, "tweaks_notification_text_accent_secondary"
 
@@ -5098,7 +5136,7 @@
 
     move-result v3
 
-    .line 968
+    .line 970
     .local v3, "mUseAccentForSecondaryTextColor":I
     sget-boolean v4, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
 
@@ -5106,17 +5144,17 @@
 
     if-eqz v4, :cond_3d
 
-    .line 969
+    .line 971
     if-ne v2, v5, :cond_1d
 
-    .line 970
+    .line 972
     sget v4, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v4, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
 
     goto :goto_29
 
-    .line 972
+    .line 974
     :cond_1d
     invoke-static {p0, v5}, Lcom/android/mwilky/Renovate;->getNotificationTextColorForTheme(Landroid/content/Context;Z)I
 
@@ -5130,18 +5168,18 @@
 
     sput v4, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
 
-    .line 974
+    .line 976
     :goto_29
     if-ne v3, v5, :cond_30
 
-    .line 975
+    .line 977
     sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
 
     goto :goto_49
 
-    .line 977
+    .line 979
     :cond_30
     invoke-static {p0, v1}, Lcom/android/mwilky/Renovate;->getNotificationTextColorForTheme(Landroid/content/Context;Z)I
 
@@ -5157,7 +5195,7 @@
 
     goto :goto_49
 
-    .line 980
+    .line 982
     :cond_3d
     invoke-static {p0, v5}, Lcom/android/mwilky/Renovate;->getNotificationTextColorForTheme(Landroid/content/Context;Z)I
 
@@ -5165,14 +5203,14 @@
 
     sput v4, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
 
-    .line 981
+    .line 983
     invoke-static {p0, v1}, Lcom/android/mwilky/Renovate;->getNotificationTextColorForTheme(Landroid/content/Context;Z)I
 
     move-result v1
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
 
-    .line 983
+    .line 985
     :goto_49
     return-void
 .end method
@@ -5181,12 +5219,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1245
+    .line 1247
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1246
+    .line 1248
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mOreoQsKey:Ljava/lang/String;
 
@@ -5202,7 +5240,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mOreoQs:Z
 
-    .line 1247
+    .line 1249
     return-void
 .end method
 
@@ -5210,12 +5248,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 886
+    .line 888
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 887
+    .line 889
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mShowRebootDownloadKey:Ljava/lang/String;
 
@@ -5231,7 +5269,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootDownload:Z
 
-    .line 888
+    .line 890
     sget-object v1, Lcom/android/mwilky/Renovate;->mShowRebootRecoveryKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -5244,7 +5282,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootRecovery:Z
 
-    .line 889
+    .line 891
     sget-object v1, Lcom/android/mwilky/Renovate;->mShowRebootEmergencyKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -5257,7 +5295,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowRebootEmergency:Z
 
-    .line 890
+    .line 892
     return-void
 .end method
 
@@ -5265,12 +5303,12 @@
     .registers 5
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1207
+    .line 1209
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1208
+    .line 1210
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsAnimationStyleKey:Ljava/lang/String;
 
@@ -5282,7 +5320,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsAnimationStyle:I
 
-    .line 1209
+    .line 1211
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsAnimationDurationKey:Ljava/lang/String;
 
     const/16 v3, 0x7d0
@@ -5293,7 +5331,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsAnimationDuration:I
 
-    .line 1210
+    .line 1212
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsAnimationInterpolatorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -5302,7 +5340,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsAnimationInterpolator:I
 
-    .line 1211
+    .line 1213
     return-void
 .end method
 
@@ -5310,18 +5348,18 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1260
+    .line 1262
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1261
+    .line 1263
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockQsColors:Z
 
     if-eqz v1, :cond_17
 
-    .line 1262
+    .line 1264
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
@@ -5338,7 +5376,7 @@
 
     goto :goto_1f
 
-    .line 1264
+    .line 1266
     :cond_17
     sget v1, Lcom/oneplus/util/ThemeColorUtils;->QS_PANEL_PRIMARY:I
 
@@ -5348,7 +5386,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColor:I
 
-    .line 1266
+    .line 1268
     :goto_1f
     return-void
 .end method
@@ -5357,18 +5395,18 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 893
+    .line 895
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 894
+    .line 896
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockQsColors:Z
 
     if-eqz v1, :cond_81
 
-    .line 895
+    .line 897
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsBackgroundColor:I
@@ -5379,7 +5417,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColor:I
 
-    .line 896
+    .line 898
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsTextColor:I
@@ -5390,7 +5428,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsTextColor:I
 
-    .line 897
+    .line 899
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsDividerColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsDividerColor:I
@@ -5401,7 +5439,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDividerColor:I
 
-    .line 898
+    .line 900
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsIconOnColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsIconOnColor:I
@@ -5412,7 +5450,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsIconOnColor:I
 
-    .line 899
+    .line 901
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsIconOffColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsIconOffColor:I
@@ -5423,7 +5461,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsIconOffColor:I
 
-    .line 900
+    .line 902
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSliderColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsSliderColor:I
@@ -5434,7 +5472,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderColor:I
 
-    .line 901
+    .line 903
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSliderThumbColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsSliderThumbColor:I
@@ -5445,7 +5483,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderThumbColor:I
 
-    .line 902
+    .line 904
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSliderIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsSliderIconColor:I
@@ -5456,7 +5494,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderIconColor:I
 
-    .line 903
+    .line 905
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsDragHandleBackgroundColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsDragHandleBackgroundColor:I
@@ -5467,7 +5505,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDragHandleBackgroundColor:I
 
-    .line 904
+    .line 906
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsDragHandleIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsDragHandleIconColor:I
@@ -5478,7 +5516,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDragHandleIconColor:I
 
-    .line 905
+    .line 907
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsDataUsageTextColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsDataUsageTextColor:I
@@ -5489,7 +5527,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDataUsageTextColor:I
 
-    .line 906
+    .line 908
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsPageIndicatorColorKey:Ljava/lang/String;
 
     sget v2, Lcom/android/mwilky/Renovate;->mStockQsPageIndicatorColor:I
@@ -5502,68 +5540,68 @@
 
     goto :goto_b1
 
-    .line 908
+    .line 910
     :cond_81
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsBackgroundColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBackgroundColor:I
 
-    .line 909
+    .line 911
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsTextColor:I
 
-    .line 910
+    .line 912
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsDividerColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDividerColor:I
 
-    .line 911
+    .line 913
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsIconOnColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsIconOnColor:I
 
-    .line 912
+    .line 914
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsIconOffColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsIconOffColor:I
 
-    .line 913
+    .line 915
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsSliderColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderColor:I
 
-    .line 914
+    .line 916
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsSliderThumbColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderThumbColor:I
 
-    .line 915
+    .line 917
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsSliderIconColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSliderIconColor:I
 
-    .line 916
+    .line 918
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsDragHandleBackgroundColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDragHandleBackgroundColor:I
 
-    .line 917
+    .line 919
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsDragHandleIconColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDragHandleIconColor:I
 
-    .line 918
+    .line 920
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsDataUsageTextColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDataUsageTextColor:I
 
-    .line 919
+    .line 921
     sget v1, Lcom/android/mwilky/Renovate;->mStockQsPageIndicatorColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsPageIndicatorColor:I
 
-    .line 921
+    .line 923
     :goto_b1
     return-void
 .end method
@@ -5572,12 +5610,12 @@
     .registers 14
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1279
+    .line 1281
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1280
+    .line 1282
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     const-string v1, "oem_black_mode"
 
@@ -5587,7 +5625,7 @@
 
     move-result v1
 
-    .line 1281
+    .line 1283
     .local v1, "theme":I
     sget-object v2, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
@@ -5601,7 +5639,7 @@
 
     move-result v2
 
-    .line 1282
+    .line 1284
     .local v2, "clock_color":I
     sget-object v3, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
@@ -5615,7 +5653,7 @@
 
     move-result v3
 
-    .line 1283
+    .line 1285
     .local v3, "date_color":I
     sget-object v4, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
@@ -5629,7 +5667,7 @@
 
     move-result v4
 
-    .line 1284
+    .line 1286
     .local v4, "wifi_color":I
     sget-object v5, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
@@ -5643,7 +5681,7 @@
 
     move-result v5
 
-    .line 1285
+    .line 1287
     .local v5, "data_color":I
     sget-object v6, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
@@ -5657,7 +5695,7 @@
 
     move-result v6
 
-    .line 1286
+    .line 1288
     .local v6, "misc_color":I
     sget-object v7, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
@@ -5671,7 +5709,7 @@
 
     move-result v7
 
-    .line 1287
+    .line 1289
     .local v7, "bluetooth_color":I
     sget-object v8, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
@@ -5685,7 +5723,7 @@
 
     move-result v8
 
-    .line 1288
+    .line 1290
     .local v8, "volume_color":I
     sget-object v9, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
@@ -5699,7 +5737,7 @@
 
     move-result v9
 
-    .line 1289
+    .line 1291
     .local v9, "netspeed_color":I
     const v10, -0xe2e2e3
 
@@ -5707,152 +5745,152 @@
 
     if-eqz v1, :cond_aa
 
-    .line 1290
+    .line 1292
     if-ne v2, v10, :cond_78
 
-    .line 1291
+    .line 1293
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1293
+    .line 1295
     :cond_78
     if-ne v4, v10, :cond_7f
 
-    .line 1294
+    .line 1296
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1296
+    .line 1298
     :cond_7f
     if-ne v3, v10, :cond_86
 
-    .line 1297
+    .line 1299
     sget-object v12, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1299
+    .line 1301
     :cond_86
     if-ne v5, v10, :cond_8d
 
-    .line 1300
+    .line 1302
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1302
+    .line 1304
     :cond_8d
     if-ne v6, v10, :cond_94
 
-    .line 1303
+    .line 1305
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1305
+    .line 1307
     :cond_94
     if-ne v7, v10, :cond_9b
 
-    .line 1306
+    .line 1308
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1308
+    .line 1310
     :cond_9b
     if-ne v8, v10, :cond_a2
 
-    .line 1309
+    .line 1311
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1311
+    .line 1313
     :cond_a2
     if-ne v9, v10, :cond_e2
 
-    .line 1312
+    .line 1314
     sget-object v10, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v10, v11}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_e2
 
-    .line 1315
+    .line 1317
     :cond_aa
     if-ne v2, v11, :cond_b1
 
-    .line 1316
+    .line 1318
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1318
+    .line 1320
     :cond_b1
     if-ne v4, v11, :cond_b8
 
-    .line 1319
+    .line 1321
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1321
+    .line 1323
     :cond_b8
     if-ne v3, v11, :cond_bf
 
-    .line 1322
+    .line 1324
     sget-object v12, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1324
+    .line 1326
     :cond_bf
     if-ne v5, v11, :cond_c6
 
-    .line 1325
+    .line 1327
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1327
+    .line 1329
     :cond_c6
     if-ne v6, v11, :cond_cd
 
-    .line 1328
+    .line 1330
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1330
+    .line 1332
     :cond_cd
     if-ne v7, v11, :cond_d4
 
-    .line 1331
+    .line 1333
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1333
+    .line 1335
     :cond_d4
     if-ne v8, v11, :cond_db
 
-    .line 1334
+    .line 1336
     sget-object v12, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v12, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1336
+    .line 1338
     :cond_db
     if-ne v9, v11, :cond_e2
 
-    .line 1337
+    .line 1339
     sget-object v11, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v11, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    .line 1340
+    .line 1342
     :cond_e2
     :goto_e2
     return-void
@@ -5862,16 +5900,16 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 724
+    .line 726
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 725
+    .line 727
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     invoke-static {p0}, Lcom/android/mwilky/Renovate;->getRiceType(Landroid/content/Context;)V
 
-    .line 726
+    .line 728
     sget-object v1, Lcom/android/mwilky/Renovate;->mGlobalQsIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -5886,88 +5924,88 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mGlobalQsIconColorOP:I
 
-    .line 727
+    .line 729
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentForQsIcons:Z
 
     if-eqz v1, :cond_4d
 
-    .line 728
+    .line 730
     sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColor:I
 
-    .line 729
+    .line 731
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
 
-    .line 730
+    .line 732
     sput v1, Lcom/android/mwilky/Renovate;->mQsDateColor:I
 
-    .line 731
+    .line 733
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColor:I
 
-    .line 732
+    .line 734
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorOP:I
 
-    .line 733
+    .line 735
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColor:I
 
-    .line 734
+    .line 736
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
-    .line 735
+    .line 737
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColor:I
 
-    .line 736
+    .line 738
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorOP:I
 
-    .line 737
+    .line 739
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColor:I
 
-    .line 738
+    .line 740
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColorOP:I
 
-    .line 739
+    .line 741
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
 
-    .line 740
+    .line 742
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorOP:I
 
-    .line 741
+    .line 743
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColor:I
 
-    .line 742
+    .line 744
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryPercentColor:I
 
-    .line 743
+    .line 745
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
 
-    .line 744
+    .line 746
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorOP:I
 
-    .line 745
+    .line 747
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColor:I
 
-    .line 746
+    .line 748
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorOP:I
 
-    .line 747
+    .line 749
     sput v1, Lcom/android/mwilky/Renovate;->mQsAlarmIconColor:I
 
-    .line 748
+    .line 750
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColor:I
 
-    .line 749
+    .line 751
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorOP:I
 
-    .line 750
+    .line 752
     sput v1, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorOP:I
 
-    .line 751
+    .line 753
     sput v1, Lcom/android/mwilky/Renovate;->mQsZenIconColorOP:I
 
     goto/16 :goto_1d5
 
-    .line 752
+    .line 754
     :cond_4d
     sget v1, Lcom/android/mwilky/Renovate;->mRiceType:I
 
@@ -5975,7 +6013,7 @@
 
     if-ne v1, v2, :cond_1a3
 
-    .line 753
+    .line 755
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -5990,7 +6028,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColor:I
 
-    .line 754
+    .line 756
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsClockColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6005,7 +6043,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
 
-    .line 755
+    .line 757
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarDateColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6020,7 +6058,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsDateColor:I
 
-    .line 756
+    .line 758
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6035,7 +6073,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColor:I
 
-    .line 757
+    .line 759
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6050,7 +6088,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorOP:I
 
-    .line 758
+    .line 760
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6065,7 +6103,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColor:I
 
-    .line 759
+    .line 761
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6080,7 +6118,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
-    .line 760
+    .line 762
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6095,7 +6133,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColor:I
 
-    .line 761
+    .line 763
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6110,7 +6148,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorOP:I
 
-    .line 762
+    .line 764
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6125,7 +6163,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColor:I
 
-    .line 763
+    .line 765
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMisColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6140,7 +6178,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColorOP:I
 
-    .line 764
+    .line 766
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6155,7 +6193,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
 
-    .line 765
+    .line 767
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6170,7 +6208,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorOP:I
 
-    .line 766
+    .line 768
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6185,7 +6223,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColor:I
 
-    .line 767
+    .line 769
     sget-object v1, Lcom/android/mwilky/Renovate;->mQSsBatteryPercentColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6200,7 +6238,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryPercentColor:I
 
-    .line 768
+    .line 770
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6215,7 +6253,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
 
-    .line 769
+    .line 771
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6230,7 +6268,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorOP:I
 
-    .line 770
+    .line 772
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6245,7 +6283,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColor:I
 
-    .line 771
+    .line 773
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6260,7 +6298,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorOP:I
 
-    .line 772
+    .line 774
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsAlarmIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6275,7 +6313,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsAlarmIconColor:I
 
-    .line 773
+    .line 775
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6290,7 +6328,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColor:I
 
-    .line 774
+    .line 776
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6305,7 +6343,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorOP:I
 
-    .line 775
+    .line 777
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6320,7 +6358,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorOP:I
 
-    .line 776
+    .line 778
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsZenIconColorKey:Ljava/lang/String;
 
     sget v2, Lcom/oneplus/util/ThemeColorUtils;->QS_PRIMARY_TEXT:I
@@ -6337,82 +6375,82 @@
 
     goto :goto_1d5
 
-    .line 778
+    .line 780
     :cond_1a3
     sget v1, Lcom/android/mwilky/Renovate;->mGlobalQsIconColorOP:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColor:I
 
-    .line 779
+    .line 781
     sput v1, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
 
-    .line 780
+    .line 782
     sput v1, Lcom/android/mwilky/Renovate;->mQsDateColor:I
 
-    .line 781
+    .line 783
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColor:I
 
-    .line 782
+    .line 784
     sput v1, Lcom/android/mwilky/Renovate;->mQsWifiIconColorOP:I
 
-    .line 783
+    .line 785
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColor:I
 
-    .line 784
+    .line 786
     sput v1, Lcom/android/mwilky/Renovate;->mQsSignalIconColorOP:I
 
-    .line 785
+    .line 787
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColor:I
 
-    .line 786
+    .line 788
     sput v1, Lcom/android/mwilky/Renovate;->mQsMobileDataIconColorOP:I
 
-    .line 787
+    .line 789
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColor:I
 
-    .line 788
+    .line 790
     sput v1, Lcom/android/mwilky/Renovate;->mQsStatusbarMiscColorOP:I
 
-    .line 789
+    .line 791
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColor:I
 
-    .line 790
+    .line 792
     sput v1, Lcom/android/mwilky/Renovate;->mQsBluetoothIconColorOP:I
 
-    .line 791
+    .line 793
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryIconColor:I
 
-    .line 792
+    .line 794
     sput v1, Lcom/android/mwilky/Renovate;->mQsBatteryPercentColor:I
 
-    .line 793
+    .line 795
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColor:I
 
-    .line 794
+    .line 796
     sput v1, Lcom/android/mwilky/Renovate;->mQsVolumeIconColorOP:I
 
-    .line 795
+    .line 797
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColor:I
 
-    .line 796
+    .line 798
     sput v1, Lcom/android/mwilky/Renovate;->mQsLocationIconColorOP:I
 
-    .line 797
+    .line 799
     sput v1, Lcom/android/mwilky/Renovate;->mQsAlarmIconColor:I
 
-    .line 798
+    .line 800
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColor:I
 
-    .line 799
+    .line 801
     sput v1, Lcom/android/mwilky/Renovate;->mQsPowerSaverIconColorOP:I
 
-    .line 800
+    .line 802
     sput v1, Lcom/android/mwilky/Renovate;->mQsNetSpeedColorOP:I
 
-    .line 801
+    .line 803
     sput v1, Lcom/android/mwilky/Renovate;->mQsZenIconColorOP:I
 
-    .line 804
+    .line 806
     :goto_1d5
     return-void
 .end method
@@ -6421,12 +6459,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 881
+    .line 883
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 882
+    .line 884
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsInLockscreenKey:Ljava/lang/String;
 
@@ -6442,7 +6480,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mQsInLockscreen:Z
 
-    .line 883
+    .line 885
     return-void
 .end method
 
@@ -6450,12 +6488,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 863
+    .line 865
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 864
+    .line 866
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsRowsKey:Ljava/lang/String;
 
@@ -6467,7 +6505,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsRows:I
 
-    .line 865
+    .line 867
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsRowsLandscapeKey:Ljava/lang/String;
 
     const/4 v2, 0x2
@@ -6478,7 +6516,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsRowsLandscape:I
 
-    .line 866
+    .line 868
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsColumnsKey:Ljava/lang/String;
 
     const/4 v2, 0x4
@@ -6489,7 +6527,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsColumns:I
 
-    .line 867
+    .line 869
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsColumnsLandscapeKey:Ljava/lang/String;
 
     const/4 v2, 0x6
@@ -6500,7 +6538,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQsColumnsLandscape:I
 
-    .line 868
+    .line 870
     sget-object v1, Lcom/android/mwilky/Renovate;->mQuickQsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -6509,7 +6547,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQuickQsNumber:I
 
-    .line 869
+    .line 871
     sget-object v1, Lcom/android/mwilky/Renovate;->mQuickQsLandscapeKey:Ljava/lang/String;
 
     const/16 v2, 0xa
@@ -6520,7 +6558,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mQuickQsNumberLandscape:I
 
-    .line 870
+    .line 872
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideBrightnessSliderKey:Ljava/lang/String;
 
     const/4 v2, 0x0
@@ -6535,7 +6573,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mHideBrightnessSlider:Z
 
-    .line 871
+    .line 873
     return-void
 .end method
 
@@ -6543,12 +6581,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1115
+    .line 1117
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1116
+    .line 1118
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mQsVibrationKey:Ljava/lang/String;
 
@@ -6564,7 +6602,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mQsVibration:Z
 
-    .line 1118
+    .line 1120
     return-void
 .end method
 
@@ -6572,12 +6610,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1031
+    .line 1033
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1032
+    .line 1034
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mQuickQsPulldownKey:Ljava/lang/String;
 
@@ -6593,7 +6631,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:Z
 
-    .line 1034
+    .line 1036
     return-void
 .end method
 
@@ -6601,12 +6639,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1439
+    .line 1441
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1440
+    .line 1442
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mRightHandVolumeMenuKey:Ljava/lang/String;
 
@@ -6622,7 +6660,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mRightHandVolumeMenu:Z
 
-    .line 1441
+    .line 1443
     return-void
 .end method
 
@@ -6630,12 +6668,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1447
+    .line 1449
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1448
+    .line 1450
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mShowQsDetailKey:Ljava/lang/String;
 
@@ -6651,7 +6689,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mShowQsDetail:Z
 
-    .line 1449
+    .line 1451
     return-void
 .end method
 
@@ -6659,12 +6697,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1198
+    .line 1200
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1199
+    .line 1201
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mSmartPulldownKey:Ljava/lang/String;
 
@@ -6676,7 +6714,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mSmartPulldown:I
 
-    .line 1200
+    .line 1202
     return-void
 .end method
 
@@ -6684,12 +6722,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1219
+    .line 1221
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1220
+    .line 1222
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mUseAccentForStatusbarIconsKey:Ljava/lang/String;
 
@@ -6705,7 +6743,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentForStatusbarIcons:Z
 
-    .line 1221
+    .line 1223
     return-void
 .end method
 
@@ -6713,12 +6751,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1224
+    .line 1226
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1225
+    .line 1227
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mUseAccentForQsIconsKey:Ljava/lang/String;
 
@@ -6734,7 +6772,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentForQsIcons:Z
 
-    .line 1226
+    .line 1228
     return-void
 .end method
 
@@ -6742,12 +6780,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1052
+    .line 1054
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1053
+    .line 1055
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarBlurKey:Ljava/lang/String;
 
@@ -6763,7 +6801,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mStatusbarBlur:Z
 
-    .line 1054
+    .line 1056
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarBlurAmountKey:Ljava/lang/String;
 
     const/16 v2, 0xa
@@ -6774,7 +6812,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarBlurAmount:I
 
-    .line 1056
+    .line 1058
     return-void
 .end method
 
@@ -6782,12 +6820,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1433
+    .line 1435
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1434
+    .line 1436
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarBrightnessControlKey:Ljava/lang/String;
 
@@ -6803,7 +6841,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mStatusbarBrightnessControl:Z
 
-    .line 1435
+    .line 1437
     sget-object v1, Lcom/android/mwilky/Renovate;->mLockscreenStatusbarBrightnessControlKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -6816,7 +6854,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mLockscreenStatusbarBrightnessControl:Z
 
-    .line 1436
+    .line 1438
     sget-object v1, Lcom/android/mwilky/Renovate;->mAutoBrightnessEnabledKey:Ljava/lang/String;
 
     const/4 v2, 0x1
@@ -6831,7 +6869,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mAutoBrightnessEnabled:Z
 
-    .line 1437
+    .line 1439
     return-void
 .end method
 
@@ -6839,16 +6877,16 @@
     .registers 6
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 620
+    .line 622
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 621
+    .line 623
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     invoke-static {p0}, Lcom/android/mwilky/Renovate;->getRiceType(Landroid/content/Context;)V
 
-    .line 622
+    .line 624
     sget-object v1, Lcom/android/mwilky/Renovate;->mGlobalStatusbarIconColorKey:Ljava/lang/String;
 
     const/4 v2, -0x1
@@ -6859,7 +6897,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mGlobalStatusbarIconColorOP:I
 
-    .line 623
+    .line 625
     sget-object v1, Lcom/android/mwilky/Renovate;->mDarkIconColorKey:Ljava/lang/String;
 
     const/high16 v3, -0x67000000
@@ -6870,109 +6908,109 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
 
-    .line 624
+    .line 626
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentForStatusbarIcons:Z
 
     if-eqz v1, :cond_60
 
-    .line 625
+    .line 627
     sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColor:I
 
-    .line 626
+    .line 628
     sput v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
 
-    .line 627
+    .line 629
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
 
-    .line 628
+    .line 630
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColorOP:I
 
-    .line 629
+    .line 631
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColor:I
 
-    .line 630
+    .line 632
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorOP:I
 
-    .line 631
+    .line 633
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
 
-    .line 632
+    .line 634
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
-    .line 633
+    .line 635
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColor:I
 
-    .line 634
+    .line 636
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorOP:I
 
-    .line 635
+    .line 637
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
-    .line 636
+    .line 638
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColorOP:I
 
-    .line 637
+    .line 639
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColor:I
 
-    .line 638
+    .line 640
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorOP:I
 
-    .line 639
+    .line 641
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
-    .line 640
+    .line 642
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorOP:I
 
-    .line 641
+    .line 643
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
 
-    .line 642
+    .line 644
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
 
-    .line 643
+    .line 645
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
-    .line 644
+    .line 646
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorOP:I
 
-    .line 645
+    .line 647
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
-    .line 646
+    .line 648
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColorOP:I
 
-    .line 647
+    .line 649
     sput v1, Lcom/android/mwilky/Renovate;->mAlarmIconColor:I
 
-    .line 648
+    .line 650
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColor:I
 
-    .line 649
+    .line 651
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorOP:I
 
-    .line 650
+    .line 652
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColor:I
 
-    .line 651
+    .line 653
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorOP:I
 
-    .line 652
+    .line 654
     sput v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
-    .line 653
+    .line 655
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColor:I
 
-    .line 654
+    .line 656
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorOP:I
 
-    .line 655
+    .line 657
     sput v1, Lcom/android/mwilky/Renovate;->mZenIconColorOP:I
 
     goto/16 :goto_1a2
 
-    .line 656
+    .line 658
     :cond_60
     sget v1, Lcom/android/mwilky/Renovate;->mRiceType:I
 
@@ -6980,7 +7018,7 @@
 
     if-ne v1, v3, :cond_164
 
-    .line 657
+    .line 659
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarClockColorKey:Ljava/lang/String;
 
     const v3, -0x42000001    # -0.12499999f
@@ -6991,7 +7029,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColor:I
 
-    .line 658
+    .line 660
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarClockColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7000,7 +7038,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
 
-    .line 659
+    .line 661
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7009,7 +7047,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
 
-    .line 660
+    .line 662
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7018,7 +7056,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColorOP:I
 
-    .line 661
+    .line 663
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7027,7 +7065,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColor:I
 
-    .line 662
+    .line 664
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7036,7 +7074,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorOP:I
 
-    .line 663
+    .line 665
     sget-object v1, Lcom/android/mwilky/Renovate;->mSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7045,7 +7083,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
 
-    .line 664
+    .line 666
     sget-object v1, Lcom/android/mwilky/Renovate;->mSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7054,7 +7092,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
-    .line 665
+    .line 667
     sget-object v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7063,7 +7101,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColor:I
 
-    .line 666
+    .line 668
     sget-object v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7072,7 +7110,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorOP:I
 
-    .line 667
+    .line 669
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7081,7 +7119,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
-    .line 668
+    .line 670
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7090,7 +7128,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColorOP:I
 
-    .line 669
+    .line 671
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7099,7 +7137,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColor:I
 
-    .line 670
+    .line 672
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7108,7 +7146,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorOP:I
 
-    .line 671
+    .line 673
     sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7117,7 +7155,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
-    .line 672
+    .line 674
     sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7126,7 +7164,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorOP:I
 
-    .line 673
+    .line 675
     sget-object v1, Lcom/android/mwilky/Renovate;->mBatteryIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7135,7 +7173,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
 
-    .line 674
+    .line 676
     sget-object v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7144,7 +7182,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
 
-    .line 675
+    .line 677
     sget-object v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7153,7 +7191,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
-    .line 676
+    .line 678
     sget-object v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7162,7 +7200,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorOP:I
 
-    .line 677
+    .line 679
     sget-object v1, Lcom/android/mwilky/Renovate;->mLocationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7171,7 +7209,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
-    .line 678
+    .line 680
     sget-object v1, Lcom/android/mwilky/Renovate;->mLocationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7180,7 +7218,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColorOP:I
 
-    .line 679
+    .line 681
     sget-object v1, Lcom/android/mwilky/Renovate;->mAlarmIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7189,7 +7227,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mAlarmIconColor:I
 
-    .line 680
+    .line 682
     sget-object v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7198,7 +7236,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColor:I
 
-    .line 681
+    .line 683
     sget-object v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7207,7 +7245,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorOP:I
 
-    .line 682
+    .line 684
     sget-object v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7216,7 +7254,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColor:I
 
-    .line 683
+    .line 685
     sget-object v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7225,7 +7263,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorOP:I
 
-    .line 684
+    .line 686
     sget-object v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColorKey:Ljava/lang/String;
 
     const v4, -0xdadadb
@@ -7236,7 +7274,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
-    .line 685
+    .line 687
     sget-object v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7245,7 +7283,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColor:I
 
-    .line 686
+    .line 688
     sget-object v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7254,7 +7292,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorOP:I
 
-    .line 687
+    .line 689
     sget-object v1, Lcom/android/mwilky/Renovate;->mZenIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7265,100 +7303,100 @@
 
     goto :goto_1a2
 
-    .line 689
+    .line 691
     :cond_164
     sget v1, Lcom/android/mwilky/Renovate;->mGlobalStatusbarIconColorOP:I
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColor:I
 
-    .line 690
+    .line 692
     sput v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
 
-    .line 691
+    .line 693
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
 
-    .line 692
+    .line 694
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColorOP:I
 
-    .line 693
+    .line 695
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColor:I
 
-    .line 694
+    .line 696
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorOP:I
 
-    .line 695
+    .line 697
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
 
-    .line 696
+    .line 698
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
-    .line 697
+    .line 699
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColor:I
 
-    .line 698
+    .line 700
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorOP:I
 
-    .line 699
+    .line 701
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
-    .line 700
+    .line 702
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColorOP:I
 
-    .line 701
+    .line 703
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColor:I
 
-    .line 702
+    .line 704
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorOP:I
 
-    .line 703
+    .line 705
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
-    .line 704
+    .line 706
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorOP:I
 
-    .line 705
+    .line 707
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
 
-    .line 706
+    .line 708
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
 
-    .line 707
+    .line 709
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
-    .line 708
+    .line 710
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorOP:I
 
-    .line 709
+    .line 711
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
-    .line 710
+    .line 712
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColorOP:I
 
-    .line 711
+    .line 713
     sput v1, Lcom/android/mwilky/Renovate;->mAlarmIconColor:I
 
-    .line 712
+    .line 714
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColor:I
 
-    .line 713
+    .line 715
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorOP:I
 
-    .line 714
+    .line 716
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColor:I
 
-    .line 715
+    .line 717
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorOP:I
 
-    .line 716
+    .line 718
     sput v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
-    .line 717
+    .line 719
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorOP:I
 
-    .line 718
+    .line 720
     sput v1, Lcom/android/mwilky/Renovate;->mZenIconColorOP:I
 
-    .line 721
+    .line 723
     :goto_1a2
     return-void
 .end method
@@ -7367,16 +7405,16 @@
     .registers 6
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 807
+    .line 809
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 808
+    .line 810
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     invoke-static {p0}, Lcom/android/mwilky/Renovate;->getRiceType(Landroid/content/Context;)V
 
-    .line 809
+    .line 811
     sget-object v1, Lcom/android/mwilky/Renovate;->mGlobalStatusbarIconColorKey:Ljava/lang/String;
 
     const/4 v2, -0x1
@@ -7387,7 +7425,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mGlobalStatusbarIconColorOP:I
 
-    .line 810
+    .line 812
     sget-object v1, Lcom/android/mwilky/Renovate;->mDarkIconColorKey:Ljava/lang/String;
 
     const/high16 v3, -0x67000000
@@ -7398,7 +7436,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
 
-    .line 811
+    .line 813
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarClockColorKey:Ljava/lang/String;
 
     const v3, -0x42000001    # -0.12499999f
@@ -7409,7 +7447,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColor:I
 
-    .line 812
+    .line 814
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarClockColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7418,7 +7456,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
 
-    .line 813
+    .line 815
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7427,7 +7465,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColor:I
 
-    .line 814
+    .line 816
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7436,7 +7474,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiIconColorOP:I
 
-    .line 815
+    .line 817
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7445,7 +7483,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColor:I
 
-    .line 816
+    .line 818
     sget-object v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7454,7 +7492,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mWifiActivityIconColorOP:I
 
-    .line 817
+    .line 819
     sget-object v1, Lcom/android/mwilky/Renovate;->mSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7463,7 +7501,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColor:I
 
-    .line 818
+    .line 820
     sget-object v1, Lcom/android/mwilky/Renovate;->mSignalIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7472,7 +7510,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mSignalIconColorOP:I
 
-    .line 819
+    .line 821
     sget-object v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7481,7 +7519,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColor:I
 
-    .line 820
+    .line 822
     sget-object v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7490,7 +7528,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mMobileDataIconColorOP:I
 
-    .line 821
+    .line 823
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7499,7 +7537,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColor:I
 
-    .line 822
+    .line 824
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarMisColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7508,7 +7546,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mStatusbarMiscColorOP:I
 
-    .line 823
+    .line 825
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7517,7 +7555,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColor:I
 
-    .line 824
+    .line 826
     sget-object v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7526,7 +7564,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNotificationIconColorOP:I
 
-    .line 825
+    .line 827
     sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7535,7 +7573,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColor:I
 
-    .line 826
+    .line 828
     sget-object v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7544,7 +7582,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBluetoothIconColorOP:I
 
-    .line 827
+    .line 829
     sget-object v1, Lcom/android/mwilky/Renovate;->mBatteryIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7553,7 +7591,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryIconColor:I
 
-    .line 828
+    .line 830
     sget-object v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7562,7 +7600,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mBatteryPercentColor:I
 
-    .line 829
+    .line 831
     sget-object v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7571,7 +7609,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColor:I
 
-    .line 830
+    .line 832
     sget-object v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7580,7 +7618,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mVolumeIconColorOP:I
 
-    .line 831
+    .line 833
     sget-object v1, Lcom/android/mwilky/Renovate;->mLocationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7589,7 +7627,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColor:I
 
-    .line 832
+    .line 834
     sget-object v1, Lcom/android/mwilky/Renovate;->mLocationIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7598,7 +7636,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mLocationIconColorOP:I
 
-    .line 833
+    .line 835
     sget-object v1, Lcom/android/mwilky/Renovate;->mAlarmIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7607,7 +7645,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mAlarmIconColor:I
 
-    .line 834
+    .line 836
     sget-object v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7616,7 +7654,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColor:I
 
-    .line 835
+    .line 837
     sget-object v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7625,7 +7663,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mPowerSaverIconColorOP:I
 
-    .line 836
+    .line 838
     sget-object v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7634,7 +7672,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColor:I
 
-    .line 837
+    .line 839
     sget-object v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7643,7 +7681,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mNetSpeedColorOP:I
 
-    .line 838
+    .line 840
     sget-object v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColorKey:Ljava/lang/String;
 
     const v4, -0xdadadb
@@ -7654,7 +7692,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
-    .line 839
+    .line 841
     sget-object v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7663,7 +7701,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColor:I
 
-    .line 840
+    .line 842
     sget-object v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7672,7 +7710,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mCarrierTextColorOP:I
 
-    .line 841
+    .line 843
     sget-object v1, Lcom/android/mwilky/Renovate;->mZenIconColorKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7681,7 +7719,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mZenIconColorOP:I
 
-    .line 842
+    .line 844
     return-void
 .end method
 
@@ -7689,12 +7727,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1203
+    .line 1205
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1204
+    .line 1206
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mStatusbarPeekKey:Ljava/lang/String;
 
@@ -7710,7 +7748,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mStatusbarPeek:Z
 
-    .line 1205
+    .line 1207
     return-void
 .end method
 
@@ -7718,12 +7756,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 845
+    .line 847
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 846
+    .line 848
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mClockPositionKey:Ljava/lang/String;
 
@@ -7735,7 +7773,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mClockPosition:I
 
-    .line 847
+    .line 849
     sget-object v1, Lcom/android/mwilky/Renovate;->mHideBatteryViewKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7744,7 +7782,7 @@
 
     sput v1, Lcom/android/mwilky/Renovate;->mHideBatteryView:I
 
-    .line 848
+    .line 850
     sget-object v1, Lcom/android/mwilky/Renovate;->mSwapBatteryPositionKey:Ljava/lang/String;
 
     const/4 v2, 0x1
@@ -7759,7 +7797,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mSwapBatteryPosition:Z
 
-    .line 849
+    .line 851
     return-void
 .end method
 
@@ -7767,12 +7805,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1250
+    .line 1252
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1251
+    .line 1253
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mTorchAutoOffKey:Ljava/lang/String;
 
@@ -7788,7 +7826,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mTorchAutoOff:Z
 
-    .line 1252
+    .line 1254
     return-void
 .end method
 
@@ -7796,12 +7834,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1255
+    .line 1257
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1256
+    .line 1258
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mTorchPowerScreenOffKey:Ljava/lang/String;
 
@@ -7817,7 +7855,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mTorchPowerScreenOff:Z
 
-    .line 1257
+    .line 1259
     return-void
 .end method
 
@@ -7825,12 +7863,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 1367
+    .line 1369
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 1368
+    .line 1370
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlinkVolumeKey:Ljava/lang/String;
 
@@ -7846,7 +7884,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlinkVolume:Z
 
-    .line 1369
+    .line 1371
     return-void
 .end method
 
@@ -7854,12 +7892,12 @@
     .registers 4
     .param p0, "Context"    # Landroid/content/Context;
 
-    .line 578
+    .line 580
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    .line 579
+    .line 581
     .local v0, "ContentResolver":Landroid/content/ContentResolver;
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockStatusbarColorsKey:Ljava/lang/String;
 
@@ -7875,7 +7913,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockStatusbarColors:Z
 
-    .line 580
+    .line 582
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockHeadersColorsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7888,7 +7926,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockHeaderColors:Z
 
-    .line 581
+    .line 583
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockQsColorsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7901,7 +7939,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockQsColors:Z
 
-    .line 582
+    .line 584
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockNotificationColorsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7914,7 +7952,7 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
 
-    .line 583
+    .line 585
     sget-object v1, Lcom/android/mwilky/Renovate;->mUnlockNavbarColorsKey:Ljava/lang/String;
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
@@ -7927,32 +7965,32 @@
 
     sput-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockNavbarColors:Z
 
-    .line 585
+    .line 587
     return-void
 .end method
 
 .method public static updateDarkBattery()V
     .registers 2
 
-    .line 1083
+    .line 1085
     sget v0, Lcom/android/mwilky/Renovate;->mDarkIconColor:I
 
     const/high16 v1, -0x67000000
 
     if-ne v0, v1, :cond_c
 
-    .line 1084
+    .line 1086
     const v0, -0xdadadb
 
     sput v0, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
     goto :goto_e
 
-    .line 1086
+    .line 1088
     :cond_c
     sput v0, Lcom/android/mwilky/Renovate;->mDarkBatteryIconColor:I
 
-    .line 1088
+    .line 1090
     :goto_e
     return-void
 .end method
