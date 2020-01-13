@@ -2016,4 +2016,18 @@ Credential storage might not enable"</string>
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="short_sunday">Sun.</string>
+	<string name="short_monday">Mon.</string>
+	<string name="short_tuesday">Tue.</string>
+	<string name="short_wednesday">Wed.</string>
+	<string name="short_thursday">Thu.</string>
+	<string name="short_friday">Fri.</string>
+	<string name="short_saturday">Sat.</string>
+	<string name="long_sunday">Sunday</string>
+	<string name="long_monday">Monday</string>
+	<string name="long_tuesday">Tuesday</string>
+	<string name="long_wednesday">Wednesday</string>
+	<string name="long_thursday">Thursday</string>
+	<string name="long_friday">Friday</string>
+	<string name="long_saturday">Saturday</string>
 </resources>

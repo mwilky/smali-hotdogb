@@ -1311,6 +1311,8 @@
     invoke-super {p0, p1}, Landroid/widget/RelativeLayout;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
     invoke-direct {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateResources()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setClockPosition()V
 
     iget p1, p1, Landroid/content/res/Configuration;->orientation:I
 
@@ -1562,6 +1564,8 @@
     check-cast v0, Lcom/android/systemui/statusbar/policy/Clock;
 
     iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->setQsHeader()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
     
@@ -1583,6 +1587,8 @@
 
     iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightClockView:Lcom/android/systemui/statusbar/policy/ClockRight;
 
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockRight;->setQsHeader()V
+    
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightClockView:Lcom/android/systemui/statusbar/policy/ClockRight;
     
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
@@ -1602,12 +1608,12 @@
     check-cast v0, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;
 
     iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCenterClockView:Lcom/android/systemui/statusbar/policy/ClockCenterHeader;
+    
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->setQsHeader()V
 
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mCenterClockView:Lcom/android/systemui/statusbar/policy/ClockCenterHeader;
     
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-    
-    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setClockPosition()V
 
     sget v0, Lcom/android/systemui/R$id;->date:I
 

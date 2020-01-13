@@ -51,3 +51,24 @@
 
     return v1
 .end method
+
+.method public static getSecureDbIntForKey(Ljava/lang/String;I)I
+    .registers 3
+    .param p0, "str"    # Ljava/lang/String;
+    .param p1, "i"    # I
+
+    .line 15
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-static {v0, p0, p1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
+.end method

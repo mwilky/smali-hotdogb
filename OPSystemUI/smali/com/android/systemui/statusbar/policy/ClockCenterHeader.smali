@@ -132,28 +132,3 @@
 
     return-void
 .end method
-.method public onDarkChanged(Landroid/graphics/Rect;FI)V
-    .locals 1
-    
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->setTextColor()V
-
-    return-void
-.end method
-
-.method public setTextColor()V
-    .locals 1
-    
-    sget v0, Lcom/android/mwilky/Renovate;->mQsClockColorOP:I
-    
-    invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->setTextColor(I)V
-
-    return-void
-.end method
-
-.method public updateViews(F)V
-    .locals 1
-    
-    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->setTextColor()V
-
-    return-void
-.end method
