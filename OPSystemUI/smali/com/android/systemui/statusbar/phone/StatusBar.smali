@@ -17345,6 +17345,8 @@
     
     invoke-virtual {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setClockPosition()V
     
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateCustomClock()V
+    
     :cond_exit
     return-void
 .end method
@@ -18115,9 +18117,9 @@
 
     invoke-direct {v0, v1, v2}, Landroid/app/Notification$Builder;-><init>(Landroid/content/Context;Ljava/lang/String;)V
     
-    invoke-virtual {v0}, Landroid/app/Notification$Builder;->updateTextColors()V
+    #invoke-virtual {v0}, Landroid/app/Notification$Builder;->updateTextColors()V
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->sendTheme()V
+    #invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->sendTheme()V
 
 	return-void
 .end method
@@ -18257,11 +18259,5 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/notification/row/HybridNotificationView;->updateTextColors()V
     
     :cond_exit
-    return-void
-.end method
-
-.method updateOtherNotificationView()V
-    .locals 1
-    
     return-void
 .end method

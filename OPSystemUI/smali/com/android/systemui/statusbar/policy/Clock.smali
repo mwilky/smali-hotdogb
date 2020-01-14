@@ -16,8 +16,6 @@
 
 
 # instance fields
-.field protected mQsHeader:Z
-
 .field private mAmPmCustomFont:Landroid/graphics/Typeface; 
 
 .field private mAmPmFloat:F 
@@ -165,7 +163,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 4
+    .locals 3
 
     invoke-direct {p0, p1, p2, p3}, Landroid/widget/TextView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -174,6 +172,16 @@
     iput-boolean p3, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
 
     iput-boolean p3, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByUser:Z
+    
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
 
     new-instance v0, Lcom/android/systemui/statusbar/policy/Clock$2;
 
@@ -240,15 +248,6 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCurrentUserTracker:Lcom/android/systemui/settings/CurrentUserTracker;
     
-    iget-boolean v3, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-    
-    if-nez v3, :cond_qs
-
-    const/16 v3, 0x8 
-
-    invoke-virtual {p0, v3}, Lcom/android/systemui/statusbar/policy/Clock;->setVisibility(I)V
-
-    :cond_qs
     const-string v0, "long_sunday" 
 
     const-string v1, "string"
@@ -945,19 +944,8 @@
 .method private updateShowSeconds()V
     .locals 6
     
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar; 
-
-    move-result-object v0 
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
-    
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-    
-    if-nez v0, :cond_qs
-    
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->printCustomClock()V
 
-    :cond_qs
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->showSeconds()Z
 
     move-result v0
@@ -1033,7 +1021,7 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->releaseReceiver()V
 
     :cond_2
-    :goto_0    
+    :goto_0
     return-void
 .end method
 
@@ -1367,16 +1355,6 @@
     iput v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCurrentUserId:I
 
     :cond_1
-    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljava/util/Calendar;->getInstance(Ljava/util/TimeZone;)Ljava/util/Calendar;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
-
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClock()V
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->updateClockVisibility()V
@@ -1430,19 +1408,8 @@
     
     iput v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mSeparatorTint:I
     
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar; 
-
-    move-result-object v0 
-
-    iput-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
-    
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-    
-    if-nez v0, :cond_qs
-    
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->printCustomClock()V
 
-    :cond_qs
     return-void
 .end method
 
@@ -1661,13 +1628,13 @@
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v1
+    move-result v0
 
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
 
-    const-string v1, "visibility"
+    const-string v0, "visibility"
 
-    invoke-virtual {p1, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
     move-result v1
 
@@ -1675,19 +1642,11 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->getInt(Ljava/lang/String;)I
 
-    move-result v1
+    move-result p1
 
-    invoke-super {p0, v1}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-super {p0, p1}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_2
-    const-string v1, "qsheader"
-
-    invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v1
-
-    iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-    
     return-void
 
     :cond_3
@@ -1738,17 +1697,11 @@
 
     invoke-virtual {p0}, Landroid/widget/TextView;->getVisibility()I
 
-    move-result v2
+    move-result p0
 
     const-string/jumbo v1, "visibility"
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
-    
-    iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-
-    const-string v1, "qsheader"
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     return-object v0
 .end method
@@ -1879,19 +1832,11 @@
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/Clock;->getSmallTime()Ljava/lang/CharSequence;
 
     move-result-object v0
-    
-    iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-    
-    if-eqz v1, :cond_statusbar
 
     invoke-virtual {p0, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
     
-    goto :goto_qs
-    
-    :cond_statusbar
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->printCustomClock()V
 
-    :goto_qs
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mContentDescriptionFormat:Ljava/text/SimpleDateFormat;
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mCalendar:Ljava/util/Calendar;
@@ -3604,14 +3549,4 @@
         :pswitch_9
         :pswitch_6
     .end packed-switch
-.end method
-
-.method public setQsHeader()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mQsHeader:Z
-
-    return-void
 .end method

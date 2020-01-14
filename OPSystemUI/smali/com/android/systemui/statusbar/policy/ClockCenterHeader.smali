@@ -132,3 +132,12 @@
 
     return-void
 .end method
+.method public onDarkChanged(Landroid/graphics/Rect;FI)V
+    .locals 1
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
+    
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/Clock;->printCustomClock()V
+
+    return-void
+.end method
