@@ -18,6 +18,8 @@
 
 
 # instance fields
+.field private mQsIcons:Landroid/view/View;
+
 .field private mBrightnessController:Lcom/android/systemui/settings/BrightnessController;
 
 .field private mBrightnessMirror:Landroid/view/View;
@@ -1398,6 +1400,8 @@
     move-result-object v0
 
     check-cast v0, Lcom/android/systemui/statusbar/phone/StatusIconContainer;
+    
+    iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsIcons:Landroid/view/View;
 
     const/4 v1, 0x0
 
@@ -1616,6 +1620,8 @@
     check-cast v0, Lcom/android/systemui/statusbar/policy/DateView;
 
     iput-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setViewsVisibility()V
 
     sget v0, Lcom/android/systemui/R$id;->batteryRemainingIcon:I
 
@@ -2478,3 +2484,47 @@
     :cond_exit
     return-void
 .end method
+
+.method public setViewsVisibility()V
+    .registers 3
+
+    .line 81
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/DateView;->setVisibility(I)V
+
+    .line 82
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsIcons:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 83
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideQsDateView:Z
+
+    const/4 v1, 0x4
+
+    if-eqz v0, :cond_15
+
+    .line 84
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mDateView:Lcom/android/systemui/statusbar/policy/DateView;
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/policy/DateView;->setVisibility(I)V
+
+    .line 86
+    :cond_15
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mHideQsStatusbarIconView:Z
+
+    if-eqz v0, :cond_1e
+
+    .line 87
+    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mQsIcons:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    .line 89
+    :cond_1e
+    return-void
+.end method
+
