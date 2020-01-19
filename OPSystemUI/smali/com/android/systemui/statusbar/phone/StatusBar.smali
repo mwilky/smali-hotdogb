@@ -18159,7 +18159,7 @@
     
     #invoke-virtual {v0}, Landroid/app/Notification$Builder;->updateTextColors()V
 
-    #invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->sendTheme()V
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/StatusBar;->sendTheme()V
 
 	return-void
 .end method
