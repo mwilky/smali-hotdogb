@@ -492,7 +492,7 @@
     
     if-nez v3, :cond_stock4
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationExpandButtonColor:I
     
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
