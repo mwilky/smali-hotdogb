@@ -55,7 +55,7 @@
     
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->mLabelView:Landroid/widget/TextView;
     
-    sget v1, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v1, Lcom/android/mwilky/Renovate;->mNotificationOtherTextColor:I
     
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -77,7 +77,7 @@
     
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/stack/SectionHeaderView;->mClearAllButton:Landroid/widget/ImageView;
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationSummaryTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationOtherButtonColor:I
     
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 

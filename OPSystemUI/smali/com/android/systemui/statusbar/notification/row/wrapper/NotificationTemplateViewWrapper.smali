@@ -453,7 +453,20 @@
     check-cast p1, Landroid/widget/ImageView;
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->mReplyAction:Landroid/widget/ImageView;
+    
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationTemplateViewWrapper;->mReplyAction:Landroid/widget/ImageView;
+    
+    if-eqz p1, :cond_stock4
+    
+    if-nez v3, :cond_stock4
+    
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationReplyButtonColor:I
+    
+    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
+    invoke-virtual {p1, v2, v1}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    :cond_stock4
     iget-object p1, p0, Lcom/android/systemui/statusbar/notification/row/wrapper/NotificationViewWrapper;->mView:Landroid/view/View;
 
     const v0, 0x102036e

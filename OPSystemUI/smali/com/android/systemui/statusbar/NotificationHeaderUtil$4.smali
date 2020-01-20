@@ -80,6 +80,8 @@
     invoke-static {p1, v1, p0}, Lcom/android/internal/util/ContrastColorUtil;->resolveColor(Landroid/content/Context;IZ)I
 
     move-result p0
+    
+    sget p0, Lcom/android/mwilky/Renovate;->mNotificationExpandButtonColor:I
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
@@ -97,6 +99,8 @@
     move-result-object p0
 
     sget-object p1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    
+    sget p3, Lcom/android/mwilky/Renovate;->mNotificationExpandButtonColor:I
 
     invoke-virtual {p0, p3, p1}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 

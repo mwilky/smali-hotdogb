@@ -423,7 +423,7 @@
     
     if-nez v3, :cond_stock
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -446,7 +446,7 @@
     
     if-nez v3, :cond_stock2
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -469,7 +469,7 @@
     
     if-nez v3, :cond_stock3
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -492,7 +492,7 @@
     
     if-nez v3, :cond_stock4
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
@@ -517,7 +517,7 @@
     
     if-nez v3, :cond_stock5
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -540,7 +540,7 @@
     
     if-nez v3, :cond_stock6
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -563,7 +563,7 @@
     
     if-nez v3, :cond_stock7
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
@@ -586,7 +586,7 @@
     
     if-nez v3, :cond_stock8
     
-    sget v2, Lcom/android/mwilky/Renovate;->mNotificationTitleTextColor:I
+    sget v2, Lcom/android/mwilky/Renovate;->mNotificationHeaderTextColor:I
     
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setTextColor(I)V
 
