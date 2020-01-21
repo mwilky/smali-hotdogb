@@ -1850,7 +1850,7 @@
     sput-object v0, Lcom/android/mwilky/Renovate;->mHideVolumeWarningKey:Ljava/lang/String;
 
     .line 399
-    const-string v0, "tweaks_qs_pulldown"
+    const-string v0, "tweaks_qs_pulldown_list"
 
     sput-object v0, Lcom/android/mwilky/Renovate;->mQuickQsPulldownKey:Ljava/lang/String;
 

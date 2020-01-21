@@ -15368,7 +15368,7 @@
     invoke-static {v0}, Lcom/android/mwilky/Renovate;->setSmartPulldown(Landroid/content/Context;)V
     
     :cond_mwilky2
-    const-string v0, "tweaks_qs_pulldown"
+    const-string v0, "tweaks_qs_pulldown_list"
     
     invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -16983,7 +16983,7 @@
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     .line 67
-    const-string v1, "tweaks_qs_pulldown"
+    const-string v1, "tweaks_qs_pulldown_list"
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
