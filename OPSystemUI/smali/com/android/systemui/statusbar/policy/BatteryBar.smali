@@ -280,7 +280,7 @@
 
     move-result-object v1
 
-    const-string v4, "battery_bar_color"
+    const-string v4, "tweaks_battery_bar_color"
 
     const v5, -0xcc4a1b
 
@@ -288,7 +288,7 @@
 
     move-result v0
 
-    const-string v4, "battery_bar_animate"
+    const-string v4, "tweaks_battery_bar_animate"
 
     invoke-static {v1, v4, v3}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

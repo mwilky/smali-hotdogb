@@ -140,7 +140,7 @@
 
     move-result-object v6
 
-    const-string v7, "battery_bar_thickness"
+    const-string v7, "tweaks_battery_bar_thickness"
 
     invoke-static {v6, v7, v13}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -453,7 +453,7 @@
 
     move-result-object v0
 
-    const-string v1, "battery_bar_style"
+    const-string v1, "tweaks_battery_bar_style"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -469,7 +469,7 @@
 
     move-result-object v0
 
-    const-string v1, "battery_bar"
+    const-string v1, "tweaks_battery_bar"
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
