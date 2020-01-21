@@ -598,7 +598,7 @@
 
 .field public static mQuickQsNumberLandscape:I
 
-.field public static mQuickQsPulldown:Z
+.field public static mQuickQsPulldown:I
 
 .field static mQuickQsPulldownKey:Ljava/lang/String;
 
@@ -1200,7 +1200,7 @@
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mHideBrightnessSlider:Z
 
     .line 173
-    sput-boolean v0, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:Z
+    sput v0, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:I
 
     .line 174
     sput-boolean v0, Lcom/android/mwilky/Renovate;->mDoubleTapStatusbarSleep:Z
@@ -7653,11 +7653,7 @@
 
     move-result v1
 
-    invoke-static {v1}, Lcom/android/mwilky/Renovate;->changeIntToBool(I)Z
-
-    move-result v1
-
-    sput-boolean v1, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:Z
+    sput v1, Lcom/android/mwilky/Renovate;->mQuickQsPulldown:I
 
     .line 1111
     return-void
