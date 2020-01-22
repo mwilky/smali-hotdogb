@@ -888,7 +888,17 @@
     .line 109
     iput v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimateIndex:I
 
-    .line 126
+    .line 110
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
+
+    invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
+
+    .line 111
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
+
+    invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
+
+    .line 112
     return-void
 .end method
 
@@ -1105,102 +1115,68 @@
     .end array-data
 .end method
 
-.method public setCustomEdgeColors(I)V
-    .registers 6
-    .param p1, "status"    # I
+.method public setCustomEdgeColors()V
+    .registers 4
+
+    .line 303
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockEdgeColors:Z
+
+    if-eqz v0, :cond_2d
 
     .line 304
-    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mContext:Landroid/content/Context;
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUseAccentColorForEdgeNotifications:Z
 
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
+    if-eqz v0, :cond_1b
 
     .line 305
-    .local v0, "ContentResolver":Landroid/content/ContentResolver;
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mUnlockEdgeColors:Z
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
-    if-eqz v1, :cond_34
+    sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
+
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
     .line 306
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAccentColorForEdgeNotifications:Z
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
-    if-eqz v1, :cond_21
+    sget v1, Lcom/android/mwilky/Renovate;->mAccentColor:I
 
-    .line 307
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    sget v2, Lcom/android/mwilky/Renovate;->mAccentColor:I
+    invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    goto :goto_2d
 
     .line 308
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
+    :cond_1b
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
-    sget v2, Lcom/android/mwilky/Renovate;->mAccentColor:I
+    sget v1, Lcom/android/mwilky/Renovate;->mLeftEdgeNotificationColor:I
 
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    goto :goto_3e
+    .line 309
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
-    .line 310
-    :cond_21
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
+    sget v1, Lcom/android/mwilky/Renovate;->mRightEdgeNotificationColor:I
 
-    sget v2, Lcom/android/mwilky/Renovate;->mLeftEdgeNotificationColor:I
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-
-    .line 311
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
-
-    sget v2, Lcom/android/mwilky/Renovate;->mRightEdgeNotificationColor:I
-
-    sget-object v3, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
-
-    invoke-virtual {v1, v2, v3}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-
-    goto :goto_3e
-
-    .line 314
-    :cond_34
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
-
-    .line 315
-    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1}, Landroid/widget/ImageView;->clearColorFilter()V
-
-    .line 317
-    :goto_3e
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
-
-    if-eqz v1, :cond_48
-
-    const/4 v1, 0x2
-
-    if-ne p1, v1, :cond_48
-
-    .line 318
-    invoke-virtual {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setEdgeToAppColor()V
-
-    .line 321
-    :cond_48
+    .line 312
+    :cond_2d
+    :goto_2d
     return-void
 .end method
 
 .method public setEdgeToAppColor()V
     .registers 4
 
-    .line 324
+    .line 315
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLeftView:Landroid/widget/ImageView;
 
     sget v1, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
@@ -1209,7 +1185,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 325
+    .line 317
     iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mRightView:Landroid/widget/ImageView;
 
     sget v1, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
@@ -1218,6 +1194,6 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/ImageView;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    .line 326
+    .line 319
     return-void
 .end method
