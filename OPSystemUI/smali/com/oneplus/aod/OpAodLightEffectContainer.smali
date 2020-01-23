@@ -308,6 +308,83 @@
     .end array-data
 .end method
 
+.method private animateNotificationAlways()V
+    .registers 5
+
+    .line 285
+    const/4 v0, 0x2
+
+    new-array v1, v0, [F
+
+    fill-array-data v1, :array_3a
+
+    invoke-static {v1}, Landroid/animation/ValueAnimator;->ofFloat([F)Landroid/animation/ValueAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    .line 286
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    const-wide/16 v2, 0x7d0
+
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    .line 287
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->setRepeatCount(I)V
+
+    .line 288
+    sget-boolean v1, Lcom/android/mwilky/Renovate;->mHorizonRepeatMode:Z
+
+    if-nez v1, :cond_24
+
+    .line 289
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+
+    goto :goto_29
+
+    .line 291
+    :cond_24
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v1, v0}, Landroid/animation/ValueAnimator;->setRepeatMode(I)V
+
+    .line 293
+    :goto_29
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v1, Lcom/oneplus/aod/OpAodLightEffectContainer$3;
+
+    invoke-direct {v1, p0}, Lcom/oneplus/aod/OpAodLightEffectContainer$3;-><init>(Lcom/oneplus/aod/OpAodLightEffectContainer;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    .line 310
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+
+    .line 311
+    return-void
+
+    nop
+
+    :array_3a
+    .array-data 4
+        0x0
+        0x40000000    # 2.0f
+    .end array-data
+.end method
+
 .method private decodeBitmap()V
     .locals 8
 
@@ -1031,6 +1108,78 @@
     invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->animateNotification()V
 
     .line 245
+    return-void
+.end method
+
+.method public showLightAlways()V
+    .registers 6
+
+    .line 218
+    sget v0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
+
+    const/16 v1, 0xa
+
+    if-ne v0, v1, :cond_24
+
+    .line 219
+    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->prepareResources()V
+
+    .line 220
+    iget v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mAnimateIndex:I
+
+    .line 221
+    .local v0, "i":I
+    if-lez v0, :cond_13
+
+    const/16 v1, 0x64
+
+    if-lt v0, v1, :cond_12
+
+    goto :goto_13
+
+    .line 226
+    :cond_12
+    return-void
+
+    .line 222
+    :cond_13
+    :goto_13
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    .line 223
+    iget-object v1, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mHandler:Landroid/os/Handler;
+
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mFrameRunnable:Ljava/lang/Runnable;
+
+    const-wide/16 v3, 0x15e
+
+    invoke-virtual {v1, v2, v3, v4}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    .line 224
+    return-void
+
+    .line 228
+    .end local v0    # "i":I
+    :cond_24
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, v0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->setAlpha(F)V
+
+    .line 229
+    iget-object v0, p0, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightAnimator:Landroid/animation/ValueAnimator;
+
+    .line 230
+    .local v0, "valueAnimator":Landroid/animation/ValueAnimator;
+    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->loadResources()V
+
+    .line 231
+    invoke-direct {p0}, Lcom/oneplus/aod/OpAodLightEffectContainer;->animateNotificationAlways()V
+
+    .line 232
     return-void
 .end method
 
