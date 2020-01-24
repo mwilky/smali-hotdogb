@@ -210,6 +210,14 @@
 
 .method public updateNotificationIcons(Lcom/android/systemui/statusbar/phone/NotificationIconContainer;)V
     .locals 12
+    
+    const/16 v1, 0x8
+    
+    sget v0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mPulseStatus:I
+    
+    const v2, 0x2
+    
+    if-eq v0, v2, :cond_c
 
     iget-object v0, p0, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mContext:Landroid/content/Context;
 
