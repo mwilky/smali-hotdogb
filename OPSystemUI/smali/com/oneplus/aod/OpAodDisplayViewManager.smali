@@ -627,24 +627,24 @@
     .line 120
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotificationsInfo:Z
 
-    if-eqz v1, :cond_13c
+    if-eqz v1, :cond_144
 
     .line 121
     invoke-virtual {p0, v2}, Lcom/oneplus/aod/OpAodDisplayViewManager;->hideViewsForAlwaysOnHorizon(Z)V
 
-    goto/16 :goto_13c
+    goto/16 :goto_144
 
     .line 123
     :cond_5e
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPlayFingerprintUnlockAnimation:Z
 
-    if-nez v1, :cond_122
+    if-nez v1, :cond_12a
 
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPress:Z
 
     if-eqz v1, :cond_68
 
-    goto/16 :goto_122
+    goto/16 :goto_12a
 
     .line 130
     :cond_68
@@ -768,12 +768,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_13c
+    if-eqz v3, :cond_144
 
     .line 151
     iget v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mStatus:I
 
-    if-ne v3, v4, :cond_109
+    if-ne v3, v4, :cond_111
 
     .line 152
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
@@ -797,7 +797,17 @@
     :goto_e1
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotifications:Z
 
-    if-eqz v3, :cond_103
+    iget-object v4, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v4}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
+
+    move-result v4
+
+    xor-int/2addr v4, v5
+
+    and-int/2addr v3, v4
+
+    if-eqz v3, :cond_10b
 
     .line 158
     iget-object v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->autoHide:Landroid/os/Handler;
@@ -813,7 +823,7 @@
     .line 164
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotificationsInfo:Z
 
-    if-eqz v3, :cond_fd
+    if-eqz v3, :cond_105
 
     .line 165
     iget-object v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mAodMainView:Lcom/oneplus/aod/OpAodMain;
@@ -824,30 +834,30 @@
     invoke-virtual {p0, v5}, Lcom/oneplus/aod/OpAodDisplayViewManager;->hideViewsForAlwaysOnHorizon(Z)V
 
     .line 168
-    :cond_fd
+    :cond_105
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLightAlways()V
 
-    goto :goto_13c
+    goto :goto_144
 
     .line 170
-    :cond_103
+    :cond_10b
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
 
-    goto :goto_13c
+    goto :goto_144
 
     .line 172
-    :cond_109
+    :cond_111
     sget-boolean v2, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
 
-    if-eqz v2, :cond_11c
+    if-eqz v2, :cond_124
 
     sget-boolean v2, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
 
-    if-eqz v2, :cond_11c
+    if-eqz v2, :cond_124
 
     .line 173
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
@@ -859,20 +869,20 @@
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
 
-    goto :goto_13c
+    goto :goto_144
 
     .line 176
-    :cond_11c
+    :cond_124
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->resetNotificationAnimView()V
 
-    goto :goto_13c
+    goto :goto_144
 
     .line 124
     .end local v1    # "i":I
-    :cond_122
-    :goto_122
+    :cond_12a
+    :goto_12a
     iget-object v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
@@ -900,8 +910,8 @@
     invoke-virtual {v1, v3}, Lcom/oneplus/aod/OpAodThreeKeyStatusView;->setVisibility(I)V
 
     .line 180
-    :cond_13c
-    :goto_13c
+    :cond_144
+    :goto_144
     return-void
 .end method
 

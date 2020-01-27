@@ -486,13 +486,23 @@
 
     and-int/2addr v5, v6
 
-    if-eqz v5, :cond_1e
+    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
+
+    move-result v6
+
+    xor-int/2addr v6, v3
+
+    and-int/2addr v5, v6
+
+    if-eqz v5, :cond_26
 
     .line 67
     return v4
 
     .line 69
-    :cond_1e
+    :cond_26
     sget v4, Lcom/android/mwilky/Renovate;->mAnimScale:F
 
     float-to-double v4, v4
@@ -557,25 +567,25 @@
     .local v20, "total_length_double":D
     const-string v7, "integer"
 
-    if-eq v11, v6, :cond_96
+    if-eq v11, v6, :cond_9e
 
     sget-boolean v8, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
 
     const/4 v11, 0x1
 
-    if-ne v8, v11, :cond_96
+    if-ne v8, v11, :cond_9e
 
     sget-boolean v8, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
 
-    if-eqz v8, :cond_96
+    if-eqz v8, :cond_9e
 
     .line 75
     const/16 v8, 0xbb8
 
-    if-ge v9, v8, :cond_95
+    if-ge v9, v8, :cond_9d
 
     .line 78
-    if-ne v1, v6, :cond_62
+    if-ne v1, v6, :cond_6a
 
     .line 79
     invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -589,10 +599,10 @@
     return v2
 
     .line 80
-    :cond_62
+    :cond_6a
     const/4 v4, 0x3
 
-    if-ne v1, v4, :cond_6e
+    if-ne v1, v4, :cond_76
 
     .line 81
     invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -606,10 +616,10 @@
     return v2
 
     .line 82
-    :cond_6e
+    :cond_76
     const/16 v2, 0xc
 
-    if-ne v1, v2, :cond_7b
+    if-ne v1, v2, :cond_83
 
     .line 83
     invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -623,10 +633,10 @@
     return v2
 
     .line 84
-    :cond_7b
+    :cond_83
     const/16 v2, 0xd
 
-    if-ne v1, v2, :cond_8c
+    if-ne v1, v2, :cond_94
 
     .line 85
     const-string v2, "op_doze_fingerprint_poke_pulse_duration_visible"
@@ -644,7 +654,7 @@
     return v2
 
     .line 87
-    :cond_8c
+    :cond_94
     invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -656,29 +666,29 @@
     return v2
 
     .line 91
-    :cond_95
+    :cond_9d
     return v9
 
     .line 94
-    :cond_96
+    :cond_9e
     sget v8, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
-    if-eq v8, v6, :cond_a2
+    if-eq v8, v6, :cond_aa
 
     const/4 v8, 0x1
 
-    if-ne v1, v8, :cond_a2
+    if-ne v1, v8, :cond_aa
 
     sget v11, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCount:I
 
-    if-lt v11, v8, :cond_a2
+    if-lt v11, v8, :cond_aa
 
     .line 96
     return v9
 
     .line 99
-    :cond_a2
-    if-ne v1, v6, :cond_ad
+    :cond_aa
+    if-ne v1, v6, :cond_b5
 
     .line 100
     invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -692,10 +702,10 @@
     return v2
 
     .line 101
-    :cond_ad
+    :cond_b5
     const/4 v4, 0x3
 
-    if-ne v1, v4, :cond_b9
+    if-ne v1, v4, :cond_c1
 
     .line 102
     invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -709,10 +719,10 @@
     return v2
 
     .line 103
-    :cond_b9
+    :cond_c1
     const/16 v2, 0xc
 
-    if-ne v1, v2, :cond_c6
+    if-ne v1, v2, :cond_ce
 
     .line 104
     invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -726,10 +736,10 @@
     return v2
 
     .line 105
-    :cond_c6
+    :cond_ce
     const/16 v2, 0xd
 
-    if-ne v1, v2, :cond_d7
+    if-ne v1, v2, :cond_df
 
     .line 106
     const-string v2, "op_doze_fingerprint_poke_pulse_duration_visible"
@@ -747,7 +757,7 @@
     return v2
 
     .line 108
-    :cond_d7
+    :cond_df
     invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2

@@ -4370,6 +4370,39 @@
     return v3
 .end method
 
+.method public static isZenActive(Landroid/content/Context;)Z
+    .registers 4
+    .param p0, "Context"    # Landroid/content/Context;
+
+    .line 1801
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    .line 1802
+    .local v0, "ContentResolver":Landroid/content/ContentResolver;
+    const/4 v1, 0x0
+
+    const-string v2, "zen_mode"
+
+    invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    .line 1803
+    .local v2, "i":I
+    if-nez v2, :cond_e
+
+    .line 1804
+    return v1
+
+    .line 1806
+    :cond_e
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
 .method public static loadPremiumTweaks(Landroid/content/Context;)V
     .registers 1
     .param p0, "Context"    # Landroid/content/Context;
