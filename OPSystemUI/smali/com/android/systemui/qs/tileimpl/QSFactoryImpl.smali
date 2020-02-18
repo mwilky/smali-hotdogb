@@ -505,7 +505,7 @@
 
     if-eqz v0, :cond_0
 
-    const/16 v0, 0x19
+    const/16 v0, 0x1a
 
     goto/16 :goto_1
 
