@@ -1982,7 +1982,7 @@
 
     const-string p0, "EdgeBackGestureHandler"
 
-    const-string v0, "updateGestureButtonRegion: not enabled"
+    const-string/jumbo v0, "updateGestureButtonRegion: not enabled"
 
     invoke-static {p0, v0}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1998,7 +1998,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateIsEnabled: "
+    const-string/jumbo v1, "updateIsEnabled: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

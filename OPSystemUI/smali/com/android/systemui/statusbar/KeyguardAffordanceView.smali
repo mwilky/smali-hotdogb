@@ -629,7 +629,7 @@
 
     check-cast p0, Ljava/lang/String;
 
-    const-string v0, "trace"
+    const-string/jumbo v0, "trace"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

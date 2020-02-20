@@ -36,6 +36,8 @@
 
 .field private final mLocInScreen:[I
 
+.field private mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
+
 .field protected mRipple:Landroid/graphics/drawable/RippleDrawable;
 
 .field private mShowRippleEffect:Z
@@ -262,6 +264,25 @@
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setFocusable(Z)V
 
+    iget-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
+
+    if-nez p1, :cond_1
+
+    new-instance p1, Lcom/oneplus/util/OpLottieUtils;
+
+    invoke-virtual {p0}, Landroid/widget/LinearLayout;->getContext()Landroid/content/Context;
+
+    move-result-object p2
+
+    iget-object p3, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mBg:Landroid/widget/ImageView;
+
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mIcon:Lcom/android/systemui/plugins/qs/QSIconView;
+
+    invoke-direct {p1, p2, p3, v0}, Lcom/oneplus/util/OpLottieUtils;-><init>(Landroid/content/Context;Landroid/widget/ImageView;Lcom/android/systemui/plugins/qs/QSIconView;)V
+
+    iput-object p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
+
+    :cond_1
     return-void
 .end method
 
@@ -470,7 +491,7 @@
 .end method
 
 .method protected handleStateChanged(Lcom/android/systemui/plugins/qs/QSTile$State;)V
-    .locals 7
+    .locals 8
 
     iget v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
@@ -482,98 +503,186 @@
 
     move-result v1
 
-    iget v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mCircleColor:I
+    iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mBg:Landroid/widget/ImageView;
 
-    const/4 v3, 0x1
+    invoke-virtual {v2}, Landroid/widget/ImageView;->getImageTintList()Landroid/content/res/ColorStateList;
 
-    const/4 v4, 0x0
+    move-result-object v2
 
-    if-eq v0, v2, :cond_1
+    const/4 v3, 0x0
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Landroid/content/res/ColorStateList;->getDefaultColor()I
+
+    move-result v2
+
+    goto :goto_0
+
+    :cond_0
+    move v2, v3
+
+    :goto_0
+    const/4 v4, 0x1
+
+    if-eq v0, v2, :cond_2
+
+    if-eqz v1, :cond_1
+
+    iget-object v5, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
+
+    iget-object v6, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mIconFrame:Landroid/widget/FrameLayout;
+
+    invoke-virtual {v5, v6, p1, v1}, Lcom/oneplus/util/OpLottieUtils;->applyLottieAnimIfNeeded(Landroid/widget/FrameLayout;Lcom/android/systemui/plugins/qs/QSTile$State;Z)Z
+
+    move-result v5
+
+    if-nez v5, :cond_2
 
     const/4 v5, 0x2
 
     new-array v5, v5, [I
 
-    aput v2, v5, v4
+    iget v6, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mCircleColor:I
 
-    aput v0, v5, v3
+    aput v6, v5, v3
+
+    aput v0, v5, v4
 
     invoke-static {v5}, Landroid/animation/ValueAnimator;->ofArgb([I)Landroid/animation/ValueAnimator;
 
-    move-result-object v2
+    move-result-object v5
 
-    const-wide/16 v5, 0x15e
+    const-wide/16 v6, 0x15e
 
-    invoke-virtual {v2, v5, v6}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+    invoke-virtual {v5, v6, v7}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
 
-    move-result-object v2
+    move-result-object v5
 
-    new-instance v5, Lcom/android/systemui/qs/tileimpl/-$$Lambda$QSTileBaseView$R4RxHhlQ5aUQCBgq0kdDEHJXn14;
+    new-instance v6, Lcom/android/systemui/qs/tileimpl/-$$Lambda$QSTileBaseView$R4RxHhlQ5aUQCBgq0kdDEHJXn14;
 
-    invoke-direct {v5, p0}, Lcom/android/systemui/qs/tileimpl/-$$Lambda$QSTileBaseView$R4RxHhlQ5aUQCBgq0kdDEHJXn14;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileBaseView;)V
+    invoke-direct {v6, p0}, Lcom/android/systemui/qs/tileimpl/-$$Lambda$QSTileBaseView$R4RxHhlQ5aUQCBgq0kdDEHJXn14;-><init>(Lcom/android/systemui/qs/tileimpl/QSTileBaseView;)V
 
-    invoke-virtual {v2, v5}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+    invoke-virtual {v5, v6}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
 
-    invoke-virtual {v2}, Landroid/animation/ValueAnimator;->start()V
+    invoke-virtual {v5}, Landroid/animation/ValueAnimator;->start()V
 
-    goto :goto_0
-
-    :cond_0
-    iget-object v2, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mBg:Landroid/widget/ImageView;
-
-    invoke-static {v2, v0}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setTint(Landroid/widget/ImageView;I)V
-
-    :goto_0
-    iput v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mCircleColor:I
+    goto :goto_1
 
     :cond_1
+    iget-object v5, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mBg:Landroid/widget/ImageView;
+
+    invoke-static {v5, v0}, Lcom/android/systemui/qs/tileimpl/QSIconViewImpl;->setTint(Landroid/widget/ImageView;I)V
+
+    :cond_2
+    :goto_1
+    sget-boolean v5, Landroid/os/Build;->DEBUG_ONEPLUS:Z
+
+    if-eqz v5, :cond_3
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "handleStateChanged: label="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->label:Ljava/lang/CharSequence;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v6, ", iconRes="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v6, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->icon:Lcom/android/systemui/plugins/qs/QSTile$Icon;
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    const-string v6, ", cirColor="
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v2}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v2, "->"
+
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {v0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "QSTileBaseView"
+
+    invoke-static {v2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
     iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mShowRippleEffect:Z
 
     iget v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_4
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_2
-    move v3, v4
+    :cond_4
+    move v4, v3
 
-    :goto_1
-    invoke-virtual {p0, v3}, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->setClickable(Z)V
+    :goto_2
+    invoke-virtual {p0, v4}, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->setClickable(Z)V
 
     iget-boolean v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setLongClickable(Z)V
 
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
+
+    invoke-virtual {v0, p1}, Lcom/oneplus/util/OpLottieUtils;->isNeedLottie(Lcom/android/systemui/plugins/qs/QSTile$State;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mIcon:Lcom/android/systemui/plugins/qs/QSIconView;
 
     invoke-virtual {v0, p1, v1}, Lcom/android/systemui/plugins/qs/QSIconView;->setIcon(Lcom/android/systemui/plugins/qs/QSTile$State;Z)V
 
+    :cond_5
     iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->contentDescription:Ljava/lang/CharSequence;
 
     invoke-virtual {p0, v0}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
 
     iget v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->state:I
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_6
 
     const/4 v0, 0x0
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_3
+    :cond_6
     iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->expandedAccessibilityClassName:Ljava/lang/String;
 
-    :goto_2
+    :goto_3
     iput-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mAccessibilityClass:Ljava/lang/String;
 
     instance-of v0, p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_7
 
     check-cast p1, Lcom/android/systemui/plugins/qs/QSTile$BooleanState;
 
@@ -581,13 +690,13 @@
 
     iget-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mTileState:Z
 
-    if-eq v0, p1, :cond_4
+    if-eq v0, p1, :cond_7
 
-    iput-boolean v4, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mClicked:Z
+    iput-boolean v3, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mClicked:Z
 
     iput-boolean p1, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mTileState:Z
 
-    :cond_4
+    :cond_7
     return-void
 .end method
 
@@ -907,11 +1016,24 @@
 .end method
 
 .method public performClick()Z
-    .locals 1
+    .locals 2
 
-    const/4 v0, 0x1
+    iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mLottieUtils:Lcom/oneplus/util/OpLottieUtils;
 
-    iput-boolean v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mClicked:Z
+    const/4 v1, 0x1
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/oneplus/util/OpLottieUtils;->performClick()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    return v1
+
+    :cond_0
+    iput-boolean v1, p0, Lcom/android/systemui/qs/tileimpl/QSTileBaseView;->mClicked:Z
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->performClick()Z
 

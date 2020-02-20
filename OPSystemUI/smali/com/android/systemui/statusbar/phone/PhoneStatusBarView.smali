@@ -1417,7 +1417,7 @@
 
     const-string p2, "PhoneStatusBarView"
 
-    const-string v2, "update SystemUi flag"
+    const-string/jumbo v2, "update SystemUi flag"
 
     invoke-static {p2, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1568,7 +1568,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateTopPackage pkg:"
+    const-string/jumbo v1, "updateTopPackage pkg:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -99,7 +99,7 @@
 
     sget-object p0, Lcom/android/systemui/qs/tiles/CellularTile;->CELLULAR_SETTINGS:Landroid/content/Intent;
 
-    const-string p1, "tracker_event"
+    const-string/jumbo p1, "tracker_event"
 
     const/4 p2, 0x2
 

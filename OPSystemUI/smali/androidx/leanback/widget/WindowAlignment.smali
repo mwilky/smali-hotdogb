@@ -35,7 +35,7 @@
 
     new-instance v0, Landroidx/leanback/widget/WindowAlignment$Axis;
 
-    const-string v1, "vertical"
+    const-string/jumbo v1, "vertical"
 
     invoke-direct {v0, v1}, Landroidx/leanback/widget/WindowAlignment$Axis;-><init>(Ljava/lang/String;)V
 

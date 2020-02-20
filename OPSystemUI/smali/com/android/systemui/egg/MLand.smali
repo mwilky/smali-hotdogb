@@ -371,7 +371,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/egg/MLand;->mGameControllers:Ljava/util/ArrayList;
 
-    const-string p3, "vibrator"
+    const-string/jumbo p3, "vibrator"
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1937,7 +1937,7 @@
 
     aput-object v1, v0, v2
 
-    const-string v1, "unboost(%d)"
+    const-string/jumbo v1, "unboost(%d)"
 
     invoke-static {v1, v0}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -2528,7 +2528,7 @@
 
     aput-object p1, v1, v2
 
-    const-string v3, "touch: %s"
+    const-string/jumbo v3, "touch: %s"
 
     invoke-static {v3, v1}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -2615,7 +2615,7 @@
 
     aput-object p1, v1, v2
 
-    const-string v3, "trackball: %s"
+    const-string/jumbo v3, "trackball: %s"
 
     invoke-static {v3, v1}, Lcom/android/systemui/egg/MLand;->L(Ljava/lang/String;[Ljava/lang/Object;)V
 
@@ -3573,7 +3573,7 @@
 
     if-eqz p1, :cond_0
 
-    const-string v2, "true"
+    const-string/jumbo v2, "true"
 
     goto :goto_0
 

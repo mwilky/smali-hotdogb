@@ -1869,7 +1869,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const-string v2, "updateFingerprintListeningState"
+    const-string/jumbo v2, "updateFingerprintListeningState"
 
     invoke-static {v0, p0, v2, v1}, Lcom/oneplus/util/OpReflectionUtils;->methodInvokeVoid(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -4858,9 +4858,11 @@
 .end method
 
 .method public opOnKeyguardVisibilityChanged(Z)V
-    .locals 1
+    .locals 3
 
     const/4 v0, 0x0
+
+    const/4 v1, 0x1
 
     if-nez p1, :cond_0
 
@@ -4869,20 +4871,55 @@
     goto :goto_0
 
     :cond_0
-    iget-object p1, p0, Lcom/oneplus/keyguard/OpKeyguardUpdateMonitor;->FOD_UI_DEBUG:Ljava/lang/String;
+    iget-object v2, p0, Lcom/oneplus/keyguard/OpKeyguardUpdateMonitor;->FOD_UI_DEBUG:Ljava/lang/String;
 
-    invoke-static {p1, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    invoke-static {v2, v0}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
-    move-result p1
+    move-result v0
 
-    const/4 v0, 0x1
-
-    if-ne p1, v0, :cond_1
+    if-ne v0, v1, :cond_1
 
     invoke-direct {p0}, Lcom/oneplus/keyguard/OpKeyguardUpdateMonitor;->showFPDialogWhenNoWindow()V
 
     :cond_1
     :goto_0
+    if-eqz p1, :cond_2
+
+    const-class p0, Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/recents/OverviewProxyService;
+
+    const/4 p1, 0x0
+
+    invoke-virtual {p0, p1, v1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyNavBarButtonAlphaChanged(FZ)V
+
+    goto :goto_1
+
+    :cond_2
+    invoke-static {}, Lcom/oneplus/util/OpUtils;->isHomeApp()Z
+
+    move-result p0
+
+    if-nez p0, :cond_3
+
+    const-class p0, Lcom/android/systemui/recents/OverviewProxyService;
+
+    invoke-static {p0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p0
+
+    check-cast p0, Lcom/android/systemui/recents/OverviewProxyService;
+
+    const/high16 p1, 0x3f800000    # 1.0f
+
+    invoke-virtual {p0, p1, v1}, Lcom/android/systemui/recents/OverviewProxyService;->notifyNavBarButtonAlphaChanged(FZ)V
+
+    :cond_3
+    :goto_1
     return-void
 .end method
 

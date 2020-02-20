@@ -517,7 +517,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const-string v2, "updateNotification"
+    const-string/jumbo v2, "updateNotification"
 
     invoke-static {v0, p0, v2, v1}, Lcom/oneplus/util/OpReflectionUtils;->methodInvokeVoid(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -1049,7 +1049,7 @@
 
     invoke-direct {p2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p3, "update battery level from "
+    const-string/jumbo p3, "update battery level from "
 
     invoke-virtual {p2, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

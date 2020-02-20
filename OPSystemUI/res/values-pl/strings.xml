@@ -654,7 +654,7 @@ Gdy temperatura się obniży, telefon będzie działał normalnie."</string>
     <string name="high_temp_title">Telefon się nagrzewa</string>
     <string name="home">Ekran główny ustawień</string>
     <string name="hotspot_apm_message">Nie można połączyć się z sieciami komórkowymi przy włączonym trybie samolotowym. Wyłącz tryb samolotowy i spróbuj ponownie.</string>
-    <string name="hotspot_operator_dialog_nosim_msg">Włóż kartę SIM, aby korzystać z mobilnego hotspota lub innych opcji połączeń</string>
+    <string name="hotspot_operator_dialog_nosim_msg">Włóż kartę SIM, aby korzystać z mobilnego hotspotu lub innych opcji połączeń</string>
     <string name="hotspot_operator_dialog_nosim_title">Brak karty SIM</string>
     <string name="hotspot_operator_dialog_othererror_msg">Nie masz subskrypcji połączeń Wi-Fi</string>
     <string name="hotspot_operator_dialog_othererror_title">Błąd połączenia Wi-Fi</string>
@@ -792,7 +792,7 @@ priorytetowe"</string>
     <string name="keyguard_plugged_in">%s • Ładowanie</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Szybkie ładowanie</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Wolne ładowanie</string>
-    <string name="keyguard_plugged_in_charging_warp">%s • Superszybkie ładowanie</string>
+    <string name="keyguard_plugged_in_charging_warp">%s • Ładowanie Warp</string>
     <string name="keyguard_plugged_in_wireless">%s • Ładowanie bezprzewodowe</string>
     <string name="keyguard_sim_error_message_short">Nieprawidłowa karta.</string>
     <string name="keyguard_sim_locked_message">Karta SIM jest zablokowana.</string>
@@ -1030,7 +1030,7 @@ Aby dowiedzieć się więcej, skontaktuj się z administratorem.
     <string name="nav_bar">Pasek nawigacji</string>
     <string name="nav_bar_default">(wartość domyślna)</string>
     <string name="nav_bar_guide_positive">ROZUMIEM</string>
-    <string name="nav_bar_guide_title">Przesuń palcem z dołu w górę, aby wyświetlić pasek nawigacyjny. Stuknij, aby był wyświetlany zawsze</string>
+    <string name="nav_bar_guide_title">Przesuń palcem z dołu w górę, aby pokazać pasek nawigacyjny. Aby nie ukrywać nawigacji, dotknij tutaj.</string>
     <string name="nav_bar_layout">Układ</string>
     <string name="no_application">Brak</string>
     <string name="no_auto_saver_action">Nie</string>
@@ -1082,7 +1082,7 @@ Aby dowiedzieć się więcej, skontaktuj się z administratorem.
     <string name="notification_unblockable_desc">Tych powiadomień nie można zmodyfikować.</string>
     <string name="oem_unlock_enable">Zdjęcie blokady OEM</string>
     <string name="oem_unlock_enable_summary">Zezwalaj na odblokowanie programu rozruchowego</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="okay">OK</string>
     <string name="oneplus_laboratory_added_toast">Gratulacje! Laboratorium OnePlus dodano do Ustawień</string>
     <string name="oneplus_screen_features_not_available_toast">Gdy opcja jest włączona, funkcje takie jak kalibracja ekranu będą niedostępne</string>
@@ -1103,11 +1103,11 @@ Aby dowiedzieć się więcej, skontaktuj się z administratorem.
     <string name="op_earphone_device">DOTKNIJ, ABY SPAROWAĆ</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Przesuń w dół, aby skontaktować się ze służbami ratunkowymi</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Odblokowane przez odblokowywanie twarzą</string>
+    <string name="op_keyguard_indication_trust_unlocked">Odblokowane przez funkcję Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Dla bezpieczeństwa naciśnij klawisz zasilania i przesuń w górę, aby użyć hasła</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Dla bezpieczeństwa naciśnij klawisz zasilania i przesuń w górę, aby użyć wzoru</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Dla bezpieczeństwa naciśnij klawisz zasilania i przesuń w górę, aby użyć PIN</string>
     <string name="op_notification_alert_title">Ważne</string>
     <string name="op_notification_channel_summary_low">Mniej ważne powiadomienia bez jakiegokolwiek dźwięku lub wibracji.</string>
     <string name="op_notification_section_header_gentle">Inne powiadomienia</string>
@@ -1140,10 +1140,10 @@ Aby dowiedzieć się więcej, skontaktuj się z administratorem.
     <string name="overheat_dialog_purple_message">Telefon zostanie wyłączony po 5 sekundach</string>
     <string name="overheat_dialog_red_message">Procesy aplikacji zostaną wyczyszczone, aby obniżyć temperaturę</string>
     <string name="overheat_dialog_title">Temperatura telefonu jest zbyt wysoka</string>
-    <string name="overheat_notification_alert">Temperatura telefonu jest zbyt wysoka. Aby obniżyć temperaturę, wyłączono funkcję wysokiego zużycia energii</string>
+    <string name="overheat_notification_alert">Temperatura telefonu jest zbyt wysoka. Aby obniżyć temperaturę, wyłączono funkcje wysokiego zużycia energii</string>
     <string name="overheat_notification_resume">Prawidłowa temperatura telefonu została przywrócona i możesz normalnie z niego korzystać</string>
     <string name="overheat_notification_title_resume">Prawidłowa temperatura telefonu została przywrócona</string>
-    <string name="overheat_toast_content">Temperatura telefonu jest wysoka, nie zaleca się korzystania z tej funkcji</string>
+    <string name="overheat_toast_content">Temperatura telefonu jest zbyt wysoka. Aby obniżyć temperaturę, wyłączono funkcję wysokiego zużycia energii</string>
     <string name="overlay_display_devices_title">Symuluj ekrany dodatkowe</string>
     <string name="overview">Przegląd</string>
     <string name="phone_hint">Aby włączyć telefon, przesuń palcem od ikony</string>
@@ -1220,8 +1220,8 @@ Aby dowiedzieć się więcej, skontaktuj się z administratorem.
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">Tryb \"W kieszeni\" jest włączony</string>
     <string name="prevent_view_title_cancel">Aby aktywować telefon:</string>
-    <string name="prevent_view_top_tag_cancel">Proszę nie zasłaniać niebieskiego obszaru na telefonie oraz usunąć brud lub kurz na niebieskim obszarze.</string>
-    <string name="prevent_view_top_tag_cancel2">Aby wyjść z trybu \"W kieszeni\", dotknij kół na ekranie.</string>
+    <string name="prevent_view_top_tag_cancel">Nie zasłaniaj niebieskiego obszaru na telefonie i usuń z niego brud lub kurz.</string>
+    <string name="prevent_view_top_tag_cancel2">Podążaj za kołami na ekranie i dotykaj ich, aby wymusić zamknięcie trybu „w kieszeni”</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">aparat</string>
@@ -1383,7 +1383,7 @@ Oszczędzanie baterii"</string>
     <string name="recents_empty_no_apps_open">Brak otwartych aplikacji</string>
     <string name="recents_empty_recently_closed">Ostatnio zamknięte aplikacje</string>
     <string name="recents_normal_clean_description">Czyszczenie listy zadań i pamięci podręcznej bez czyszczenia procesów w tle.</string>
-    <string name="recents_normal_clean_option">Zwykłe oczyszczenie</string>
+    <string name="recents_normal_clean_option">Zwykłe czyszczenie</string>
     <string name="recents_option_note">Możesz zmienić to w Ustawieniach -> Zaawansowane.</string>
     <string name="recents_option_title">Jaki sposób wolisz</string>
     <string name="recents_quick_scrub_onboarding">Szybko przeciągnij w prawo, by przełączyć aplikacje</string>

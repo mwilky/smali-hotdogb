@@ -1031,7 +1031,7 @@
     <string name="nav_bar">ನ್ಯಾವಿಗೇಷನ್ ಬಾರ್</string>
     <string name="nav_bar_default">(ಡಿಫಾಲ್ಟ್‌)</string>
     <string name="nav_bar_guide_positive">ತಿಳಿಯಿತು</string>
-    <string name="nav_bar_guide_title">ನೇವಿಗೇಶನ್ ಬಾರ್ ತೋರಿಸಲು ಕೆಳಗಿನಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನೀವು ನೇವಿಗೇಶನ್ ಬಚ್ಚಿಡುವಿಕೆ ನಿಲ್ಲಿಸಲು ಬಯಸಿದರೆ, ದಯವಿಟ್ಟು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
+    <string name="nav_bar_guide_title">ನೇವಿಗೇಶನ್ ಬಾರ್ ತೋರಿಸಲು ಕೆಳಗಿನಿಂದ ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ. ನೇವಿಗೇಶನ್ ಬಚ್ಚಿಡುವಿಕೆ ನಿಲ್ಲಿಸಲು, ದಯವಿಟ್ಟು ಇಲ್ಲಿ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="nav_bar_layout">ಲೇಔಟ್</string>
     <string name="no_application">ಏನೂ ಇಲ್ಲ</string>
     <string name="no_auto_saver_action">ಬೇಡ ಧನ್ಯವಾದಗಳು</string>
@@ -1083,7 +1083,7 @@
     <string name="notification_unblockable_desc">ಈ ಅಧಿಸೂಚನೆಗಳನ್ನು ಮಾರ್ಪಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>
     <string name="oem_unlock_enable">OEM ಅನ್‌ಲಾಕ್‌ ಮಾಡಲಾಗುತ್ತಿದೆ</string>
     <string name="oem_unlock_enable_summary">ಬೂಟ್‌ಲೋಡರ್‌ ಅನ್‌ಲಾಕ್‌ ಮಾಡಲು ಅನುಮತಿಸಿ</string>
-    <string name="ok">ಓಕೆ</string>
+    <string name="ok">ಸರಿ</string>
     <string name="okay">ಸರಿ</string>
     <string name="oneplus_laboratory_added_toast">ಅಭಿನಂದನೆಗಳು! OnePlus ಲ್ಯಾಬೊರೇಟರಿಯನ್ನು ಸೆಟ್ಟಿಂಗ್ಸ್‌ಗೆ ಸೇರಿಸಲಾಗಿದೆ</string>
     <string name="oneplus_screen_features_not_available_toast">ಆನ್ ಆಗಿರುವಾಗ, ಪರದೆ ಮಾಪನದಂತಹ ವೈಶಿಷ್ಟ್ಯಗಳು ಲಭ್ಯವಿರುವುದಿಲ್ಲ</string>
@@ -1104,11 +1104,11 @@
     <string name="op_earphone_device">ಜೋಡಿ ಮಾಡಲು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">ತುರ್ತು ಸೇವೆಗಳಿಗಾಗಿ ಕೆಳಮುಖವಾಗಿ ಸ್ವೈಪ್ ಮಾಡಿ</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">ಫೇಸ್ ಅನ್‌ಲಾಕ್ ಮೂಲಕ ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="op_keyguard_indication_trust_unlocked">ಸ್ಮಾರ್ಟ್ ಲಾಕ್ ಮೂಲಕ ಅನ್‌ಲಾಕ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="op_kg_prompt_reason_timeout_password">ಹೆಚ್ಚುವರಿ ಭದ್ರತೆಗಾಗಿ, ಪವರ್ ಕೀ ಒತ್ತಿ ಮತ್ತು ಪಾಸ್‌ವರ್ಡ ಬಳಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">ಹೆಚ್ಚುವರಿ ಭದ್ರತೆಗಾಗಿ, ಪವರ್ ಕೀ ಒತ್ತಿ ಮತ್ತು ಪ್ಯಾಟರ್ನ್ ಬಳಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
+    <string name="op_kg_prompt_reason_timeout_pin">ಹೆಚ್ಚುವರಿ ಭದ್ರತೆಗಾಗಿ, ಪವರ್ ಕೀ ಒತ್ತಿ ಮತ್ತು ಪಿನ್ ಬಳಸಲು ಮೇಲಕ್ಕೆ ಸ್ವೈಪ್ ಮಾಡಿ</string>
     <string name="op_notification_alert_title">ಪ್ರಮುಖ</string>
     <string name="op_notification_channel_summary_low">ಯಾವುದೇ ಶಬ್ಧ ಅಥವಾ ಕಂಪನವಿಲ್ಲದೆಯೇ ಕಡಿಮೆ ಪ್ರಾಮುಖ್ಯತೆಯುಳ್ಳ ಅಧಿಸೂಚನೆಗಳು.</string>
     <string name="op_notification_section_header_gentle">ಇತರೆ ಅಧಿಸೂಚನೆಗಳು</string>
@@ -1141,10 +1141,10 @@
     <string name="overheat_dialog_purple_message">ಫೋನ್ 5 ಸೆಕೆಂಡುಗಳ ನಂತರ ಪವರ್ ಆಫ್ ಆಗುತ್ತದೆ</string>
     <string name="overheat_dialog_red_message">ಉಷ್ಣತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಎಲ್ಲಾ ಅಪ್ಲಿಕೇಶನ್ ಪ್ರಕ್ರಿಯೆಗಳನ್ನು ತೆರವುಗೊಳಿಸಲಾಗುತ್ತದೆ</string>
     <string name="overheat_dialog_title">ಫೋನ್‌ನ ಉಷ್ಣತೆಯು ತುಂಬಾ ಹೆಚ್ಚಾಗಿದೆ</string>
-    <string name="overheat_notification_alert">ನಿಮ್ಮ ಫೋನ್‌ನ ಉಷ್ಣತೆ ತುಂಬಾ ಹೆಚ್ಚಾಗಿದೆ ಮತ್ತು ಉಷ್ಣತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಅಧಿಕ ಪವರ್ ಬಳಕೆಯ ಕಾರ್ಯವಿಧಾನವನ್ನು ಆಫ್ ಮಾಡಲಾಗಿದೆ</string>
+    <string name="overheat_notification_alert">ನಿಮ್ಮ ಫೋನ್‌ನ ತಾಪಮಾನ ತುಂಬಾ ಹೆಚ್ಚಿದೆ ಮತ್ತು ತಾಪಮಾನವನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಹೆಚ್ಚು ಶಕ್ತಿಯನ್ನು ಬಳಸುವ ಕಾರ್ಯಗಳನ್ನು ಆಫ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="overheat_notification_resume">ಫೋನ್‌ನ ಉಷ್ಣತೆಯು ಸಹಜ ಸ್ಥಿತಿಗೆ ಬಂದಿದೆ ಮತ್ತು ಫೋನ್ ಅನ್ನು ಸಾಮಾನ್ಯ ರೀತಿಯಲ್ಲಿ ಬಳಸಬಹುದಾಗಿದೆ</string>
     <string name="overheat_notification_title_resume">ಫೋನ್‌ನ ಉಷ್ಣತೆಯು ಸಹಜ ಸ್ಥಿತಿಗೆ ಬಂದಿದೆ</string>
-    <string name="overheat_toast_content">ಫೋನ್‌ನ ಉಷ್ಣತೆಯು ತುಂಬಾ ಹೆಚ್ಚಾಗಿದೆ, ಈ ವೈಶಿಷ್ಟ್ಯವನ್ನು ಬಳಸಬಾರದೆಂದು ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ</string>
+    <string name="overheat_toast_content">ನಿಮ್ಮ ಫೋನ್ ಉಷ್ಣತೆ ತುಂಬಾ ಹೆಚ್ಚಾಗಿದೆ, ಹಾಗೂ ಉಷ್ಣತೆಯನ್ನು ಕಡಿಮೆ ಮಾಡಲು ಪವರ್ ಬಳಕೆಯ ವೈಶಿಷ್ಟ್ಯಗಳನ್ನು ಆಫ್ ಮಾಡಲಾಗುತ್ತದೆ</string>
     <string name="overlay_display_devices_title">ಮಾಧ್ಯಮಿಕ ಡಿಸ್‌ಪ್ಲೇ ಸಿಮ್ಯುಲೇಟ್‌</string>
     <string name="overview">ಸಮಗ್ರ ನೋಟ</string>
     <string name="phone_hint">ಫೋನ್‌ಗಾಗಿ ಐಕಾನ್‌ನಿಂದ ಸ್ವೈಪ್ ಮಾಡಿ</string>
@@ -1221,8 +1221,8 @@
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">ಪಾಕೆಟ್ ಮೋಡ್ ಆನ್ ಆಗಿದೆ</string>
     <string name="prevent_view_title_cancel">ನಿಮ್ಮ ಫೋನನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಲು:</string>
-    <string name="prevent_view_top_tag_cancel">ದಯವಿಟ್ಟು ನಿಮ್ಮ ಫೋನಿನ ನೀಲಿ ಪ್ರದೇಶವನ್ನು ಕವರ್ ಮಾಡಬೇಡಿ, ಮತ್ತು ನೀಲಿ ಪ್ರದೇಶದಲ್ಲಿನ ಯಾವುದೇ ಕೊಳೆ ಅಥವಾ ಧೂಳನ್ನು ಸ್ವಚ್ಛಗೊಳಿಸಬೇಡಿ.</string>
-    <string name="prevent_view_top_tag_cancel2">ದಯವಿಟ್ಟು ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿರುವ ವೃತ್ತಗಳನ್ನು ಅನುಸರಿಸಿ ಮತ್ತು ಕ್ವಿಟ್ ಪಾಕೆಟ್ ಮೋಡ್ ಒತ್ತಾಯಿಸಲು ಅವುಗಳ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="prevent_view_top_tag_cancel">ನಿಮ್ಮ ಫೋನ್‌ನ ನೀಲಿ ಪ್ರದೇಶವನ್ನು ಕವರ್ ಮಾಡಬೇಡಿ ಮತ್ತು ಯಾವುದೇ ಕೊಳೆ ಅಥವಾ ಧೂಳನ್ನು ಸ್ವಚ್ಥಗೊಳಿಸಿ.</string>
+    <string name="prevent_view_top_tag_cancel2">ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿರುವ ವೃತ್ತಗಳನ್ನು ಅನುಸರಿಸಿ ಮತ್ತು ಕ್ವಿಟ್ ಪ್ಯಾಕೆಟ್ ಮೋಡ್ ಒತ್ತಾಯಿಸಲು ಅವುಗಳ ಮೇಲೆ ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">ಕ್ಯಾಮರಾ</string>
@@ -1245,7 +1245,7 @@
     <string name="qs_rearrange">ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‌‌ಗಳನ್ನು ಮರುಹೊಂದಿಸಿ</string>
     <string name="qs_status_phone_muted">ಫೋನ್ ಅನ್ನು ಮ್ಯೂಟ್ ಮಾಡಲಾಗಿದೆ</string>
     <string name="qs_status_phone_vibrate">ಫೋನ್ ವೈಬ್ರೇಟ್‌ನಲ್ಲಿದೆ</string>
-    <string name="quick_launch_exit">ಹೊರಗೆ</string>
+    <string name="quick_launch_exit">ನಿರ್ಗಮಿಸಿ</string>
     <string name="quick_launch_exit_hint">ನಿರ್ಗಮಿಸಲು ಪರದೆಯ ಮೇಲಿಂದ ಬೆರಳನ್ನು ಮೇಲೆತ್ತಿ</string>
     <string name="quick_reply">ಪ್ರತ್ಯುತ್ತರಿಸಿ</string>
     <string name="quick_settings">ತ್ವರಿತ ಸೆಟ್ಟಿಂಗ್‍ಗಳು</string>

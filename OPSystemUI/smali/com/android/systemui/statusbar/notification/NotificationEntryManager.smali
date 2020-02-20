@@ -7,6 +7,7 @@
 .implements Lcom/android/systemui/statusbar/notification/row/NotificationContentInflater$InflationCallback;
 .implements Lcom/android/systemui/statusbar/NotificationUpdateHandler;
 .implements Lcom/android/systemui/statusbar/notification/VisualStabilityManager$Callback;
+.implements Lcom/oneplus/worklife/OPWLBHelper$IWLBModeChangeListener;
 .implements Lcom/android/systemui/statusbar/phone/HighlightHintController$OnHighlightHintStateChangeListener;
 
 
@@ -63,6 +64,8 @@
 .field private mNotificationRowBinder:Lcom/android/systemui/statusbar/notification/collection/NotificationRowBinder;
 
 .field private final mOPNotificationController:Lcom/oneplus/notification/OpNotificationController;
+
+.field private mOpwlbHelper:Lcom/oneplus/worklife/OPWLBHelper;
 
 .field protected final mPendingNotifications:Ljava/util/HashMap;
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -179,6 +182,24 @@
     check-cast p1, Lcom/android/systemui/statusbar/phone/HighlightHintController;
 
     invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p1}, Lcom/oneplus/worklife/OPWLBHelper;->getInstance(Landroid/content/Context;)Lcom/oneplus/worklife/OPWLBHelper;
+
+    move-result-object p1
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mOpwlbHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mOpwlbHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    invoke-virtual {p1, p0}, Lcom/oneplus/worklife/OPWLBHelper;->registerChanges(Lcom/oneplus/worklife/OPWLBHelper$IWLBModeChangeListener;)V
+
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationData:Lcom/android/systemui/statusbar/notification/collection/NotificationData;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mOpwlbHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/collection/NotificationData;->setWlbHelper(Lcom/oneplus/worklife/OPWLBHelper;)V
 
     return-void
 .end method
@@ -582,7 +603,7 @@
 .end method
 
 .method private removeNotificationInternal(Ljava/lang/String;Landroid/service/notification/NotificationListenerService$RankingMap;Lcom/android/internal/statusbar/NotificationVisibility;ZZI)V
-    .locals 5
+    .locals 6
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mRemoveInterceptor:Lcom/android/systemui/statusbar/NotificationRemoveInterceptor;
 
@@ -603,61 +624,118 @@
 
     move-result-object p6
 
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->abortExistingInflation(Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mCachedNotifications:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mCachedNotifications:Ljava/util/HashMap;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_1
     const/4 v0, 0x0
 
-    if-eqz p6, :cond_2
+    const/4 v1, 0x1
 
-    iget-object v1, p6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->channel:Landroid/app/NotificationChannel;
+    if-nez p6, :cond_2
 
-    if-eqz v1, :cond_2
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPendingNotifications:Ljava/util/HashMap;
 
-    invoke-virtual {v1}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
+
+    check-cast v2, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;
+
+    if-eqz v2, :cond_2
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationLifetimeExtenders:Ljava/util/ArrayList;
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_1
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;
+
+    invoke-interface {v4, v2}, Lcom/android/systemui/statusbar/NotificationLifetimeExtender;->shouldExtendLifetimeForPendingNotification(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-direct {p0, v2, v4}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->extendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/NotificationLifetimeExtender;)V
+
+    move v0, v1
 
     goto :goto_0
 
     :cond_2
-    const/4 v1, 0x0
+    if-nez v0, :cond_3
 
-    :goto_0
-    const-string v2, "phone_incoming_call"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    const/4 v2, 0x1
-
-    if-eqz v1, :cond_3
-
-    move p4, v2
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->abortExistingInflation(Ljava/lang/String;)V
 
     :cond_3
-    if-eqz p6, :cond_7
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mCachedNotifications:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mCachedNotifications:Ljava/util/HashMap;
+
+    invoke-virtual {v2, p1}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_4
+    if-eqz p6, :cond_5
+
+    iget-object v2, p6, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->channel:Landroid/app/NotificationChannel;
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {v2}, Landroid/app/NotificationChannel;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_1
+
+    :cond_5
+    const/4 v2, 0x0
+
+    :goto_1
+    const-string v3, "phone_incoming_call"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_6
+
+    const-string v3, "phone_ongoing_call"
+
+    invoke-virtual {v3, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :cond_6
+    move p4, v1
+
+    :cond_7
+    if-eqz p6, :cond_c
 
     invoke-virtual {p6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isRowDismissed()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez p4, :cond_5
+    if-nez p4, :cond_9
 
-    if-nez v1, :cond_5
+    if-nez v2, :cond_9
 
     iget-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationLifetimeExtenders:Ljava/util/ArrayList;
 
@@ -665,12 +743,12 @@
 
     move-result-object p4
 
-    :cond_4
+    :cond_8
     invoke-interface {p4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_9
 
     invoke-interface {p4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -682,16 +760,16 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_8
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mLatestRankingMap:Landroid/service/notification/NotificationListenerService$RankingMap;
 
     invoke-direct {p0, p6, v3}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->extendLifetime(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/systemui/statusbar/NotificationLifetimeExtender;)V
 
-    move v0, v2
+    move v0, v1
 
-    :cond_5
-    if-nez v0, :cond_7
+    :cond_9
+    if-nez v0, :cond_c
 
     invoke-direct {p0, p6}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->cancelLifetimeExtension(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 
@@ -699,11 +777,11 @@
 
     move-result p4
 
-    if-eqz p4, :cond_6
+    if-eqz p4, :cond_a
 
     invoke-virtual {p6}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->removeRow()V
 
-    :cond_6
+    :cond_a
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->handleGroupSummaryRemoved(Ljava/lang/String;)V
 
     iget-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationData:Lcom/android/systemui/statusbar/notification/collection/NotificationData;
@@ -712,42 +790,51 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->updateNotifications()V
 
-    const-class p1, Lcom/android/systemui/util/leak/LeakDetector;
+    const-class p2, Lcom/android/systemui/util/leak/LeakDetector;
 
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
-
-    move-result-object p1
-
-    check-cast p1, Lcom/android/systemui/util/leak/LeakDetector;
-
-    invoke-virtual {p1, p6}, Lcom/android/systemui/util/leak/LeakDetector;->trackGarbage(Ljava/lang/Object;)V
-
-    or-int p1, p5, v1
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
-
-    invoke-interface {p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object p0
-
-    :goto_1
-    invoke-interface {p0}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result p2
-
-    if-eqz p2, :cond_7
-
-    invoke-interface {p0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
     move-result-object p2
 
-    check-cast p2, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
+    check-cast p2, Lcom/android/systemui/util/leak/LeakDetector;
 
-    invoke-interface {p2, p6, p3, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/internal/statusbar/NotificationVisibility;Z)V
+    invoke-virtual {p2, p6}, Lcom/android/systemui/util/leak/LeakDetector;->trackGarbage(Ljava/lang/Object;)V
 
-    goto :goto_1
+    or-int p2, p5, v2
 
-    :cond_7
+    iget-object p4, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationEntryListeners:Ljava/util/List;
+
+    invoke-interface {p4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object p4
+
+    :goto_2
+    invoke-interface {p4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result p5
+
+    if-eqz p5, :cond_b
+
+    invoke-interface {p4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object p5
+
+    check-cast p5, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;
+
+    invoke-interface {p5, p6, p3, p2}, Lcom/android/systemui/statusbar/notification/NotificationEntryListener;->onEntryRemoved(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Lcom/android/internal/statusbar/NotificationVisibility;Z)V
+
+    goto :goto_2
+
+    :cond_b
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mContext:Landroid/content/Context;
+
+    invoke-static {p0}, Lcom/oneplus/worklife/OPWLBHelper;->getInstance(Landroid/content/Context;)Lcom/oneplus/worklife/OPWLBHelper;
+
+    move-result-object p0
+
+    invoke-virtual {p0, p1}, Lcom/oneplus/worklife/OPWLBHelper;->removeNotificationKey(Ljava/lang/String;)V
+
+    :cond_c
     return-void
 .end method
 
@@ -788,7 +875,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateNotification("
+    const-string/jumbo v2, "updateNotification("
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1571,6 +1658,14 @@
     return-void
 .end method
 
+.method public onModeChanged()V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->updateNotifications()V
+
+    return-void
+.end method
+
 .method public onReorderingAllowed()V
     .locals 0
 
@@ -1654,9 +1749,21 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mPresenter:Lcom/android/systemui/statusbar/NotificationPresenter;
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationData:Lcom/android/systemui/statusbar/notification/collection/NotificationData;
+    iget-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mNotificationData:Lcom/android/systemui/statusbar/notification/collection/NotificationData;
 
-    invoke-virtual {p0, p3}, Lcom/android/systemui/statusbar/notification/collection/NotificationData;->setHeadsUpManager(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)V
+    invoke-virtual {p1, p3}, Lcom/android/systemui/statusbar/notification/collection/NotificationData;->setHeadsUpManager(Lcom/android/systemui/statusbar/policy/HeadsUpManager;)V
+
+    const-class p1, Lcom/android/systemui/statusbar/notification/NotificationFilter;
+
+    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Lcom/android/systemui/statusbar/notification/NotificationFilter;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->mOpwlbHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/notification/NotificationFilter;->setWlbHelper(Lcom/oneplus/worklife/OPWLBHelper;)V
 
     return-void
 .end method

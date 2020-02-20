@@ -166,8 +166,8 @@
     <string name="accessibility_quick_settings_color_inversion_changed_on">Kleurinversie ingeschakeld.</string>
     <string name="accessibility_quick_settings_data_saver_changed_off">Databesparing is uitgeschakeld.</string>
     <string name="accessibility_quick_settings_data_saver_changed_on">Databesparing is ingeschakeld.</string>
-    <string name="accessibility_quick_settings_data_switch_changed_1">Datakaart wisselen naar SIM 1.</string>
-    <string name="accessibility_quick_settings_data_switch_changed_2">Datakaart wisselen naar SIM 2.</string>
+    <string name="accessibility_quick_settings_data_switch_changed_1">Datakaart wisselen naar sim 1.</string>
+    <string name="accessibility_quick_settings_data_switch_changed_2">Datakaart wisselen naar sim 2.</string>
     <string name="accessibility_quick_settings_detail">Snelle instellingen, %s.</string>
     <string name="accessibility_quick_settings_dnd">Niet storen.</string>
     <string name="accessibility_quick_settings_dnd_alarms_on">alleen wekkers</string>
@@ -1031,7 +1031,7 @@ Je bent ook verbonden met een VPN, waarmee je netwerkactiviteit kan worden gecon
     <string name="nav_bar">Navigatiebalk</string>
     <string name="nav_bar_default">(standaard)</string>
     <string name="nav_bar_guide_positive">BEGREPEN</string>
-    <string name="nav_bar_guide_title">Veeg omhoog vanaf de bodem om de navigatiebalk weer te geven. Indien u de navigatie niet langer wenst te verbergen, tap op</string>
+    <string name="nav_bar_guide_title">Veeg omhoog vanaf de onderkant om de navigatiebalk weer te geven. Tik hier om het verbergen van de navigatie te stoppen.</string>
     <string name="nav_bar_layout">Lay-out</string>
     <string name="no_application">Niets</string>
     <string name="no_auto_saver_action">Nee</string>
@@ -1104,11 +1104,11 @@ Je bent ook verbonden met een VPN, waarmee je netwerkactiviteit kan worden gecon
     <string name="op_earphone_device">TIK OM TE KOPPELEN</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Veeg omlaag voor hulpdiensten</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Blijft ontgrendeld door Gezichtsontgrendeling</string>
+    <string name="op_keyguard_indication_trust_unlocked">Blijft ontgrendeld door Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Voor veiligheid: druk op aan-uitknop en veeg omhoog om wachtwoord te gebruiken</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Voor veiligheid: druk op de aan-uitknop en veeg omhoog om patroon te gebruiken</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Voor veiligheid: druk op de aan-uitknop en veeg omhoog om pincode te gebruiken</string>
     <string name="op_notification_alert_title">Belangrijk</string>
     <string name="op_notification_channel_summary_low">Minder belangrijke meldingen zonder geluid of trillingen.</string>
     <string name="op_notification_section_header_gentle">Overige meldingen</string>
@@ -1144,7 +1144,7 @@ Je bent ook verbonden met een VPN, waarmee je netwerkactiviteit kan worden gecon
     <string name="overheat_notification_alert">De temperatuur van uw telefoon is te hoog en functies met een hoog energieverbruik zijn uitgeschakeld om de temperatuur te verlagen</string>
     <string name="overheat_notification_resume">De temperatuur van de telefoon is hersteld en de telefoon kan normaal worden gebruikt</string>
     <string name="overheat_notification_title_resume">De temperatuur van de telefoon is hersteld</string>
-    <string name="overheat_toast_content">De temperatuur van de telefoon is hoog, het wordt afgeraden om deze functie te gebruiken</string>
+    <string name="overheat_toast_content">De temperatuur van uw telefoon is te hoog en functies met een hoog energieverbruik zijn uitgeschakeld om de temperatuur te verlagen</string>
     <string name="overlay_display_devices_title">Secundaire displays simuleren</string>
     <string name="overview">Overzicht</string>
     <string name="phone_hint">Vegen voor telefoon</string>
@@ -1221,8 +1221,8 @@ Je bent ook verbonden met een VPN, waarmee je netwerkactiviteit kan worden gecon
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">Pocketmodus is ingeschakeld</string>
     <string name="prevent_view_title_cancel">Om uw telefoon te activeren:</string>
-    <string name="prevent_view_top_tag_cancel">Dek het blauwe gebied van uw telefoon niet af en verwijder vuil of stof van het blauwe gebied.</string>
-    <string name="prevent_view_top_tag_cancel2">Volg de cirkels op het scherm en tap erop om pocket mode geforceerd te stoppen.</string>
+    <string name="prevent_view_top_tag_cancel">Dek het blauwe gebied van uw telefoon niet af en verwijder vuil en stof.</string>
+    <string name="prevent_view_top_tag_cancel2">Volg de cirkels op het scherm en tik erop om broekzakmodus geforceerd af te sluiten</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">camera</string>
@@ -1281,8 +1281,8 @@ Je bent ook verbonden met een VPN, waarmee je netwerkactiviteit kan worden gecon
     <string name="quick_settings_connected_battery_level">Verbonden, batterij %1$s</string>
     <string name="quick_settings_connecting">Verbinding maken…</string>
     <string name="quick_settings_data_switch_label">Datakaart wisselen</string>
-    <string name="quick_settings_data_switch_toast_0">Momenteel is er geen SIM-kaart geplaatst</string>
-    <string name="quick_settings_data_switch_toast_1">Momenteel is er slechts één SIM-kaart geplaatst</string>
+    <string name="quick_settings_data_switch_toast_0">Momenteel is er geen simkaart geplaatst</string>
+    <string name="quick_settings_data_switch_toast_1">Momenteel is er slechts één simkaart geplaatst</string>
     <string name="quick_settings_default_data_card">Standaard datakaart</string>
     <string name="quick_settings_disclosure_managed_profile_monitoring">Je organisatie kan het netwerkverkeer in je werkprofiel bijhouden</string>
     <string name="quick_settings_disclosure_managed_profile_named_vpn">Werkprofiel verbonden met %1$s</string>
@@ -1379,7 +1379,7 @@ Batterijbesparing"</string>
     <string name="recents_deep_clean_dialog_checkbox_text">Niet opnieuw tonen</string>
     <string name="recents_deep_clean_dialog_message">Grondig opruimen wist alle achtergrondprocessen, wat kan leiden tot onbedoelde resultaten. Sommige apps kunnen stoppen met werken en geen meldingen ontvangen tot u hen opnieuw opstart. Verder gaan?</string>
     <string name="recents_deep_clean_dialog_title">Opgelet</string>
-    <string name="recents_deep_clean_message">Alle applicaties stoppen</string>
+    <string name="recents_deep_clean_message">Alle applicaties afsluiten</string>
     <string name="recents_deep_clean_option">Grondig opruimen</string>
     <string name="recents_empty_no_apps_open">Geen applicaties open</string>
     <string name="recents_empty_recently_closed">Recent gesloten apps</string>

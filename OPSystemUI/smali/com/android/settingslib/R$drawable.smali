@@ -26,16 +26,16 @@
 
 .field public static final ic_passpoint_r:I = 0x7f080704
 
-.field public static final ic_settings_bluetooth:I = 0x7f080755
+.field public static final ic_settings_bluetooth:I = 0x7f080756
 
-.field public static final op_ic_account_circle:I = 0x7f08089d
+.field public static final op_ic_account_circle:I = 0x7f0808a4
 
-.field public static final op_ic_wifi_signal_0:I = 0x7f0808c9
+.field public static final op_ic_wifi_signal_0:I = 0x7f0808d0
 
-.field public static final op_ic_wifi_signal_1:I = 0x7f0808ca
+.field public static final op_ic_wifi_signal_1:I = 0x7f0808d1
 
-.field public static final op_ic_wifi_signal_2:I = 0x7f0808cb
+.field public static final op_ic_wifi_signal_2:I = 0x7f0808d2
 
-.field public static final op_ic_wifi_signal_3:I = 0x7f0808cc
+.field public static final op_ic_wifi_signal_3:I = 0x7f0808d3
 
-.field public static final op_ic_wifi_signal_4:I = 0x7f0808cd
+.field public static final op_ic_wifi_signal_4:I = 0x7f0808d4

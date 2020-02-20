@@ -2228,7 +2228,7 @@
 
     iget-object p1, p0, Lcom/oneplus/volume/OpVolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104073f
+    const v3, 0x1040740
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2278,7 +2278,7 @@
     :cond_2
     iget-object p1, p0, Lcom/oneplus/volume/OpVolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104073e
+    const v3, 0x104073f
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3021,7 +3021,7 @@
 
     sget-object v0, Lcom/android/systemui/volume/VolumeDialogImpl;->TAG:Ljava/lang/String;
 
-    const-string v1, "trimObsoleteH"
+    const-string/jumbo v1, "trimObsoleteH"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3188,7 +3188,7 @@
 
     sget-object v2, Lcom/android/systemui/volume/VolumeDialogImpl;->TAG:Ljava/lang/String;
 
-    const-string v3, "updateRowsH"
+    const-string/jumbo v3, "updateRowsH"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3210,7 +3210,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateRowsH, mOpForceExpandState:"
+    const-string/jumbo v4, "updateRowsH, mOpForceExpandState:"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3861,7 +3861,7 @@
 
     sget-boolean v2, Lcom/android/systemui/volume/D;->BUG:Z
 
-    const-string v3, "updateVolumeRowH s="
+    const-string/jumbo v3, "updateVolumeRowH s="
 
     if-eqz v2, :cond_0
 
@@ -3945,7 +3945,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "updateVolumeRowH, lastAudibleLevel = ss.level:"
+    const-string/jumbo v8, "updateVolumeRowH, lastAudibleLevel = ss.level:"
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6649,7 +6649,7 @@
 
     sget-object v0, Lcom/android/systemui/volume/VolumeDialogImpl;->TAG:Ljava/lang/String;
 
-    const-string v1, "tool:checkODICaptionsTooltip() putBoolean true"
+    const-string/jumbo v1, "tool:checkODICaptionsTooltip() putBoolean true"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -508,11 +508,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v0, "volte"
+    const-string/jumbo v0, "volte"
 
     invoke-virtual {p3, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 
-    const-string v0, "vowifi"
+    const-string/jumbo v0, "vowifi"
 
     invoke-virtual {p3, v0}, Landroid/util/ArraySet;->add(Ljava/lang/Object;)Z
 

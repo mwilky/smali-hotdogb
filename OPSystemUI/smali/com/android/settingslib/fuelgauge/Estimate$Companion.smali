@@ -87,7 +87,7 @@
 
     int-to-long v0, v0
 
-    const-string v2, "time_remaining_estimate_millis"
+    const-string/jumbo v2, "time_remaining_estimate_millis"
 
     invoke-static {p0, v2, v0, v1}, Landroid/provider/Settings$Global;->getLong(Landroid/content/ContentResolver;Ljava/lang/String;J)J
 
@@ -95,7 +95,7 @@
 
     const/4 v4, 0x0
 
-    const-string v5, "time_remaining_estimate_based_on_usage"
+    const-string/jumbo v5, "time_remaining_estimate_based_on_usage"
 
     invoke-static {p0, v5, v4}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -149,7 +149,7 @@
 
     move-result-wide v0
 
-    const-string p1, "time_remaining_estimate_millis"
+    const-string/jumbo p1, "time_remaining_estimate_millis"
 
     invoke-static {p0, p1, v0, v1}, Landroid/provider/Settings$Global;->putLong(Landroid/content/ContentResolver;Ljava/lang/String;J)Z
 
@@ -157,7 +157,7 @@
 
     move-result p1
 
-    const-string v0, "time_remaining_estimate_based_on_usage"
+    const-string/jumbo v0, "time_remaining_estimate_based_on_usage"
 
     invoke-static {p0, v0, p1}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 

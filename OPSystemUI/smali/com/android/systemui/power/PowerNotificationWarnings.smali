@@ -458,7 +458,7 @@
 
     move-result-object v7
 
-    const-string v8, "url"
+    const-string/jumbo v8, "url"
 
     invoke-virtual {v8, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1228,7 +1228,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateNotification mWarning="
+    const-string/jumbo v2, "updateNotification mWarning="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

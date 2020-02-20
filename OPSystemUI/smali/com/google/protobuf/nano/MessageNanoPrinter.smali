@@ -667,7 +667,7 @@
 
     move-result-object v0
 
-    const-string v5, "value"
+    const-string/jumbo v5, "value"
 
     invoke-static {v5, v0, p2, p3}, Lcom/google/protobuf/nano/MessageNanoPrinter;->print(Ljava/lang/String;Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/lang/StringBuffer;)V
 

@@ -337,6 +337,26 @@
     return-object p0
 .end method
 
+.method public containsKey(J)Z
+    .locals 0
+
+    invoke-virtual {p0, p1, p2}, Landroidx/collection/LongSparseArray;->indexOfKey(J)I
+
+    move-result p0
+
+    if-ltz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method public delete(J)V
     .locals 0
     .annotation runtime Ljava/lang/Deprecated;
@@ -400,6 +420,27 @@
     :cond_1
     :goto_0
     return-object p3
+.end method
+
+.method public indexOfKey(J)I
+    .locals 1
+
+    iget-boolean v0, p0, Landroidx/collection/LongSparseArray;->mGarbage:Z
+
+    if-eqz v0, :cond_0
+
+    invoke-direct {p0}, Landroidx/collection/LongSparseArray;->gc()V
+
+    :cond_0
+    iget-object v0, p0, Landroidx/collection/LongSparseArray;->mKeys:[J
+
+    iget p0, p0, Landroidx/collection/LongSparseArray;->mSize:I
+
+    invoke-static {v0, p0, p1, p2}, Landroidx/collection/ContainerHelpers;->binarySearch([JIJ)I
+
+    move-result p0
+
+    return p0
 .end method
 
 .method public keyAt(I)J
@@ -646,7 +687,7 @@
 
     if-gtz v0, :cond_0
 
-    const-string p0, "{}"
+    const-string/jumbo p0, "{}"
 
     return-object p0
 

@@ -32,6 +32,38 @@
     return-void
 .end method
 
+.method private updateThemeColor(Landroid/widget/ImageView;Z)V
+    .locals 0
+
+    sget p0, Lcom/oneplus/util/ThemeColorUtils;->QS_WLB_INDICATOR:I
+
+    invoke-static {p0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result p0
+
+    invoke-static {p0}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+
+    move-result-object p0
+
+    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setImageTintList(Landroid/content/res/ColorStateList;)V
+
+    if-eqz p2, :cond_0
+
+    const/high16 p0, 0x3f800000    # 1.0f
+
+    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    goto :goto_0
+
+    :cond_0
+    const p0, 0x3e4ccccd    # 0.2f
+
+    invoke-virtual {p1, p0}, Landroid/widget/ImageView;->setAlpha(F)V
+
+    :goto_0
+    return-void
+.end method
+
 
 # virtual methods
 .method public onScanStateChanged(Z)V
@@ -163,5 +195,39 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->post(Ljava/lang/Runnable;)Z
 
+    return-void
+.end method
+
+.method public updateWlbIndicators([Z)V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    :goto_0
+    array-length v1, p1
+
+    if-ge v0, v1, :cond_0
+
+    aget-boolean v1, p1, v0
+
+    iget-object v2, p0, Lcom/android/systemui/qs/QSDetail$3;->this$0:Lcom/android/systemui/qs/QSDetail;
+
+    invoke-static {v2}, Lcom/android/systemui/qs/QSDetail;->access$700(Lcom/android/systemui/qs/QSDetail;)Landroid/widget/LinearLayout;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/ImageView;
+
+    invoke-direct {p0, v2, v1}, Lcom/android/systemui/qs/QSDetail$3;->updateThemeColor(Landroid/widget/ImageView;Z)V
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method

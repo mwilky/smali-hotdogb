@@ -262,7 +262,7 @@
     <string name="accessibility_zero_bars">Aucun signal</string>
     <string name="active_input_method_subtypes">Modes de saisie actifs</string>
     <string name="activity_launch_on_secondary_display_failed_text">"L'application ne peut pas être lancée sur des écrans secondaires."</string>
-    <string name="activity_not_available">Appli indisponible</string>
+    <string name="activity_not_available">"L'application n'est pas disponible"</string>
     <string name="activity_not_found">"L'application n'est pas installée sur votre appareil."</string>
     <string name="adb_keys_warning_message">"Voulez-vous vraiment désactiver l'accès au débogage USB de tous les ordinateurs précédemment autorisés ?"</string>
     <string name="adb_warning_message">Le débogage USB est conçu uniquement pour le développement. Utilisez-le pour copier des données entre votre ordinateur et votre appareil, installer des applications sur votre appareil sans notification et lire les données de journal.</string>
@@ -1031,7 +1031,7 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="nav_bar">Barre de navigation</string>
     <string name="nav_bar_default">(par défaut)</string>
     <string name="nav_bar_guide_positive">"D'ACCORD"</string>
-    <string name="nav_bar_guide_title">Balayez de bas en haut pour afficher la barre de navigation. Si vous voulez arrêter de masquer la navigation, veuillez tapoter</string>
+    <string name="nav_bar_guide_title">Balayez de bas en haut pour afficher la barre de navigation. Si vous voulez arrêter de masquer la navigation, veuillez appuyer ici.</string>
     <string name="nav_bar_layout">Disposition</string>
     <string name="no_application">Aucune</string>
     <string name="no_auto_saver_action">Non, merci</string>
@@ -1090,7 +1090,7 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="oneplus_threekey_navigation_disturb_changed">« Ne pas déranger » a changé !</string>
     <string name="oneplus_threekey_navigation_next">SUIVANT</string>
     <string name="oneplus_threekey_navigation_silence">Silence total</string>
-    <string name="oneplus_threekey_navigation_slider_has_changed">"Le curseur d'alerte a été modifié !"</string>
+    <string name="oneplus_threekey_navigation_slider_has_changed">Alert Slider a été modifié !</string>
     <string name="oneplus_threekey_navigation_sound">Tous les sons autorisés</string>
     <string name="oneplus_threekey_navigation_turned_on_here">"Pour l'activer, utilisez la touche ci-dessus"</string>
     <string name="oneplus_threekey_navigation_vibration">Vibration uniquement</string>
@@ -1104,11 +1104,11 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="op_earphone_device">APPUYER POUR ASSOCIER</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">"Balayer vers le bas pour les services d'urgence"</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Laissé déverrouillé par Reconnaissance faciale</string>
+    <string name="op_keyguard_indication_trust_unlocked">Laissé déverrouillé par Verrouillage intelligent</string>
+    <string name="op_kg_prompt_reason_timeout_password">"Pour une sécurité supplémentaire, appuyez sur le bouton d'alimentation et balayez vers le haut pour utiliser le mot de passe"</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">"Pour une sécurité supplémentaire, appuyez sur le bouton d'alimentation et balayez vers le haut pour utiliser le motif"</string>
+    <string name="op_kg_prompt_reason_timeout_pin">"Pour une sécurité supplémentaire, appuyez sur le bouton d'alimentation et balayez vers le haut pour utiliser le code PIN"</string>
     <string name="op_notification_alert_title">Important</string>
     <string name="op_notification_channel_summary_low">Des notifications moins importantes sans aucun son ni vibration.</string>
     <string name="op_notification_section_header_gentle">Autres notifications</string>
@@ -1134,17 +1134,17 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="output_title">Sortie multimédia</string>
     <string name="overheat_dialog_orange_button">Exécuter</string>
     <string name="overheat_dialog_orange_message">"Suivre la méthode suivante pour réduire la température
-1.Réduisez la luminotisé
+1.Réduisez la luminosité
 2.Désactivez le point d'accès
 3.Désactiver la lampe torche"</string>
     <string name="overheat_dialog_purple_button">Mettre hors tension</string>
     <string name="overheat_dialog_purple_message">"Le téléphone s'éteindra après 5 secondes"</string>
     <string name="overheat_dialog_red_message">Effacer tous les processus d’applications pour réduire la température</string>
-    <string name="overheat_dialog_title">"La température de votre téléphone n'est pas élevée"</string>
-    <string name="overheat_notification_alert">La température de votre téléphone est trop élevée et la fonction de consommation élevée est désactivée pour réduire la température.</string>
+    <string name="overheat_dialog_title">La température de votre téléphone est trop élevée</string>
+    <string name="overheat_notification_alert">La température de votre téléphone est trop élevée et les fonctions à consommation élevée sont désactivées afin de réduire la température</string>
     <string name="overheat_notification_resume">La température du téléphone a été restaurée et le téléphone peut être utilisé normalement</string>
     <string name="overheat_notification_title_resume">Le température du téléphone est restaurée</string>
-    <string name="overheat_toast_content">Le téléphone surchauffe, il est recommandé de ne pas utiliser cette fonction</string>
+    <string name="overheat_toast_content">La température de votre téléphone est trop élevée et les fonctions à consommation élevée sont désactivées afin de réduire la température</string>
     <string name="overlay_display_devices_title">Simuler des écrans secondaires</string>
     <string name="overview">Aperçu</string>
     <string name="phone_hint">Balayer pour téléphoner</string>
@@ -1221,8 +1221,8 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">Mode poche activé</string>
     <string name="prevent_view_title_cancel">Pour activer votre téléphone :</string>
-    <string name="prevent_view_top_tag_cancel">Veuillez ne pas recouvrir et garder propre (pas de poussière ou de saletés) la zone bleue de votre téléphone.</string>
-    <string name="prevent_view_top_tag_cancel2">"Veuillez suivre les cercles à l'écran et tapoter dessus pour quitter de force le mode poche."</string>
+    <string name="prevent_view_top_tag_cancel">Ne pas recouvrir la zone bleue de votre téléphone et enlevez toute poussière ou saleté.</string>
+    <string name="prevent_view_top_tag_cancel2">"Veuillez suivre les cercles à l'écran et appuyer dessus pour quitter de force le mode poche"</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">appareil photo</string>
@@ -1379,7 +1379,7 @@ Vous êtes également connecté à un VPN qui peut contrôler votre activité su
     <string name="recents_deep_clean_dialog_checkbox_text">Ne plus afficher</string>
     <string name="recents_deep_clean_dialog_message">"Le nettoyage en profondeur effacera les processus en arrière-plan, ce qui peut mener à des résultats inattendus. Certaines applications peuvent arrêter de fonctionner et ne plus recevoir de notifications jusqu'à ce que vous les redémarriez. Merci de confirmer."</string>
     <string name="recents_deep_clean_dialog_title">Attention</string>
-    <string name="recents_deep_clean_message">Tuer toutes les applications</string>
+    <string name="recents_deep_clean_message">Quitter toutes les applications</string>
     <string name="recents_deep_clean_option">Nettoyage en profondeur</string>
     <string name="recents_empty_no_apps_open">Aucune application ouverte</string>
     <string name="recents_empty_recently_closed">Applis récemment fermées</string>

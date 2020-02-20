@@ -51,7 +51,7 @@
     goto/16 :goto_1
 
     :cond_0
-    const-string p1, "tile"
+    const-string/jumbo p1, "tile"
 
     invoke-virtual {p2, p1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

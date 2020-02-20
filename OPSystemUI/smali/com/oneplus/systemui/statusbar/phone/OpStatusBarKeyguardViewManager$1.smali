@@ -37,7 +37,7 @@
 .method public run()V
     .locals 3
 
-    const-string p0, "trimMemory#onKeyguardFadedAway"
+    const-string/jumbo p0, "trimMemory#onKeyguardFadedAway"
 
     const-string v0, "OpStatusBarKeyguardViewManager"
 

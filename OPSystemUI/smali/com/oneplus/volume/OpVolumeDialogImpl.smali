@@ -877,7 +877,7 @@
 
     aput-object v3, v2, v6
 
-    const-string v3, "updateVolumeRowTintH"
+    const-string/jumbo v3, "updateVolumeRowTintH"
 
     invoke-static {v0, v3, v2}, Lcom/oneplus/util/OpReflectionUtils;->getMethodWithParams(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 

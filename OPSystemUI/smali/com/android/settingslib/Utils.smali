@@ -92,21 +92,21 @@
 
     const-string v2, "%28?<%21[\u5409\u5343\u5146\u592a]%29\u5b57\u8282"
 
-    const-string v3, "\u5409\u6bd4\u7279"
+    const-string/jumbo v3, "\u5409\u6bd4\u7279"
 
-    const-string v4, "\u5409\u5b57\u8282"
+    const-string/jumbo v4, "\u5409\u5b57\u8282"
 
-    const-string v5, "\u5343\u6bd4\u7279"
+    const-string/jumbo v5, "\u5343\u6bd4\u7279"
 
-    const-string v6, "\u5343\u5b57\u8282"
+    const-string/jumbo v6, "\u5343\u5b57\u8282"
 
-    const-string v7, "\u5146\u6bd4\u7279"
+    const-string/jumbo v7, "\u5146\u6bd4\u7279"
 
-    const-string v8, "\u5146\u5b57\u8282"
+    const-string/jumbo v8, "\u5146\u5b57\u8282"
 
-    const-string v9, "\u592a\u6bd4\u7279"
+    const-string/jumbo v9, "\u592a\u6bd4\u7279"
 
-    const-string v10, "\u592a\u5b57\u8282"
+    const-string/jumbo v10, "\u592a\u5b57\u8282"
 
     filled-new-array/range {v1 .. v10}, [Ljava/lang/String;
 
@@ -257,7 +257,7 @@
 
     move-result-object p1
 
-    const-string v0, "zh"
+    const-string/jumbo v0, "zh"
 
     invoke-virtual {p2, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 

@@ -468,7 +468,7 @@
 
     aput-object p0, v0, v1
 
-    const-string p0, "{registered=%s, requested=%s, coolingDown=%s, currentlyFar=%s, sensor=%s}"
+    const-string/jumbo p0, "{registered=%s, requested=%s, coolingDown=%s, currentlyFar=%s, sensor=%s}"
 
     invoke-static {p0, v0}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 

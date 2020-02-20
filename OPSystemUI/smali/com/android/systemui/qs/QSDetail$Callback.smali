@@ -23,3 +23,6 @@
 
 .method public abstract onToggleStateChanged(Z)V
 .end method
+
+.method public abstract updateWlbIndicators([Z)V
+.end method

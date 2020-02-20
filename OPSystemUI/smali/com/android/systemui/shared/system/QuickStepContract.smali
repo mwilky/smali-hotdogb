@@ -29,7 +29,7 @@
 
     new-instance v0, Ljava/util/StringJoiner;
 
-    const-string v1, "|"
+    const-string/jumbo v1, "|"
 
     invoke-direct {v0, v1}, Ljava/util/StringJoiner;-><init>(Ljava/lang/CharSequence;)V
 

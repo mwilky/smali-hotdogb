@@ -139,7 +139,7 @@
     goto :goto_0
 
     :cond_1
-    const-string v1, "uri"
+    const-string/jumbo v1, "uri"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->getParcelable(Ljava/lang/String;)Landroid/os/Parcelable;
 
@@ -151,7 +151,7 @@
 
     iput-object v1, p0, Landroidx/slice/Slice;->mUri:Ljava/lang/String;
 
-    const-string v1, "type"
+    const-string/jumbo v1, "type"
 
     invoke-virtual {p1, v1}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -613,7 +613,7 @@
 
     move-result-object v1
 
-    const-string v2, "uri"
+    const-string/jumbo v2, "uri"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putParcelable(Ljava/lang/String;Landroid/os/Parcelable;)V
 
@@ -625,7 +625,7 @@
 
     move-result-object v1
 
-    const-string v2, "type"
+    const-string/jumbo v2, "type"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 

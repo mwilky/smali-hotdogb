@@ -372,7 +372,7 @@
 
     invoke-direct {v2}, Landroid/os/Handler;-><init>()V
 
-    const-string v3, "zen_mode"
+    const-string/jumbo v3, "zen_mode"
 
     invoke-direct {v0, p0, v1, v2, v3}, Lcom/oneplus/opzenmode/OpZenModeControllerImpl$3;-><init>(Lcom/oneplus/opzenmode/OpZenModeControllerImpl;Landroid/content/Context;Landroid/os/Handler;Ljava/lang/String;)V
 

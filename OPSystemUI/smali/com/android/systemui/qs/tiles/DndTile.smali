@@ -1053,7 +1053,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "zen_duration"
+    const-string/jumbo v2, "zen_duration"
 
     invoke-static {p1, v2, v1, v0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
@@ -1081,7 +1081,7 @@
 
     move-result-object v0
 
-    const-string v4, "zen_settings_updated"
+    const-string/jumbo v4, "zen_settings_updated"
 
     invoke-static {v0, v4, v1}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

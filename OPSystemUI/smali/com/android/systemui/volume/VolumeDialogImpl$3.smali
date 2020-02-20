@@ -49,7 +49,7 @@
 
     move-result-object p1
 
-    const-string v0, "volume_dialog_container, onTouch"
+    const-string/jumbo v0, "volume_dialog_container, onTouch"
 
     invoke-static {p1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

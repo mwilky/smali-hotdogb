@@ -36,7 +36,7 @@
 
     iget-object p1, p0, Lcom/android/systemui/qs/QSDetail$5;->this$0:Lcom/android/systemui/qs/QSDetail;
 
-    invoke-static {p1}, Lcom/android/systemui/qs/QSDetail;->access$1000(Lcom/android/systemui/qs/QSDetail;)Landroid/view/ViewGroup;
+    invoke-static {p1}, Lcom/android/systemui/qs/QSDetail;->access$1100(Lcom/android/systemui/qs/QSDetail;)Landroid/view/ViewGroup;
 
     move-result-object p1
 

@@ -116,6 +116,8 @@
 
 .field private mIsLightBar:Z
 
+.field private mIsPanelViewFullExpanded:Z
+
 .field private mIsVertical:Z
 
 .field private mKeyguardShow:Z
@@ -298,6 +300,8 @@
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mIsInBrickMode:Z
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mHideNavBar:Z
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mIsPanelViewFullExpanded:Z
 
     new-instance p2, Lcom/android/systemui/statusbar/phone/NavigationBarView$1;
 
@@ -749,6 +753,24 @@
     move-result v0
 
     if-eq v0, v2, :cond_0
+
+    iget-object v0, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardUpdateMonitor;->isKeyguardVisible()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/oneplus/util/OpUtils;->isHomeApp()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->getHomeHandle()Lcom/android/systemui/statusbar/phone/ButtonDispatcher;
 
@@ -1780,7 +1802,7 @@
 
     const-string p0, "StatusBar/NavBarView"
 
-    const-string p1, "view isn\'t attached"
+    const-string/jumbo p1, "view isn\'t attached"
 
     invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1791,7 +1813,7 @@
 
     move-result-object p1
 
-    const-string v1, "window"
+    const-string/jumbo v1, "window"
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1893,7 +1915,7 @@
 
     move-result-object p0
 
-    const-string p1, "window"
+    const-string/jumbo p1, "window"
 
     invoke-virtual {p0, p1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2170,7 +2192,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateButtonColor buttonColor=0x"
+    const-string/jumbo v1, "updateButtonColor buttonColor=0x"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3153,7 +3175,7 @@
 
     if-eqz v0, :cond_3
 
-    const-string v0, "true"
+    const-string/jumbo v0, "true"
 
     goto :goto_3
 
@@ -4079,6 +4101,20 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reorient()V
 
+    const-class v0, Lcom/android/systemui/statusbar/phone/NavigationModeController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/NavigationModeController;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/NavigationModeController;->addListener(Lcom/android/systemui/statusbar/phone/NavigationModeController$ModeChangedListener;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavBarMode:I
+
     iget v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavBarMode:I
 
     invoke-virtual {p0, v0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->onNavigationModeChanged(I)V
@@ -4681,7 +4717,7 @@
 
     if-eqz v6, :cond_2
 
-    const-string v6, "y"
+    const-string/jumbo v6, "y"
 
     goto :goto_1
 
@@ -4761,7 +4797,16 @@
 
     invoke-virtual {v4, v5}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->setBackgroundFrame(Landroid/graphics/Rect;)V
 
+    goto :goto_3
+
     :cond_6
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mBarTransitions:Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NavigationBarTransitions;->setBackgroundFrame(Landroid/graphics/Rect;)V
+
+    :goto_3
     invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onMeasure(II)V
 
     return-void
@@ -5822,20 +5867,38 @@
 
     move-result v0
 
+    const/4 v1, 0x0
+
     if-eqz v0, :cond_0
 
-    const/4 v1, 0x0
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavBarMode:I
+
+    invoke-static {v0}, Lcom/android/systemui/shared/system/QuickStepContract;->isLegacyMode(I)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    :goto_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateNavButtonState(Z)V
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mNavigationInflaterView:Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->onLikelyDefaultLayoutChange()V
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->updateSlippery()V
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->reloadNavIcons()V
@@ -5886,16 +5949,16 @@
 
     move-result-object v1
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mQuickStepAccessibilityDelegate:Landroid/view/View$AccessibilityDelegate;
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_2
+    :cond_3
     const/4 p0, 0x0
 
-    :goto_0
+    :goto_1
     invoke-virtual {v1, p0}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setAccessibilityDelegate(Landroid/view/View$AccessibilityDelegate;)V
 
     return-void
@@ -5978,6 +6041,24 @@
     move-result v1
 
     invoke-virtual {v2, v4, v1, v0}, Lcom/android/systemui/recents/OverviewProxyService;->setSystemUiStateFlag(IZI)V
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mIsPanelViewFullExpanded:Z
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mPanelView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/PanelView;->isFullyExpanded()Z
+
+    move-result v1
+
+    if-eq v0, v1, :cond_2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mPanelView:Lcom/android/systemui/statusbar/phone/NotificationPanelView;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/PanelView;->isFullyExpanded()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarView;->mIsPanelViewFullExpanded:Z
 
     invoke-direct {p0, v3}, Lcom/android/systemui/statusbar/phone/NavigationBarView;->changeHomeHandleAlpha(Z)V
 

@@ -56,7 +56,7 @@
 .method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/statusbar/phone/BiometricUnlockController;)V
     .locals 1
 
-    const-string v0, "wallpaper"
+    const-string/jumbo v0, "wallpaper"
 
     invoke-static {v0}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

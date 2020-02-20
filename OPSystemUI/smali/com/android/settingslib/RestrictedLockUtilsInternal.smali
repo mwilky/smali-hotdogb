@@ -271,7 +271,7 @@
 .method public static hasBaseUserRestriction(Landroid/content/Context;Ljava/lang/String;I)Z
     .locals 1
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

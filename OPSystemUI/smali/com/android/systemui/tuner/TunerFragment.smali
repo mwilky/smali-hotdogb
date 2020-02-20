@@ -218,7 +218,7 @@
 
     move-result-object p1
 
-    const-string p2, "tuner_warning"
+    const-string/jumbo p2, "tuner_warning"
 
     invoke-virtual {p1, p2}, Landroid/app/FragmentManager;->findFragmentByTag(Ljava/lang/String;)Landroid/app/Fragment;
 

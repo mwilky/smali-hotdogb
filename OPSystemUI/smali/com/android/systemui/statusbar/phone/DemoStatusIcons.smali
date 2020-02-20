@@ -575,7 +575,7 @@
 
     if-eqz p1, :cond_15
 
-    const-string p1, "volume"
+    const-string/jumbo p1, "volume"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -585,7 +585,7 @@
 
     if-eqz v0, :cond_3
 
-    const-string v3, "vibrate"
+    const-string/jumbo v3, "vibrate"
 
     invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -604,7 +604,7 @@
     invoke-direct {p0, p1, v1, v0}, Lcom/android/systemui/statusbar/phone/DemoStatusIcons;->updateSlot(Ljava/lang/String;Ljava/lang/String;I)V
 
     :cond_3
-    const-string p1, "zen"
+    const-string/jumbo p1, "zen"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -674,7 +674,7 @@
 
     if-eqz v0, :cond_8
 
-    const v0, 0x108064f
+    sget v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->LOCATION_STATUS_ICON_ID:I
 
     goto :goto_3
 
@@ -712,7 +712,7 @@
     invoke-direct {p0, v0, v1, p1}, Lcom/android/systemui/statusbar/phone/DemoStatusIcons;->updateSlot(Ljava/lang/String;Ljava/lang/String;I)V
 
     :cond_b
-    const-string p1, "tty"
+    const-string/jumbo p1, "tty"
 
     invoke-virtual {p2, p1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -888,7 +888,7 @@
 
     move-result-object v0
 
-    const-string v1, "wifi"
+    const-string/jumbo v1, "wifi"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -957,7 +957,7 @@
 
     const-string v0, "DemoStatusIcons"
 
-    const-string v1, "updateMobileState: "
+    const-string/jumbo v1, "updateMobileState: "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1010,7 +1010,7 @@
 
     const-string v0, "DemoStatusIcons"
 
-    const-string v1, "updateWifiState: "
+    const-string/jumbo v1, "updateWifiState: "
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

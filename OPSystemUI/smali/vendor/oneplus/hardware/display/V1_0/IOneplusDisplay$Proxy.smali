@@ -195,7 +195,7 @@
 
     invoke-direct {v0}, Landroid/os/HwParcel;-><init>()V
 
-    const-string v1, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
+    const-string/jumbo v1, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
 
     invoke-virtual {v0, v1}, Landroid/os/HwParcel;->writeInterfaceToken(Ljava/lang/String;)V
 

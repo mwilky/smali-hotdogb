@@ -446,6 +446,44 @@
     throw p0
 .end method
 
+.method public resize(I)V
+    .locals 0
+
+    if-lez p1, :cond_0
+
+    monitor-enter p0
+
+    :try_start_0
+    iput p1, p0, Landroidx/collection/LruCache;->maxSize:I
+
+    monitor-exit p0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {p0, p1}, Landroidx/collection/LruCache;->trimToSize(I)V
+
+    return-void
+
+    :catchall_0
+    move-exception p1
+
+    :try_start_1
+    monitor-exit p0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw p1
+
+    :cond_0
+    new-instance p0, Ljava/lang/IllegalArgumentException;
+
+    const-string p1, "maxSize <= 0"
+
+    invoke-direct {p0, p1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw p0
+.end method
+
 .method public final declared-synchronized size()I
     .locals 1
 

@@ -407,7 +407,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
 
-    const-string v3, "uAod2Opacity"
+    const-string/jumbo v3, "uAod2Opacity"
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->getHandle(Ljava/lang/String;)I
 
@@ -419,7 +419,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
 
-    const-string v3, "uPer85"
+    const-string/jumbo v3, "uPer85"
 
     invoke-virtual {v2, v3}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->getHandle(Ljava/lang/String;)I
 
@@ -429,7 +429,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageWallpaperRenderer;->mWallpaper:Lcom/android/systemui/glwallpaper/ImageGLWallpaper;
 
-    const-string v2, "uReveal"
+    const-string/jumbo v2, "uReveal"
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->getHandle(Ljava/lang/String;)I
 

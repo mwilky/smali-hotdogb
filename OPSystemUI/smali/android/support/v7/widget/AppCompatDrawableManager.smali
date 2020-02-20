@@ -1001,7 +1001,7 @@
 
     invoke-direct {v0}, Landroid/support/v7/widget/AppCompatDrawableManager$VdcInflateDelegate;-><init>()V
 
-    const-string v1, "vector"
+    const-string/jumbo v1, "vector"
 
     invoke-direct {p0, v1, v0}, Landroid/support/v7/widget/AppCompatDrawableManager;->addDelegate(Ljava/lang/String;Landroid/support/v7/widget/AppCompatDrawableManager$InflateDelegate;)V
 

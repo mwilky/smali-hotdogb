@@ -83,7 +83,7 @@
 
     if-eqz p2, :cond_0
 
-    const-string p2, "vibrator"
+    const-string/jumbo p2, "vibrator"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

@@ -1,11 +1,14 @@
 .class Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "OpWakingUpScrimController.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;->handleStartAnimation(Z)V
+    value = Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;->prepare()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,8 +18,6 @@
 
 
 # instance fields
-.field mCancelled:Z
-
 .field final synthetic this$0:Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;
 
 
@@ -26,68 +27,23 @@
 
     iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->this$0:Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 1
-
-    const-string p1, "OpWakingUpScrimController"
-
-    const-string v0, "WakingUpScrimView onAnimationCancel"
-
-    invoke-static {p1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 p1, 0x1
-
-    iput-boolean p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->mCancelled:Z
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
-
-    const-string p1, "OpWakingUpScrimController"
-
-    const-string v0, "WakingUpScrimView onAnimationEnd"
-
-    invoke-static {p1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-boolean p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->mCancelled:Z
-
-    const/4 v0, 0x0
-
-    if-nez p1, :cond_0
-
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->this$0:Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;
-
-    invoke-virtual {p1, v0}, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;->removeFromWindow(Z)V
-
-    :cond_0
-    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->this$0:Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;
-
-    invoke-static {p0, v0}, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;->access$102(Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;Z)Z
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
+.method public run()V
     .locals 0
 
-    const/4 p1, 0x0
+    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->this$0:Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;
 
-    iput-boolean p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController$2;->mCancelled:Z
+    invoke-static {p0}, Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;->access$100(Lcom/oneplus/systemui/statusbar/phone/OpWakingUpScrimController;)Landroid/animation/Animator;
 
-    const-string p0, "OpWakingUpScrimController"
+    move-result-object p0
 
-    const-string p1, "WakingUpScrimView onAnimationStart"
-
-    invoke-static {p0, p1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {p0}, Landroid/animation/Animator;->cancel()V
 
     return-void
 .end method

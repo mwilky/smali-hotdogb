@@ -834,13 +834,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    const-string v1, "volte"
+    const-string/jumbo v1, "volte"
 
     invoke-interface {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeAllIconsForSlot(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarSignalPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    const-string v2, "vowifi"
+    const-string/jumbo v2, "vowifi"
 
     invoke-interface {v0, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->removeAllIconsForSlot(Ljava/lang/String;)V
 
@@ -1205,13 +1205,13 @@
 
     move-result v2
 
-    const-string v3, "volte"
+    const-string/jumbo v3, "volte"
 
     invoke-virtual {p1, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    const-string v4, "vowifi"
+    const-string/jumbo v4, "vowifi"
 
     invoke-virtual {p1, v4}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
@@ -1492,13 +1492,13 @@
 
     move-result-object v0
 
-    const-string v3, "volte"
+    const-string/jumbo v3, "volte"
 
     invoke-virtual {v0, v3}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 
     move-result v3
 
-    const-string v4, "vowifi"
+    const-string/jumbo v4, "vowifi"
 
     invoke-virtual {v0, v4}, Landroid/util/ArraySet;->contains(Ljava/lang/Object;)Z
 

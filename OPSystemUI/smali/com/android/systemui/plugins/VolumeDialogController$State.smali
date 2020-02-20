@@ -226,7 +226,7 @@
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    const-string v1, "{"
+    const-string/jumbo v1, "{"
 
     invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -344,7 +344,7 @@
 
     invoke-static {v0, p1}, Lcom/android/systemui/plugins/VolumeDialogController$State;->sep(Ljava/lang/StringBuilder;I)V
 
-    const-string v1, "zenMode:"
+    const-string/jumbo v1, "zenMode:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

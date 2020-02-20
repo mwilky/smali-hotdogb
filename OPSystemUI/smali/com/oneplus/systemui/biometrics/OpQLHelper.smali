@@ -1060,7 +1060,7 @@
 
     move-result-object p1
 
-    const-string v0, "zh"
+    const-string/jumbo v0, "zh"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1857,7 +1857,7 @@
     :cond_8
     iget-object p0, p0, Lcom/oneplus/systemui/biometrics/OpQLHelper;->mContext:Landroid/content/Context;
 
-    const p1, 0x50d00ad
+    const p1, 0x50d00b0
 
     invoke-static {p0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -1975,7 +1975,7 @@
         }
     .end annotation
 
-    const-string v0, "value"
+    const-string/jumbo v0, "value"
 
     invoke-virtual {p2, v0}, Lorg/json/JSONObject;->getJSONArray(Ljava/lang/String;)Lorg/json/JSONArray;
 

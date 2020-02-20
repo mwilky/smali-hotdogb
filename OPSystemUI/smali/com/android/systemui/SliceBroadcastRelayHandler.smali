@@ -103,7 +103,7 @@
 
     move-result v0
 
-    const-string v1, "uri"
+    const-string/jumbo v1, "uri"
 
     if-eqz v0, :cond_0
 

@@ -283,7 +283,7 @@
 
     invoke-virtual {p0, p4}, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->initHandler(Landroid/os/Looper;)V
 
-    const-string p2, "window"
+    const-string/jumbo p2, "window"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -648,8 +648,6 @@
     invoke-direct {p0}, Lcom/oneplus/systemui/biometrics/OpFingerprintDialogView;->handleUpdateIndicationTextSize()V
 
     return-void
-
-    nop
 
     :array_0
     .array-data 4
@@ -2904,7 +2902,7 @@
     goto :goto_2
 
     :cond_2
-    const-string p0, "try to add press layout, but it is attached before"
+    const-string/jumbo p0, "try to add press layout, but it is attached before"
 
     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2956,7 +2954,7 @@
     goto :goto_2
 
     :cond_5
-    const-string p0, "try to remove press layout, but it is removed before"
+    const-string/jumbo p0, "try to remove press layout, but it is removed before"
 
     invoke-static {v1, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3228,7 +3226,7 @@
 
     move-object/from16 v17, v3
 
-    const-string v3, "updateIconVisibility: fp client = "
+    const-string/jumbo v3, "updateIconVisibility: fp client = "
 
     invoke-virtual {v10, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4937,7 +4935,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateFPIndicationText: lockout:"
+    const-string/jumbo v1, "updateFPIndicationText: lockout:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5111,7 +5109,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string p2, "updateFPIndicationText: "
+    const-string/jumbo p2, "updateFPIndicationText: "
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5218,7 +5216,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateTimeOutAnimation: animate="
+    const-string/jumbo v1, "updateTimeOutAnimation: animate="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6620,7 +6618,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateDimViewVisibility: show = "
+    const-string/jumbo v1, "updateDimViewVisibility: show = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6677,7 +6675,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateFpDaemonStatus: "
+    const-string/jumbo v1, "updateFpDaemonStatus: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

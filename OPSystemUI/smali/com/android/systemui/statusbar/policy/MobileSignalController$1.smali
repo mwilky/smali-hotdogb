@@ -75,7 +75,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "update activity activityIn="
+    const-string/jumbo v1, "update activity activityIn="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -158,8 +158,6 @@
     :cond_2
     :goto_0
     return-void
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x64

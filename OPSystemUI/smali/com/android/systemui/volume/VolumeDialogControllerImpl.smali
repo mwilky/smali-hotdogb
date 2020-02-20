@@ -466,7 +466,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mContext:Landroid/content/Context;
 
-    const-string v2, "vibrator"
+    const-string/jumbo v2, "vibrator"
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1696,7 +1696,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateActiveStreamW "
+    const-string/jumbo v2, "updateActiveStreamW "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2059,7 +2059,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateStreamRoutedToBluetoothW stream="
+    const-string/jumbo v1, "updateStreamRoutedToBluetoothW stream="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2229,7 +2229,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "zen_mode"
+    const-string/jumbo v2, "zen_mode"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

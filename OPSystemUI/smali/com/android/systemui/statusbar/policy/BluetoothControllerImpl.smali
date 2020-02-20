@@ -136,7 +136,7 @@
     invoke-virtual {p0, p2}, Lcom/android/systemui/statusbar/policy/BluetoothControllerImpl;->onBluetoothStateChanged(I)V
 
     :cond_0
-    const-string p2, "user"
+    const-string/jumbo p2, "user"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -395,7 +395,7 @@
 
     const/4 v2, 0x0
 
-    const-string v1, "update state to DISCONNECTED"
+    const-string/jumbo v1, "update state to DISCONNECTED"
 
     invoke-static {v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -404,7 +404,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updateConnected: "
+    const-string/jumbo v5, "updateConnected: "
 
     invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

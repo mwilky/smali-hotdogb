@@ -299,7 +299,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    const-string v1, "uAod2Opacity"
+    const-string/jumbo v1, "uAod2Opacity"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getUniformHandle(Ljava/lang/String;)I
 
@@ -309,7 +309,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    const-string v1, "uPer85"
+    const-string/jumbo v1, "uPer85"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getUniformHandle(Ljava/lang/String;)I
 
@@ -319,7 +319,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    const-string v1, "uReveal"
+    const-string/jumbo v1, "uReveal"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getUniformHandle(Ljava/lang/String;)I
 
@@ -329,7 +329,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/glwallpaper/ImageGLWallpaper;->mProgram:Lcom/android/systemui/glwallpaper/ImageGLProgram;
 
-    const-string v1, "uTexture"
+    const-string/jumbo v1, "uTexture"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/glwallpaper/ImageGLProgram;->getUniformHandle(Ljava/lang/String;)I
 
@@ -726,7 +726,7 @@
     goto :goto_1
 
     :sswitch_2
-    const-string v0, "uPer85"
+    const-string/jumbo v0, "uPer85"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -739,7 +739,7 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v0, "uReveal"
+    const-string/jumbo v0, "uReveal"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -752,7 +752,7 @@
     goto :goto_1
 
     :sswitch_4
-    const-string v0, "uAod2Opacity"
+    const-string/jumbo v0, "uAod2Opacity"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -765,7 +765,7 @@
     goto :goto_1
 
     :sswitch_5
-    const-string v0, "uTexture"
+    const-string/jumbo v0, "uTexture"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

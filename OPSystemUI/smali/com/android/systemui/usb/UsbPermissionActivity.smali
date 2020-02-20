@@ -381,7 +381,7 @@
 
     const-string v0, "UsbPermissionActivity"
 
-    const-string v1, "unable to look up package name"
+    const-string/jumbo v1, "unable to look up package name"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
@@ -395,7 +395,7 @@
 
     const-string v0, "UsbPermissionActivity"
 
-    const-string v1, "usb"
+    const-string/jumbo v1, "usb"
 
     invoke-static {v1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

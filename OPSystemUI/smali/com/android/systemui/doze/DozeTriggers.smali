@@ -892,6 +892,23 @@
 
     invoke-static {}, Lcom/android/systemui/util/Assert;->isMainThread()V
 
+    iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mMachine:Lcom/android/systemui/doze/DozeMachine;
+
+    invoke-virtual {v0}, Lcom/android/systemui/doze/DozeMachine;->isExecutingTransition()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string p0, "DozeTriggers"
+
+    const-string p1, "requestPulse called during transition. ignore pulse"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mDozeHost:Lcom/android/systemui/doze/DozeHost;
 
     invoke-interface {v0, p1}, Lcom/android/systemui/doze/DozeHost;->extendPulse(I)V
@@ -904,11 +921,11 @@
 
     sget-object v1, Lcom/android/systemui/doze/DozeMachine$State;->DOZE_PULSING:Lcom/android/systemui/doze/DozeMachine$State;
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_1
 
     const/16 v0, 0x8
 
-    if-ne p1, v0, :cond_0
+    if-ne p1, v0, :cond_1
 
     iget-object p0, p0, Lcom/android/systemui/doze/DozeTriggers;->mMachine:Lcom/android/systemui/doze/DozeMachine;
 
@@ -918,24 +935,24 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-boolean v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mPulsePending:Z
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-boolean v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mAllowPulseTriggers:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-direct {p0}, Lcom/android/systemui/doze/DozeTriggers;->canPulse()Z
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-nez v0, :cond_2
 
     goto :goto_1
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/android/systemui/doze/DozeTriggers;->mPulsePending:Z
@@ -950,16 +967,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
-    if-eqz p2, :cond_2
+    if-eqz p2, :cond_3
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x0
 
-    :cond_3
+    :cond_4
     :goto_0
     invoke-direct {p0, v1, v0, p1}, Lcom/android/systemui/doze/DozeTriggers;->proximityCheckThenCall(Ljava/util/function/IntConsumer;ZI)V
 
@@ -985,11 +1002,11 @@
 
     return-void
 
-    :cond_4
+    :cond_5
     :goto_1
     iget-boolean p1, p0, Lcom/android/systemui/doze/DozeTriggers;->mAllowPulseTriggers:Z
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_6
 
     iget-object p1, p0, Lcom/android/systemui/doze/DozeTriggers;->mContext:Landroid/content/Context;
 
@@ -1009,7 +1026,7 @@
 
     invoke-static {p1, p2, v0, p0}, Lcom/android/systemui/doze/DozeLog;->tracePulseDropped(Landroid/content/Context;ZLcom/android/systemui/doze/DozeMachine$State;Z)V
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 

@@ -216,7 +216,7 @@
 
     new-instance v0, Landroidx/slice/SliceItem;
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     filled-new-array {v1}, [Ljava/lang/String;
 
@@ -261,7 +261,7 @@
 
     invoke-virtual {v0, p1, p2, v2, v1}, Landroidx/slice/Slice$Builder;->addTimestamp(JLjava/lang/String;[Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
-    const-string p1, "title"
+    const-string/jumbo p1, "title"
 
     filled-new-array {p1}, [Ljava/lang/String;
 
@@ -329,7 +329,7 @@
     invoke-virtual {v1, p1}, Landroidx/slice/Slice$Builder;->addHints([Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
     :cond_3
-    const-string p1, "title"
+    const-string/jumbo p1, "title"
 
     filled-new-array {p1}, [Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 
     invoke-direct {v0, v1}, Landroidx/slice/Slice$Builder;-><init>(Landroidx/slice/Slice$Builder;)V
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     filled-new-array {v1}, [Ljava/lang/String;
 

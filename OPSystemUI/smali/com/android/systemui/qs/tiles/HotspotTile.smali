@@ -436,7 +436,7 @@
 
     const/4 v8, 0x0
 
-    const-string v6, "type = ? and numeric = ? and user_visible != ? and name != ?"
+    const-string/jumbo v6, "type = ? and numeric = ? and user_visible != ? and name != ?"
 
     invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
@@ -814,7 +814,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    const-string v0, "virtual sim exist. ignore click."
+    const-string/jumbo v0, "virtual sim exist. ignore click."
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1183,7 +1183,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    const-string v6, "virtual sim exist, set to unavailable."
+    const-string/jumbo v6, "virtual sim exist, set to unavailable."
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

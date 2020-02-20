@@ -187,7 +187,7 @@
 
     iget-object p1, p0, Lcom/oneplus/opthreekey/OpThreekeyNavigationDialog;->mContext:Landroid/content/Context;
 
-    const-string v0, "window"
+    const-string/jumbo v0, "window"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2417,7 +2417,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "updateTheme change:"
+    const-string/jumbo v7, "updateTheme change:"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2548,7 +2548,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateThreekeyLayout() / mShowingType == "
+    const-string/jumbo v2, "updateThreekeyLayout() / mShowingType == "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

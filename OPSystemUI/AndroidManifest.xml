@@ -136,11 +136,13 @@
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER"/>
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER"/>
     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED"/>
+    <protected-broadcast android:name="com.oneplus.intent.WLB_MANUAL_SELECTION"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
     <uses-permission android:name="android.permission.MODIFY_AUDIO_ROUTING"/>
     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER"/>
     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER"/>
     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED"/>
+    <protected-broadcast android:name="com.oneplus.intent.WLB_MANUAL_SELECTION"/>
     <application android:allowBackup="false" android:allowClearUserData="false" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:extractNativeLibs="true" android:hardwareAccelerated="true" android:icon="@drawable/icon" android:label="@string/app_label" android:name="com.android.systemui.SystemUIApplication" android:persistent="true" android:process="com.android.systemui" android:supportsRtl="true" android:theme="@style/Theme.SystemUI" android:usesNonSdkApi="true">
         <service android:exported="true" android:name="com.android.systemui.SystemUIService"/>
         <service android:exported="false" android:name="com.android.systemui.SystemUISecondaryUserService" android:permission="com.android.systemui.permission.SELF"/>

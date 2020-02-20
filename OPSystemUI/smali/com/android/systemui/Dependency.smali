@@ -1174,7 +1174,7 @@
 
     new-instance v0, Lcom/android/systemui/Dependency$DependencyKey;
 
-    const-string v1, "time_tick_handler"
+    const-string/jumbo v1, "time_tick_handler"
 
     invoke-direct {v0, v1}, Lcom/android/systemui/Dependency$DependencyKey;-><init>(Ljava/lang/String;)V
 
@@ -3285,6 +3285,16 @@
     invoke-direct {v3, v2}, Lcom/android/systemui/-$$Lambda$Vs-MsjQwuYhfrxzUr7AqZvcfoH4;-><init>(Ldagger/Lazy;)V
 
     invoke-virtual {v0, v1, v3}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v0, p0, Lcom/android/systemui/Dependency;->mProviders:Landroid/util/ArrayMap;
+
+    const-class v1, Lcom/android/systemui/statusbar/phone/WLBSwitchController;
+
+    new-instance v2, Lcom/android/systemui/Dependency$1;
+
+    invoke-direct {v2, p0}, Lcom/android/systemui/Dependency$1;-><init>(Lcom/android/systemui/Dependency;)V
+
+    invoke-virtual {v0, v1, v2}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     sput-object p0, Lcom/android/systemui/Dependency;->sDependency:Lcom/android/systemui/Dependency;
 

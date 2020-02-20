@@ -217,7 +217,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/policy/SecurityControllerImpl;->mPackageManager:Landroid/content/pm/PackageManager;
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -835,7 +835,7 @@
     goto :goto_0
 
     :cond_1
-    const-string p0, "}"
+    const-string/jumbo p0, "}"
 
     invoke-virtual {p2, p0}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
 

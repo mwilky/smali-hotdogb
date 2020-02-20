@@ -1031,7 +1031,7 @@ Máte tiež aktívne pripojenie k sieti VPN, ktorá môže sledovať vašu akti
     <string name="nav_bar">Navigačný panel</string>
     <string name="nav_bar_default">(predvolené)</string>
     <string name="nav_bar_guide_positive">CHÁPEM</string>
-    <string name="nav_bar_guide_title">Potiahnutím prstom nahor z dolnej časti zobrazte navigačný panel. Ak chcete zastaviť skrývanie navigácie, ťuknite</string>
+    <string name="nav_bar_guide_title">Potiahnutím prstom nahor z dolnej časti zobrazte navigačný panel. Ak chcete zastaviť skrývanie navigácie, ťuknite sem.</string>
     <string name="nav_bar_layout">Rozloženie</string>
     <string name="no_application">Nič</string>
     <string name="no_auto_saver_action">Nie, vďaka</string>
@@ -1104,11 +1104,11 @@ Máte tiež aktívne pripojenie k sieti VPN, ktorá môže sledovať vašu akti
     <string name="op_earphone_device">ŤUKNUTÍM SPÁRUJTE</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Potiahnite prstom nadol pre núdzové služby</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Ponechané odomk.funkciou Odomknúť tvárou</string>
+    <string name="op_keyguard_indication_trust_unlocked">Ponechané odomknuté funkciou Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Na zvýšenie bezpečnosti a použitie hesla stlačte tl.napájania a potiahnite nahor</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Na zvýšenie bezpečnosti a použitie vzoru stlačte tl.napájania a potiahnite nahor</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Na zvýšenie bezpečnosti a použitie PIN stlačte tl. napájania a potiahnite nahor</string>
     <string name="op_notification_alert_title">Dôležité</string>
     <string name="op_notification_channel_summary_low">Menej dôležité oznámenia bez zvuku alebo vibrácie.</string>
     <string name="op_notification_section_header_gentle">Ostatné oznámenia</string>
@@ -1144,7 +1144,7 @@ Máte tiež aktívne pripojenie k sieti VPN, ktorá môže sledovať vašu akti
     <string name="overheat_notification_alert">Teplota vášho telefónu je príliš vysoká a na zníženie teploty boli vypnuté funkcie s vysokou spotrebou energie</string>
     <string name="overheat_notification_resume">Teplota telefónu sa znížila a telefón možno používať normálne</string>
     <string name="overheat_notification_title_resume">Teplota telefónu sa znížila</string>
-    <string name="overheat_toast_content">Teplota telefónu je vysoká, neodporúčame použiť túto funkciu</string>
+    <string name="overheat_toast_content">Teplota vášho telefónu je príliš vysoká a na zníženie teploty boli vypnuté funkcie s vysokou spotrebou energie</string>
     <string name="overlay_display_devices_title">Simulovať sekundárne obrazovky</string>
     <string name="overview">Prehľad</string>
     <string name="phone_hint">Telefón otvoríte prejdením prstom od ikony</string>
@@ -1222,7 +1222,7 @@ Máte tiež aktívne pripojenie k sieti VPN, ktorá môže sledovať vašu akti
     <string name="prevent_view_title">Vreckový režim je zapnutý.</string>
     <string name="prevent_view_title_cancel">Ako si aktivovať telefón:</string>
     <string name="prevent_view_top_tag_cancel">Modrú časť svojho telefónu nezakrývajte a vyčistite ju od všetkých nečistôt a prachu.</string>
-    <string name="prevent_view_top_tag_cancel2">Pre opustenie vreckového režimu sledujte kruhy na obrazovke a ťuknite na ne.</string>
+    <string name="prevent_view_top_tag_cancel2">Pre opustenie vreckového režimu sledujte kruhy na obrazovke a ťuknite na ne</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">fotoaparát</string>
@@ -1379,7 +1379,7 @@ Máte tiež aktívne pripojenie k sieti VPN, ktorá môže sledovať vašu akti
     <string name="recents_deep_clean_dialog_checkbox_text">Už nezobrazovať</string>
     <string name="recents_deep_clean_dialog_message">Pomocou dôkladného čistenia sa vymažú všetky procesy na pozadí, čo môže spôsobiť nečakané výsledky. Niektoré aplikácie môžu prestať pracovať a nemusia dostávať oznámenia, pokým ich nereštartujete. Potvrďte prosím.</string>
     <string name="recents_deep_clean_dialog_title">Upozornenie</string>
-    <string name="recents_deep_clean_message">Zavrieť všetky aplikácie</string>
+    <string name="recents_deep_clean_message">Ukončiť všetky aplikácie</string>
     <string name="recents_deep_clean_option">Dôkladné vyčistenie</string>
     <string name="recents_empty_no_apps_open">Nie sú otvorené žiadne aplikácie</string>
     <string name="recents_empty_recently_closed">Naposledy zatvorené aplikácie</string>

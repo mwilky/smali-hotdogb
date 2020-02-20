@@ -10,14 +10,14 @@
 
 .field public static final preference_two_target:I = 0x7f0d0189
 
-.field public static final restricted_icon:I = 0x7f0d01ba
+.field public static final restricted_icon:I = 0x7f0d01bb
 
-.field public static final restricted_switch_preference:I = 0x7f0d01bb
+.field public static final restricted_switch_preference:I = 0x7f0d01bc
 
-.field public static final restricted_switch_widget:I = 0x7f0d01bc
+.field public static final restricted_switch_widget:I = 0x7f0d01bd
 
-.field public static final zen_mode_condition:I = 0x7f0d01fb
+.field public static final zen_mode_condition:I = 0x7f0d01fd
 
-.field public static final zen_mode_radio_button:I = 0x7f0d01fe
+.field public static final zen_mode_radio_button:I = 0x7f0d0200
 
-.field public static final zen_mode_turn_on_dialog_container:I = 0x7f0d01ff
+.field public static final zen_mode_turn_on_dialog_container:I = 0x7f0d0201

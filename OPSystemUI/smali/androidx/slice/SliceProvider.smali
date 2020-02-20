@@ -301,7 +301,7 @@
 
     invoke-virtual {v2, v3, v6, v5}, Landroidx/slice/Slice$Builder;->addIcon(Landroidx/core/graphics/drawable/IconCompat;Ljava/lang/String;[Ljava/lang/String;)Landroidx/slice/Slice$Builder;
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     const-string v5, "shortcut"
 
@@ -500,7 +500,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "vnd.android.slice"
+    const-string/jumbo p0, "vnd.android.slice"
 
     return-object p0
 .end method

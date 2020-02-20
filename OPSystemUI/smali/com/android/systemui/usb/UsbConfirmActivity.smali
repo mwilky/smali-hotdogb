@@ -67,7 +67,7 @@
     if-ne p2, p1, :cond_4
 
     :try_start_0
-    const-string p1, "usb"
+    const-string/jumbo p1, "usb"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

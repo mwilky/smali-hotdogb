@@ -283,6 +283,9 @@
     <string name="accessibility_wimax_signal_full">WiMAX signal full.</string>
     <string name="accessibility_wimax_three_bars">WiMAX three bars.</string>
     <string name="accessibility_wimax_two_bars">WiMAX two bars.</string>
+    <string name="accessibility_work_life_balance_mode">Work Life Balance</string>
+    <string name="accessibility_work_life_balance_mode_off">Work Life Balance mode turned off.</string>
+    <string name="accessibility_work_life_balance_mode_on">Work Life Balance mode turned on.</string>
     <string name="accessibility_work_mode">@string/quick_settings_work_mode_label</string>
     <string name="accessibility_zero_bars">Zero bars.</string>
     <string name="active_input_method_subtypes">Active input methods</string>
@@ -1356,11 +1359,6 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="prevent_view_top_tag_cancel2">Follow the circles on the screen and tap them to force quit pocket mode</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
-    <string name="privacy_alert_application_name">Privacy Alerts</string>
-    <string name="privacy_alert_content_text">Tap to change</string>
-    <string name="privacy_alert_content_text_location">This app can always access your location. Tap to change</string>
-    <string name="privacy_alert_content_title" formatted="false">%s is using your %s</string>
-    <string name="privacy_alert_content_title_location">%s has been using your location</string>
     <string name="privacy_type_camera">camera</string>
     <string name="privacy_type_location">location</string>
     <string name="privacy_type_microphone">microphone</string>
@@ -1386,6 +1384,10 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="qs_dnd_until">Until %s</string>
     <string name="qs_edit">Edit</string>
     <string name="qs_paging">Use the new Quick Settings</string>
+    <string name="qs_panel_life_mode">Life</string>
+    <string name="qs_panel_none">None</string>
+    <string name="qs_panel_set_up">Set up</string>
+    <string name="qs_panel_work_mode">Work</string>
     <string name="qs_rearrange">Rearrange Quick Settings</string>
     <string name="qs_status_phone_muted">Phone muted</string>
     <string name="qs_status_phone_vibrate">Phone on vibrate</string>
@@ -1991,6 +1993,7 @@ Credential storage might not enable"</string>
     <string name="wifi_wapi_psk_type">Password type</string>
     <string name="wifi_wapi_user_certificate">User certificate</string>
     <string name="window_animation_scale_title">Window animation scale</string>
+    <string name="work_life_balance_mode">Work-Life Balance</string>
     <string name="yes_bubbles">Allow</string>
     <string name="zen_alarm_warning">"You won't hear your next alarm %1$s"</string>
     <string name="zen_alarm_warning_indef">"You won't hear your next alarm %1$s unless you turn this off before then"</string>

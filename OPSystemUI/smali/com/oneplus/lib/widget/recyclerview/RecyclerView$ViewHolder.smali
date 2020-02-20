@@ -1018,7 +1018,7 @@
 
     if-eqz v1, :cond_9
 
-    const-string v1, "undefined adapter position"
+    const-string/jumbo v1, "undefined adapter position"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1036,7 +1036,7 @@
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_a
-    const-string p0, "}"
+    const-string/jumbo p0, "}"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -93,7 +93,7 @@
 
     move-result-object v1
 
-    const-string v2, "uri"
+    const-string/jumbo v2, "uri"
 
     invoke-virtual {p2, v2, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

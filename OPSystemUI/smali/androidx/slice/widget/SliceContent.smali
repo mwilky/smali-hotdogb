@@ -395,7 +395,7 @@
     :cond_0
     const/4 v3, 0x3
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     const-string v5, "shortcut"
 

@@ -19,7 +19,7 @@
 
     const/4 v2, 0x0
 
-    const-string v3, "vibrate_on_touch_intensity"
+    const-string/jumbo v3, "vibrate_on_touch_intensity"
 
     invoke-static {p0, v3, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -99,8 +99,6 @@
     const/4 p0, 0x0
 
     return-object p0
-
-    nop
 
     :array_0
     .array-data 4

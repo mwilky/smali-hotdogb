@@ -51,6 +51,10 @@
 
 .field public label:Ljava/lang/CharSequence;
 
+.field public lottiePrefix:Ljava/lang/CharSequence;
+
+.field public lottieSupport:I
+
 .field public secondaryLabel:Ljava/lang/CharSequence;
 
 .field public showRippleEffect:Z
@@ -62,7 +66,7 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -76,11 +80,17 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->isTransient:Z
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    iput-boolean v0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
+    iput-boolean v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
 
-    iput-boolean v0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
+    iput-boolean v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
+
+    const-string v1, ""
+
+    iput-object v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    iput v0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
 
     return-void
 .end method
@@ -304,6 +314,34 @@
 
     move-result v0
 
+    if-eqz v0, :cond_1
+
+    iget-object v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    iget-object v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget v0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Ljava/util/Objects;->equals(Ljava/lang/Object;Ljava/lang/Object;)Z
+
+    move-result v0
+
     if-nez v0, :cond_0
 
     goto :goto_0
@@ -382,9 +420,17 @@
 
     iput-boolean v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->handlesLongClick:Z
 
-    iget-boolean p0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
+    iget-boolean v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
 
-    iput-boolean p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
+    iput-boolean v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->showRippleEffect:Z
+
+    iget-object v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    iput-object v1, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    iget p0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
+
+    iput p0, p1, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
 
     return v0
 
@@ -528,11 +574,31 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->slash:Lcom/android/systemui/plugins/qs/QSTile$SlashState;
+    iget-object v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->slash:Lcom/android/systemui/plugins/qs/QSTile$SlashState;
 
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p0, "\""
+    const-string v1, "\""
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v1, ",lottiePrefix="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v1, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottiePrefix:Ljava/lang/CharSequence;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+
+    const-string v1, ",lottieSupport="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget p0, p0, Lcom/android/systemui/plugins/qs/QSTile$State;->lottieSupport:I
+
+    invoke-static {p0}, Ljava/lang/Integer;->toHexString(I)Ljava/lang/String;
+
+    move-result-object p0
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

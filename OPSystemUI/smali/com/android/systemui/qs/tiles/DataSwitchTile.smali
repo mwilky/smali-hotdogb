@@ -558,7 +558,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    const-string v0, "virtual sim exist. ignore click."
+    const-string/jumbo v0, "virtual sim exist. ignore click."
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -859,7 +859,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->TAG:Ljava/lang/String;
 
-    const-string v1, "virtual sim exist, set to unavailable."
+    const-string/jumbo v1, "virtual sim exist, set to unavailable."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

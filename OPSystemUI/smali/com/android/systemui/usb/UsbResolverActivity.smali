@@ -363,7 +363,7 @@
 
     :cond_0
     :try_start_0
-    const-string v2, "usb"
+    const-string/jumbo v2, "usb"
 
     invoke-static {v2}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

@@ -6792,7 +6792,7 @@
     :cond_0
     if-nez p2, :cond_1
 
-    const-string v1, "wiggle_gesture"
+    const-string/jumbo v1, "wiggle_gesture"
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mLastCameraLaunchSource:Ljava/lang/String;
 

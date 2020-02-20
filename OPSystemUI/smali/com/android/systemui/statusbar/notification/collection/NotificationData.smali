@@ -1181,6 +1181,19 @@
     return-void
 .end method
 
+.method public setWlbHelper(Lcom/oneplus/worklife/OPWLBHelper;)V
+    .locals 0
+
+    if-eqz p1, :cond_0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/collection/NotificationData;->mMediaManager:Lcom/android/systemui/statusbar/NotificationMediaManager;
+
+    invoke-virtual {p1, p0}, Lcom/oneplus/worklife/OPWLBHelper;->setNotificationMediaManager(Lcom/android/systemui/statusbar/NotificationMediaManager;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public update(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;Landroid/service/notification/NotificationListenerService$RankingMap;Landroid/service/notification/StatusBarNotification;)V
     .locals 0
 

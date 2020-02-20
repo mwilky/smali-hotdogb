@@ -75,7 +75,7 @@
 .method public dump(Ljava/io/FileDescriptor;Ljava/io/PrintWriter;[Ljava/lang/String;)V
     .locals 4
 
-    const-string p1, "{ \"pid\": "
+    const-string/jumbo p1, "{ \"pid\": "
 
     invoke-virtual {p2, p1}, Ljava/io/PrintWriter;->print(Ljava/lang/String;)V
 

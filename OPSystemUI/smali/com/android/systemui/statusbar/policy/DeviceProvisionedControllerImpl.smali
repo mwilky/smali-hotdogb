@@ -60,7 +60,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/policy/DeviceProvisionedControllerImpl;->mDeviceProvisionedUri:Landroid/net/Uri;
 
-    const-string p1, "user_setup_complete"
+    const-string/jumbo p1, "user_setup_complete"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -328,7 +328,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "user_setup_complete"
+    const-string/jumbo v1, "user_setup_complete"
 
     invoke-static {p0, v1, v0, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 

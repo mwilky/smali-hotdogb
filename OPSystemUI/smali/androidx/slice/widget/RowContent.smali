@@ -84,7 +84,7 @@
 .method private determineStartAndPrimaryAction(Landroidx/slice/SliceItem;)V
     .locals 9
 
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     const/4 v1, 0x0
 
@@ -457,7 +457,7 @@
 
     const-string v0, "keywords"
 
-    const-string v1, "ttl"
+    const-string/jumbo v1, "ttl"
 
     const-string v2, "last_updated"
 
@@ -628,7 +628,7 @@
 
     const-string v2, "action"
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     const/4 v4, 0x1
 

@@ -102,7 +102,7 @@
 
     iput-object v0, p0, Lcom/android/systemui/usb/UsbAccessoryUriActivity;->mAccessory:Landroid/hardware/usb/UsbAccessory;
 
-    const-string v0, "uri"
+    const-string/jumbo v0, "uri"
 
     invoke-virtual {p1, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 

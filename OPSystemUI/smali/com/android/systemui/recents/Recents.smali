@@ -139,7 +139,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v1, "user_setup_complete"
+    const-string/jumbo v1, "user_setup_complete"
 
     invoke-static {p0, v1, v0}, Landroid/provider/Settings$Secure;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
@@ -363,7 +363,7 @@
     return-void
 
     :cond_0
-    const-string v0, "toggleRecentApps"
+    const-string/jumbo v0, "toggleRecentApps"
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

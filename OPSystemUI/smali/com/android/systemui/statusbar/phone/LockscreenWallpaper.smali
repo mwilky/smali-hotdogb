@@ -67,7 +67,7 @@
 
     iput-object p3, p0, Lcom/android/systemui/statusbar/phone/LockscreenWallpaper;->mH:Landroid/os/Handler;
 
-    const-string p2, "wallpaper"
+    const-string/jumbo p2, "wallpaper"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

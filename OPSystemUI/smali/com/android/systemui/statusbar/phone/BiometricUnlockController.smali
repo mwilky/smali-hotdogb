@@ -614,7 +614,7 @@
 
     const/4 v1, 0x1
 
-    const-string v2, "wake-and-unlock wakelock"
+    const-string/jumbo v2, "wake-and-unlock wakelock"
 
     invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
@@ -870,7 +870,7 @@
 
     const/4 v0, 0x1
 
-    const-string v1, "wake-and-unlock wakelock"
+    const-string/jumbo v1, "wake-and-unlock wakelock"
 
     invoke-virtual {p1, v0, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 

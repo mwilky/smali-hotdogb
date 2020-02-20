@@ -291,6 +291,26 @@
     return-void
 .end method
 
+.method private sendConnectedBroadcast()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mContext:Landroid/content/Context;
+
+    invoke-static {v0}, Lcom/oneplus/worklife/OPWLBHelper;->getInstance(Landroid/content/Context;)Lcom/oneplus/worklife/OPWLBHelper;
+
+    move-result-object v0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mCurrentState:Lcom/android/systemui/statusbar/policy/SignalController$State;
+
+    check-cast p0, Lcom/android/systemui/statusbar/policy/WifiSignalController$WifiState;
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/policy/SignalController$State;->connected:Z
+
+    invoke-virtual {v0, p0}, Lcom/oneplus/worklife/OPWLBHelper;->processWifiConnectivity(Z)V
+
+    return-void
+.end method
+
 .method private updateIconGroup()V
     .locals 3
 
@@ -534,6 +554,8 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/policy/SignalController;->notifyListenersIfNecessary()V
 
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/WifiSignalController;->sendConnectedBroadcast()V
+
     return-void
 .end method
 
@@ -692,7 +714,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "wifi icon res name:"
+    const-string/jumbo v2, "wifi icon res name:"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

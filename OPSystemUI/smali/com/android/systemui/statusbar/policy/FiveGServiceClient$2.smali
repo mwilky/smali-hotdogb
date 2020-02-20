@@ -95,7 +95,7 @@
 
     if-ge p1, v1, :cond_0
 
-    const-string p1, "try to re-bind"
+    const-string/jumbo p1, "try to re-bind"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -620,12 +620,12 @@
     return-object p0
 
     :pswitch_5
-    const-string p0, "wakelockscreen"
+    const-string/jumbo p0, "wakelockscreen"
 
     return-object p0
 
     :pswitch_6
-    const-string p0, "wakeup"
+    const-string/jumbo p0, "wakeup"
 
     return-object p0
 
@@ -1165,7 +1165,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "timeTickScheduled at="
+    const-string/jumbo v1, "timeTickScheduled at="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1213,7 +1213,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "wakeDisplay "
+    const-string/jumbo v1, "wakeDisplay "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

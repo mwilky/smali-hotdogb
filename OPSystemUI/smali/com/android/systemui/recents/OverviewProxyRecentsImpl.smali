@@ -125,7 +125,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/recents/OverviewProxyRecentsImpl;->mHandler:Landroid/os/Handler;
 
-    const-string p2, "trust"
+    const-string/jumbo p2, "trust"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -350,7 +350,7 @@
 
     check-cast v2, Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    const-string v1, "toggleRecentApps"
+    const-string/jumbo v1, "toggleRecentApps"
 
     const-string v3, "OverviewProxyRecentsImpl"
 

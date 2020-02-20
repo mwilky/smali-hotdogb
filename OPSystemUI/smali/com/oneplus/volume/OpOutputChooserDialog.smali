@@ -231,7 +231,7 @@
 
     iput-object v2, p0, Lcom/oneplus/volume/OpOutputChooserDialog;->mBluetoothController:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    const-string v2, "wifi"
+    const-string/jumbo v2, "wifi"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

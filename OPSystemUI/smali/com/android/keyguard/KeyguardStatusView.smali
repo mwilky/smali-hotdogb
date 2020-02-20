@@ -1574,7 +1574,7 @@
 
     if-nez v0, :cond_0
 
-    const-string v0, "updateInfoViewVisibility, mInfoView == null"
+    const-string/jumbo v0, "updateInfoViewVisibility, mInfoView == null"
 
     invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1585,7 +1585,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateInfoViewVisibility, mInfoView.getVisibility():"
+    const-string/jumbo v2, "updateInfoViewVisibility, mInfoView.getVisibility():"
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

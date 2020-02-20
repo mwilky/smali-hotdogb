@@ -47,7 +47,7 @@
 
     const-string v0, "QSSecurityFooter"
 
-    const-string v1, "update during panel expanding, skip."
+    const-string/jumbo v1, "update during panel expanding, skip."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -1031,7 +1031,7 @@ Povezani ste tudi z omrežjem VPN, ki lahko nadzira vašo omrežno dejavnost."</
     <string name="nav_bar">Vrstica za krmarjenje</string>
     <string name="nav_bar_default">(privzeto)</string>
     <string name="nav_bar_guide_positive">RAZUMEM</string>
-    <string name="nav_bar_guide_title">Povlecite po zaslonu navzgor za prikaz vrstice za krmarjenje. Če želite skriti krmarjenje, se dotaknite zaslona.</string>
+    <string name="nav_bar_guide_title">Podrsajte po zaslonu navzgor za prikaz vrstice za krmarjenje. Če želite skriti krmarjenje, tapnite tukaj.</string>
     <string name="nav_bar_layout">Postavitev</string>
     <string name="no_application">Nič</string>
     <string name="no_auto_saver_action">Ne, hvala</string>
@@ -1104,11 +1104,11 @@ Povezani ste tudi z omrežjem VPN, ki lahko nadzira vašo omrežno dejavnost."</
     <string name="op_earphone_device">TAPNITE ZA SEZNANJANJE</string>
     <string name="op_earphone_title">Brezžične slušalke OnePlus Bullets</string>
     <string name="op_emergency_indicator_hint_text">Za službe za nujne primere podrsajte navzdol</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Ostane odklenjeno s Face Unlock</string>
+    <string name="op_keyguard_indication_trust_unlocked">Ostane odklenjeno s Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Za dodatno varnost pritisnite tipko za vklop in podrsajte navzgor, da boste uporabili geslo</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Za dodatno varnost pritisnite tipko za vklop in podrsajte navzgor, da boste uporabili vzorec</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Za dodatno varnost pritisnite tipko za vklop in podrsajte navzgor, da boste uporabili PIN</string>
     <string name="op_notification_alert_title">Pomembno</string>
     <string name="op_notification_channel_summary_low">Manj pomembna obvestila brez zvoka ali vibriranja.</string>
     <string name="op_notification_section_header_gentle">Druga obvestila</string>
@@ -1144,7 +1144,7 @@ Povezani ste tudi z omrežjem VPN, ki lahko nadzira vašo omrežno dejavnost."</
     <string name="overheat_notification_alert">Temperatura telefona je previsoka. Funkcije, ki porabljajo veliko energije, so izklopljene, da se temperatura zniža</string>
     <string name="overheat_notification_resume">Temperatura telefona je obnovljena in telefon lahko normalno uporabljate</string>
     <string name="overheat_notification_title_resume">Temperatura telefona je bila obnovljena</string>
-    <string name="overheat_toast_content">Vaš telefon je v stanju visoke temperature, uporaba te funkcije ni priporočljiva</string>
+    <string name="overheat_toast_content">Temperatura telefona je previsoka. Funkcije, ki porabljajo veliko energije, so izklopljene, da se temperatura zniža</string>
     <string name="overlay_display_devices_title">Simul. sekund. prikazov.</string>
     <string name="overview">Pregled</string>
     <string name="phone_hint">Povlecite z ikone za telefon</string>
@@ -1221,8 +1221,8 @@ Povezani ste tudi z omrežjem VPN, ki lahko nadzira vašo omrežno dejavnost."</
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">Žepni način je aktiviran</string>
     <string name="prevent_view_title_cancel">Aktivacija telefona:</string>
-    <string name="prevent_view_top_tag_cancel">Ne prekrijte modrega dela telefona ter očistite ta del telefona.</string>
-    <string name="prevent_view_top_tag_cancel2">Poiščite kroge na zaslonu in se jih dotaknite, da zapustite žepni način.</string>
+    <string name="prevent_view_top_tag_cancel">Ne prekrijte modrega dela telefona ter očistite umazanijo ali prah.</string>
+    <string name="prevent_view_top_tag_cancel2">Poiščite kroge na zaslonu in se jih dotaknite, da zapustite žepni način</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">fotoaparat</string>
@@ -1379,7 +1379,7 @@ Varčevanje z energijo akumul."</string>
     <string name="recents_deep_clean_dialog_checkbox_text">Ne prikaži več</string>
     <string name="recents_deep_clean_dialog_message">Funkcija temeljitega čiščenja zapre vse procese v ozadju, kar lahko povzroči nepričakovan rezultat. Nekatere aplikacije lahko nehajo delovati in jih za prikaz obvestil morate znova zagnati. Želite nadaljevati.</string>
     <string name="recents_deep_clean_dialog_title">Opozorilo</string>
-    <string name="recents_deep_clean_message">Prekini delovanje vseh aplikacij</string>
+    <string name="recents_deep_clean_message">Zapri vse aplikacije</string>
     <string name="recents_deep_clean_option">Temeljito čiščenje</string>
     <string name="recents_empty_no_apps_open">Ni odprtih aplikacij</string>
     <string name="recents_empty_recently_closed">Nedavno zaprte aplikacije</string>

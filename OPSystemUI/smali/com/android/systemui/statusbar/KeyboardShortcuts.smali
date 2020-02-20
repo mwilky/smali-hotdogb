@@ -2224,7 +2224,7 @@
 
     const/16 v1, 0xd3
 
-    const-string v7, "\u534a\u89d2/\u5168\u89d2"
+    const-string/jumbo v7, "\u534a\u89d2/\u5168\u89d2"
 
     invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -2232,7 +2232,7 @@
 
     const/16 v1, 0xd4
 
-    const-string v7, "\u82f1\u6570"
+    const-string/jumbo v7, "\u82f1\u6570"
 
     invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -2240,7 +2240,7 @@
 
     const/16 v1, 0xd5
 
-    const-string v7, "\u7121\u5909\u63db"
+    const-string/jumbo v7, "\u7121\u5909\u63db"
 
     invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -2248,7 +2248,7 @@
 
     const/16 v1, 0xd6
 
-    const-string v7, "\u5909\u63db"
+    const-string/jumbo v7, "\u5909\u63db"
 
     invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -2256,7 +2256,7 @@
 
     const/16 v1, 0xd7
 
-    const-string v7, "\u304b\u306a"
+    const-string/jumbo v7, "\u304b\u306a"
 
     invoke-virtual {v0, v1, v7}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
@@ -3001,7 +3001,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
 
-    const-string v1, "window"
+    const-string/jumbo v1, "window"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

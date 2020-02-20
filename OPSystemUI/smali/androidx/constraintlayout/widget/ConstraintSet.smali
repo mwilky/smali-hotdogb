@@ -714,7 +714,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "unused attribute 0x"
+    const-string/jumbo v5, "unused attribute 0x"
 
     invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1384,6 +1384,8 @@
 
     :cond_0
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1

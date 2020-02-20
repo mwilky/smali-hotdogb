@@ -174,7 +174,7 @@
     return p1
 
     :cond_0
-    const-string v0, "true"
+    const-string/jumbo v0, "true"
 
     invoke-virtual {v0, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

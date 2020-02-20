@@ -1134,7 +1134,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "unregisterReceiver, tag:"
+    const-string/jumbo v2, "unregisterReceiver, tag:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1274,7 +1274,7 @@
     :cond_1
     const/4 v0, 0x1
 
-    const-string v1, "visible_by_policy"
+    const-string/jumbo v1, "visible_by_policy"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -1282,7 +1282,7 @@
 
     iput-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
 
-    const-string v1, "visible_by_user"
+    const-string/jumbo v1, "visible_by_user"
 
     invoke-virtual {p1, v1, v0}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -1300,7 +1300,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/policy/Clock;->mShowSeconds:Z
 
-    const-string v0, "visibility"
+    const-string/jumbo v0, "visibility"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -1347,13 +1347,13 @@
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByPolicy:Z
 
-    const-string v2, "visible_by_policy"
+    const-string/jumbo v2, "visible_by_policy"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     iget-boolean v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockVisibleByUser:Z
 
-    const-string v2, "visible_by_user"
+    const-string/jumbo v2, "visible_by_user"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
@@ -1367,7 +1367,7 @@
 
     move-result p0
 
-    const-string v1, "visibility"
+    const-string/jumbo v1, "visibility"
 
     invoke-virtual {v0, v1, p0}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
@@ -1470,7 +1470,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateClock is in demo mode, tag:"
+    const-string/jumbo v2, "updateClock is in demo mode, tag:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

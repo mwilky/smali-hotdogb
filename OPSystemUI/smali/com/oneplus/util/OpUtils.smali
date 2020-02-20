@@ -193,6 +193,37 @@
     return p0
 .end method
 
+.method private static getApplicationInfo(Landroid/content/Context;Ljava/lang/String;)Landroid/content/pm/ApplicationInfo;
+    .locals 1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-virtual {p0, p1, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p0
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    const-string p0, "OpUtils"
+
+    const-string p1, "App not exists"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 p0, 0x0
+
+    :goto_0
+    return-object p0
+.end method
+
 .method private static getCurrentDefaultDensity()F
     .locals 3
 
@@ -718,6 +749,26 @@
     return v0
 .end method
 
+.method private static isAppExists(Landroid/content/Context;Ljava/lang/String;)Z
+    .locals 0
+
+    invoke-static {p0, p1}, Lcom/oneplus/util/OpUtils;->getApplicationInfo(Landroid/content/Context;Ljava/lang/String;)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object p0
+
+    if-eqz p0, :cond_0
+
+    const/4 p0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    const/4 p0, 0x0
+
+    :goto_0
+    return p0
+.end method
+
 .method public static isCTS()Z
     .locals 1
 
@@ -737,7 +788,7 @@
 .method public static isCurrentGuest(Landroid/content/Context;)Z
     .locals 1
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -928,7 +979,7 @@
 
     new-array v0, v1, [I
 
-    const/16 v3, 0xef
+    const/16 v3, 0xf0
 
     aput v3, v0, v2
 
@@ -1555,7 +1606,7 @@
 
     move-result-object v1
 
-    const-string v3, "tmo"
+    const-string/jumbo v3, "tmo"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1569,6 +1620,48 @@
     move v0, v2
 
     :goto_0
+    return v0
+.end method
+
+.method public static isWLBAllowed(Landroid/content/Context;)Z
+    .locals 1
+
+    const-string v0, "com.oneplus.opwlb"
+
+    invoke-static {p0, v0}, Lcom/oneplus/util/OpUtils;->isAppExists(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result p0
+
+    return p0
+.end method
+
+.method public static isWLBFeatureDisable(Landroid/content/Context;)Z
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object p0
+
+    const/4 v0, 0x0
+
+    const-string/jumbo v1, "worklife_feature_enable"
+
+    invoke-static {p0, v1, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result p0
+
+    const/4 v1, 0x1
+
+    if-eq p0, v1, :cond_0
+
+    const/4 v2, 0x2
+
+    if-ne p0, v2, :cond_1
+
+    :cond_0
+    move v0, v1
+
+    :cond_1
     return v0
 .end method
 

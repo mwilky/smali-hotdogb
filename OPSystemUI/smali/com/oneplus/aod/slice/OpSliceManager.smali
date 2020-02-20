@@ -507,7 +507,7 @@
 
     if-ne p1, p0, :cond_2
 
-    const-string p0, "weather"
+    const-string/jumbo p0, "weather"
 
     return-object p0
 

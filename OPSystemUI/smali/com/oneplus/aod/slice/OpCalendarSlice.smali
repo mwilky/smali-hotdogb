@@ -43,7 +43,7 @@
 
     const-string v0, "_id"
 
-    const-string v1, "title"
+    const-string/jumbo v1, "title"
 
     const-string v2, "allDay"
 
@@ -254,7 +254,7 @@
 
     move-result v1
 
-    const-string v3, "title"
+    const-string/jumbo v3, "title"
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 

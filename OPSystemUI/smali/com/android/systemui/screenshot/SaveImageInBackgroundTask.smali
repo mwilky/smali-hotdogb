@@ -61,7 +61,7 @@
 
     new-instance v0, Ljava/text/SimpleDateFormat;
 
-    const-string v1, "yyyyMMdd-HHmmss"
+    const-string/jumbo v1, "yyyyMMdd-HHmmss"
 
     invoke-direct {v0, v1}, Ljava/text/SimpleDateFormat;-><init>(Ljava/lang/String;)V
 
@@ -882,7 +882,7 @@
 
     const-string v0, "SaveImageInBackgroundTask"
 
-    const-string v3, "unable to save screenshot"
+    const-string/jumbo v3, "unable to save screenshot"
 
     invoke-static {v0, v3, p1}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

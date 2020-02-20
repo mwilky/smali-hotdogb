@@ -30,63 +30,6 @@
 
 
 # virtual methods
-.method public final getChannelName()Landroid/widget/TextView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/AppControlView;->channelName:Landroid/widget/TextView;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "channelName"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final getIconView()Landroid/widget/ImageView;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/AppControlView;->iconView:Landroid/widget/ImageView;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "iconView"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
-.method public final getSwitch()Landroid/widget/Switch;
-    .locals 0
-
-    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/AppControlView;->switch:Landroid/widget/Switch;
-
-    if-eqz p0, :cond_0
-
-    return-object p0
-
-    :cond_0
-    const-string p0, "switch"
-
-    invoke-static {p0}, Lkotlin/jvm/internal/Intrinsics;->throwUninitializedPropertyAccessException(Ljava/lang/String;)V
-
-    const/4 p0, 0x0
-
-    throw p0
-.end method
-
 .method protected onFinishInflate()V
     .locals 2
 

@@ -72,7 +72,7 @@
 
     const-string v1, "QsWorkAdded"
 
-    const-string v2, "work"
+    const-string/jumbo v2, "work"
 
     filled-new-array {v1, v2}, [Ljava/lang/String;
 

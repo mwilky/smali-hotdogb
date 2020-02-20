@@ -1270,7 +1270,7 @@
 
     sget-object v0, Lcom/oneplus/networkspeed/NetworkSpeedControllerImpl;->TAG:Ljava/lang/String;
 
-    const-string v1, "updateSpeed"
+    const-string/jumbo v1, "updateSpeed"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1423,7 +1423,7 @@
 
     const/16 p1, 0xe
 
-    const-string v0, "wifi_state"
+    const-string/jumbo v0, "wifi_state"
 
     invoke-virtual {p2, v0, p1}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
@@ -1576,7 +1576,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateConnectivity connectedTransports:"
+    const-string/jumbo v2, "updateConnectivity connectedTransports:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1617,7 +1617,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateState traceState:"
+    const-string/jumbo v3, "updateState traceState:"
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

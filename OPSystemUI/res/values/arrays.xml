@@ -602,6 +602,7 @@
         <item>#1effffff</item>
         <item>#1fffffff</item>
         <item>#0fffffff</item>
+        <item>#ffffffff</item>
     </array>
     <array name="qs_theme_color_black">
         <item>#b2ffffff</item>
@@ -621,6 +622,7 @@
         <item>#1effffff</item>
         <item>#1fffffff</item>
         <item>#0fffffff</item>
+        <item>#ffffffff</item>
     </array>
     <array name="qs_theme_color_white">
         <item>#89000000</item>
@@ -640,6 +642,7 @@
         <item>#14000000</item>
         <item>#1a000000</item>
         <item>#0f000000</item>
+        <item>#ff000000</item>
     </array>
     <string-array name="qs_theme_colors">
         <item>array/qs_theme_color_white</item>

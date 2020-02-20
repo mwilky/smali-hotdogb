@@ -268,7 +268,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "updateNotificationIcons: iconSize="
+    const-string/jumbo v9, "updateNotificationIcons: iconSize="
 
     invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -295,7 +295,7 @@
     :cond_2
     if-nez v4, :cond_3
 
-    const-string p1, "updateNotificationIcons: setVisibility to gone"
+    const-string/jumbo p1, "updateNotificationIcons: setVisibility to gone"
 
     invoke-static {v8, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

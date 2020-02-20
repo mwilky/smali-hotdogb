@@ -84,7 +84,7 @@
 
     const-string v0, "keywords"
 
-    const-string v3, "ttl"
+    const-string/jumbo v3, "ttl"
 
     const-string v4, "last_updated"
 
@@ -486,7 +486,7 @@
 
     if-eqz v3, :cond_6
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     invoke-virtual {v3, v4}, Landroidx/slice/SliceItem;->hasHint(Ljava/lang/String;)Z
 

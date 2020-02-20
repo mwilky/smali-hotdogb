@@ -185,7 +185,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/NotificationRemoteInputManager;->mContext:Landroid/content/Context;
 
-    const-string p3, "user"
+    const-string/jumbo p3, "user"
 
     invoke-virtual {p2, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

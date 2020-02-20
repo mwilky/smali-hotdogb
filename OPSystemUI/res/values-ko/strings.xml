@@ -1031,7 +1031,7 @@
     <string name="nav_bar">탐색 메뉴</string>
     <string name="nav_bar_default">(기본)</string>
     <string name="nav_bar_guide_positive">확인</string>
-    <string name="nav_bar_guide_title">아래에서 위로 살짝 밀어 탐색 모음을 표시하세요. 탐색 숨기기를 중지하려면 다음을 탭하세요.</string>
+    <string name="nav_bar_guide_title">아래에서 위로 살짝 밀어 탐색 모음을 표시하세요. 탐색 숨기기를 중지하려면 여기를 탭하세요.</string>
     <string name="nav_bar_layout">레이아웃</string>
     <string name="no_application">없음</string>
     <string name="no_auto_saver_action">사용 안함</string>
@@ -1104,11 +1104,11 @@
     <string name="op_earphone_device">연결하려면 탭하세요.</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">응급 서비스를 위해 아래로 살짝 밀기</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">얼굴 잠금 해제로 잠금 해제 상태를 유지했습니다.</string>
+    <string name="op_keyguard_indication_trust_unlocked">스마트 잠금으로 잠금 해제 상태를 유지했습니다.</string>
+    <string name="op_kg_prompt_reason_timeout_password">보안 강화를 위해 전원 키를 누르고 위로 살짝 밀어 비밀번호를 사용하세요.</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">보안 강화를 위해 전원 키를 누르고 위로 살짝 밀어 패턴을 사용하세요.</string>
+    <string name="op_kg_prompt_reason_timeout_pin">보안 강화를 위해 전원 키를 누르고 위로 살짝 밀어 PIN을 사용하세요.</string>
     <string name="op_notification_alert_title">중요</string>
     <string name="op_notification_channel_summary_low">소리 또는 진동이 없는 덜 중요한 알림.</string>
     <string name="op_notification_section_header_gentle">기타 알림</string>
@@ -1144,7 +1144,7 @@
     <string name="overheat_notification_alert">휴대폰의 온도가 너무 높습니다. 온도를 낮추기 위해 전력 소비량이 높은 기능이 꺼집니다.</string>
     <string name="overheat_notification_resume">휴대폰의 온도가 정상으로 돌아왔습니다. 휴대폰을 정상적으로 사용할 수 있습니다.</string>
     <string name="overheat_notification_title_resume">휴대폰의 온도가 정상으로 돌아왔습니다.</string>
-    <string name="overheat_toast_content">휴대폰이 고온 상태이므로 이 기능을 사용하는 것은 권장되지 않습니다.</string>
+    <string name="overheat_toast_content">휴대폰의 온도가 너무 높습니다. 온도를 낮추기 위해 전력 소비량이 높은 기능이 꺼집니다.</string>
     <string name="overlay_display_devices_title">보조 디스플레이 시뮬레이션</string>
     <string name="overview">최근 사용</string>
     <string name="phone_hint">전화 기능을 사용하려면 아이콘에서 스와이프하세요.</string>
@@ -1221,7 +1221,7 @@
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">포켓 모드가 켜졌습니다.</string>
     <string name="prevent_view_title_cancel">휴대폰을 활성화하려면:</string>
-    <string name="prevent_view_top_tag_cancel">휴대폰의 파란색 영역을 가리지 말고 파란색 영역의 먼지나 이물질을 제거하세요.</string>
+    <string name="prevent_view_top_tag_cancel">휴대폰의 파란색 영역을 가리지 말고 먼지나 이물질을 제거하세요.</string>
     <string name="prevent_view_top_tag_cancel2">화면의 원을 따라 탭하여 강제로 포켓 모드를 종료하세요.</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>

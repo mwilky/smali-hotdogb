@@ -932,50 +932,77 @@
     return-object v0
 .end method
 
-.method private static rotaingbitmap(ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-    .locals 7
+.method private static rotatingBitmap(ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    .locals 9
 
-    new-instance v5, Landroid/graphics/Matrix;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Landroid/graphics/Matrix;-><init>()V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "rotatingBitmap, "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "ScreenDecorations"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v7, Landroid/graphics/Matrix;
+
+    invoke-direct {v7}, Landroid/graphics/Matrix;-><init>()V
 
     int-to-float p0, p0
 
-    invoke-virtual {v5, p0}, Landroid/graphics/Matrix;->postRotate(F)Z
+    invoke-virtual {v7, p0}, Landroid/graphics/Matrix;->postRotate(F)Z
 
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+    const/4 p0, 0x0
 
-    move-result v3
-
-    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
-
-    move-result v4
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x0
-
-    const/4 v6, 0x1
-
-    move-object v0, p1
-
-    invoke-static/range {v0 .. v6}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
-
-    move-result-object p0
-
-    if-eq p0, p1, :cond_0
-
-    if-eqz p1, :cond_0
+    if-eqz p1, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->isRecycled()Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
+
+    const-string p1, "decor bitmap is recycled"
+
+    invoke-static {v1, p1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-object p0
+
+    :cond_0
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getWidth()I
+
+    move-result v5
+
+    invoke-virtual {p1}, Landroid/graphics/Bitmap;->getHeight()I
+
+    move-result v6
+
+    const/4 v8, 0x1
+
+    move-object v2, p1
+
+    invoke-static/range {v2 .. v8}, Landroid/graphics/Bitmap;->createBitmap(Landroid/graphics/Bitmap;IIIILandroid/graphics/Matrix;Z)Landroid/graphics/Bitmap;
+
+    move-result-object p0
+
+    if-eq p0, p1, :cond_1
 
     invoke-virtual {p1}, Landroid/graphics/Bitmap;->recycle()V
 
-    :cond_0
+    :cond_1
     return-object p0
 .end method
 
@@ -2111,6 +2138,7 @@
     sget p1, Lcom/android/systemui/R$drawable;->rounded_top:I
 
     :goto_1
+    :try_start_0
     iget-object p0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -2121,21 +2149,67 @@
 
     move-result-object p0
 
+    if-eqz p0, :cond_3
+
     invoke-static {p0}, Landroid/graphics/BitmapFactory;->decodeStream(Ljava/io/InputStream;)Landroid/graphics/Bitmap;
 
+    move-result-object p1
+
+    invoke-virtual {p0}, Ljava/io/InputStream;->close()V
+
+    if-nez p1, :cond_2
+
+    const-string p0, "ScreenDecorations"
+
+    const-string p1, "Bitmap is null"
+
+    invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_2
+    invoke-static {p4, p1}, Lcom/android/systemui/ScreenDecorations;->rotatingBitmap(ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+
     move-result-object p0
 
-    invoke-static {p4, p0}, Lcom/android/systemui/ScreenDecorations;->rotaingbitmap(ILandroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
-
-    move-result-object p0
+    if-eqz p0, :cond_3
 
     invoke-virtual {p2, p0}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
 
+    goto :goto_2
+
+    :catch_0
+    move-exception p0
+
+    invoke-virtual {p0}, Ljava/io/IOException;->printStackTrace()V
+
+    :cond_3
+    :goto_2
     return-void
 .end method
 
 .method private updateViewDetermination(ILandroid/view/View;II)V
-    .locals 1
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v1, "updateViewDetermination "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "ScreenDecorations"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     if-eqz p1, :cond_3
 
@@ -2229,6 +2303,26 @@
 
     move-result-object v3
 
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "updateViews, "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v5, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v5, "ScreenDecorations"
+
+    invoke-static {v5, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget v4, p0, Lcom/android/systemui/ScreenDecorations;->mRotation:I
 
     const/16 v5, 0x55
@@ -2320,7 +2414,7 @@
 
     const-string v0, "ScreenDecorations"
 
-    const-string v1, "updateWindowVisibilities"
+    const-string/jumbo v1, "updateWindowVisibilities"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

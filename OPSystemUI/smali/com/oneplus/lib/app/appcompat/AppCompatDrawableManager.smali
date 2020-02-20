@@ -889,7 +889,7 @@
 
     invoke-direct {v1}, Lcom/oneplus/lib/app/appcompat/AppCompatDrawableManager$VdcInflateDelegate;-><init>()V
 
-    const-string v2, "vector"
+    const-string/jumbo v2, "vector"
 
     invoke-direct {p0, v2, v1}, Lcom/oneplus/lib/app/appcompat/AppCompatDrawableManager;->addDelegate(Ljava/lang/String;Lcom/oneplus/lib/app/appcompat/AppCompatDrawableManager$InflateDelegate;)V
 

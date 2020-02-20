@@ -316,7 +316,7 @@
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p1, "\u2026"
+    const-string/jumbo p1, "\u2026"
 
     invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -494,7 +494,7 @@
     :catch_1
     move-exception p1
 
-    const-string v1, "unable to look up package name"
+    const-string/jumbo v1, "unable to look up package name"
 
     invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

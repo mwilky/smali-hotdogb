@@ -611,7 +611,7 @@
 
     iget-object v0, p0, Lcom/oneplus/support/vectordrawable/graphics/drawable/VectorDrawableCompat$VectorDrawableCompatState;->mVPathRenderer:Lcom/oneplus/support/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;
 
-    const-string v1, "tintMode"
+    const-string/jumbo v1, "tintMode"
 
     const/4 v2, 0x6
 
@@ -656,7 +656,7 @@
 
     iget v1, v0, Lcom/oneplus/support/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mViewportWidth:F
 
-    const-string v2, "viewportWidth"
+    const-string/jumbo v2, "viewportWidth"
 
     invoke-static {p1, p2, v2, p0, v1}, Lcom/oneplus/support/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 
@@ -668,7 +668,7 @@
 
     iget v1, v0, Lcom/oneplus/support/vectordrawable/graphics/drawable/VectorDrawableCompat$VPathRenderer;->mViewportHeight:F
 
-    const-string v2, "viewportHeight"
+    const-string/jumbo v2, "viewportHeight"
 
     invoke-static {p1, p2, v2, p0, v1}, Lcom/oneplus/support/core/content/res/TypedArrayUtils;->getNamedFloat(Landroid/content/res/TypedArray;Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;IF)F
 

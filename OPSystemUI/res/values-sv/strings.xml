@@ -655,7 +655,7 @@ Mobilen fungerar som vanligt när den har svalnat."</string>
     <string name="high_temp_title">Mobilen börjar bli varm</string>
     <string name="home">Startskärmen för inställningar</string>
     <string name="hotspot_apm_message">Det går inte att ansluta till mobila nätverk när flygplansläget är aktiverat. Inaktivera flygplansläget och försök igen.</string>
-    <string name="hotspot_operator_dialog_nosim_msg">Sätt i ett SIM-kort för att använda Mobil hotspot och andra alternativ för internetdelning</string>
+    <string name="hotspot_operator_dialog_nosim_msg">Sätt i ett SIM-kort för att använda mobil trådlös surfzon och andra alternativ för internetdelning</string>
     <string name="hotspot_operator_dialog_nosim_title">Inget SIM-kort</string>
     <string name="hotspot_operator_dialog_othererror_msg">Du har ingen prenumeration på internetdelning via Wi-Fi</string>
     <string name="hotspot_operator_dialog_othererror_title">Fel vid interenetdelning via Wi-Fi</string>
@@ -1031,7 +1031,7 @@ Du är även ansluten till ett VPN som kan övervaka nätverksaktivitet."</strin
     <string name="nav_bar">Navigeringsfält</string>
     <string name="nav_bar_default">(standard)</string>
     <string name="nav_bar_guide_positive">JAG FÖRSTÅR</string>
-    <string name="nav_bar_guide_title">Svep uppåt från botten för att visa navigeringsfältet. Om du vill sluta dölja navigering trycker du</string>
+    <string name="nav_bar_guide_title">Svep upp från nederkanten för att visa navigeringspanelen. Tryck här för att sluta dölja navigeringen.</string>
     <string name="nav_bar_layout">Layout</string>
     <string name="no_application">Ingen</string>
     <string name="no_auto_saver_action">Nej tack</string>
@@ -1104,11 +1104,11 @@ Du är även ansluten till ett VPN som kan övervaka nätverksaktivitet."</strin
     <string name="op_earphone_device">TRYCK FÖR ATT PARA IHOP</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Svep nedåt för nödfallstjänster</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Förblev olåst av Face Unlock</string>
+    <string name="op_keyguard_indication_trust_unlocked">Förblev olåst av Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">För förstärkt säkerhet, tryck in strömknappen och svep uppåt för att använda lösenord</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">För förstärkt säkerhet, tryck in strömknappen och svep uppåt för att använda mönster</string>
+    <string name="op_kg_prompt_reason_timeout_pin">För förstärkt säkerhet, tryck in strömknappen och svep uppåt för att använda PIN</string>
     <string name="op_notification_alert_title">Viktigt</string>
     <string name="op_notification_channel_summary_low">Mindre viktiga aviseringar utan ljud eller vibration.</string>
     <string name="op_notification_section_header_gentle">Övriga aviseringar</string>
@@ -1135,16 +1135,16 @@ Du är även ansluten till ett VPN som kan övervaka nätverksaktivitet."</strin
     <string name="overheat_dialog_orange_button">Kör nu</string>
     <string name="overheat_dialog_orange_message">"Dessa åtgärder kommer att vidtagas för att sänka temperaturen
 1. Minska ljusstyrkan
-2. Stänga av hotspot
+2. Stänga av trådlös surfzon
 3. Stänga av ficklampan"</string>
     <string name="overheat_dialog_purple_button">Stäng av nu</string>
     <string name="overheat_dialog_purple_message">Telefonen kommer att stängas av efter 5 sekunder</string>
     <string name="overheat_dialog_red_message">Kommer att rensa alla programprocesser för att sänka temperaturen</string>
     <string name="overheat_dialog_title">Telefonens temperatur är för hög</string>
-    <string name="overheat_notification_alert">Telefonens temperatur är för hög och en funktion med hög energiförbrukning har stängts av för att sänka temperaturen</string>
+    <string name="overheat_notification_alert">Telefonens temperatur är för hög och funktioner med hög energiförbrukning har stängts av för att sänka temperaturen</string>
     <string name="overheat_notification_resume">Telefonens temperatur har återställts och telefonen kan användas normalt</string>
     <string name="overheat_notification_title_resume">Telefonens temperatur har återställts</string>
-    <string name="overheat_toast_content">Telefonen är i ett tillstånd med hög temperatur. Vi rekommenderar att den här funktionen inte används</string>
+    <string name="overheat_toast_content">Telefonens temperatur är för hög och funktioner med hög energiförbrukning har stängts av för att sänka temperaturen</string>
     <string name="overlay_display_devices_title">Simulera sekundär skärm</string>
     <string name="overview">Översikt</string>
     <string name="phone_hint">Svep från ikonen och öppna telefonen</string>
@@ -1221,8 +1221,8 @@ Du är även ansluten till ett VPN som kan övervaka nätverksaktivitet."</strin
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">Fickläget är på</string>
     <string name="prevent_view_title_cancel">För att aktivera din telefon:</string>
-    <string name="prevent_view_top_tag_cancel">Täck inte det blåa området på din telefon och ta bort smuts eller damm från det blåa området.</string>
-    <string name="prevent_view_top_tag_cancel2">Följ cirklarna på skärmen och tryck på dem för att tvångsavsluta fickläge.</string>
+    <string name="prevent_view_top_tag_cancel">Täck inte det blåa området på din telefon och ta bort smuts eller damm.</string>
+    <string name="prevent_view_top_tag_cancel2">Följ cirklarna på skärmen och tryck på dem för att tvångsavsluta fickläget</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">kamera</string>
@@ -1379,7 +1379,7 @@ Batterisparläge"</string>
     <string name="recents_deep_clean_dialog_checkbox_text">Visa inte igen</string>
     <string name="recents_deep_clean_dialog_message">Djup rensning rensar alla bakgrundsprocesser vilket kan detta leda till felaktiga resultat. Vissa appar kan sluta fungera och du får inga meddelanden förrän du startar om dem. Bekräfta.</string>
     <string name="recents_deep_clean_dialog_title">Varning</string>
-    <string name="recents_deep_clean_message">Avsluta alla program</string>
+    <string name="recents_deep_clean_message">Stäng alla applikationer</string>
     <string name="recents_deep_clean_option">Djup rensning</string>
     <string name="recents_empty_no_apps_open">Inga applikationer är öppna</string>
     <string name="recents_empty_recently_closed">Nyligen stängda appar</string>

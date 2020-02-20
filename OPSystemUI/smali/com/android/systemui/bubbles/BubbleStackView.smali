@@ -366,7 +366,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/bubbles/BubbleStackView;->mDisplaySize:Landroid/graphics/Point;
 
-    const-string v2, "window"
+    const-string/jumbo v2, "window"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -382,7 +382,7 @@
 
     invoke-virtual {v2, v3}, Landroid/view/Display;->getSize(Landroid/graphics/Point;)V
 
-    const-string v2, "vibrator"
+    const-string/jumbo v2, "vibrator"
 
     invoke-virtual {p1, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3945,7 +3945,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "was asked to remove Bubble, but didn\'t find the view! "
+    const-string/jumbo v1, "was asked to remove Bubble, but didn\'t find the view! "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

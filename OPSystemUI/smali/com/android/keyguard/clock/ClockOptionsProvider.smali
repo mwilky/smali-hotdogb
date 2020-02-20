@@ -116,7 +116,7 @@
 
     move-result-object p0
 
-    const-string v0, "thumbnail"
+    const-string/jumbo v0, "thumbnail"
 
     invoke-virtual {p0, v0}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 
@@ -196,7 +196,7 @@
 
     move-result-object p0
 
-    const-string p1, "thumbnail"
+    const-string/jumbo p1, "thumbnail"
 
     invoke-virtual {p1, p0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -210,7 +210,7 @@
     return-object p0
 
     :cond_1
-    const-string p0, "vnd.android.cursor.dir/clock_faces"
+    const-string/jumbo p0, "vnd.android.cursor.dir/clock_faces"
 
     return-object p0
 .end method
@@ -269,7 +269,7 @@
 
     move-result-object v1
 
-    const-string v3, "thumbnail"
+    const-string/jumbo v3, "thumbnail"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -440,11 +440,11 @@
 
     const-string p2, "preview"
 
-    const-string p3, "thumbnail"
+    const-string/jumbo p3, "thumbnail"
 
     const-string p4, "id"
 
-    const-string p5, "title"
+    const-string/jumbo p5, "title"
 
     const-string v0, "name"
 

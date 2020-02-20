@@ -1627,7 +1627,7 @@
 
     const/16 v4, 0xa
 
-    const-string v11, "{\n"
+    const-string/jumbo v11, "{\n"
 
     if-eqz v3, :cond_c
 
@@ -1913,8 +1913,6 @@
     move-result-object p0
 
     return-object p0
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

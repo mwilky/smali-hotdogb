@@ -156,7 +156,7 @@
     :cond_2
     iget-object p1, p0, Lcom/android/systemui/statusbar/phone/AutoTileManager;->mAutoTracker:Lcom/android/systemui/qs/AutoAddTracker;
 
-    const-string p2, "work"
+    const-string/jumbo p2, "work"
 
     invoke-virtual {p1, p2}, Lcom/android/systemui/qs/AutoAddTracker;->isAdded(Ljava/lang/String;)Z
 

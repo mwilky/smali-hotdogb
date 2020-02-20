@@ -221,7 +221,7 @@
 
     const/4 v1, 0x1
 
-    const-string v2, "user_switcher_enabled"
+    const-string/jumbo v2, "user_switcher_enabled"
 
     invoke-static {v0, v2, v1}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 

@@ -167,7 +167,7 @@
 
     move-result-object v1
 
-    const-string v2, "video/mp4"
+    const-string/jumbo v2, "video/mp4"
 
     invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->setDataAndType(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1144,7 +1144,7 @@
 
     invoke-direct {p2, p3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
-    const-string p3, "video/mp4"
+    const-string/jumbo p3, "video/mp4"
 
     invoke-virtual {p2, p3}, Landroid/content/Intent;->setType(Ljava/lang/String;)Landroid/content/Intent;
 
@@ -1370,8 +1370,6 @@
     :cond_4
     :goto_3
     return v5
-
-    nop
 
     :sswitch_data_0
     .sparse-switch

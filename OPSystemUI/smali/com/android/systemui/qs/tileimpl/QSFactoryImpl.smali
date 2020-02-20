@@ -519,6 +519,19 @@
     goto/16 :goto_1
 
     :sswitch_3
+    const-string/jumbo v0, "worklifebalance"
+
+    invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/16 v0, 0x19
+
+    goto/16 :goto_1
+
+    :sswitch_4
     const-string v0, "saver"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -531,7 +544,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_4
+    :sswitch_5
     const-string v0, "opdnd"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -544,7 +557,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_5
+    :sswitch_6
     const-string v0, "night"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -557,8 +570,8 @@
 
     goto/16 :goto_1
 
-    :sswitch_6
-    const-string v0, "work"
+    :sswitch_7
+    const-string/jumbo v0, "work"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -570,8 +583,8 @@
 
     goto/16 :goto_1
 
-    :sswitch_7
-    const-string v0, "wifi"
+    :sswitch_8
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -583,8 +596,8 @@
 
     goto/16 :goto_1
 
-    :sswitch_8
-    const-string v0, "user"
+    :sswitch_9
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -596,7 +609,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_9
+    :sswitch_a
     const-string v0, "read"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -609,7 +622,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_a
+    :sswitch_b
     const-string v0, "game"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -622,7 +635,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_b
+    :sswitch_c
     const-string v0, "dark"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -635,7 +648,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_c
+    :sswitch_d
     const-string v0, "cell"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -648,7 +661,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_d
+    :sswitch_e
     const-string v0, "cast"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -661,8 +674,8 @@
 
     goto/16 :goto_1
 
-    :sswitch_e
-    const-string v0, "vpn"
+    :sswitch_f
+    const-string/jumbo v0, "vpn"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -674,7 +687,7 @@
 
     goto/16 :goto_1
 
-    :sswitch_f
+    :sswitch_10
     const-string v0, "otg"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -687,7 +700,7 @@
 
     goto :goto_1
 
-    :sswitch_10
+    :sswitch_11
     const-string v0, "nfc"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -700,7 +713,7 @@
 
     goto :goto_1
 
-    :sswitch_11
+    :sswitch_12
     const-string v0, "dnd"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -713,7 +726,7 @@
 
     goto :goto_1
 
-    :sswitch_12
+    :sswitch_13
     const-string v0, "bt"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -726,7 +739,7 @@
 
     goto :goto_1
 
-    :sswitch_13
+    :sswitch_14
     const-string v0, "rotation"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -739,7 +752,7 @@
 
     goto :goto_1
 
-    :sswitch_14
+    :sswitch_15
     const-string v0, "battery"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -752,7 +765,7 @@
 
     goto :goto_1
 
-    :sswitch_15
+    :sswitch_16
     const-string v0, "airplane"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -765,7 +778,7 @@
 
     goto :goto_1
 
-    :sswitch_16
+    :sswitch_17
     const-string v0, "flashlight"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -778,7 +791,7 @@
 
     goto :goto_1
 
-    :sswitch_17
+    :sswitch_18
     const-string v0, "inversion"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -791,7 +804,7 @@
 
     goto :goto_1
 
-    :sswitch_18
+    :sswitch_19
     const-string v0, "dataswitch"
 
     invoke-virtual {p1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -828,6 +841,15 @@
     return-object p0
 
     :pswitch_0
+    new-instance p1, Lcom/android/systemui/qs/tiles/WorkLifeBalanceTile;
+
+    iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mHost:Lcom/android/systemui/qs/QSTileHost;
+
+    invoke-direct {p1, p0}, Lcom/android/systemui/qs/tiles/WorkLifeBalanceTile;-><init>(Lcom/android/systemui/qs/QSHost;)V
+
+    return-object p1
+
+    :pswitch_1
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOPDndTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -838,7 +860,7 @@
 
     return-object p0
 
-    :pswitch_1
+    :pswitch_2
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mVPNTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -849,7 +871,7 @@
 
     return-object p0
 
-    :pswitch_2
+    :pswitch_3
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSwitchTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -860,7 +882,7 @@
 
     return-object p0
 
-    :pswitch_3
+    :pswitch_4
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOtgTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -871,7 +893,7 @@
 
     return-object p0
 
-    :pswitch_4
+    :pswitch_5
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mOPDndCarModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -882,7 +904,7 @@
 
     return-object p0
 
-    :pswitch_5
+    :pswitch_6
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mReadModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -893,7 +915,7 @@
 
     return-object p0
 
-    :pswitch_6
+    :pswitch_7
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mGameModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -904,7 +926,7 @@
 
     return-object p0
 
-    :pswitch_7
+    :pswitch_8
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUiModeNightTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -915,7 +937,7 @@
 
     return-object p0
 
-    :pswitch_8
+    :pswitch_9
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNfcTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -926,7 +948,7 @@
 
     return-object p0
 
-    :pswitch_9
+    :pswitch_a
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mNightDisplayTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -937,7 +959,7 @@
 
     return-object p0
 
-    :pswitch_a
+    :pswitch_b
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDataSaverTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -948,7 +970,7 @@
 
     return-object p0
 
-    :pswitch_b
+    :pswitch_c
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mBatterySaverTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -959,7 +981,7 @@
 
     return-object p0
 
-    :pswitch_c
+    :pswitch_d
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mUserTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -970,7 +992,7 @@
 
     return-object p0
 
-    :pswitch_d
+    :pswitch_e
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mHotspotTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -981,7 +1003,7 @@
 
     return-object p0
 
-    :pswitch_e
+    :pswitch_f
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCastTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -992,7 +1014,7 @@
 
     return-object p0
 
-    :pswitch_f
+    :pswitch_10
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mLocationTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1003,7 +1025,7 @@
 
     return-object p0
 
-    :pswitch_10
+    :pswitch_11
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mFlashlightTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1014,7 +1036,7 @@
 
     return-object p0
 
-    :pswitch_11
+    :pswitch_12
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mRotationLockTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1025,7 +1047,7 @@
 
     return-object p0
 
-    :pswitch_12
+    :pswitch_13
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWorkModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1036,7 +1058,7 @@
 
     return-object p0
 
-    :pswitch_13
+    :pswitch_14
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mAirplaneModeTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1047,7 +1069,7 @@
 
     return-object p0
 
-    :pswitch_14
+    :pswitch_15
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mColorInversionTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1058,7 +1080,7 @@
 
     return-object p0
 
-    :pswitch_15
+    :pswitch_16
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mDndTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1069,7 +1091,7 @@
 
     return-object p0
 
-    :pswitch_16
+    :pswitch_17
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mCellularTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1080,7 +1102,7 @@
 
     return-object p0
 
-    :pswitch_17
+    :pswitch_18
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mBluetoothTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1091,7 +1113,7 @@
 
     return-object p0
 
-    :pswitch_18
+    :pswitch_19
     iget-object p0, p0, Lcom/android/systemui/qs/tileimpl/QSFactoryImpl;->mWifiTileProvider:Ljavax/inject/Provider;
 
     invoke-interface {p0}, Ljavax/inject/Provider;->get()Ljava/lang/Object;
@@ -1165,32 +1187,31 @@
 
     return-object p0
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
-        -0x7d2140a2 -> :sswitch_18
-        -0x783813ed -> :sswitch_17
-        -0x468444da -> :sswitch_16
-        -0x285a60ae -> :sswitch_15
-        -0x13be51f3 -> :sswitch_14
-        -0x266f082 -> :sswitch_13
-        0xc52 -> :sswitch_12
-        0x1851a -> :sswitch_11
-        0x1a9ab -> :sswitch_10
-        0x1af22 -> :sswitch_f
-        0x1c8f4 -> :sswitch_e
-        0x2e7b3f -> :sswitch_d
-        0x2e8962 -> :sswitch_c
-        0x2eef76 -> :sswitch_b
-        0x304bf2 -> :sswitch_a
-        0x355996 -> :sswitch_9
-        0x36ebcb -> :sswitch_8
-        0x37af15 -> :sswitch_7
-        0x37c711 -> :sswitch_6
-        0x63f6418 -> :sswitch_5
-        0x6509f99 -> :sswitch_4
-        0x6826e95 -> :sswitch_3
+        -0x7d2140a2 -> :sswitch_19
+        -0x783813ed -> :sswitch_18
+        -0x468444da -> :sswitch_17
+        -0x285a60ae -> :sswitch_16
+        -0x13be51f3 -> :sswitch_15
+        -0x266f082 -> :sswitch_14
+        0xc52 -> :sswitch_13
+        0x1851a -> :sswitch_12
+        0x1a9ab -> :sswitch_11
+        0x1af22 -> :sswitch_10
+        0x1c8f4 -> :sswitch_f
+        0x2e7b3f -> :sswitch_e
+        0x2e8962 -> :sswitch_d
+        0x2eef76 -> :sswitch_c
+        0x304bf2 -> :sswitch_b
+        0x355996 -> :sswitch_a
+        0x36ebcb -> :sswitch_9
+        0x37af15 -> :sswitch_8
+        0x37c711 -> :sswitch_7
+        0x63f6418 -> :sswitch_6
+        0x6509f99 -> :sswitch_5
+        0x6826e95 -> :sswitch_4
+        0x1f4000af -> :sswitch_3
         0x418a9ecf -> :sswitch_2
         0x512b01be -> :sswitch_1
         0x714f9fb5 -> :sswitch_0
@@ -1198,6 +1219,7 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_19
         :pswitch_18
         :pswitch_17
         :pswitch_16

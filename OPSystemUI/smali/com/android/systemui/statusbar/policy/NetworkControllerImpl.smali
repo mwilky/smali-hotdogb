@@ -502,7 +502,7 @@
 
     check-cast v3, Landroid/telephony/TelephonyManager;
 
-    const-string v0, "wifi"
+    const-string/jumbo v0, "wifi"
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2713,7 +2713,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateConnectivity: mConnectedTransports="
+    const-string/jumbo v1, "updateConnectivity: mConnectedTransports="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2733,7 +2733,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateConnectivity: mValidatedTransports="
+    const-string/jumbo v2, "updateConnectivity: mValidatedTransports="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3128,7 +3128,7 @@
     goto :goto_1
 
     :cond_8
-    const-string v1, "wifi"
+    const-string/jumbo v1, "wifi"
 
     invoke-virtual {v2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -3234,7 +3234,7 @@
 
     move-result-object v11
 
-    const-string v6, "true"
+    const-string/jumbo v6, "true"
 
     invoke-virtual {v6, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4189,7 +4189,7 @@
     iput-object v11, v10, Lcom/android/systemui/statusbar/policy/SignalController$State;->iconGroup:Lcom/android/systemui/statusbar/policy/SignalController$IconGroup;
 
     :cond_42
-    const-string v6, "virtual"
+    const-string/jumbo v6, "virtual"
 
     invoke-virtual {v2, v6}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -4203,7 +4203,7 @@
 
     check-cast v6, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileState;
 
-    const-string v9, "virtual"
+    const-string/jumbo v9, "virtual"
 
     invoke-virtual {v2, v9}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 

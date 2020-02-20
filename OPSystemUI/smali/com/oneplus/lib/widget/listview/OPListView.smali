@@ -281,7 +281,7 @@
 
     aput p3, p1, v2
 
-    const-string p3, "y"
+    const-string/jumbo p3, "y"
 
     invoke-static {p3, p1}, Landroid/animation/PropertyValuesHolder;->ofFloat(Ljava/lang/String;[F)Landroid/animation/PropertyValuesHolder;
 

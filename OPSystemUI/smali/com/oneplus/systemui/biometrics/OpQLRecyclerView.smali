@@ -702,7 +702,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "updateViewScale mIsCancel "
+    const-string/jumbo v8, "updateViewScale mIsCancel "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -779,7 +779,7 @@
 
     iget-object v0, p0, Lcom/oneplus/systemui/biometrics/OpQLRecyclerView;->mContext:Landroid/content/Context;
 
-    const-string v1, "vibrator"
+    const-string/jumbo v1, "vibrator"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

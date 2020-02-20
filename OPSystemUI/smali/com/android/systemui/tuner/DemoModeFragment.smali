@@ -22,7 +22,7 @@
 .method static constructor <clinit>()V
     .locals 11
 
-    const-string v0, "volume"
+    const-string/jumbo v0, "volume"
 
     const-string v1, "bluetooth"
 
@@ -30,11 +30,11 @@
 
     const-string v3, "alarm"
 
-    const-string v4, "zen"
+    const-string/jumbo v4, "zen"
 
     const-string v5, "sync"
 
-    const-string v6, "tty"
+    const-string/jumbo v6, "tty"
 
     const-string v7, "eri"
 
@@ -195,7 +195,7 @@
 
     const-string v4, "show"
 
-    const-string v5, "wifi"
+    const-string/jumbo v5, "wifi"
 
     invoke-virtual {v0, v5, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -235,7 +235,7 @@
 
     const-string v6, "fully"
 
-    const-string v7, "true"
+    const-string/jumbo v7, "true"
 
     invoke-virtual {v0, v6, v7}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -295,7 +295,7 @@
 
     invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v1, "visible"
+    const-string/jumbo v1, "visible"
 
     invoke-virtual {v0, v1, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 

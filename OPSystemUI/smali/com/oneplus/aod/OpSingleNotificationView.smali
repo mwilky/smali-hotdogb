@@ -193,7 +193,7 @@
 
     const-string v0, "SingleNotificationView"
 
-    const-string v1, "updateViewInternal"
+    const-string/jumbo v1, "updateViewInternal"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -308,7 +308,7 @@
 
     invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "updateViewInternal: custom="
+    const-string/jumbo v11, "updateViewInternal: custom="
 
     invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -25,7 +25,7 @@
     return-object v0
 
     :cond_0
-    const-string v1, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
+    const-string/jumbo v1, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
 
     invoke-interface {p0, v1}, Landroid/os/IHwBinder;->queryLocalInterface(Ljava/lang/String;)Landroid/os/IHwInterface;
 
@@ -108,7 +108,7 @@
         }
     .end annotation
 
-    const-string v0, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
+    const-string/jumbo v0, "vendor.oneplus.hardware.display@1.0::IOneplusDisplay"
 
     invoke-static {v0, p0}, Landroid/os/HwBinder;->getService(Ljava/lang/String;Ljava/lang/String;)Landroid/os/IHwBinder;
 

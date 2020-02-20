@@ -194,7 +194,7 @@
 
     const-wide/16 v2, 0x190
 
-    const-string v4, "wallpaper_fade_out_duration"
+    const-string/jumbo v4, "wallpaper_fade_out_duration"
 
     invoke-virtual {v1, v4, v2, v3}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 
@@ -210,7 +210,7 @@
 
     const-wide/32 v2, 0xea60
 
-    const-string v4, "wallpaper_visibility_timeout"
+    const-string/jumbo v4, "wallpaper_visibility_timeout"
 
     invoke-virtual {v1, v4, v2, v3}, Landroid/util/KeyValueListParser;->getLong(Ljava/lang/String;J)J
 

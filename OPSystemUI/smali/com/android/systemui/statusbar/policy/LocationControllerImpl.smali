@@ -152,7 +152,7 @@
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->mContext:Landroid/content/Context;
 
-    const-string v0, "user"
+    const-string/jumbo v0, "user"
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -313,6 +313,14 @@
 
     :cond_2
     return v0
+.end method
+
+.method public isLocationActive()Z
+    .locals 0
+
+    iget-boolean p0, p0, Lcom/android/systemui/statusbar/policy/LocationControllerImpl;->mAreActiveLocationRequests:Z
+
+    return p0
 .end method
 
 .method public isLocationEnabled()Z

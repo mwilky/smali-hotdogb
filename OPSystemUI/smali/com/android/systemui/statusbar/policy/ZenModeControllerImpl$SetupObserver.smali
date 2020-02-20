@@ -79,7 +79,7 @@
 
     const/4 v1, 0x0
 
-    const-string v2, "user_setup_complete"
+    const-string/jumbo v2, "user_setup_complete"
 
     invoke-static {v0, v2, v1, p0}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
@@ -108,7 +108,7 @@
 
     if-nez p1, :cond_0
 
-    const-string p1, "user_setup_complete"
+    const-string/jumbo p1, "user_setup_complete"
 
     invoke-static {p1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -159,7 +159,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl$SetupObserver;->mResolver:Landroid/content/ContentResolver;
 
-    const-string v1, "user_setup_complete"
+    const-string/jumbo v1, "user_setup_complete"
 
     invoke-static {v1}, Landroid/provider/Settings$Secure;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

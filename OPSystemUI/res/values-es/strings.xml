@@ -262,7 +262,7 @@
     <string name="accessibility_zero_bars">Ninguna barra</string>
     <string name="active_input_method_subtypes">Métodos de introducción de texto activos</string>
     <string name="activity_launch_on_secondary_display_failed_text">La aplicación no se puede abrir en pantallas secundarias.</string>
-    <string name="activity_not_available">La app no está disponible</string>
+    <string name="activity_not_available">La aplicación no está disponible</string>
     <string name="activity_not_found">La aplicación no está instalada en tu dispositivo</string>
     <string name="adb_keys_warning_message">¿Quieres revocar el acceso a la depuración por USB de todos los ordenadores que has autorizado?</string>
     <string name="adb_warning_message">La depuración por USB solo está indicada para actividades de desarrollo. Puedes utilizarla para intercambiar datos entre el ordenador y el dispositivo, para instalar aplicaciones en el dispositivo sin recibir notificaciones y para leer datos de registro.</string>
@@ -274,7 +274,7 @@
     <string name="alarm_template_far">el %1$s</string>
     <string name="allow_mock_location">Ubicaciones simuladas</string>
     <string name="allow_mock_location_summary">Permitir ubicaciones simuladas</string>
-    <string name="allow_notification">Permitir las notificaciones</string>
+    <string name="allow_notification">Permite las notificaciones</string>
     <string name="always_use_accessory">Abrir siempre %1$s al conectar %2$s</string>
     <string name="always_use_device">Abrir siempre %1$s al conectar %2$s</string>
     <string name="animator_duration_scale_title">Escala de duración de animación</string>
@@ -1031,7 +1031,7 @@ También estás conectado a una red VPN, que puede supervisar tu actividad de re
     <string name="nav_bar">Barra de navegación</string>
     <string name="nav_bar_default">(predeterminada)</string>
     <string name="nav_bar_guide_positive">ENTENDIDO</string>
-    <string name="nav_bar_guide_title">Desliza hacia arriba para ver la barra de navegación. Si quieres dejar de ocultar la navegación, toca</string>
+    <string name="nav_bar_guide_title">Desliza hacia arriba desde la parte inferior para mostrar la barra de navegación. Si quieres dejar de ocultar la navegación, toca aquí.</string>
     <string name="nav_bar_layout">Diseño</string>
     <string name="no_application">Ninguna</string>
     <string name="no_auto_saver_action">No, gracias</string>
@@ -1104,11 +1104,11 @@ También estás conectado a una red VPN, que puede supervisar tu actividad de re
     <string name="op_earphone_device">TOCAR PARA EMPAREJAR</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Desliza hacia abajo para acceder a los servicios de emergencia</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Desbloqueado por Desbloqueo facial</string>
+    <string name="op_keyguard_indication_trust_unlocked">Desbloqueado por Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Por seguridad, pulsa el botón de encendido y desliza arriba para usar la contr.</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Por seguridad, pulsa el botón de encendido y desliza arriba para usar el patrón.</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Por seguridad, pulsa el botón de encendido y desliza arriba para usar el PIN.</string>
     <string name="op_notification_alert_title">Importante</string>
     <string name="op_notification_channel_summary_low">Notificaciones menos importantes sin sonido ni vibración.</string>
     <string name="op_notification_section_header_gentle">Otras notificaciones</string>
@@ -1141,10 +1141,10 @@ También estás conectado a una red VPN, que puede supervisar tu actividad de re
     <string name="overheat_dialog_purple_message">El teléfono se apagará en 5 segundos</string>
     <string name="overheat_dialog_red_message">Se interrumpirán todos los procesos de aplicaciones para reducir la temperatura</string>
     <string name="overheat_dialog_title">La temperatura del teléfono es demasiado elevada</string>
-    <string name="overheat_notification_alert">La temperatura del teléfono es demasiado elevada. Se ha desactivado una función con un alto consumo de energía para reducir la temperatura</string>
+    <string name="overheat_notification_alert">La temperatura del teléfono es demasiado elevada. Se han desactivado las funciones con un alto consumo de energía para reducir la temperatura.</string>
     <string name="overheat_notification_resume">La temperatura del teléfono se ha restaurado y el teléfono se puede utilizar con normalidad</string>
     <string name="overheat_notification_title_resume">La temperatura del teléfono se ha restaurado</string>
-    <string name="overheat_toast_content">El teléfono se encuentra en un estado de temperatura elevada. No es recomendable utilizar esta función</string>
+    <string name="overheat_toast_content">La temperatura del teléfono es demasiado elevada. Se han desactivado las funciones con un alto consumo de energía para reducir la temperatura.</string>
     <string name="overlay_display_devices_title">Simular pantallas secundarias</string>
     <string name="overview">Aplicaciones recientes</string>
     <string name="phone_hint">Desliza desde el icono para abrir el teléfono</string>
@@ -1221,8 +1221,8 @@ También estás conectado a una red VPN, que puede supervisar tu actividad de re
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">El modo Bolsillo está activado</string>
     <string name="prevent_view_title_cancel">Para activar tu teléfono:</string>
-    <string name="prevent_view_top_tag_cancel">No cubras la zona azul de tu teléfono, y limpia la suciedad o el polvo de la zona azul.</string>
-    <string name="prevent_view_top_tag_cancel2">Por favor, sigue los círculos en pantalla y tócalos para salir del modo Bolsillo.</string>
+    <string name="prevent_view_top_tag_cancel">No cubras la zona azul de tu teléfono y limpia la suciedad o el polvo acumulado.</string>
+    <string name="prevent_view_top_tag_cancel2">Sigue los círculos en pantalla y tócalos para salir del modo de bolsillo</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">cámara</string>

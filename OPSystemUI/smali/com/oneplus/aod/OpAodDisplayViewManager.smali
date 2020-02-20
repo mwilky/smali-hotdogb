@@ -298,7 +298,7 @@
 
     if-eq p1, p0, :cond_0
 
-    const-string p0, "unknown"
+    const-string/jumbo p0, "unknown"
 
     return-object p0
 
@@ -508,7 +508,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateView: state = "
+    const-string/jumbo v1, "updateView: state = "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

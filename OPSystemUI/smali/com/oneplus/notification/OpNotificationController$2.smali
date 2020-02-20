@@ -1,11 +1,11 @@
 .class Lcom/oneplus/notification/OpNotificationController$2;
-.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.super Lcom/android/internal/app/IAppOpsActiveCallback$Stub;
 .source "OpNotificationController.java"
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/oneplus/notification/OpNotificationController;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/oneplus/notification/OpNotificationController;-><init>(Landroid/content/Context;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,81 +24,59 @@
 
     iput-object p1, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Lcom/android/internal/app/IAppOpsActiveCallback$Stub;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onKeyguardVisibilityChanged(Z)V
-    .locals 0
+.method public opActiveChanged(IILjava/lang/String;Z)V
+    .locals 2
 
-    iget-object p0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
+    new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-static {p0, p1}, Lcom/oneplus/notification/OpNotificationController;->access$302(Lcom/oneplus/notification/OpNotificationController;Z)Z
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    return-void
-.end method
+    const-string v1, "opActiveChanged, op: "
 
-.method public onPhoneStateChanged(I)V
-    .locals 0
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object p0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {p0, p1}, Lcom/oneplus/notification/OpNotificationController;->access$402(Lcom/oneplus/notification/OpNotificationController;I)I
+    const-string v1, ", uid: "
 
-    return-void
-.end method
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method public onSystemReady()V
-    .locals 3
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    const-string p2, ", packageName: "
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string p2, ", active: "
+
+    invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object p2
 
     const-string v0, "OpNotificationController"
 
-    const-string v1, "onSystemReady to register provider and OIMC"
+    invoke-static {v0, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iget-object p2, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
-
-    new-instance v1, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;
-
-    new-instance v2, Landroid/os/Handler;
-
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v1, v0, v2}, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;-><init>(Lcom/oneplus/notification/OpNotificationController;Landroid/os/Handler;)V
-
-    invoke-static {v0, v1}, Lcom/oneplus/notification/OpNotificationController;->access$102(Lcom/oneplus/notification/OpNotificationController;Lcom/oneplus/notification/OpNotificationController$SettingsObserver;)Lcom/oneplus/notification/OpNotificationController$SettingsObserver;
-
-    iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
-
-    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$100(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/notification/OpNotificationController$SettingsObserver;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->observe()V
-
-    iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
-
-    new-instance v1, Lcom/oneplus/notification/OpNotificationController$OimcObserver;
-
-    new-instance v2, Landroid/os/Handler;
-
-    invoke-direct {v2}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v1, v0, v2}, Lcom/oneplus/notification/OpNotificationController$OimcObserver;-><init>(Lcom/oneplus/notification/OpNotificationController;Landroid/os/Handler;)V
-
-    invoke-static {v0, v1}, Lcom/oneplus/notification/OpNotificationController;->access$202(Lcom/oneplus/notification/OpNotificationController;Lcom/oneplus/notification/OpNotificationController$OimcObserver;)Lcom/oneplus/notification/OpNotificationController$OimcObserver;
+    invoke-static {p2, p1, p3, p4}, Lcom/oneplus/notification/OpNotificationController;->access$100(Lcom/oneplus/notification/OpNotificationController;ILjava/lang/String;Z)V
 
     iget-object p0, p0, Lcom/oneplus/notification/OpNotificationController$2;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {p0}, Lcom/oneplus/notification/OpNotificationController;->access$200(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/notification/OpNotificationController$OimcObserver;
-
-    move-result-object p0
-
-    invoke-virtual {p0}, Lcom/oneplus/notification/OpNotificationController$OimcObserver;->observe()V
+    invoke-static {p0}, Lcom/oneplus/notification/OpNotificationController;->access$200(Lcom/oneplus/notification/OpNotificationController;)V
 
     return-void
 .end method

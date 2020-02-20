@@ -440,7 +440,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "user_setup_complete"
+    const-string/jumbo v1, "user_setup_complete"
 
     const/4 v2, -0x2
 

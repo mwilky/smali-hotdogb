@@ -451,7 +451,7 @@
     :cond_3
     iget-object p1, p0, Landroid/widget/LinearLayout;->mContext:Landroid/content/Context;
 
-    const-string p3, "vibrator"
+    const-string/jumbo p3, "vibrator"
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1380,7 +1380,7 @@
 
     if-eqz v2, :cond_1
 
-    const-string v2, "verifyPasswordAndUnlock to cancel"
+    const-string/jumbo v2, "verifyPasswordAndUnlock to cancel"
 
     invoke-static {v3, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

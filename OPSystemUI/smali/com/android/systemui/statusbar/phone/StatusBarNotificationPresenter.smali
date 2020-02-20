@@ -338,7 +338,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/statusbar/phone/StatusBarNotificationPresenter;->mBarService:Lcom/android/internal/statusbar/IStatusBarService;
 
-    const-string p1, "vrmanager"
+    const-string/jumbo p1, "vrmanager"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 

@@ -289,7 +289,7 @@
 
     iget-object p1, p0, Landroid/widget/FrameLayout;->mContext:Landroid/content/Context;
 
-    const-string p2, "window"
+    const-string/jumbo p2, "window"
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

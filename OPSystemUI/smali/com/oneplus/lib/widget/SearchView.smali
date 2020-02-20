@@ -608,7 +608,7 @@
 
     const-string p3, "android.speech.extra.LANGUAGE_MODEL"
 
-    const-string v0, "web_search"
+    const-string/jumbo v0, "web_search"
 
     invoke-virtual {p1, p3, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
@@ -717,7 +717,7 @@
     :cond_0
     iget-object p1, p0, Lcom/oneplus/lib/widget/SearchView;->mUserQuery:Ljava/lang/CharSequence;
 
-    const-string p2, "user_query"
+    const-string/jumbo p2, "user_query"
 
     invoke-virtual {v0, p2, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/CharSequence;)Landroid/content/Intent;
 

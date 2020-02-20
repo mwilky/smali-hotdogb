@@ -537,7 +537,7 @@
 
     move-result-object p1
 
-    const-string p2, "ticker_gets_heads_up"
+    const-string/jumbo p2, "ticker_gets_heads_up"
 
     invoke-static {p2}, Landroid/provider/Settings$Global;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
 

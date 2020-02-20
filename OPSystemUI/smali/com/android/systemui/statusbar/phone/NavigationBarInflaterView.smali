@@ -1660,6 +1660,30 @@
     return-void
 .end method
 
+.method protected onAttachedToWindow()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/FrameLayout;->onAttachedToWindow()V
+
+    const-class v0, Lcom/android/systemui/statusbar/phone/NavigationModeController;
+
+    invoke-static {v0}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/systemui/statusbar/phone/NavigationModeController;
+
+    invoke-virtual {v0, p0}, Lcom/android/systemui/statusbar/phone/NavigationModeController;->addListener(Lcom/android/systemui/statusbar/phone/NavigationModeController$ModeChangedListener;)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->mNavBarMode:I
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarInflaterView;->onLikelyDefaultLayoutChange()V
+
+    return-void
+.end method
+
 .method protected onDetachedFromWindow()V
     .locals 1
 

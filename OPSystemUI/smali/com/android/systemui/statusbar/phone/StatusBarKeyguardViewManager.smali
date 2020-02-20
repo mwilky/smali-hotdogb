@@ -2746,7 +2746,7 @@
     :cond_9
     new-instance v10, Ljava/lang/StringBuilder;
 
-    const-string v11, "updateStates, vis:"
+    const-string/jumbo v11, "updateStates, vis:"
 
     invoke-direct {v10, v11}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 

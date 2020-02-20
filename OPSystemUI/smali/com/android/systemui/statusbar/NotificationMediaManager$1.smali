@@ -75,7 +75,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/NotificationMediaManager$1;->this$0:Lcom/android/systemui/statusbar/NotificationMediaManager;
 
-    const-string v3, "true"
+    const-string/jumbo v3, "true"
 
     invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

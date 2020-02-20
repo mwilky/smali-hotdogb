@@ -174,7 +174,7 @@
 
     aput v2, v1, v4
 
-    const-string v2, "translationY"
+    const-string/jumbo v2, "translationY"
 
     invoke-static {p0, v2, v1}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -253,7 +253,7 @@
 
     aput v7, v6, v4
 
-    const-string v1, "translationX"
+    const-string/jumbo v1, "translationX"
 
     invoke-static {p0, v1, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -379,7 +379,7 @@
 
     aput v2, v0, v3
 
-    const-string v1, "translationY"
+    const-string/jumbo v1, "translationY"
 
     invoke-static {p0, v1, v0}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -424,7 +424,7 @@
 
     aput v1, v0, v3
 
-    const-string v1, "translationX"
+    const-string/jumbo v1, "translationX"
 
     invoke-static {p0, v1, v0}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 

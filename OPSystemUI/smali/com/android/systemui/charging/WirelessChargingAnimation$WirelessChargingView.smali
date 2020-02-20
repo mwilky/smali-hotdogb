@@ -332,7 +332,7 @@
     move-result-object v0
 
     :cond_1
-    const-string v3, "window"
+    const-string/jumbo v3, "window"
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

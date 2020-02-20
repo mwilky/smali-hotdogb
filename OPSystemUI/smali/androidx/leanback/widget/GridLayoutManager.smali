@@ -7162,7 +7162,7 @@
 
     const/4 v1, -0x2
 
-    const-string v2, "wrong spec"
+    const-string/jumbo v2, "wrong spec"
 
     const/high16 v3, 0x40000000    # 2.0f
 

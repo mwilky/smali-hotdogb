@@ -295,7 +295,7 @@
 
     iput-object p1, p0, Lcom/android/systemui/settings/BrightnessController;->mDisplayManager:Landroid/hardware/display/DisplayManager;
 
-    const-string p1, "vrmanager"
+    const-string/jumbo p1, "vrmanager"
 
     invoke-static {p1}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -1257,7 +1257,7 @@
     :cond_0
     const-string v0, "StatusBar.BrightnessController"
 
-    const-string v1, "unregisterCallbacks"
+    const-string/jumbo v1, "unregisterCallbacks"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

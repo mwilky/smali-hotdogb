@@ -1261,6 +1261,14 @@
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSContainerImpl;->setExpansion(F)V
 
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v0, p1}, Lcom/android/systemui/qs/QSPanel;->updateWLBExpansion(F)V
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSFragment;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    invoke-virtual {v0, p2}, Lcom/android/systemui/qs/QSPanel;->updateWLBHeaderExpansion(F)V
+
     const/high16 v0, 0x3f800000    # 1.0f
 
     sub-float v1, p1, v0

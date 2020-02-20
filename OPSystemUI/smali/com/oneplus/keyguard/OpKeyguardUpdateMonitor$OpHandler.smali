@@ -129,7 +129,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "timeout delay of slot: "
+    const-string/jumbo v1, "timeout delay of slot: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -172,6 +172,8 @@
     :cond_5
     :goto_1
     return-void
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x1f4

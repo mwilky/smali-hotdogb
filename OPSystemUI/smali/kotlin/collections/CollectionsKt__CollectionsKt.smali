@@ -10,23 +10,6 @@
 
 
 # direct methods
-.method public static emptyList()Ljava/util/List;
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "<T:",
-            "Ljava/lang/Object;",
-            ">()",
-            "Ljava/util/List<",
-            "TT;>;"
-        }
-    .end annotation
-
-    sget-object v0, Lkotlin/collections/EmptyList;->INSTANCE:Lkotlin/collections/EmptyList;
-
-    return-object v0
-.end method
-
 .method public static final getLastIndex(Ljava/util/List;)I
     .locals 1
     .annotation system Ldalvik/annotation/Signature;

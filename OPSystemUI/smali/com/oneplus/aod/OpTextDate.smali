@@ -396,7 +396,7 @@
 
     move-result-object v4
 
-    const-string v5, "zh_"
+    const-string/jumbo v5, "zh_"
 
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 

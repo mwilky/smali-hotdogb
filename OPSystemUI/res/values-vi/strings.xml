@@ -1031,7 +1031,7 @@ Bạn cũng được kết nối với VPN. Dịch vụ này có thể giám sá
     <string name="nav_bar">Thanh điều hướng</string>
     <string name="nav_bar_default">(mặc định)</string>
     <string name="nav_bar_guide_positive">ĐÃ HIỂU</string>
-    <string name="nav_bar_guide_title">Vuốt lên từ bên dưới để hiển thị thanh điều hướng. Nếu bạn muốn không ẩn điều hướng, hãy chạm vào</string>
+    <string name="nav_bar_guide_title">Vuốt từ dưới cùng lên để hiển thị thanh điều hướng. Để dừng ẩn điều hướng, hãy chạm vào đây.</string>
     <string name="nav_bar_layout">Bố cục</string>
     <string name="no_application">Không có ứng dụng</string>
     <string name="no_auto_saver_action">Không, cảm ơn</string>
@@ -1083,7 +1083,7 @@ Bạn cũng được kết nối với VPN. Dịch vụ này có thể giám sá
     <string name="notification_unblockable_desc">Không thể sửa đổi các thông báo này.</string>
     <string name="oem_unlock_enable">Mở khóa OEM</string>
     <string name="oem_unlock_enable_summary">Cho phép mở khóa trình khởi động</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="okay">OK</string>
     <string name="oneplus_laboratory_added_toast">Chúc mừng! Phòng thí nghiệm OnePlus đã được thêm vào Thiết lập</string>
     <string name="oneplus_screen_features_not_available_toast">Khi bật, các tính năng như hiệu chuẩn màn hình sẽ không sử dụng được</string>
@@ -1104,11 +1104,11 @@ Bạn cũng được kết nối với VPN. Dịch vụ này có thể giám sá
     <string name="op_earphone_device">CHẠM ĐỂ GHÉP NỐI</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Vuốt xuống để sử dụng các dịch vụ khẩn cấp</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Được giữ ở trạng thái mở khóa bởi tính năng Mở khóa bằng gương mặt</string>
+    <string name="op_keyguard_indication_trust_unlocked">Được giữ ở trạng thái mở khóa bởi Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Để tăng cường bảo mật, hãy nhấn phím nguồn và vuốt lên để sử dụng mật khẩu</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Để tăng cường bảo mật, hãy nhấn phím nguồn và vuốt lên để sử dụng mẫu hình</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Để tăng cường bảo mật, hãy nhấn phím nguồn và vuốt lên để sử dụng mã PIN</string>
     <string name="op_notification_alert_title">Quan trọng</string>
     <string name="op_notification_channel_summary_low">Những thông báo ít quan trọng hơn không có âm thanh hoặc rung.</string>
     <string name="op_notification_section_header_gentle">Thông báo khác</string>
@@ -1141,10 +1141,10 @@ Bạn cũng được kết nối với VPN. Dịch vụ này có thể giám sá
     <string name="overheat_dialog_purple_message">Điện thoại sẽ tắt nguồn sau 5 giây</string>
     <string name="overheat_dialog_red_message">Sẽ xóa tất cả các quy trình ứng dụng để giảm bớt nhiệt độ</string>
     <string name="overheat_dialog_title">Nhiệt độ của điện thoại quá cao</string>
-    <string name="overheat_notification_alert">Nhiệt độ của điện thoại quá cao và chức năng tiêu tốn nhiều pin sẽ được tắt để giảm bớt nhiệt độ</string>
+    <string name="overheat_notification_alert">Nhiệt độ của điện thoại quá cao và các chức năng tiêu tốn nhiều pin sẽ được tắt để giảm bớt nhiệt độ</string>
     <string name="overheat_notification_resume">Nhiệt độ của điện thoại đã được phục hồi và điện thoại có thể được sử dụng bình thường</string>
     <string name="overheat_notification_title_resume">Nhiệt độ của điện thoại đã được phục hồi</string>
-    <string name="overheat_toast_content">Nhiệt độ của điện thoại cao, chúng tôi khuyến nghị không nên dùng tính năng này</string>
+    <string name="overheat_toast_content">Nhiệt độ của điện thoại quá cao và các chức năng tiêu tốn nhiều pin sẽ được tắt để giảm bớt nhiệt độ</string>
     <string name="overlay_display_devices_title">Mô phỏng màn hình phụ</string>
     <string name="overview">Tổng quan</string>
     <string name="phone_hint">Vuốt từ biểu tượng để mở điện thoại</string>
@@ -1221,8 +1221,8 @@ Bạn cũng được kết nối với VPN. Dịch vụ này có thể giám sá
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">Chế độ bỏ túi đang bật</string>
     <string name="prevent_view_title_cancel">Để kích hoạt điện thoại của bạn:</string>
-    <string name="prevent_view_top_tag_cancel">Vui lòng không che khu vực màu xanh dương trên điện thoại của bạn, và dọn dẹp mọi vết bụi bẩn trên khu vực màu xanh dương.</string>
-    <string name="prevent_view_top_tag_cancel2">Vui lòng di theo các vòng tròn trên màn hình và chạm vào chúng để bắt dừng chế độ bỏ túi.</string>
+    <string name="prevent_view_top_tag_cancel">Không che khu vực màu xanh dương trên điện thoại của bạn, và làm sạch mọi vết bẩn hoặc bụi.</string>
+    <string name="prevent_view_top_tag_cancel2">Đi theo các vòng tròn trên màn hình và chạm vào chúng để buộc dừng chế độ bỏ túi</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">máy ảnh</string>
@@ -1379,7 +1379,7 @@ Trình tiết kiệm pin"</string>
     <string name="recents_deep_clean_dialog_checkbox_text">Không hiển thị lại</string>
     <string name="recents_deep_clean_dialog_message">Dọn dẹp sâu sẽ xóa tất cả quy trình chạy dưới nền và có thể dẫn đến kết quả không mong muốn. Một số ứng dụng có thể ngừng hoạt động và không nhận được thông báo cho đến khi bạn khởi động lại chúng. Hãy xác nhận.</string>
     <string name="recents_deep_clean_dialog_title">Chú ý</string>
-    <string name="recents_deep_clean_message">Tắt tất cả các ứng dụng</string>
+    <string name="recents_deep_clean_message">Thoát tất cả các ứng dụng</string>
     <string name="recents_deep_clean_option">Dọn dẹp sâu</string>
     <string name="recents_empty_no_apps_open">Không có ứng dụng nào đang mở</string>
     <string name="recents_empty_recently_closed">Các ứng dụng được đóng gần đây</string>

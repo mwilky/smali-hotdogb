@@ -145,7 +145,7 @@
 
     const-string v0, " "
 
-    const-string v1, "\u02da"
+    const-string/jumbo v1, "\u02da"
 
     if-nez p1, :cond_0
 
@@ -287,7 +287,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "weatherCode: "
+    const-string/jumbo v8, "weatherCode: "
 
     invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -444,7 +444,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "unexpected weather data: "
+    const-string/jumbo v3, "unexpected weather data: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1020,7 +1020,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "time from sp="
+    const-string/jumbo v3, "time from sp="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

@@ -708,7 +708,7 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "with android:layout_height=\"wrap_content\""
+    const-string/jumbo p2, "with android:layout_height=\"wrap_content\""
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -737,7 +737,7 @@
 
     invoke-virtual {p1, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string p2, "with android:layout_width=\"match_parent\" (or fill_parent)"
+    const-string/jumbo p2, "with android:layout_width=\"match_parent\" (or fill_parent)"
 
     invoke-virtual {p1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

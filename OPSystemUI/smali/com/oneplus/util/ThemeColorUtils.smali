@@ -34,6 +34,8 @@
 
 .field public static QS_TILE_OFF:I = 0x3
 
+.field public static QS_WLB_INDICATOR:I = 0x11
+
 .field private static sAccentColor:I = 0x0
 
 .field private static sColors:[I = null
@@ -302,7 +304,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateAccentColor: accentColor="
+    const-string/jumbo v1, "updateAccentColor: accentColor="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

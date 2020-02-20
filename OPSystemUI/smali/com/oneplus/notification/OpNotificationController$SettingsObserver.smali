@@ -36,7 +36,7 @@
 
     iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$500(Lcom/oneplus/notification/OpNotificationController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$700(Lcom/oneplus/notification/OpNotificationController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -44,25 +44,13 @@
 
     move-result-object v0
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$600()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$800()Landroid/net/Uri;
 
     move-result-object v1
 
     const/4 v2, -0x1
 
     const/4 v3, 0x0
-
-    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$700()Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
-
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$800()Landroid/net/Uri;
-
-    move-result-object v1
 
     invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
@@ -73,6 +61,18 @@
     invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
     invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1000()Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1100()Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1, v3, p0, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1200()Landroid/net/Uri;
 
     move-result-object v1
 
@@ -98,7 +98,7 @@
 
     iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$500(Lcom/oneplus/notification/OpNotificationController;)Landroid/content/Context;
+    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$700(Lcom/oneplus/notification/OpNotificationController;)Landroid/content/Context;
 
     move-result-object v0
 
@@ -114,7 +114,7 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$700()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$900()Landroid/net/Uri;
 
     move-result-object v4
 
@@ -143,12 +143,12 @@
     move v5, v3
 
     :goto_0
-    invoke-static {v4, v5}, Lcom/oneplus/notification/OpNotificationController;->access$1102(Lcom/oneplus/notification/OpNotificationController;Z)Z
+    invoke-static {v4, v5}, Lcom/oneplus/notification/OpNotificationController;->access$1302(Lcom/oneplus/notification/OpNotificationController;Z)Z
 
     :cond_2
     if-eqz p1, :cond_3
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$800()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1000()Landroid/net/Uri;
 
     move-result-object v4
 
@@ -175,12 +175,12 @@
     move v1, v3
 
     :goto_1
-    invoke-static {v4, v1}, Lcom/oneplus/notification/OpNotificationController;->access$1202(Lcom/oneplus/notification/OpNotificationController;Z)Z
+    invoke-static {v4, v1}, Lcom/oneplus/notification/OpNotificationController;->access$1402(Lcom/oneplus/notification/OpNotificationController;Z)Z
 
     :cond_5
     if-eqz p1, :cond_6
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$900()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1100()Landroid/net/Uri;
 
     move-result-object v1
 
@@ -199,11 +199,11 @@
 
     move-result v2
 
-    invoke-static {v1, v2}, Lcom/oneplus/notification/OpNotificationController;->access$1302(Lcom/oneplus/notification/OpNotificationController;I)I
+    invoke-static {v1, v2}, Lcom/oneplus/notification/OpNotificationController;->access$1502(Lcom/oneplus/notification/OpNotificationController;I)I
 
     iget-object v1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1300(Lcom/oneplus/notification/OpNotificationController;)I
+    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)I
 
     move-result v1
 
@@ -211,7 +211,7 @@
 
     iget-object v1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1400(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
+    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1600(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
 
     move-result-object v1
 
@@ -224,7 +224,7 @@
     :cond_7
     iget-object v1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1400(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
+    invoke-static {v1}, Lcom/oneplus/notification/OpNotificationController;->access$1600(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
 
     move-result-object v1
 
@@ -238,7 +238,7 @@
 
     if-eqz p1, :cond_9
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1000()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1200()Landroid/net/Uri;
 
     move-result-object v2
 
@@ -257,11 +257,11 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/oneplus/notification/OpNotificationController;->access$1502(Lcom/oneplus/notification/OpNotificationController;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/oneplus/notification/OpNotificationController;->access$1702(Lcom/oneplus/notification/OpNotificationController;Ljava/lang/String;)Ljava/lang/String;
 
     iget-object v2, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v2}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/oneplus/notification/OpNotificationController;->access$1700(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -269,7 +269,7 @@
 
     iget-object v2, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v2}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/oneplus/notification/OpNotificationController;->access$1700(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -291,7 +291,7 @@
 
     invoke-virtual {v2}, Lcom/oneplus/systemui/statusbar/phone/OpStatusBar;->removeHeadsUps()V
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1600()Z
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1800()Z
 
     move-result v2
 
@@ -307,7 +307,7 @@
 
     iget-object v3, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v3}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/oneplus/notification/OpNotificationController;->access$1700(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -322,7 +322,7 @@
     :cond_a
     if-eqz p1, :cond_b
 
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$600()Landroid/net/Uri;
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$800()Landroid/net/Uri;
 
     move-result-object v2
 
@@ -359,14 +359,14 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3}, Lcom/oneplus/notification/OpNotificationController;->access$1702(Lcom/oneplus/notification/OpNotificationController;Ljava/util/List;)Ljava/util/List;
+    invoke-static {v2, v3}, Lcom/oneplus/notification/OpNotificationController;->access$1902(Lcom/oneplus/notification/OpNotificationController;Ljava/util/List;)Ljava/util/List;
 
     iget-object v2, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
     invoke-virtual {v2}, Lcom/oneplus/notification/OpNotificationController;->setQuickReplyFlags()V
 
     :cond_c
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1600()Z
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1800()Z
 
     move-result v2
 
@@ -393,7 +393,7 @@
 
     iget-object v0, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$1400(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
+    invoke-static {v0}, Lcom/oneplus/notification/OpNotificationController;->access$1600(Lcom/oneplus/notification/OpNotificationController;)Lcom/oneplus/core/oimc/OIMCServiceManager;
 
     move-result-object v0
 
@@ -402,7 +402,7 @@
     invoke-virtual {v0, v2}, Lcom/oneplus/core/oimc/OIMCServiceManager;->addFuncRuleGlobal(Lcom/oneplus/core/oimc/OIMCRule;)V
 
     :cond_e
-    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1600()Z
+    invoke-static {}, Lcom/oneplus/notification/OpNotificationController;->access$1800()Z
 
     move-result v0
 
@@ -412,7 +412,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "update uri: "
+    const-string/jumbo v2, "update uri: "
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -424,7 +424,7 @@
 
     iget-object p1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1100(Lcom/oneplus/notification/OpNotificationController;)Z
+    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1300(Lcom/oneplus/notification/OpNotificationController;)Z
 
     move-result p1
 
@@ -436,7 +436,7 @@
 
     iget-object p1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1200(Lcom/oneplus/notification/OpNotificationController;)Z
+    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1400(Lcom/oneplus/notification/OpNotificationController;)Z
 
     move-result p1
 
@@ -448,7 +448,7 @@
 
     iget-object p1, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1300(Lcom/oneplus/notification/OpNotificationController;)I
+    invoke-static {p1}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)I
 
     move-result p1
 
@@ -460,7 +460,7 @@
 
     iget-object p0, p0, Lcom/oneplus/notification/OpNotificationController$SettingsObserver;->this$0:Lcom/oneplus/notification/OpNotificationController;
 
-    invoke-static {p0}, Lcom/oneplus/notification/OpNotificationController;->access$1500(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
+    invoke-static {p0}, Lcom/oneplus/notification/OpNotificationController;->access$1700(Lcom/oneplus/notification/OpNotificationController;)Ljava/lang/String;
 
     move-result-object p0
 

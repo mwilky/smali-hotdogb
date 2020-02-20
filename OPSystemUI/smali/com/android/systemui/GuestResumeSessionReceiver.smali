@@ -62,7 +62,7 @@
 
     const-string v0, "GuestResumeSessionReceiver"
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

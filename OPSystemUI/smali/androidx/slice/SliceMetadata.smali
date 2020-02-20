@@ -45,7 +45,7 @@
 
     const-string v0, "long"
 
-    const-string v1, "ttl"
+    const-string/jumbo v1, "ttl"
 
     invoke-static {p2, v0, v1, p1}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 

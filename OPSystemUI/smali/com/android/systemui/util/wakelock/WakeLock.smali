@@ -53,7 +53,7 @@
 .method public static synthetic lambda$wrapImpl$0(Ljava/lang/Runnable;Lcom/android/systemui/util/wakelock/WakeLock;)V
     .locals 1
 
-    const-string v0, "wrap"
+    const-string/jumbo v0, "wrap"
 
     :try_start_0
     invoke-interface {p0}, Ljava/lang/Runnable;->run()V
@@ -85,7 +85,7 @@
 .method public static wrapImpl(Lcom/android/systemui/util/wakelock/WakeLock;Ljava/lang/Runnable;)Ljava/lang/Runnable;
     .locals 1
 
-    const-string v0, "wrap"
+    const-string/jumbo v0, "wrap"
 
     invoke-interface {p0, v0}, Lcom/android/systemui/util/wakelock/WakeLock;->acquire(Ljava/lang/String;)V
 

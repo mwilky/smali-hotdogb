@@ -24,6 +24,9 @@
 
 
 # virtual methods
+.method public abstract isLocationActive()Z
+.end method
+
 .method public abstract isLocationEnabled()Z
 .end method
 

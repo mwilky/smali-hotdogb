@@ -10318,7 +10318,7 @@
 
     if-eqz v2, :cond_1
 
-    const-string p2, "transient"
+    const-string/jumbo p2, "transient"
 
     goto :goto_0
 
@@ -10334,7 +10334,7 @@
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    const-string p1, "}"
+    const-string/jumbo p1, "}"
 
     invoke-virtual {p0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10702,7 +10702,7 @@
 
     if-nez v5, :cond_2
 
-    const-string v5, "visible"
+    const-string/jumbo v5, "visible"
 
     goto :goto_2
 
@@ -16553,7 +16553,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "updateFooter hideDismissAnimate mStatusBarState="
+    const-string/jumbo v3, "updateFooter hideDismissAnimate mStatusBarState="
 
     invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

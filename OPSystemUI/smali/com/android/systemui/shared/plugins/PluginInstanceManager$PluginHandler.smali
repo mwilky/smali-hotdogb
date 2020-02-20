@@ -454,7 +454,7 @@
 
     move-result-object v4
 
-    const-string v5, "tuner"
+    const-string/jumbo v5, "tuner"
 
     const-string v6, "drawable"
 

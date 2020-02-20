@@ -1652,7 +1652,7 @@
     :cond_0
     const-string v0, "KeyguardIndication"
 
-    const-string v1, "updateChargingInfoAndOwnerInfo"
+    const-string/jumbo v1, "updateChargingInfoAndOwnerInfo"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

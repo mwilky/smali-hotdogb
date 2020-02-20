@@ -47,7 +47,7 @@
 
     const-wide/16 v0, 0x1000
 
-    const-string p0, "wakefulness"
+    const-string/jumbo p0, "wakefulness"
 
     invoke-static {v0, v1, p0, p1}, Landroid/os/Trace;->traceCounter(JLjava/lang/String;I)V
 

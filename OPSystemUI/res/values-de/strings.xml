@@ -260,7 +260,7 @@
     <string name="accessibility_zero_bars">Kein Balken</string>
     <string name="active_input_method_subtypes">Aktive Eingabemethoden</string>
     <string name="activity_launch_on_secondary_display_failed_text">Die App unterstützt den Start auf sekundären Displays nicht.</string>
-    <string name="activity_not_available">App nicht verfügbar</string>
+    <string name="activity_not_available">App ist nicht verfügbar</string>
     <string name="activity_not_found">Die App ist nicht auf deinem Gerät installiert.</string>
     <string name="adb_keys_warning_message">Zugriff auf USB-Debugging für alle zuvor autorisierten Computer aufheben?</string>
     <string name="adb_warning_message">USB-Debugging ist nur für Entwicklungszwecke vorgesehen. Damit kannst du Daten zwischen deinem Computer und deinem Gerät kopieren, Apps auf deinem Gerät ohne Benachrichtigung installieren und Protokolldaten lesen.</string>
@@ -653,7 +653,7 @@ Sobald dein Smartphone abgekühlt ist, funktioniert es wieder normal."</string>
     <string name="high_temp_title">Smartphone wird warm</string>
     <string name="home">Startseite \"Einstellungen\"</string>
     <string name="hotspot_apm_message">Im Flugzeugmodus kann keine mobile Netzwerkverbindung hergestellt werden. Deaktivieren Sie zuerst den Flugzeugmodus.</string>
-    <string name="hotspot_operator_dialog_nosim_msg">Eine SIM-Karte einlegen, um Mobile Hotspot und andere Tethering-Optionen zu verwenden</string>
+    <string name="hotspot_operator_dialog_nosim_msg">Eine SIM-Karte einlegen, um den mobilen Hotspot und andere Tethering-Optionen zu verwenden</string>
     <string name="hotspot_operator_dialog_nosim_title">Keine SIM-Karte</string>
     <string name="hotspot_operator_dialog_othererror_msg">Sie haben Wi-Fi Tethering nicht abonniert</string>
     <string name="hotspot_operator_dialog_othererror_title">Wi-Fi Tethering fehlerhaft</string>
@@ -791,7 +791,7 @@ wichtige"</string>
     <string name="keyguard_plugged_in">%s • Wird geladen</string>
     <string name="keyguard_plugged_in_charging_fast">%s • Wird schnell geladen</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • Wird langsam geladen</string>
-    <string name="keyguard_plugged_in_charging_warp">%s • Warp Charge</string>
+    <string name="keyguard_plugged_in_charging_warp">%s • Warp-Laden</string>
     <string name="keyguard_plugged_in_wireless">%s • Kabelloses Laden</string>
     <string name="keyguard_sim_error_message_short">Ungültige Karte.</string>
     <string name="keyguard_sim_locked_message">SIM-Karte ist gesperrt.</string>
@@ -1029,7 +1029,7 @@ Außerdem bist du mit einem VPN verbunden, das deine Netzwerkaktivitäten erfass
     <string name="nav_bar">Navigationsleiste</string>
     <string name="nav_bar_default">(Standard)</string>
     <string name="nav_bar_guide_positive">OK</string>
-    <string name="nav_bar_guide_title">Wischen Sie von unten, um die Navigationsleiste anzuzeigen. Bitte tippen, wenn die Navigation eingeblendet werden soll</string>
+    <string name="nav_bar_guide_title">Wischen Sie von unten nach oben, um die Navigationsleiste anzuzeigen. Tippen Sie hier, um das Ausblenden der Navigation zu beenden.</string>
     <string name="nav_bar_layout">Layout</string>
     <string name="no_application">Keine</string>
     <string name="no_auto_saver_action">Nein danke</string>
@@ -1102,11 +1102,11 @@ Außerdem bist du mit einem VPN verbunden, das deine Netzwerkaktivitäten erfass
     <string name="op_earphone_device">ZUM KOPPELN TIPPEN</string>
     <string name="op_earphone_title">OnePlus Bullets drahtlos</string>
     <string name="op_emergency_indicator_hint_text">Für Notfalldienste nach unten streichen</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Von Face Unlock entsperrt gelassen</string>
+    <string name="op_keyguard_indication_trust_unlocked">Von Smart Lock entsperrt gelassen</string>
+    <string name="op_kg_prompt_reason_timeout_password">Für zus. Sicherh. d. Ein/Aus-Taste drücken u. z. Verw. d. Passw. n. oben wischen</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Für zus. Sicherh. d. Ein/Aus-Taste drücken u. z. Verw. d. Must. n. oben wischen</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Für zus. Sicherh. die Ein/Aus-Taste drücken u. z. Verw. d. PIN nach oben wischen</string>
     <string name="op_notification_alert_title">Wichtig</string>
     <string name="op_notification_channel_summary_low">Weniger wichtige Benachrichtigungen ohne Ton oder Vibration.</string>
     <string name="op_notification_section_header_gentle">Sonstige Benachrichtigungen</string>
@@ -1142,7 +1142,7 @@ Außerdem bist du mit einem VPN verbunden, das deine Netzwerkaktivitäten erfass
     <string name="overheat_notification_alert">Die Temperatur Ihres Telefons ist zu hoch und zum Senken der Temperatur werden Funktionen mit hohem Stromverbrauch deaktiviert</string>
     <string name="overheat_notification_resume">Die Temperatur des Telefons wurde wiederhergestellt und das Telefon kann normal verwendet werden</string>
     <string name="overheat_notification_title_resume">Die Temperatur des Telefons wurde wiederhergestellt</string>
-    <string name="overheat_toast_content">Das Telefon befindet sich in einem Hochtemperaturzustand. Die Nutzung dieser Funktion wird nicht empfohlen</string>
+    <string name="overheat_toast_content">Die Temperatur Ihres Telefons ist zu hoch und zum Senken der Temperatur werden Funktionen mit hohem Stromverbrauch deaktiviert</string>
     <string name="overlay_display_devices_title">Sekundäre Displays simulieren</string>
     <string name="overview">Übersicht</string>
     <string name="phone_hint">Zum Öffnen des Telefons vom Symbol wegwischen</string>
@@ -1219,8 +1219,8 @@ Außerdem bist du mit einem VPN verbunden, das deine Netzwerkaktivitäten erfass
     <string name="preference_summary_default_combination">%1$s – %2$s</string>
     <string name="prevent_view_title">Pocket-Modus aktiviert</string>
     <string name="prevent_view_title_cancel">So aktivieren Sie Ihr Telefon:</string>
-    <string name="prevent_view_top_tag_cancel">Bitte bedecken Sie den blauen Bereich des Telefons nicht und entfernen Sie Schmutz oder Staub vom blauen Bereich.</string>
-    <string name="prevent_view_top_tag_cancel2">Folgen Sie den Kreisen auf dem Bildschirm und tippen Sie darauf, um Schließen des Pocket-Modus zu erzwingen.</string>
+    <string name="prevent_view_top_tag_cancel">Bedecken Sie den blauen Bereich Ihres Telefons nicht und entfernen Sie Schmutz oder Staub.</string>
+    <string name="prevent_view_top_tag_cancel2">Folgen Sie den Kreisen auf dem Bildschirm und tippen Sie darauf, um das Beenden des Pocket-Modus zu erzwingen</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">Kamera</string>
@@ -1382,7 +1382,7 @@ Energiesparmodus"</string>
     <string name="recents_empty_no_apps_open">Keine Anwendung geöffnet</string>
     <string name="recents_empty_recently_closed">Zuletzt geschlossene Apps</string>
     <string name="recents_normal_clean_description">Aufgabenliste und Cache löschen, ohne Hintergrundprozesse zu löschen.</string>
-    <string name="recents_normal_clean_option">Normal bereinigen</string>
+    <string name="recents_normal_clean_option">Normales Bereinigen</string>
     <string name="recents_option_note">Das können Sie in den Einstellungen -> Erweitert ändern.</string>
     <string name="recents_option_title">Welche Methode bevorzugen Sie</string>
     <string name="recents_quick_scrub_onboarding">Zum schnellen Wechseln der Apps nach rechts ziehen</string>

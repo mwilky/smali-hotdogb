@@ -2156,7 +2156,7 @@
 
     if-ne p2, p4, :cond_5
 
-    const-string p4, "wifi"
+    const-string/jumbo p4, "wifi"
 
     invoke-static {p4}, Landroid/os/ServiceManager;->getService(Ljava/lang/String;)Landroid/os/IBinder;
 
@@ -2321,7 +2321,7 @@
 
     iget-object v0, p0, Lcom/android/settingslib/wifi/AccessPoint;->mContext:Landroid/content/Context;
 
-    const-string v1, "wifi"
+    const-string/jumbo v1, "wifi"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

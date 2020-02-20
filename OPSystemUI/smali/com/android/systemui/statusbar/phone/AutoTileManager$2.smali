@@ -43,7 +43,7 @@
 
     move-result-object v0
 
-    const-string v1, "work"
+    const-string/jumbo v1, "work"
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/qs/AutoAddTracker;->isAdded(Ljava/lang/String;)Z
 

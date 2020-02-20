@@ -325,7 +325,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const-string v2, "update"
+    const-string/jumbo v2, "update"
 
     invoke-static {v0, p0, v2, v1}, Lcom/oneplus/util/OpReflectionUtils;->methodInvokeVoid(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 

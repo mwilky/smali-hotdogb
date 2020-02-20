@@ -53,7 +53,7 @@
 
     const-string v9, "settings_click"
 
-    const-string v10, "touch_level_changed"
+    const-string/jumbo v10, "touch_level_changed"
 
     const-string v11, "level_changed"
 
@@ -61,15 +61,15 @@
 
     const-string v13, "external_ringer_mode_changed"
 
-    const-string v14, "zen_mode_changed"
+    const-string/jumbo v14, "zen_mode_changed"
 
     const-string v15, "suppressor_changed"
 
     const-string v16, "mute_changed"
 
-    const-string v17, "touch_level_done"
+    const-string/jumbo v17, "touch_level_done"
 
-    const-string v18, "zen_mode_config_changed"
+    const-string/jumbo v18, "zen_mode_config_changed"
 
     const-string v19, "ringer_toggle"
 
@@ -89,13 +89,13 @@
 
     sput-object v0, Lcom/android/systemui/volume/Events;->EVENT_TAGS:[Ljava/lang/String;
 
-    const-string v1, "unknown"
+    const-string/jumbo v1, "unknown"
 
-    const-string v2, "touch_outside"
+    const-string/jumbo v2, "touch_outside"
 
-    const-string v3, "volume_controller"
+    const-string/jumbo v3, "volume_controller"
 
-    const-string v4, "timeout"
+    const-string/jumbo v4, "timeout"
 
     const-string v5, "screen_off"
 
@@ -107,7 +107,7 @@
 
     const-string v9, "output_chooser"
 
-    const-string v10, "usb_temperature_below_threshold"
+    const-string/jumbo v10, "usb_temperature_below_threshold"
 
     const-string v11, "still_showing_after_dismissed"
 
@@ -117,13 +117,13 @@
 
     sput-object v0, Lcom/android/systemui/volume/Events;->DISMISS_REASONS:[Ljava/lang/String;
 
-    const-string v0, "unknown"
+    const-string/jumbo v0, "unknown"
 
-    const-string v1, "volume_changed"
+    const-string/jumbo v1, "volume_changed"
 
     const-string v2, "remote_volume_changed"
 
-    const-string v3, "usb_temperature_above_threshold"
+    const-string/jumbo v3, "usb_temperature_above_threshold"
 
     filled-new-array {v0, v1, v2, v3}, [Ljava/lang/String;
 
@@ -161,7 +161,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "unknown_state_"
+    const-string/jumbo v1, "unknown_state_"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -174,7 +174,7 @@
     return-object p0
 
     :cond_0
-    const-string p0, "vibrate"
+    const-string/jumbo p0, "vibrate"
 
     return-object p0
 
@@ -184,7 +184,7 @@
     return-object p0
 
     :cond_2
-    const-string p0, "unmute"
+    const-string/jumbo p0, "unmute"
 
     return-object p0
 .end method
@@ -202,7 +202,7 @@
 
     if-eq p0, v0, :cond_0
 
-    const-string p0, "unknown"
+    const-string/jumbo p0, "unknown"
 
     return-object p0
 
@@ -212,7 +212,7 @@
     return-object p0
 
     :cond_1
-    const-string p0, "vibrate"
+    const-string/jumbo p0, "vibrate"
 
     return-object p0
 
@@ -235,7 +235,7 @@
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string v4, "writeEvent "
+    const-string/jumbo v4, "writeEvent "
 
     invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -638,7 +638,7 @@
 
     move-result v0
 
-    const-string v4, "volume_from_keyguard"
+    const-string/jumbo v4, "volume_from_keyguard"
 
     invoke-static {p0, v4, v0}, Lcom/android/internal/logging/MetricsLogger;->histogram(Landroid/content/Context;Ljava/lang/String;I)V
 
@@ -742,7 +742,7 @@
 
     if-eq p0, v0, :cond_0
 
-    const-string p0, "unknown"
+    const-string/jumbo p0, "unknown"
 
     return-object p0
 

@@ -25,6 +25,12 @@
 
     invoke-virtual {p3, p1}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->addNotificationEntryListener(Lcom/android/systemui/statusbar/notification/NotificationEntryListener;)V
 
+    new-instance p0, Lcom/android/systemui/ForegroundServiceLifetimeExtender;
+
+    invoke-direct {p0}, Lcom/android/systemui/ForegroundServiceLifetimeExtender;-><init>()V
+
+    invoke-virtual {p3, p0}, Lcom/android/systemui/statusbar/notification/NotificationEntryManager;->addNotificationLifetimeExtender(Lcom/android/systemui/statusbar/NotificationLifetimeExtender;)V
+
     return-void
 .end method
 

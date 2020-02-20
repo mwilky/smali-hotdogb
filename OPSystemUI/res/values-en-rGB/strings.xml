@@ -568,7 +568,7 @@ If you resume, charges may apply for data usage."</string>
     <string name="drag_to_rearrange_tiles">Hold and drag to rearrange tiles</string>
     <string name="drag_to_remove_disabled">You need at least %1$d tiles</string>
     <string name="drag_to_remove_tiles">Drag here to remove</string>
-    <string name="edit_mode_hint">Drag tiles to rearrange. Tap to show or hide.</string>
+    <string name="edit_mode_hint">Drag tiles to re-arrange. Tap to show or hide.</string>
     <string name="empty_shade_text">No notifications</string>
     <string name="enable_adb">USB debugging</string>
     <string name="enable_adb_summary">Debug mode when USB is connected</string>
@@ -1141,10 +1141,10 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="overheat_dialog_purple_message">The phone will be powered off after 5 seconds</string>
     <string name="overheat_dialog_red_message">All application processes will be cleared to lower the temperature</string>
     <string name="overheat_dialog_title">The temperature of your phone is too high</string>
-    <string name="overheat_notification_alert">The temperature of your phone is too high, and high power consuming functions are turned off to lower the temperature</string>
+    <string name="overheat_notification_alert">The temperature of your phone is too high. High power consuming functions are turned off to lower the temperature</string>
     <string name="overheat_notification_resume">"The phone's temperature has been restored and the phone can be used normally"</string>
     <string name="overheat_notification_title_resume">"The phone's temperature has been restored"</string>
-    <string name="overheat_toast_content">temperature of the phone is too high</string>
+    <string name="overheat_toast_content">The temperature of your phone is too high. High power consumption functions have been turned off to lower the temperature</string>
     <string name="overlay_display_devices_title">Simulate secondary displays</string>
     <string name="overview">Overview</string>
     <string name="phone_hint">Swipe from icon for phone</string>
@@ -1221,7 +1221,7 @@ You're also connected to a VPN, which can monitor your network activity."</strin
     <string name="preference_summary_default_combination">%1$s/%2$s</string>
     <string name="prevent_view_title">Pocket mode is on</string>
     <string name="prevent_view_title_cancel">To activate your phone:</string>
-    <string name="prevent_view_top_tag_cancel">Do not cover the blue area of your phone, and clean any dirt or dust off of it.</string>
+    <string name="prevent_view_top_tag_cancel">Do not cover the blue area of your phone and clean any dirt or dust off.</string>
     <string name="prevent_view_top_tag_cancel2">Follow the circles on the screen and tap them to force quit pocket mode</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>

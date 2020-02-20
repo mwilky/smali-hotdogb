@@ -262,7 +262,7 @@
     <string name="accessibility_zero_bars">సున్నా బార్‌లు.</string>
     <string name="active_input_method_subtypes">సక్రియ ఇన్‌పుట్ పద్ధతులు</string>
     <string name="activity_launch_on_secondary_display_failed_text">ప్రత్యామ్నాయ డిస్‌ప్లేల్లో ప్రారంభానికి యాప్ మద్దతు లేదు.</string>
-    <string name="activity_not_available">యాప్ లభ్యం కావడం లేదు</string>
+    <string name="activity_not_available">యాప్ అందుబాటులో లేదు</string>
     <string name="activity_not_found">యాప్ మీ డివైజ్‌లో ఇన్‌స్టాల్ చేయలేదు</string>
     <string name="adb_keys_warning_message">మీరు గతంలో ప్రామాణీకరించిన అన్ని కంప్యూటర్‌ల నుండి USB డీబగ్గింగ్‌కు ప్రాప్యతను ఉపసంహరించాలా?</string>
     <string name="adb_warning_message">USB డీబగ్గింగ్ అనేది అభివృద్ధి ప్రయోజనాల కోసం మాత్రమే ఉద్దేశించబడింది. మీ కంప్యూటర్ మరియు మీ పరికరం మధ్య డేటాను కాపీ చేయడానికి, నోటిఫికేషన్ లేకుండా మీ పరికరంలో అనువర్తనాలను ఇన్‌స్టాల్ చేయడానికి మరియు లాగ్ డేటాను చదవడానికి దీన్ని ఉపయోగించండి.</string>
@@ -1031,7 +1031,7 @@
     <string name="nav_bar">నావిగేషన్ బార్</string>
     <string name="nav_bar_default">(డిఫాల్ట్)</string>
     <string name="nav_bar_guide_positive">అర్థమైంది</string>
-    <string name="nav_bar_guide_title">నావిగేషన్ బార్ చూపించడానికి కింద నుంచి పైకి స్వైప్ చేయండి. ఒకవేళ నావిగేషన్ దాచిపెట్టడాన్ని ఆపాలని అనుకున్నట్లయితే, దయచేసి తట్టండి</string>
+    <string name="nav_bar_guide_title">నావిగేషన్ బార్‌ని చూపాలంటే క్రింద నుండి పైకి స్వైప్ చేయండి. నావిగేషన్‌ని దాచడం నిలిపివేయాలంటే, దయచేసి ఇక్కడ నొక్కండి.</string>
     <string name="nav_bar_layout">లేఅవుట్</string>
     <string name="no_application">ఏదీ వద్దు</string>
     <string name="no_auto_saver_action">వద్దు, ధన్యవాదాలు</string>
@@ -1104,11 +1104,11 @@
     <string name="op_earphone_device">జత చేయడానికి ట్యాప్ చేయండి</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">అత్యవసర సేవలు కోసం కిందికి స్వైప్ చేయండి</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">ఫేస్ అన్‌లాక్‌తో అన్‌లాక్ చేయబడింది</string>
+    <string name="op_keyguard_indication_trust_unlocked">స్మార్ట్ అన్‌లాక్‌తో అన్‌లాక్ చేయబడింది</string>
+    <string name="op_kg_prompt_reason_timeout_password">అదనపు భద్రతకై, పవర్ కీ నొక్కి, పాస్‌వర్డ్‌ను ఉపయోగించడానికి పైకి స్వైప్ చేయండి</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">అదనపు భద్రత కోసం, పవర్ కీ నొక్కి, నమూనాను ఉపయోగించడానికి పైకి స్వైప్ చేయండి</string>
+    <string name="op_kg_prompt_reason_timeout_pin">అదనపు భద్రత కోసం, పవర్ కీ నొక్కి, PINను ఉపయోగించడానికి పైకి స్వైప్ చేయండి</string>
     <string name="op_notification_alert_title">ముఖ్యమైనది</string>
     <string name="op_notification_channel_summary_low">అంతగా ప్రాముఖ్యత లేని నోటిఫికేషన్‌లను ధ్వని లేదా వైబ్రేషన్ లేకుండా.</string>
     <string name="op_notification_section_header_gentle">ఇతర నోటిఫికేషన్‌లు</string>
@@ -1141,10 +1141,10 @@
     <string name="overheat_dialog_purple_message">ఫోన్ 5 సెకన్ల తర్వాత పవర్ ఆఫ్ చేయబడుతుంది</string>
     <string name="overheat_dialog_red_message">ఉష్ణోగ్రత తగ్గించడానికి అన్ని అప్లికేషన్ ప్రాసెస్‌లు క్లియర్ చేయబడతాయి</string>
     <string name="overheat_dialog_title">మీ ఫోన్ యొక్క ఉష్ణోగ్రత చాలా ఎక్కువగా ఉంది</string>
-    <string name="overheat_notification_alert">మీ ఫోన్ యొక్క ఉష్ణోగ్రత చాలా ఎక్కువగా ఉంది మరియు ఉష్ణోగ్రత తగ్గించడానికి అత్యధిక పవర్ వాడకం ఫంక్షన్ ఆఫ్ చేయబడుతుంది</string>
+    <string name="overheat_notification_alert">మీ ఫోన్ యొక్క ఉష్ణోగ్రత చాలా ఎక్కువగా ఉంది మరియు ఉష్ణోగ్రతను తగ్గించడానికి అత్యధిక పవర్ వాడకంతో కూడిన ఫంక్షన్‌లు ఆఫ్ చేయబడ్డాయి</string>
     <string name="overheat_notification_resume">ఫోన్ యొక్క ఉష్ణోగ్రత పునరుద్ధరించబడింది మరియు ఫోన్‌ను సాధారణంగా ఉపయోగించవచ్చు</string>
     <string name="overheat_notification_title_resume">ఫోన్ ఉష్ణోగ్రత పునరుద్ధరించబడింది</string>
-    <string name="overheat_toast_content">ఫోన్ అత్యధిక ఉష్ణోగ్రత స్థితిలో ఉంది, ఇది ఈ ఫీచర్ ఉపయోగించడానికి సిఫార్సు చేయబడలేదు</string>
+    <string name="overheat_toast_content">మీ ఫోన్ యొక్క ఉష్ణోగ్రత చాలా ఎక్కువగా ఉంది మరియు ఉష్ణోగ్రత తగ్గించడానికి అత్యధిక పవర్ వాడకం ఫంక్షన్‌లు ఆఫ్ చేయబడతాయి</string>
     <string name="overlay_display_devices_title">ప్రత్యామ్నాయ ప్రదర్శనలను అనుకరించండి</string>
     <string name="overview">స్థూలదృష్టి</string>
     <string name="phone_hint">ఫోన్ కోసం చిహ్నాన్ని స్వైప్ చేయండి</string>
@@ -1221,8 +1221,8 @@
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">పాకెట్ మోడ్ ఆన్ అయింది</string>
     <string name="prevent_view_title_cancel">మీ ఫోన్ యాక్టివేట్ చేయడానికి:</string>
-    <string name="prevent_view_top_tag_cancel">దయచేసి మీ ఫోన్ యొక్క నీలం ప్రాంతాన్ని కవర్ చేయవద్దు, మరియు నీలం ప్రాంతంలో ఉన్న దుమ్ముధూళిని శుభ్రం చేయండి.</string>
-    <string name="prevent_view_top_tag_cancel2">దయచేసి స్క్రీన్ మీద సర్కిల్స్ అనుసరించండి మరియు పాకెట్ మోడ్‌ని బలవంతంగా నిష్క్రమించడం కొరకు వాటిపై తట్టండి.</string>
+    <string name="prevent_view_top_tag_cancel">మీ ఫోన్ యొక్క నీలి రంగు ప్రాంతాన్ని కవర్ చేయకండి మరియు ఏదైనా దుమ్ము ధూళి ఉంటే శుభ్రం చేయండి.</string>
+    <string name="prevent_view_top_tag_cancel2">స్క్రీన్‌పై ఉన్న వలయాలను అనుసరించండి మరియు పాకెట్ మోడ్ నుండి బలవంతంగా బయటకు రావడానికి వాటిని నొక్కండి</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">కెమెరా</string>
@@ -1379,7 +1379,7 @@
     <string name="recents_deep_clean_dialog_checkbox_text">మళ్లీ చూపించవద్దు</string>
     <string name="recents_deep_clean_dialog_message">డీప్ క్లీన్ వలన నేపథ్య ప్రాసెస్‌లు క్లియర్ చేయబడతాయి, దీని వలన అవాంఛిత ఫలితాలు సంభవిస్తాయి. కొన్ని అప్లికేషన్‌లు పని చేయడం ఆగిపోవచ్చు మరియు మీరు వాటిని మళ్లీ ప్రారంభించే వరకు నోటిఫికేషన్‌లను స్వీకరించకపోవచ్చు.</string>
     <string name="recents_deep_clean_dialog_title">జాగ్రత్త</string>
-    <string name="recents_deep_clean_message">అన్ని అప్లికేషన్‌లు కిల్ చేయి</string>
+    <string name="recents_deep_clean_message">అన్ని అప్లికేషన్‌ల నుండి నిష్క్రమించు</string>
     <string name="recents_deep_clean_option">డీప్ క్లీన్</string>
     <string name="recents_empty_no_apps_open">ఏ అప్లికేషన్ ఓపెన్ చేయలేదు</string>
     <string name="recents_empty_recently_closed">ఇటీవల క్లోజ్ చేసిన యాప్‌లు</string>

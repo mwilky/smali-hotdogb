@@ -330,7 +330,7 @@
 
     check-cast v3, Landroidx/slice/SliceItem;
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     const-string v0, "large"
 
@@ -771,7 +771,7 @@
 
     :cond_6
     :goto_4
-    const-string p2, "title"
+    const-string/jumbo p2, "title"
 
     filled-new-array {v4, p2}, [Ljava/lang/String;
 

@@ -2857,7 +2857,7 @@
     :catch_0
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mTag:Ljava/lang/String;
 
-    const-string v0, "unable to remove callback."
+    const-string/jumbo v0, "unable to remove callback."
 
     invoke-static {p0, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -2953,7 +2953,7 @@
     :catch_0
     iget-object v0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mTag:Ljava/lang/String;
 
-    const-string v1, "unable to addCapabilitiesCallback callback."
+    const-string/jumbo v1, "unable to addCapabilitiesCallback callback."
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -3066,7 +3066,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateTelephonySignalStrength: hasService="
+    const-string/jumbo v2, "updateTelephonySignalStrength: hasService="
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3208,7 +3208,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateTelephony CS:"
+    const-string/jumbo v4, "updateTelephony CS:"
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3593,7 +3593,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateTelephony, isDataDisabled():"
+    const-string/jumbo v4, "updateTelephony, isDataDisabled():"
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5677,7 +5677,7 @@
     :cond_1
     iget-object p0, p0, Lcom/android/systemui/statusbar/policy/SignalController;->mTag:Ljava/lang/String;
 
-    const-string v0, "unregisterListener mNetworkController is null"
+    const-string/jumbo v0, "unregisterListener mNetworkController is null"
 
     invoke-static {p0, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5787,7 +5787,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateNetworkName showSpn="
+    const-string/jumbo v1, "updateNetworkName showSpn="
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

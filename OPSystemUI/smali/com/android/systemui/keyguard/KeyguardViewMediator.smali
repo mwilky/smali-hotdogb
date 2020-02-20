@@ -3276,7 +3276,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
-    const-string v3, "user"
+    const-string/jumbo v3, "user"
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3359,7 +3359,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updateActivityLockScreenState:"
+    const-string/jumbo v1, "updateActivityLockScreenState:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3429,7 +3429,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/SystemUI;->mContext:Landroid/content/Context;
 
-    const-string v1, "trust"
+    const-string/jumbo v1, "trust"
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -3705,7 +3705,7 @@
     invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
-    const-string v2, "unlock_sound"
+    const-string/jumbo v2, "unlock_sound"
 
     invoke-static {v0, v2}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
@@ -3746,7 +3746,7 @@
     invoke-static {v3, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
-    const-string v2, "trusted_sound"
+    const-string/jumbo v2, "trusted_sound"
 
     invoke-static {v0, v2}, Landroid/provider/Settings$Global;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
@@ -5663,7 +5663,7 @@
 
     const-string p1, "KeyguardViewMediator"
 
-    const-string v0, "waiting until mWaitingUntilKeyguardVisible is false"
+    const-string/jumbo v0, "waiting until mWaitingUntilKeyguardVisible is false"
 
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5899,7 +5899,7 @@
     :try_start_0
     const-string v0, "KeyguardViewMediator"
 
-    const-string v1, "verifyUnlock"
+    const-string/jumbo v1, "verifyUnlock"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5946,7 +5946,7 @@
 
     const-string v0, "KeyguardViewMediator"
 
-    const-string v2, "verifyUnlock called when not externally disabled"
+    const-string/jumbo v2, "verifyUnlock called when not externally disabled"
 
     invoke-static {v0, v2}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_2

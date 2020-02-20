@@ -4,13 +4,13 @@
 
 # interfaces
 .implements Lcom/oneplus/opzenmode/OpZenModeController$Callback;
+.implements Lcom/android/systemui/statusbar/phone/WLBSwitchController$WLBControllerCallbacks;
 
 
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$SettingObserver;,
-        Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpHandler;,
         Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpUpdateVolumeZenObject;
     }
 .end annotation
@@ -21,8 +21,6 @@
 
 
 # instance fields
-.field private mAm:Landroid/app/ActivityManager;
-
 .field private final mBgHandler:Landroid/os/Handler;
 
 .field private mBluetooth:Lcom/android/systemui/statusbar/policy/BluetoothController;
@@ -47,51 +45,19 @@
 
 .field private final mNfcReceiver:Landroid/content/BroadcastReceiver;
 
-.field private mNoMan:Landroid/app/NotificationManager;
-
 .field private mNotificationManager:Landroid/app/NotificationManager;
 
-.field private mOpHandler:Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpHandler;
-
 .field private mOpZenModeController:Lcom/oneplus/opzenmode/OpZenModeController;
-
-.field private mPrivacyAlertList:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-.field private mPrivacyGroupCount:Ljava/util/HashMap;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/HashMap<",
-            "Ljava/lang/String;",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
 
 .field private final mSettingObserver:Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$SettingObserver;
 
 .field private mShowRunnable:Ljava/lang/Runnable;
 
-.field private mSystemAppList:Ljava/util/List;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/List<",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mSlotWLB:Ljava/lang/String;
 
 .field private mVibrateWhenMute:I
+
+.field private mWlbSwitchController:Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
 
 # direct methods
@@ -118,147 +84,113 @@
 
     const/4 v0, 0x0
 
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v1
-
     iput v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mVibrateWhenMute:I
 
-    new-instance v2, Landroid/os/Handler;
+    new-instance v1, Landroid/os/Handler;
 
-    sget-object v3, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
+    sget-object v2, Lcom/android/systemui/Dependency;->BG_LOOPER:Lcom/android/systemui/Dependency$DependencyKey;
 
-    invoke-static {v3}, Lcom/android/systemui/Dependency;->get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
+    invoke-static {v2}, Lcom/android/systemui/Dependency;->get(Lcom/android/systemui/Dependency$DependencyKey;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Landroid/os/Looper;
+    check-cast v2, Landroid/os/Looper;
 
-    invoke-direct {v2, v3}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+    invoke-direct {v1, v2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
-    iput-object v2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBgHandler:Landroid/os/Handler;
+    iput-object v1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBgHandler:Landroid/os/Handler;
 
     iput v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothIconId:I
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iput-object v2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothContentDescription:Ljava/lang/String;
+    iput-object v1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothContentDescription:Ljava/lang/String;
 
     iput-boolean v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothConnected:Z
 
-    const/4 v3, -0x1
+    const/4 v2, -0x1
 
-    iput v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothBatteryLevel:I
+    iput v2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothBatteryLevel:I
 
     iput-boolean v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetoothIconVisible:Z
 
     iput-boolean v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIsNotifyShown:Z
 
-    iput-object v2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNotificationManager:Landroid/app/NotificationManager;
+    iput-object v1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNotificationManager:Landroid/app/NotificationManager;
 
-    new-instance v4, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpHandler;
+    new-instance v3, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$1;
 
-    invoke-direct {v4, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpHandler;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
+    invoke-direct {v3, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$1;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
 
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mOpHandler:Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$OpHandler;
+    iput-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIntentReceiver:Landroid/content/BroadcastReceiver;
 
-    new-instance v4, Ljava/util/HashMap;
+    new-instance v3, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$2;
 
-    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$2;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
 
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mPrivacyGroupCount:Ljava/util/HashMap;
+    iput-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mShowRunnable:Ljava/lang/Runnable;
 
-    new-instance v4, Ljava/util/HashMap;
+    new-instance v3, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$3;
 
-    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v3, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$3;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
 
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mPrivacyAlertList:Ljava/util/HashMap;
-
-    const-string v4, "com.oneplus.soundrecorder"
-
-    filled-new-array {v4}, [Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v4}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
-
-    move-result-object v4
-
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSystemAppList:Ljava/util/List;
-
-    new-instance v4, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$1;
-
-    invoke-direct {v4, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$1;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
-
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIntentReceiver:Landroid/content/BroadcastReceiver;
-
-    new-instance v4, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$2;
-
-    invoke-direct {v4, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$2;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
-
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mShowRunnable:Ljava/lang/Runnable;
-
-    new-instance v4, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$3;
-
-    invoke-direct {v4, p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$3;-><init>(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)V
-
-    iput-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNfcReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNfcReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
     iput-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object p1
-
-    const-string p2, "oem_vibrate_under_silent"
-
-    invoke-static {p2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object p2
 
+    const-string v3, "oem_vibrate_under_silent"
+
+    invoke-static {v3}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v3
+
     iget-object v4, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSettingObserver:Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy$SettingObserver;
 
-    invoke-virtual {p1, p2, v0, v4, v3}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
+    invoke-virtual {p2, v3, v0, v4, v2}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;I)V
 
-    const-class p1, Lcom/oneplus/opzenmode/OpZenModeController;
+    const-class p2, Lcom/oneplus/opzenmode/OpZenModeController;
 
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Lcom/oneplus/opzenmode/OpZenModeController;
+    check-cast p2, Lcom/oneplus/opzenmode/OpZenModeController;
 
-    iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mOpZenModeController:Lcom/oneplus/opzenmode/OpZenModeController;
+    iput-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mOpZenModeController:Lcom/oneplus/opzenmode/OpZenModeController;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mOpZenModeController:Lcom/oneplus/opzenmode/OpZenModeController;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mOpZenModeController:Lcom/oneplus/opzenmode/OpZenModeController;
 
-    invoke-interface {p1, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
+    invoke-interface {p2, p0}, Lcom/android/systemui/statusbar/policy/CallbackController;->addCallback(Ljava/lang/Object;)V
 
-    const-class p1, Lcom/android/systemui/statusbar/policy/BluetoothController;
+    const-class p2, Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    invoke-static {p1}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-static {p2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    move-result-object p1
+    move-result-object p2
 
-    check-cast p1, Lcom/android/systemui/statusbar/policy/BluetoothController;
+    check-cast p2, Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetooth:Lcom/android/systemui/statusbar/policy/BluetoothController;
+    iput-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mBluetooth:Lcom/android/systemui/statusbar/policy/BluetoothController;
 
-    new-instance p1, Landroid/content/IntentFilter;
+    new-instance p2, Landroid/content/IntentFilter;
 
-    invoke-direct {p1}, Landroid/content/IntentFilter;-><init>()V
+    invoke-direct {p2}, Landroid/content/IntentFilter;-><init>()V
 
-    const-string p2, "android.bluetooth.device.action.BATTERY_LEVEL_CHANGED"
+    const-string v2, "android.bluetooth.device.action.BATTERY_LEVEL_CHANGED"
 
-    invoke-virtual {p1, p2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {p2, v2}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
-    const/4 p2, 0x1
+    const/4 v2, 0x1
 
-    new-array v3, p2, [I
+    new-array v3, v2, [I
 
     const/16 v4, 0x3f
 
@@ -292,7 +224,7 @@
 
     const-string v3, "android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED"
 
-    invoke-virtual {p1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
@@ -309,7 +241,7 @@
     :cond_0
     const-string v3, "com.oem.intent.action.ACTION_USB_HEADSET_PLUG"
 
-    invoke-virtual {p1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     iget-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
@@ -319,49 +251,49 @@
 
     move-result-object v5
 
-    invoke-virtual {v3, v4, p1, v2, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
+    invoke-virtual {v3, v4, p2, v1, v5}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
     sget v3, Lcom/android/systemui/R$drawable;->stat_sys_nfc:I
 
     const-string v4, "nfc"
 
-    invoke-interface {p1, v4, v3, v2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
+    invoke-interface {p2, v4, v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
 
     :try_start_0
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    invoke-static {p1}, Landroid/nfc/NfcAdapter;->getNfcAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
+    invoke-static {p2}, Landroid/nfc/NfcAdapter;->getNfcAdapter(Landroid/content/Context;)Landroid/nfc/NfcAdapter;
 
-    move-result-object p1
+    move-result-object p2
 
     iget-object v3, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
-    invoke-virtual {p1}, Landroid/nfc/NfcAdapter;->isEnabled()Z
+    invoke-virtual {p2}, Landroid/nfc/NfcAdapter;->isEnabled()Z
 
-    move-result p1
+    move-result p2
 
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
-    move p1, p2
+    move p2, v2
 
     goto :goto_0
 
     :cond_1
-    move p1, v0
+    move p2, v0
 
     :goto_0
-    invoke-interface {v3, v4, p1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+    invoke-interface {v3, v4, p2}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
     :try_end_0
     .catch Ljava/lang/UnsupportedOperationException; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_1
 
     :catch_0
-    move-exception p1
+    move-exception p2
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -371,19 +303,19 @@
 
     invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object p1
+    move-result-object p2
 
     const-string v3, "OpPhoneStatusBarPolicy"
 
-    invoke-static {v3, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, p2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    invoke-interface {p1, v4, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+    invoke-interface {p2, v4, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
     :goto_1
     iget-object v5, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
@@ -394,9 +326,9 @@
 
     new-instance v8, Landroid/content/IntentFilter;
 
-    const-string p1, "android.nfc.action.ADAPTER_STATE_CHANGED"
+    const-string p2, "android.nfc.action.ADAPTER_STATE_CHANGED"
 
-    invoke-direct {v8, p1}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+    invoke-direct {v8, p2}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
 
     const/4 v9, 0x0
 
@@ -404,75 +336,52 @@
 
     invoke-virtual/range {v5 .. v10}, Landroid/content/Context;->registerReceiverAsUser(Landroid/content/BroadcastReceiver;Landroid/os/UserHandle;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+    const-class p2, Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
-    const-string v3, "activity"
+    invoke-static {p2}, Lcom/android/systemui/Dependency;->get(Ljava/lang/Class;)Ljava/lang/Object;
 
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result-object p2
 
-    move-result-object p1
+    check-cast p2, Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
-    check-cast p1, Landroid/app/ActivityManager;
+    iput-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mWlbSwitchController:Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
-    iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mAm:Landroid/app/ActivityManager;
+    const p2, 0x10406d9
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
-
-    const-class v3, Landroid/app/NotificationManager;
-
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/Class;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object p1
 
-    check-cast p1, Landroid/app/NotificationManager;
+    iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
 
-    iput-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNoMan:Landroid/app/NotificationManager;
+    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mContext:Landroid/content/Context;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
 
-    sget v3, Lcom/android/systemui/R$string;->privacy_alert_application_name:I
+    sget v3, Lcom/android/systemui/R$drawable;->stat_sys_wlb_mode:I
 
-    invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    invoke-interface {p1, p2, v3, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIcon(Ljava/lang/String;ILjava/lang/CharSequence;)V
 
-    move-result-object p1
+    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
 
-    new-instance v3, Landroid/app/NotificationChannel;
+    iget-object p2, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
 
-    const/4 v4, 0x3
+    iget-object v1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mWlbSwitchController:Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
-    const-string v5, "privacy_alert"
+    invoke-virtual {v1}, Lcom/android/systemui/statusbar/phone/WLBSwitchController;->getCurrentMode()I
 
-    invoke-direct {v3, v5, p1, v4}, Landroid/app/NotificationChannel;-><init>(Ljava/lang/String;Ljava/lang/CharSequence;I)V
+    move-result v1
 
-    invoke-virtual {v3, p2}, Landroid/app/NotificationChannel;->setBlockableSystem(Z)V
+    if-lez v1, :cond_2
 
-    invoke-virtual {v3, v0}, Landroid/app/NotificationChannel;->enableVibration(Z)V
+    move v0, v2
 
-    invoke-virtual {v3, v2, v2}, Landroid/app/NotificationChannel;->setSound(Landroid/net/Uri;Landroid/media/AudioAttributes;)V
+    :cond_2
+    invoke-interface {p1, p2, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
 
-    invoke-virtual {v3, v0}, Landroid/app/NotificationChannel;->enableLights(Z)V
+    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mWlbSwitchController:Lcom/android/systemui/statusbar/phone/WLBSwitchController;
 
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNoMan:Landroid/app/NotificationManager;
-
-    invoke-virtual {p1, v3}, Landroid/app/NotificationManager;->createNotificationChannel(Landroid/app/NotificationChannel;)V
-
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mPrivacyGroupCount:Ljava/util/HashMap;
-
-    const-string p2, "PrivacyAlertGroupCamera"
-
-    invoke-virtual {p1, p2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mPrivacyGroupCount:Ljava/util/HashMap;
-
-    const-string p2, "PrivacyAlertGroupLocation"
-
-    invoke-virtual {p1, p2, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mPrivacyGroupCount:Ljava/util/HashMap;
-
-    const-string p1, "PrivacyAlertGroupMicrophone"
-
-    invoke-virtual {p0, p1, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p0}, Lcom/android/systemui/statusbar/phone/WLBSwitchController;->setCallBacks(Lcom/android/systemui/statusbar/phone/WLBSwitchController$WLBControllerCallbacks;)V
 
     return-void
 .end method
@@ -549,14 +458,6 @@
     invoke-direct {p0}, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->updateVolumeZen()V
 
     return-void
-.end method
-
-.method static synthetic access$900(Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;)Landroid/app/NotificationManager;
-    .locals 0
-
-    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mNoMan:Landroid/app/NotificationManager;
-
-    return-object p0
 .end method
 
 .method private getBluetoothBatteryIcon(I)I
@@ -723,7 +624,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const-string v2, "updateBluetooth"
+    const-string/jumbo v2, "updateBluetooth"
 
     invoke-static {v0, p0, v2, v1}, Lcom/oneplus/util/OpReflectionUtils;->methodInvokeVoid(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -745,7 +646,7 @@
 
     aput-object v3, v2, v4
 
-    const-string v3, "updateHeadsetPlug"
+    const-string/jumbo v3, "updateHeadsetPlug"
 
     invoke-static {v0, v3, v2}, Lcom/oneplus/util/OpReflectionUtils;->getMethodWithParams(Ljava/lang/Class;Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 
@@ -769,7 +670,7 @@
 
     new-array v1, v1, [Ljava/lang/Object;
 
-    const-string v2, "updateVolumeZen"
+    const-string/jumbo v2, "updateVolumeZen"
 
     invoke-static {v0, p0, v2, v1}, Lcom/oneplus/util/OpReflectionUtils;->methodInvokeVoid(Ljava/lang/Class;Ljava/lang/Object;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -808,6 +709,20 @@
     invoke-virtual {p0, v2, v0, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
     :cond_0
+    return-void
+.end method
+
+.method public hideStatusBarIcon()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
     return-void
 .end method
 
@@ -982,7 +897,7 @@
     :cond_5
     new-instance v6, Ljava/lang/StringBuilder;
 
-    const-string v7, "updateBluetooth"
+    const-string/jumbo v7, "updateBluetooth"
 
     invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
@@ -1116,6 +1031,12 @@
     return-void
 .end method
 
+.method public onExpansionChanged(F)V
+    .locals 0
+
+    return-void
+.end method
+
 .method public onThreeKeyStatus(I)V
     .locals 1
 
@@ -1135,6 +1056,60 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
+    return-void
+.end method
+
+.method public onWLBModeChanged(I)V
+    .locals 2
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "onWLBModeChanged : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "OpPhoneStatusBarPolicy"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    if-eq p1, v0, :cond_1
+
+    const/4 v1, 0x2
+
+    if-ne p1, v1, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    invoke-interface {p1, p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    iget-object p1, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    iget-object p0, p0, Lcom/oneplus/systemui/statusbar/phone/OpPhoneStatusBarPolicy;->mSlotWLB:Ljava/lang/String;
+
+    invoke-interface {p1, p0, v0}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
+    :goto_1
     return-void
 .end method
 

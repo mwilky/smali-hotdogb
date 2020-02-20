@@ -965,7 +965,7 @@
     :cond_3
     if-eqz p2, :cond_4
 
-    const-string p1, "true"
+    const-string/jumbo p1, "true"
 
     invoke-virtual {p2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 

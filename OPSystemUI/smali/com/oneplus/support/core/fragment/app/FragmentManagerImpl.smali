@@ -7242,7 +7242,7 @@
     goto :goto_a
 
     :catch_0
-    const-string v0, "unknown"
+    const-string/jumbo v0, "unknown"
 
     :goto_a
     new-instance v1, Ljava/lang/IllegalArgumentException;
@@ -10544,7 +10544,7 @@
     invoke-static {p0, v0}, Lcom/oneplus/support/core/util/DebugUtils;->buildShortClassTag(Ljava/lang/Object;Ljava/lang/StringBuilder;)V
 
     :goto_0
-    const-string p0, "}}"
+    const-string/jumbo p0, "}}"
 
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

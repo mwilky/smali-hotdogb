@@ -10,6 +10,8 @@
 
 .field private final mGroupManager:Lcom/android/systemui/statusbar/phone/NotificationGroupManager;
 
+.field private mOPWLBHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
 .field private mShadeController:Lcom/android/systemui/statusbar/phone/ShadeController;
 
 .field private mUserManager:Lcom/android/systemui/statusbar/NotificationLockscreenUserManager;
@@ -148,6 +150,59 @@
     return-object p0
 .end method
 
+.method private shouldHideWlb(Landroid/service/notification/StatusBarNotification;)Z
+    .locals 2
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/app/Notification;->flags:I
+
+    and-int/lit8 v0, v0, 0x2
+
+    const/4 v1, 0x0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/app/Notification;->flags:I
+
+    and-int/lit8 v0, v0, 0x20
+
+    if-eqz v0, :cond_0
+
+    goto :goto_0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_1
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x1
+
+    :goto_1
+    if-nez v0, :cond_2
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter;->mOPWLBHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    if-eqz p0, :cond_2
+
+    invoke-virtual {p0, p1}, Lcom/oneplus/worklife/OPWLBHelper;->isApplicationBlocked(Landroid/service/notification/StatusBarNotification;)Z
+
+    move-result p0
+
+    return p0
+
+    :cond_2
+    return v1
+.end method
+
 .method static showNotificationEvenIfUnprovisioned(Landroid/content/pm/IPackageManager;Landroid/service/notification/StatusBarNotification;)Z
     .locals 2
     .annotation build Lcom/android/internal/annotations/VisibleForTesting;
@@ -206,8 +261,16 @@
 
 
 # virtual methods
+.method public setWlbHelper(Lcom/oneplus/worklife/OPWLBHelper;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/notification/NotificationFilter;->mOPWLBHelper:Lcom/oneplus/worklife/OPWLBHelper;
+
+    return-void
+.end method
+
 .method public shouldFilterOut(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)Z
-    .locals 5
+    .locals 6
 
     iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->notification:Landroid/service/notification/StatusBarNotification;
 
@@ -441,37 +504,46 @@
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/notification/NotificationFilter;->getFsc()Lcom/android/systemui/ForegroundServiceController;
 
-    move-result-object p0
+    move-result-object v4
 
     invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getUserId()I
 
-    move-result v0
+    move-result v5
 
     aget-object v1, v1, v3
 
-    invoke-virtual {p0, v0, v1}, Lcom/android/systemui/ForegroundServiceController;->isSystemAlertWarningNeeded(ILjava/lang/String;)Z
+    invoke-virtual {v4, v5, v1}, Lcom/android/systemui/ForegroundServiceController;->isSystemAlertWarningNeeded(ILjava/lang/String;)Z
 
-    move-result p0
+    move-result v1
 
-    if-nez p0, :cond_a
+    if-nez v1, :cond_a
 
     return v2
 
     :cond_a
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->isBubble()Z
 
-    move-result p0
+    move-result v1
 
-    if-eqz p0, :cond_b
+    if-eqz v1, :cond_b
 
     invoke-virtual {p1}, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->showInShadeWhenBubble()Z
 
-    move-result p0
+    move-result p1
 
-    if-nez p0, :cond_b
+    if-nez p1, :cond_b
 
     return v2
 
     :cond_b
+    invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/notification/NotificationFilter;->shouldHideWlb(Landroid/service/notification/StatusBarNotification;)Z
+
+    move-result p0
+
+    if-eqz p0, :cond_c
+
+    return v2
+
+    :cond_c
     return v3
 .end method

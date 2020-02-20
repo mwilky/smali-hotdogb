@@ -34,7 +34,7 @@
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
     .locals 1
 
-    const-string p1, "visible"
+    const-string/jumbo p1, "visible"
 
     const/4 v0, 0x0
 

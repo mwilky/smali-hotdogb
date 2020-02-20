@@ -1207,11 +1207,6 @@
     <string name="prevent_view_top_tag_cancel2">依次点击屏幕上的圆圈，强制退出口袋模式</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
-    <string name="privacy_alert_application_name">隐私提醒</string>
-    <string name="privacy_alert_content_text">点按即可更改</string>
-    <string name="privacy_alert_content_text_location">此应用随时可以使用位置信息。点按即可更改</string>
-    <string name="privacy_alert_content_title" formatted="false">%s正在使用%s</string>
-    <string name="privacy_alert_content_title_location">%s一直在使用位置信息</string>
     <string name="privacy_type_camera">相机</string>
     <string name="privacy_type_location">位置信息</string>
     <string name="privacy_type_microphone">麦克风</string>

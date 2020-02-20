@@ -548,7 +548,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v9, "updateDefaultTileAndIcon: label="
+    const-string/jumbo v9, "updateDefaultTileAndIcon: label="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

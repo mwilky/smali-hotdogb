@@ -65,7 +65,7 @@
 
     iput-boolean p4, p0, Lcom/oneplus/keyguard/OpCarrierTextController;->mShowMissingSim:Z
 
-    const-string p3, "wifi"
+    const-string/jumbo p3, "wifi"
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 

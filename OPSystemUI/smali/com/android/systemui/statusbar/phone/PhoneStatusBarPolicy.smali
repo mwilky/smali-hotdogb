@@ -16,6 +16,8 @@
 # static fields
 .field private static final DEBUG:Z
 
+.field public static final LOCATION_STATUS_ICON_ID:I
+
 .field protected static final mHandler:Landroid/os/Handler;
 
 
@@ -120,6 +122,10 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->DEBUG:Z
+
+    sget v0, Lcom/android/systemui/R$drawable;->op_perm_group_location:I
+
+    sput v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->LOCATION_STATUS_ICON_ID:I
 
     new-instance v0, Landroid/os/Handler;
 
@@ -261,7 +267,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
-    const-string v1, "user"
+    const-string/jumbo v1, "user"
 
     invoke-virtual {p2, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -373,7 +379,7 @@
 
     iput-object p2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotTty:Ljava/lang/String;
 
-    const p2, 0x10406d9
+    const p2, 0x10406da
 
     invoke-virtual {p1, p2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -736,7 +742,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotLocation:Ljava/lang/String;
 
-    const v1, 0x108064f
+    sget v1, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->LOCATION_STATUS_ICON_ID:I
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mContext:Landroid/content/Context;
 
@@ -1156,7 +1162,7 @@
 
     const-string v0, "PhoneStatusBarPolicy"
 
-    const-string v1, "updateBluetooth"
+    const-string/jumbo v1, "updateBluetooth"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1221,7 +1227,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateCast: isCasting: "
+    const-string/jumbo v4, "updateCast: isCasting: "
 
     invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1271,7 +1277,7 @@
 
     if-eqz v0, :cond_5
 
-    const-string v0, "updateCast: hiding icon in 3 sec..."
+    const-string/jumbo v0, "updateCast: hiding icon in 3 sec..."
 
     invoke-static {v3, v0}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1409,8 +1415,36 @@
 .end method
 
 .method private updateLocation()V
-    .locals 0
+    .locals 2
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mLocationController:Lcom/android/systemui/statusbar/policy/LocationController;
+
+    invoke-interface {v0}, Lcom/android/systemui/statusbar/policy/LocationController;->isLocationActive()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotLocation:Ljava/lang/String;
+
+    const/4 v1, 0x1
+
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mIconController:Lcom/android/systemui/statusbar/phone/StatusBarIconController;
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarPolicy;->mSlotLocation:Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    invoke-interface {v0, p0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->setIconVisibility(Ljava/lang/String;Z)V
+
+    :goto_0
     return-void
 .end method
 
@@ -1615,7 +1649,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "updateTTY: enabled: "
+    const-string/jumbo v4, "updateTTY: enabled: "
 
     invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1634,7 +1668,7 @@
 
     if-eqz p1, :cond_2
 
-    const-string p1, "updateTTY: set TTY on"
+    const-string/jumbo p1, "updateTTY: set TTY on"
 
     invoke-static {v3, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1668,7 +1702,7 @@
 
     if-eqz p1, :cond_4
 
-    const-string p1, "updateTTY: set TTY off"
+    const-string/jumbo p1, "updateTTY: set TTY off"
 
     invoke-static {v3, p1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1887,7 +1921,7 @@
 
     const-string v0, "PhoneStatusBarPolicy"
 
-    const-string v1, "updateManagedProfile: "
+    const-string/jumbo v1, "updateManagedProfile: "
 
     invoke-static {v0, v1, p0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

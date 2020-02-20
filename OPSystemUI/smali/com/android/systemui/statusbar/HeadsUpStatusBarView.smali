@@ -663,7 +663,7 @@
 
     iput-boolean v0, p0, Lcom/android/systemui/statusbar/HeadsUpStatusBarView;->mPublicMode:Z
 
-    const-string v0, "visibility"
+    const-string/jumbo v0, "visibility"
 
     invoke-virtual {p1, v0}, Landroid/os/Bundle;->containsKey(Ljava/lang/String;)Z
 
@@ -733,7 +733,7 @@
 
     move-result v1
 
-    const-string v2, "visibility"
+    const-string/jumbo v2, "visibility"
 
     invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 

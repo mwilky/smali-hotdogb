@@ -147,7 +147,7 @@
 
     const-string v3, "text"
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     invoke-static {v1, v3, v4, v2}, Landroidx/slice/core/SliceQuery;->find(Landroidx/slice/Slice;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroidx/slice/SliceItem;
 
@@ -185,7 +185,7 @@
 
     move-result-object v1
 
-    const-string v2, "toggle"
+    const-string/jumbo v2, "toggle"
 
     invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -280,7 +280,7 @@
 
     if-eqz v1, :cond_2
 
-    const-string v4, "title"
+    const-string/jumbo v4, "title"
 
     filled-new-array {v4}, [Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 
     const-string p1, "shortcut"
 
-    const-string v0, "title"
+    const-string/jumbo v0, "title"
 
     filled-new-array {p1, v0}, [Ljava/lang/String;
 
@@ -481,7 +481,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string p0, "toggle"
+    const-string/jumbo p0, "toggle"
 
     goto :goto_0
 

@@ -1000,7 +1000,7 @@
 
     if-eqz v1, :cond_1
 
-    const-string v1, "using hybrid"
+    const-string/jumbo v1, "using hybrid"
 
     invoke-static {v3, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1062,7 +1062,7 @@
 
     if-eqz v1, :cond_3
 
-    const-string v1, "using standard"
+    const-string/jumbo v1, "using standard"
 
     invoke-static {v3, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -1226,7 +1226,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "updated estimate: "
+    const-string/jumbo v1, "updated estimate: "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

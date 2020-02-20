@@ -264,6 +264,7 @@
     <item type="id" name="connected_device_network_signal" />
     <item type="id" name="connected_device_signals" />
     <item type="id" name="connected_device_signals_stub" />
+    <item type="id" name="connectivity_indicator" />
     <item type="id" name="container" />
     <item type="id" name="container_list" />
     <item type="id" name="contains_transformed_view" />
@@ -544,8 +545,11 @@
     <item type="id" name="label_minute" />
     <item type="id" name="largeLabel" />
     <item type="id" name="last_updated" />
+    <item type="id" name="layer_disabled" />
     <item type="id" name="layout" />
+    <item type="id" name="layout_desc" />
     <item type="id" name="layout_title" />
+    <item type="id" name="layout_wlb_indicators" />
     <item type="id" name="lb_action_button" />
     <item type="id" name="lb_control_closed_captioning" />
     <item type="id" name="lb_control_fast_forward" />
@@ -589,6 +593,7 @@
     <item type="id" name="list_item" />
     <item type="id" name="list_primary_text" />
     <item type="id" name="list_secondary_text" />
+    <item type="id" name="location_indicator" />
     <item type="id" name="lockPatternView" />
     <item type="id" name="lock_icon" />
     <item type="id" name="lock_icon_container" />
@@ -916,6 +921,7 @@
     <item type="id" name="scale_y_animator_start_value_tag" />
     <item type="id" name="scale_y_animator_tag" />
     <item type="id" name="scale_y_dynamicanimation_tag" />
+    <item type="id" name="schedule_indicator" />
     <item type="id" name="score" />
     <item type="id" name="scores" />
     <item type="id" name="screen_pinning_back_bg" />
@@ -1133,6 +1139,7 @@
     <item type="id" name="translation_z_animator_tag" />
     <item type="id" name="translation_z_dynamicanimation_tag" />
     <item type="id" name="transport_row" />
+    <item type="id" name="trigger_name" />
     <item type="id" name="tuner_icon" />
     <item type="id" name="tuner_zen_buttons" />
     <item type="id" name="tuner_zen_mode_panel" />
@@ -1189,6 +1196,8 @@
     <item type="id" name="wireless_charging_percentage" />
     <item type="id" name="wireless_charging_text_layout" />
     <item type="id" name="wireless_charging_view" />
+    <item type="id" name="wlb_avatar" />
+    <item type="id" name="wlb_switch" />
     <item type="id" name="world" />
     <item type="id" name="wrap_charging_layout" />
     <item type="id" name="wrap_view" />

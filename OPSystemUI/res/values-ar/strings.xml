@@ -793,7 +793,7 @@
     <string name="keyguard_plugged_in">%s • جارٍ الشحن</string>
     <string name="keyguard_plugged_in_charging_fast">%s • جارٍ الشحن سريعًا</string>
     <string name="keyguard_plugged_in_charging_slowly">%s • جارٍ الشحن ببطء</string>
-    <string name="keyguard_plugged_in_charging_warp">%s • التواء الشحن</string>
+    <string name="keyguard_plugged_in_charging_warp">%s • شحن Warp</string>
     <string name="keyguard_plugged_in_wireless">%s • جارٍ الشحن لاسلكيًا</string>
     <string name="keyguard_sim_error_message_short">بطاقة غير صالحة.</string>
     <string name="keyguard_sim_locked_message">‏شريحة SIM مؤمّنة.</string>
@@ -1031,7 +1031,7 @@
     <string name="nav_bar">شريط التنقل</string>
     <string name="nav_bar_default">(تلقائي)</string>
     <string name="nav_bar_guide_positive">حصلت عليه</string>
-    <string name="nav_bar_guide_title">امسح من أسفل لعرض شريط التنقل. إذا أردت إيقاف إخفاء التنقل، الرجاء لمس</string>
+    <string name="nav_bar_guide_title">اسحب لأعلى من أسفل لإظهار شريط التنقل. لإيقاف إخفاء التنقل، يُرجى النقر هنا.</string>
     <string name="nav_bar_layout">التنسيق</string>
     <string name="no_application">لا شيء</string>
     <string name="no_auto_saver_action">لا، شكرًا</string>
@@ -1104,11 +1104,11 @@
     <string name="op_earphone_device">اضغط للاقتران</string>
     <string name="op_earphone_title">OnePlus Bullets اللاسلكية</string>
     <string name="op_emergency_indicator_hint_text">مرر لأسفل للحصول على خدمات الطوارئ</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">غير مقفل بإلغاء القفل بالوجه</string>
+    <string name="op_keyguard_indication_trust_unlocked">غير مقفل بواسطة القفل الذكي</string>
+    <string name="op_kg_prompt_reason_timeout_password">لأمان أكثر، اضغط على زر التشغيل واسحب لأعلى لاستخدام كلمة المرور</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">لأمان أكثر، اضغط على زر التشغيل واسحب لأعلى لاستخدام النمط</string>
+    <string name="op_kg_prompt_reason_timeout_pin">لأمان أكثر، اضغط على زر التشغيل واسحب لأعلى لاستخدام رقم الدخول</string>
     <string name="op_notification_alert_title">مهم</string>
     <string name="op_notification_channel_summary_low">الإشعارات الأقل أهمية دون إصدار صوت أو اهتزاز.</string>
     <string name="op_notification_section_header_gentle">إشعارات أخرى</string>
@@ -1141,10 +1141,10 @@
     <string name="overheat_dialog_purple_message">سيتم إيقاف تشغيل الهاتف بعد 5 ثوانٍ</string>
     <string name="overheat_dialog_red_message">ستمسح كافة عمليات التطبيقات لتقليل درجة الحرارة</string>
     <string name="overheat_dialog_title">درجة حرارة هاتفك مرتفعة للغاية</string>
-    <string name="overheat_notification_alert">درجة حرارة هاتفك مرتفعة للغاية، وقد تم إيقاف تشغيل الوظيفة مرتفعة الاستهلاك للطاقة لخفض درجة الحرارة</string>
+    <string name="overheat_notification_alert">درجة حرارة هاتفك مرتفعة للغاية، وقد تم إيقاف تشغيل الوظائف ذات الاستهلاك العالي للطاقة لخفض درجة الحرارة</string>
     <string name="overheat_notification_resume">تمت استعادة درجة حرارة الهاتف ويمكن استخدامه الآن بشكل طبيعي</string>
     <string name="overheat_notification_title_resume">تمت استعادة درجة حرارة الهاتف</string>
-    <string name="overheat_toast_content">الهاتف في حالة ذات درجة حرارة مرتفعة، يُوصى بعدم استخدام هذه الميزة</string>
+    <string name="overheat_toast_content">درجة حرارة هاتفك مرتفعة للغاية، وقد تم إيقاف تشغيل الوظائف مرتفعة الاستهلاك للطاقة لخفض درجة الحرارة</string>
     <string name="overlay_display_devices_title">محاكاة الشاشات الثانوية</string>
     <string name="overview">نظرة عامة</string>
     <string name="phone_hint">يمكنك التمرير سريعًا من الرمز لتشغيل الهاتف</string>
@@ -1221,8 +1221,8 @@
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">وضع الجيب قيد التشغيل</string>
     <string name="prevent_view_title_cancel">لتنشيط الهاتف الخاص بك:</string>
-    <string name="prevent_view_top_tag_cancel">الرجاء عدم تغطية المنطقة الزرقاء في هاتفك، وقم بتنظيف أي غبار أو أوساخ على المنطقة الزرقاء.</string>
-    <string name="prevent_view_top_tag_cancel2">الرجاء متابعة الدوائر على الشاشة المسها لإجبار الخروج من وضع الجيب.</string>
+    <string name="prevent_view_top_tag_cancel">لا تقم بتغطية المنطقة الزرقاء في هاتفك، وقم بتنظيف أي غبار أو أوساخ.</string>
+    <string name="prevent_view_top_tag_cancel2">اتبع الدوائر على الشاشة وانقر عليها لفرض الخروج من وضع الجيب</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">الكاميرا</string>
@@ -1379,7 +1379,7 @@
     <string name="recents_deep_clean_dialog_checkbox_text">عدم الإظهار مرة أخرى</string>
     <string name="recents_deep_clean_dialog_message">سيقوم التنظيف العميق بمسح كافة العمليات في الخلفية، مما قد يؤدي إلى نتائج غير مرغوبة. وقد تتوقف بعض التطبيقات عن العمل ولن تتلقى إخطارات حتى تقوم بإعادة تشغيلها. هل ترغب في الاستمرار.</string>
     <string name="recents_deep_clean_dialog_title">تنبيه</string>
-    <string name="recents_deep_clean_message">إيقاف كل التطبيقات</string>
+    <string name="recents_deep_clean_message">إنهاء كل التطبيقات</string>
     <string name="recents_deep_clean_option">مسح عميق</string>
     <string name="recents_empty_no_apps_open">لا توجد تطبيقات مفتوحة</string>
     <string name="recents_empty_recently_closed">التطبيقات المغلقة مؤخرًا</string>

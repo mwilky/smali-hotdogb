@@ -128,7 +128,7 @@
 
     iget-object p2, p0, Lcom/android/systemui/qs/external/TileLifecycleManager;->mToken:Landroid/os/IBinder;
 
-    const-string p3, "token"
+    const-string/jumbo p3, "token"
 
     invoke-virtual {p1, p3, p2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/IBinder;)Landroid/content/Intent;
 
@@ -477,7 +477,7 @@
 
     const/4 v0, 0x0
 
-    const-string v1, "tiles_prefs"
+    const-string/jumbo v1, "tiles_prefs"
 
     invoke-virtual {p0, v1, v0}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
@@ -527,7 +527,7 @@
 .method public static setTileAdded(Landroid/content/Context;Landroid/content/ComponentName;Z)V
     .locals 2
 
-    const-string v0, "tiles_prefs"
+    const-string/jumbo v0, "tiles_prefs"
 
     const/4 v1, 0x0
 

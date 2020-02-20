@@ -549,7 +549,7 @@
 
     iget-object p1, p0, Lcom/oneplus/faceunlock/OpFacelockController;->mContext:Landroid/content/Context;
 
-    const-string p3, "vibrator"
+    const-string/jumbo p3, "vibrator"
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -2496,7 +2496,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "unlockKeyguard, bouncer:"
+    const-string/jumbo v5, "unlockKeyguard, bouncer:"
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2662,7 +2662,7 @@
 
     invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "upMotor "
+    const-string/jumbo v5, "upMotor "
 
     invoke-virtual {p0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2697,7 +2697,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "upMotor fail, "
+    const-string/jumbo v1, "upMotor fail, "
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2755,7 +2755,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "updateFacelockLightMode, overrideScreenBrightness:"
+    const-string/jumbo v2, "updateFacelockLightMode, overrideScreenBrightness:"
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2823,7 +2823,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "updateIsFaceAdded fail: "
+    const-string/jumbo v5, "updateIsFaceAdded fail: "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -2953,7 +2953,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "update alpha:"
+    const-string/jumbo v1, "update alpha:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3207,7 +3207,7 @@
 
     if-eqz p0, :cond_3
 
-    const-string p0, "timeout, not allow to facelock"
+    const-string/jumbo p0, "timeout, not allow to facelock"
 
     invoke-static {v2, p0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5296,7 +5296,7 @@
     :cond_0
     const-string p1, "OpFacelockController"
 
-    const-string v0, "user switch to owner"
+    const-string/jumbo v0, "user switch to owner"
 
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -5335,7 +5335,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v1, "tryToStartFaceLock, bound:"
+    const-string/jumbo v1, "tryToStartFaceLock, bound:"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

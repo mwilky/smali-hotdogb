@@ -176,7 +176,7 @@
 
     const-string v0, "OpMotorManager"
 
-    const-string v1, "upMotorBySystemApp"
+    const-string/jumbo v1, "upMotorBySystemApp"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -213,7 +213,7 @@
     goto :goto_0
 
     :cond_0
-    const-string p1, "upMotor get motor service again"
+    const-string/jumbo p1, "upMotor get motor service again"
 
     invoke-static {v0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

@@ -522,7 +522,7 @@
     :catch_1
     move-exception v0
 
-    const-string v2, "unable to zip up heapdumps"
+    const-string/jumbo v2, "unable to zip up heapdumps"
 
     invoke-static {v11, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 

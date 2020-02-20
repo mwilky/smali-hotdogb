@@ -111,7 +111,7 @@
 
     iput-boolean p4, p0, Lcom/android/keyguard/CarrierTextController;->mShowMissingSim:Z
 
-    const-string p3, "wifi"
+    const-string/jumbo p3, "wifi"
 
     invoke-virtual {p1, p3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
@@ -1382,7 +1382,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v10, "updateCarrierText() showCustomizeName: "
+    const-string/jumbo v10, "updateCarrierText() showCustomizeName: "
 
     invoke-virtual {v6, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

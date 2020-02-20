@@ -286,7 +286,7 @@
 
     new-instance v0, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;
 
-    const-string v1, "translate"
+    const-string/jumbo v1, "translate"
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/notification/row/ExpandableNotificationRow$2;-><init>(Ljava/lang/String;)V
 

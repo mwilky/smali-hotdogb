@@ -278,12 +278,12 @@
     return p0
 .end method
 
-.method static synthetic access$1000(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Lcom/android/systemui/recents/OverviewProxyService;
+.method static synthetic access$1000(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Landroid/view/accessibility/AccessibilityManager;)V
     .locals 0
 
-    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->updateAccessibilityServicesState(Landroid/view/accessibility/AccessibilityManager;)V
 
-    return-object p0
+    return-void
 .end method
 
 .method static synthetic access$102(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Z)Z
@@ -294,7 +294,15 @@
     return p1
 .end method
 
-.method static synthetic access$1100(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)V
+.method static synthetic access$1100(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Lcom/android/systemui/recents/OverviewProxyService;
+    .locals 0
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mOverviewProxyService:Lcom/android/systemui/recents/OverviewProxyService;
+
+    return-object p0
+.end method
+
+.method static synthetic access$1200(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->notifyNavigationBarScreenOn()V
@@ -326,7 +334,15 @@
     return p0
 .end method
 
-.method static synthetic access$500(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Z
+.method static synthetic access$500()Landroid/content/Context;
+    .locals 1
+
+    sget-object v0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->sContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$600(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Z
     .locals 0
 
     iget-boolean p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mHideNavBar:Z
@@ -334,7 +350,7 @@
     return p0
 .end method
 
-.method static synthetic access$502(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Z)Z
+.method static synthetic access$602(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mHideNavBar:Z
@@ -342,7 +358,7 @@
     return p1
 .end method
 
-.method static synthetic access$600(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Landroid/content/ContentResolver;
+.method static synthetic access$700(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Landroid/content/ContentResolver;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mContentResolver:Landroid/content/ContentResolver;
@@ -350,7 +366,7 @@
     return-object p0
 .end method
 
-.method static synthetic access$700(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Z)V
+.method static synthetic access$800(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->onHideNavBar(Z)V
@@ -358,20 +374,12 @@
     return-void
 .end method
 
-.method static synthetic access$800(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Landroid/view/accessibility/AccessibilityManager;
+.method static synthetic access$900(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;)Landroid/view/accessibility/AccessibilityManager;
     .locals 0
 
     iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
 
     return-object p0
-.end method
-
-.method static synthetic access$900(Lcom/android/systemui/statusbar/phone/NavigationBarFragment;Landroid/view/accessibility/AccessibilityManager;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->updateAccessibilityServicesState(Landroid/view/accessibility/AccessibilityManager;)V
-
-    return-void
 .end method
 
 .method private barMode(I)I
@@ -2527,6 +2535,21 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 0
 
+    iget-object p3, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    if-eqz p3, :cond_0
+
+    const-string p1, "NavigationBar"
+
+    const-string p2, " Return the navigation bar view if it\'s already created"
+
+    invoke-static {p1, p2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object p0, p0, Lcom/android/systemui/statusbar/phone/NavigationBarFragment;->mNavigationBarView:Lcom/android/systemui/statusbar/phone/NavigationBarView;
+
+    return-object p0
+
+    :cond_0
     sget p0, Lcom/android/systemui/R$layout;->navigation_bar:I
 
     const/4 p3, 0x0

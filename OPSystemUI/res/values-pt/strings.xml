@@ -262,7 +262,7 @@
     <string name="accessibility_zero_bars">Nenhuma barra.</string>
     <string name="active_input_method_subtypes">Métodos ativos de entrada</string>
     <string name="activity_launch_on_secondary_display_failed_text">O app não é compatível com a inicialização em telas secundárias.</string>
-    <string name="activity_not_available">Aplicação não disponível</string>
+    <string name="activity_not_available">A aplicação não está disponível</string>
     <string name="activity_not_found">O app não está instalado no seu dispositivo</string>
     <string name="adb_keys_warning_message">Revogar o acesso à depuração USB para todos os computadores autorizados?</string>
     <string name="adb_warning_message">A depuração USB serve apenas para fins de desenvolvimento. Use-a para copiar dados entre o computador e o dispositivo, instalar apps no seu aparelho sem notificação e ler dados de registro.</string>
@@ -1031,7 +1031,7 @@ Você também está conectado a uma VPN, que pode monitorar sua atividade de red
     <string name="nav_bar">Barra de navegação</string>
     <string name="nav_bar_default">(padrão)</string>
     <string name="nav_bar_guide_positive">PERCEBI</string>
-    <string name="nav_bar_guide_title">Deslize para cima a partir de baixo para mostrar a barra de navegação. Se quiser parar de ocultar a barra de navegação, carregue</string>
+    <string name="nav_bar_guide_title">Deslize para cima a partir de baixo para mostrar a barra de navegação. Para parar de ocultar a barra de navegação, toque aqui.</string>
     <string name="nav_bar_layout">Layout</string>
     <string name="no_application">Nada</string>
     <string name="no_auto_saver_action">Não</string>
@@ -1090,7 +1090,7 @@ Você também está conectado a uma VPN, que pode monitorar sua atividade de red
     <string name="oneplus_threekey_navigation_disturb_changed">\"Não incomodar\" foi alterado!</string>
     <string name="oneplus_threekey_navigation_next">SEGUINTE</string>
     <string name="oneplus_threekey_navigation_silence">Silêncio total</string>
-    <string name="oneplus_threekey_navigation_slider_has_changed">O controlo de deslize de alerta foi alterado!</string>
+    <string name="oneplus_threekey_navigation_slider_has_changed">O Alert Slider foi alterado!</string>
     <string name="oneplus_threekey_navigation_sound">Todos os sons permitidos</string>
     <string name="oneplus_threekey_navigation_turned_on_here">Pode ser ligado através do comutador acima</string>
     <string name="oneplus_threekey_navigation_vibration">Apenas vibração</string>
@@ -1104,11 +1104,11 @@ Você também está conectado a uma VPN, que pode monitorar sua atividade de red
     <string name="op_earphone_device">TOCAR P/ EMP.</string>
     <string name="op_earphone_title">OnePlus Bullets Wireless</string>
     <string name="op_emergency_indicator_hint_text">Deslizar para baixo para obter serviços de emergência</string>
-    <string name="op_keyguard_indication_face_unlocked">Kept unlocked by Face Unlock</string>
-    <string name="op_keyguard_indication_trust_unlocked">Kept unlocked by Smart Lock</string>
-    <string name="op_kg_prompt_reason_timeout_password">For additional security, press power key and swipe up to use password</string>
-    <string name="op_kg_prompt_reason_timeout_pattern">For additional security, press power key and swipe up to use pattern</string>
-    <string name="op_kg_prompt_reason_timeout_pin">For additional security, press power key and swipe up to use PIN</string>
+    <string name="op_keyguard_indication_face_unlocked">Manter desbloq. através do desbloqueio facial</string>
+    <string name="op_keyguard_indication_trust_unlocked">Manter desbloq. através do Smart Lock</string>
+    <string name="op_kg_prompt_reason_timeout_password">Para obter seg. adic., prima o botão Ligar e desl. para cima para usar a p.passe</string>
+    <string name="op_kg_prompt_reason_timeout_pattern">Para obter seg. adic., prima o botão Ligar e deslize para cima para ut. o padrão</string>
+    <string name="op_kg_prompt_reason_timeout_pin">Para obter seg. adic., prima o botão Ligar e deslize para cima para usar o PIN</string>
     <string name="op_notification_alert_title">Importante</string>
     <string name="op_notification_channel_summary_low">Notificações menos importantes sem qualquer som ou vibração.</string>
     <string name="op_notification_section_header_gentle">Outras notificações</string>
@@ -1141,10 +1141,10 @@ Você também está conectado a uma VPN, que pode monitorar sua atividade de red
     <string name="overheat_dialog_purple_message">O telefone será desligado após 5 segundos</string>
     <string name="overheat_dialog_red_message">Irá limpar todos os processos de aplicações para baixar a temperatura</string>
     <string name="overheat_dialog_title">A temperatura do telefone está demasiado elevada</string>
-    <string name="overheat_notification_alert">A temperatura do telefone está demasiado elevada e a função que consome bastante energia foi desligada para baixar a temperatura</string>
+    <string name="overheat_notification_alert">A temperatura do telefone está demasiado elevada e as funções que consomem bastante energia foram desligadas para baixar a temperatura</string>
     <string name="overheat_notification_resume">A temperatura do telefone foi reposta e o telefone pode ser utilizado normalmente</string>
     <string name="overheat_notification_title_resume">A temperatura do telefone foi reposta</string>
-    <string name="overheat_toast_content">O telefone encontra-se num estado de elevada temperatura. Não é recomendada a utilização desta funcionalidade</string>
+    <string name="overheat_toast_content">A temperatura do telefone está demasiado elevada e as funções que consomem bastante energia foram desligadas para baixar a temperatura</string>
     <string name="overlay_display_devices_title">Simular telas secundárias</string>
     <string name="overview">Visão geral</string>
     <string name="phone_hint">Deslize a partir do ícone do telefone</string>
@@ -1221,8 +1221,8 @@ Você também está conectado a uma VPN, que pode monitorar sua atividade de red
     <string name="preference_summary_default_combination">%1$s / %2$s</string>
     <string name="prevent_view_title">Modo de bolso está ligado</string>
     <string name="prevent_view_title_cancel">Para ativar o seu telefone:</string>
-    <string name="prevent_view_top_tag_cancel">Por favor, não cubra a área azul do seu telefone e limpe qualquer sujidade ou pó na área azul.</string>
-    <string name="prevent_view_top_tag_cancel2">Siga os círculos no ecrã e toque neles para forçar a saída do modo de bolso.</string>
+    <string name="prevent_view_top_tag_cancel">Não cubra a área azul do seu telefone e limpe qualquer sujidade ou pó presente.</string>
+    <string name="prevent_view_top_tag_cancel2">Siga os círculos no ecrã e toque neles para forçar a saída do modo de bolso</string>
     <string name="prevent_view_top_tag_numbuer1">"1. "</string>
     <string name="prevent_view_top_tag_numbuer2">"2. "</string>
     <string name="privacy_type_camera">câmera</string>

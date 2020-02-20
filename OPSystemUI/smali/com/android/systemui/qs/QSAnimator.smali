@@ -529,7 +529,7 @@
 
     aput v14, v12, v15
 
-    const-string v14, "translationY"
+    const-string/jumbo v14, "translationY"
 
     invoke-virtual {v1, v8, v14, v12}, Lcom/android/systemui/qs/TouchAnimator$Builder;->addFloat(Ljava/lang/Object;Ljava/lang/String;[F)Lcom/android/systemui/qs/TouchAnimator$Builder;
 
@@ -572,7 +572,7 @@
 
     invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v15, "tileView is null "
+    const-string/jumbo v15, "tileView is null "
 
     invoke-virtual {v12, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -633,7 +633,7 @@
 
     move/from16 v24, v11
 
-    const-string v11, "translationX"
+    const-string/jumbo v11, "translationX"
 
     if-ge v5, v13, :cond_7
 
@@ -1282,6 +1282,8 @@
     iput-object v1, v0, Lcom/android/systemui/qs/QSAnimator;->mNonfirstPageDelayedAnimator:Lcom/android/systemui/qs/TouchAnimator;
 
     return-void
+
+    nop
 
     :array_0
     .array-data 4

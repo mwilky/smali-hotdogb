@@ -40,7 +40,7 @@
 
     const-string p0, "LockIcon"
 
-    const-string p1, "zoomInAnimtor end"
+    const-string/jumbo p1, "zoomInAnimtor end"
 
     invoke-static {p0, p1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -67,7 +67,7 @@
 
     const-string p1, "LockIcon"
 
-    const-string v0, "zoomInAnimtor start"
+    const-string/jumbo v0, "zoomInAnimtor start"
 
     invoke-static {p1, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 

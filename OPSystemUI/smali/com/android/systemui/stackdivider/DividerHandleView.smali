@@ -53,7 +53,7 @@
 
     const-class v1, Ljava/lang/Integer;
 
-    const-string v2, "width"
+    const-string/jumbo v2, "width"
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/stackdivider/DividerHandleView$1;-><init>(Ljava/lang/Class;Ljava/lang/String;)V
 
