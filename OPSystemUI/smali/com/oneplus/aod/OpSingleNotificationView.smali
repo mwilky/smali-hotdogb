@@ -24,8 +24,10 @@
 
 .field private mTitle:Landroid/widget/TextView;
 
-# instance fields
+# static fields
 .field public static mAppIconColor:I
+
+.field public static mIsMediaNotification:Z
 
 
 # direct methods
@@ -807,6 +809,18 @@
     iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->notification:Landroid/service/notification/StatusBarNotification;
 
     iput-object v0, p0, Lcom/oneplus/aod/OpSingleNotificationView;->mNewPostedNotification:Landroid/service/notification/StatusBarNotification;
+    
+    iget-object v0, p1, Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;->notification:Landroid/service/notification/StatusBarNotification;
+
+    invoke-virtual {v0}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Notification;->isMediaNotification()Z
+
+    move-result v0
+    
+    sput-boolean v0, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
 
     invoke-direct {p0, p1}, Lcom/oneplus/aod/OpSingleNotificationView;->updateViewInternal(Lcom/android/systemui/statusbar/notification/collection/NotificationEntry;)V
 

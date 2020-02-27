@@ -446,7 +446,7 @@
     .registers 24
     .param p1, "i"    # I
 
-    .line 62
+    .line 63
     move-object/from16 v0, p0
 
     move/from16 v1, p1
@@ -455,7 +455,7 @@
 
     move-result-object v2
 
-    .line 63
+    .line 64
     .local v2, "pulse_reason":Ljava/lang/String;
     invoke-static {}, Lcom/oneplus/aod/OpAodUtils;->isAlwaysOnEnabled()Z
 
@@ -465,10 +465,10 @@
 
     if-eqz v3, :cond_12
 
-    .line 64
+    .line 65
     return v4
 
-    .line 65
+    .line 66
     :cond_12
     const/4 v3, 0x1
 
@@ -496,38 +496,44 @@
 
     and-int/2addr v5, v6
 
-    if-eqz v5, :cond_26
+    sget-boolean v6, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
 
-    .line 67
+    xor-int/2addr v6, v3
+
+    and-int/2addr v5, v6
+
+    if-eqz v5, :cond_2a
+
+    .line 68
     return v4
 
-    .line 69
-    :cond_26
+    .line 70
+    :cond_2a
     sget v4, Lcom/android/mwilky/Renovate;->mAnimScale:F
 
     float-to-double v4, v4
 
-    .line 70
+    .line 71
     .local v4, "anim_scale":D
     sget v6, Lcom/oneplus/aod/OpAodLightEffectContainer;->mTotalRuntime:I
 
-    .line 71
+    .line 72
     .local v6, "runtime":I
     int-to-double v7, v6
 
     mul-double/2addr v7, v4
 
-    .line 72
+    .line 73
     .local v7, "total_length_double":D
     double-to-int v9, v7
 
-    .line 73
+    .line 74
     .local v9, "total_length":I
     invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v10
 
-    .line 74
+    .line 75
     .local v10, "total_length_string":Ljava/lang/String;
     sget v11, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
@@ -567,27 +573,27 @@
     .local v20, "total_length_double":D
     const-string v7, "integer"
 
-    if-eq v11, v6, :cond_9e
+    if-eq v11, v6, :cond_a2
 
     sget-boolean v8, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
 
     const/4 v11, 0x1
 
-    if-ne v8, v11, :cond_9e
+    if-ne v8, v11, :cond_a2
 
     sget-boolean v8, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
 
-    if-eqz v8, :cond_9e
+    if-eqz v8, :cond_a2
 
-    .line 75
+    .line 76
     const/16 v8, 0xbb8
 
-    if-ge v9, v8, :cond_9d
-
-    .line 78
-    if-ne v1, v6, :cond_6a
+    if-ge v9, v8, :cond_a1
 
     .line 79
+    if-ne v1, v6, :cond_6e
+
+    .line 80
     invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -598,13 +604,13 @@
 
     return v2
 
-    .line 80
-    :cond_6a
+    .line 81
+    :cond_6e
     const/4 v4, 0x3
 
-    if-ne v1, v4, :cond_76
+    if-ne v1, v4, :cond_7a
 
-    .line 81
+    .line 82
     invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
@@ -615,13 +621,13 @@
 
     return v2
 
-    .line 82
-    :cond_76
+    .line 83
+    :cond_7a
     const/16 v2, 0xc
 
-    if-ne v1, v2, :cond_83
+    if-ne v1, v2, :cond_87
 
-    .line 83
+    .line 84
     invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -632,13 +638,13 @@
 
     return v2
 
-    .line 84
-    :cond_83
+    .line 85
+    :cond_87
     const/16 v2, 0xd
 
-    if-ne v1, v2, :cond_94
+    if-ne v1, v2, :cond_98
 
-    .line 85
+    .line 86
     const-string v2, "op_doze_fingerprint_poke_pulse_duration_visible"
 
     invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -653,8 +659,8 @@
 
     return v2
 
-    .line 87
-    :cond_94
+    .line 88
+    :cond_98
     invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -665,32 +671,32 @@
 
     return v2
 
-    .line 91
-    :cond_9d
+    .line 92
+    :cond_a1
     return v9
 
-    .line 94
-    :cond_9e
+    .line 95
+    :cond_a2
     sget v8, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
-    if-eq v8, v6, :cond_aa
+    if-eq v8, v6, :cond_ae
 
     const/4 v8, 0x1
 
-    if-ne v1, v8, :cond_aa
+    if-ne v1, v8, :cond_ae
 
     sget v11, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCount:I
 
-    if-lt v11, v8, :cond_aa
+    if-lt v11, v8, :cond_ae
 
-    .line 96
+    .line 97
     return v9
 
-    .line 99
-    :cond_aa
-    if-ne v1, v6, :cond_b5
-
     .line 100
+    :cond_ae
+    if-ne v1, v6, :cond_b9
+
+    .line 101
     invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -701,13 +707,13 @@
 
     return v2
 
-    .line 101
-    :cond_b5
+    .line 102
+    :cond_b9
     const/4 v4, 0x3
 
-    if-ne v1, v4, :cond_c1
+    if-ne v1, v4, :cond_c5
 
-    .line 102
+    .line 103
     invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v3
@@ -718,13 +724,13 @@
 
     return v2
 
-    .line 103
-    :cond_c1
+    .line 104
+    :cond_c5
     const/16 v2, 0xc
 
-    if-ne v1, v2, :cond_ce
+    if-ne v1, v2, :cond_d2
 
-    .line 104
+    .line 105
     invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
@@ -735,13 +741,13 @@
 
     return v2
 
-    .line 105
-    :cond_ce
+    .line 106
+    :cond_d2
     const/16 v2, 0xd
 
-    if-ne v1, v2, :cond_df
+    if-ne v1, v2, :cond_e3
 
-    .line 106
+    .line 107
     const-string v2, "op_doze_fingerprint_poke_pulse_duration_visible"
 
     invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
@@ -756,8 +762,8 @@
 
     return v2
 
-    .line 108
-    :cond_df
+    .line 109
+    :cond_e3
     invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2

@@ -627,24 +627,24 @@
     .line 120
     sget-boolean v1, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotificationsInfo:Z
 
-    if-eqz v1, :cond_144
+    if-eqz v1, :cond_149
 
     .line 121
     invoke-virtual {p0, v2}, Lcom/oneplus/aod/OpAodDisplayViewManager;->hideViewsForAlwaysOnHorizon(Z)V
 
-    goto/16 :goto_144
+    goto/16 :goto_149
 
     .line 123
     :cond_5e
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPlayFingerprintUnlockAnimation:Z
 
-    if-nez v1, :cond_12a
+    if-nez v1, :cond_12f
 
     iget-boolean v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mIsPress:Z
 
     if-eqz v1, :cond_68
 
-    goto/16 :goto_12a
+    goto/16 :goto_12f
 
     .line 130
     :cond_68
@@ -768,12 +768,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_144
+    if-eqz v3, :cond_149
 
     .line 151
     iget v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mStatus:I
 
-    if-ne v3, v4, :cond_111
+    if-ne v3, v4, :cond_116
 
     .line 152
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mUseAppColorForEdgeNotifications:Z
@@ -795,21 +795,35 @@
 
     .line 157
     :goto_e1
+    sget-boolean v3, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
+
+    if-eqz v3, :cond_f8
+
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotifications:Z
 
-    iget-object v4, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContext:Landroid/content/Context;
+    if-eqz v3, :cond_f2
 
-    invoke-static {v4}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
+    iget-object v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContext:Landroid/content/Context;
 
-    move-result v4
+    invoke-static {v3}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
 
-    xor-int/2addr v4, v5
+    move-result v3
 
-    and-int/2addr v3, v4
+    if-nez v3, :cond_f2
 
-    if-eqz v3, :cond_10b
+    goto :goto_f8
+
+    .line 170
+    :cond_f2
+    iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
+
+    invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
+
+    goto :goto_149
 
     .line 158
+    :cond_f8
+    :goto_f8
     iget-object v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->autoHide:Landroid/os/Handler;
 
     new-instance v4, Lcom/oneplus/aod/OpAodDisplayViewManager$AutoHide;
@@ -823,7 +837,7 @@
     .line 164
     sget-boolean v3, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotificationsInfo:Z
 
-    if-eqz v3, :cond_105
+    if-eqz v3, :cond_110
 
     .line 165
     iget-object v3, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mAodMainView:Lcom/oneplus/aod/OpAodMain;
@@ -834,30 +848,22 @@
     invoke-virtual {p0, v5}, Lcom/oneplus/aod/OpAodDisplayViewManager;->hideViewsForAlwaysOnHorizon(Z)V
 
     .line 168
-    :cond_105
+    :cond_110
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLightAlways()V
 
-    goto :goto_144
-
-    .line 170
-    :cond_10b
-    iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
-
-    invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
-
-    goto :goto_144
+    goto :goto_149
 
     .line 172
-    :cond_111
+    :cond_116
     sget-boolean v2, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
 
-    if-eqz v2, :cond_124
+    if-eqz v2, :cond_129
 
     sget-boolean v2, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
 
-    if-eqz v2, :cond_124
+    if-eqz v2, :cond_129
 
     .line 173
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
@@ -869,20 +875,20 @@
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->showLight()V
 
-    goto :goto_144
+    goto :goto_149
 
     .line 176
-    :cond_124
+    :cond_129
     iget-object v2, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mLightEffectContainer:Lcom/oneplus/aod/OpAodLightEffectContainer;
 
     invoke-virtual {v2}, Lcom/oneplus/aod/OpAodLightEffectContainer;->resetNotificationAnimView()V
 
-    goto :goto_144
+    goto :goto_149
 
     .line 124
     .end local v1    # "i":I
-    :cond_12a
-    :goto_12a
+    :cond_12f
+    :goto_12f
     iget-object v1, p0, Lcom/oneplus/aod/OpAodDisplayViewManager;->mContainer:Landroid/view/ViewGroup;
 
     invoke-virtual {v1, v3}, Landroid/view/ViewGroup;->setVisibility(I)V
@@ -910,8 +916,8 @@
     invoke-virtual {v1, v3}, Lcom/oneplus/aod/OpAodThreeKeyStatusView;->setVisibility(I)V
 
     .line 180
-    :cond_144
-    :goto_144
+    :cond_149
+    :goto_149
     return-void
 .end method
 
@@ -1385,5 +1391,37 @@
 
     .line 283
     :goto_24
+    return-void
+.end method
+
+.method public log()V
+    .registers 3
+
+    .line 89
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "isMediaNotif= "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    sget-boolean v1, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(Z)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "mwilky"
+
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    .line 90
     return-void
 .end method
