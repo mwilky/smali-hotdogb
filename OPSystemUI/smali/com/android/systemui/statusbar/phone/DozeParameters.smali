@@ -443,7 +443,7 @@
 .end method
 
 .method public getPulseVisibleDuration(I)I
-    .registers 24
+    .registers 26
     .param p1, "i"    # I
 
     .line 63
@@ -470,39 +470,39 @@
 
     .line 66
     :cond_12
-    const/4 v3, 0x1
+    const/4 v5, 0x1
 
-    if-ne v1, v3, :cond_17
+    if-ne v1, v5, :cond_17
 
-    move v5, v3
+    move v6, v5
 
     goto :goto_18
 
     :cond_17
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     :goto_18
-    sget-boolean v6, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotifications:Z
+    sget-boolean v7, Lcom/android/mwilky/Renovate;->mAlwaysOnNewNotifications:Z
 
-    and-int/2addr v5, v6
+    and-int/2addr v6, v7
 
-    iget-object v6, v0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
+    iget-object v7, v0, Lcom/android/systemui/statusbar/phone/DozeParameters;->mContext:Landroid/content/Context;
 
-    invoke-static {v6}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
+    invoke-static {v7}, Lcom/android/mwilky/Renovate;->isZenActive(Landroid/content/Context;)Z
 
-    move-result v6
+    move-result v7
 
-    xor-int/2addr v6, v3
+    xor-int/2addr v7, v5
 
-    and-int/2addr v5, v6
+    and-int/2addr v6, v7
 
-    sget-boolean v6, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
+    sget-boolean v7, Lcom/oneplus/aod/OpSingleNotificationView;->mIsMediaNotification:Z
 
-    xor-int/2addr v6, v3
+    xor-int/2addr v7, v5
 
-    and-int/2addr v5, v6
+    and-int/2addr v6, v7
 
-    if-eqz v5, :cond_2a
+    if-eqz v6, :cond_2a
 
     .line 68
     return v4
@@ -511,90 +511,96 @@
     :cond_2a
     sget v4, Lcom/android/mwilky/Renovate;->mAnimScale:F
 
-    float-to-double v4, v4
+    float-to-double v6, v4
 
     .line 71
-    .local v4, "anim_scale":D
-    sget v6, Lcom/oneplus/aod/OpAodLightEffectContainer;->mTotalRuntime:I
+    .local v6, "anim_scale":D
+    sget v4, Lcom/oneplus/aod/OpAodLightEffectContainer;->mTotalRuntime:I
 
     .line 72
-    .local v6, "runtime":I
-    int-to-double v7, v6
+    .local v4, "runtime":I
+    int-to-double v8, v4
 
-    mul-double/2addr v7, v4
+    mul-double/2addr v8, v6
 
     .line 73
-    .local v7, "total_length_double":D
-    double-to-int v9, v7
+    .local v8, "total_length_double":D
+    double-to-int v10, v8
 
     .line 74
-    .local v9, "total_length":I
-    invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    .local v10, "total_length":I
+    invoke-static {v10}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
     .line 75
-    .local v10, "total_length_string":Ljava/lang/String;
-    sget v11, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
+    .local v11, "total_length_string":Ljava/lang/String;
+    sget v12, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
-    const-string v12, "op_doze_pulse_duration_visible"
+    const/16 v13, 0xa
 
-    const-string v13, "doze.pulse.duration.visible"
+    if-eq v12, v13, :cond_3e
 
-    const-string v14, "op_doze_single_tap_pulse_duration_visible"
+    move v12, v5
 
-    const-string v15, "op.doze.single.tap.pusle.duration.visible"
+    goto :goto_3f
 
-    const-string v3, "op_doze_pick_up_pulse_duration_visible"
+    :cond_3e
+    const/4 v12, 0x0
 
-    move-object/from16 v16, v2
+    :goto_3f
+    sget-boolean v14, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
+
+    and-int/2addr v12, v14
+
+    sget-boolean v14, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
+
+    and-int/2addr v12, v14
+
+    const-string v14, "doze.pulse.duration.visible"
+
+    const-string v15, "op_doze_single_tap_pulse_duration_visible"
+
+    const-string v3, "op.doze.single.tap.pusle.duration.visible"
+
+    const-string v5, "op_doze_pick_up_pulse_duration_visible"
+
+    const-string v13, "op.doze.pick.up.pusle.duration.visible"
+
+    move-object/from16 v18, v2
 
     .end local v2    # "pulse_reason":Ljava/lang/String;
-    .local v16, "pulse_reason":Ljava/lang/String;
-    const-string v2, "op.doze.pick.up.pusle.duration.visible"
+    .local v18, "pulse_reason":Ljava/lang/String;
+    const-string v2, "op_doze_three_key_pulse_duration_visible"
 
-    move-wide/from16 v17, v4
+    move/from16 v19, v4
 
-    .end local v4    # "anim_scale":D
-    .local v17, "anim_scale":D
-    const-string v5, "op_doze_three_key_pulse_duration_visible"
-
+    .end local v4    # "runtime":I
+    .local v19, "runtime":I
     const-string v4, "op.doze.three.key.pusle.duration.visible"
 
-    move/from16 v19, v6
+    move-wide/from16 v20, v6
 
-    .end local v6    # "runtime":I
-    .local v19, "runtime":I
-    const/16 v6, 0xa
+    .end local v6    # "anim_scale":D
+    .local v20, "anim_scale":D
+    const/4 v6, 0x3
 
-    move-wide/from16 v20, v7
-
-    .end local v7    # "total_length_double":D
-    .local v20, "total_length_double":D
     const-string v7, "integer"
 
-    if-eq v11, v6, :cond_a2
-
-    sget-boolean v8, Lcom/android/mwilky/Renovate;->mEdgeAnimOnUnreadNotifs:Z
-
-    const/4 v11, 0x1
-
-    if-ne v8, v11, :cond_a2
-
-    sget-boolean v8, Lcom/oneplus/aod/OpAodNotificationIconAreaController;->mActiveNotifications:Z
-
-    if-eqz v8, :cond_a2
+    if-eqz v12, :cond_a4
 
     .line 76
-    const/16 v8, 0xbb8
+    const/16 v12, 0xbb8
 
-    if-ge v9, v8, :cond_a1
+    if-ge v10, v12, :cond_a3
 
     .line 79
-    if-ne v1, v6, :cond_6e
+    const/16 v12, 0xa
+
+    if-ne v1, v12, :cond_6f
 
     .line 80
-    invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
@@ -605,17 +611,15 @@
     return v2
 
     .line 81
-    :cond_6e
-    const/4 v4, 0x3
-
-    if-ne v1, v4, :cond_7a
+    :cond_6f
+    if-ne v1, v6, :cond_7a
 
     .line 82
-    invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v13, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -628,11 +632,11 @@
     if-ne v1, v2, :cond_87
 
     .line 84
-    invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-direct {v0, v15, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v3, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
@@ -661,43 +665,83 @@
 
     .line 88
     :cond_98
-    invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v2, "op_doze_pulse_duration_visible"
+
+    invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-direct {v0, v13, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v14, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
     return v2
 
     .line 92
-    :cond_a1
-    return v9
+    :cond_a3
+    return v10
 
     .line 95
-    :cond_a2
-    sget v8, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
+    :cond_a4
+    sget v12, Lcom/oneplus/aod/OpAodLightEffectContainer;->mLightIndex:I
 
-    if-eq v8, v6, :cond_ae
+    const/16 v6, 0xa
 
-    const/4 v8, 0x1
+    if-eq v12, v6, :cond_ac
 
-    if-ne v1, v8, :cond_ae
+    const/4 v6, 0x1
 
-    sget v11, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCount:I
+    goto :goto_ad
 
-    if-lt v11, v8, :cond_ae
+    :cond_ac
+    const/4 v6, 0x0
+
+    :goto_ad
+    const/4 v12, 0x1
+
+    if-ne v1, v12, :cond_b3
+
+    move/from16 v17, v12
+
+    goto :goto_b5
+
+    :cond_b3
+    const/16 v17, 0x0
+
+    :goto_b5
+    and-int v6, v6, v17
+
+    move-wide/from16 v22, v8
+
+    .end local v8    # "total_length_double":D
+    .local v22, "total_length_double":D
+    sget v8, Lcom/android/mwilky/Renovate;->mNotifAnimRepeatCount:I
+
+    if-lt v8, v12, :cond_c0
+
+    move/from16 v16, v12
+
+    goto :goto_c2
+
+    :cond_c0
+    const/16 v16, 0x0
+
+    :goto_c2
+    and-int v6, v6, v16
+
+    if-eqz v6, :cond_c7
 
     .line 97
-    return v9
+    return v10
 
     .line 100
-    :cond_ae
-    if-ne v1, v6, :cond_b9
+    :cond_c7
+    const/16 v6, 0xa
+
+    if-ne v1, v6, :cond_d4
 
     .line 101
-    invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
@@ -708,44 +752,44 @@
     return v2
 
     .line 102
-    :cond_b9
-    const/4 v4, 0x3
+    :cond_d4
+    const/4 v2, 0x3
 
-    if-ne v1, v4, :cond_c5
+    if-ne v1, v2, :cond_e0
 
     .line 103
-    invoke-static {v3, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v3
+    move-result v2
 
-    invoke-direct {v0, v2, v3}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v13, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
     return v2
 
     .line 104
-    :cond_c5
+    :cond_e0
     const/16 v2, 0xc
 
-    if-ne v1, v2, :cond_d2
+    if-ne v1, v2, :cond_ed
 
     .line 105
-    invoke-static {v14, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v15, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-direct {v0, v15, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v3, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 
     return v2
 
     .line 106
-    :cond_d2
+    :cond_ed
     const/16 v2, 0xd
 
-    if-ne v1, v2, :cond_e3
+    if-ne v1, v2, :cond_fe
 
     .line 107
     const-string v2, "op_doze_fingerprint_poke_pulse_duration_visible"
@@ -763,12 +807,14 @@
     return v2
 
     .line 109
-    :cond_e3
-    invoke-static {v12, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+    :cond_fe
+    const-string v2, "op_doze_pulse_duration_visible"
+
+    invoke-static {v2, v7}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-direct {v0, v13, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
+    invoke-direct {v0, v14, v2}, Lcom/android/systemui/statusbar/phone/DozeParameters;->getInt(Ljava/lang/String;I)I
 
     move-result v2
 

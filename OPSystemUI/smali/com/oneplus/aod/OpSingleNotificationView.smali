@@ -297,10 +297,10 @@
     invoke-static {v7, v8}, Lcom/android/internal/util/ContrastColorUtil;->changeColorLightness(II)I
 
     move-result v8
-    
-    sput v8, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
 
     :goto_1
+    sput v8, Lcom/oneplus/aod/OpSingleNotificationView;->mAppIconColor:I
+    
     invoke-static {}, Lcom/oneplus/plugin/OpLsState;->getInstance()Lcom/oneplus/plugin/OpLsState;
 
     move-result-object v9
