@@ -276,6 +276,12 @@
     move-result-object v6
 
     :cond_3
+    sget v6, Lcom/android/mwilky/Renovate;->mAccentColor:I
+    
+    invoke-static {v6}, Landroid/content/res/ColorStateList;->valueOf(I)Landroid/content/res/ColorStateList;
+    
+    move-result-object v6
+    
     const v4, 0x1020016
 
     invoke-virtual {v0, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
