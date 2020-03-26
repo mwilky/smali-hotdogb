@@ -17664,7 +17664,7 @@
 
     move-result-object v0
     
-    if-eqz v0, :cond_centerh
+    if-eqz v0, :cond_right
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/Clock;
     
@@ -17673,31 +17673,6 @@
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
     
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->printCustomClock()V
-    
-    :cond_centerh
-    const-string v0, "clock_center_header"
-
-    const-string v1, "id"
-
-    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v1
-    
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mStatusBarWindow:Lcom/android/systemui/statusbar/phone/StatusBarWindowView;
-
-    invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/StatusBarWindowView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-    
-    if-eqz v0, :cond_right
-
-    check-cast v0, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;
-    
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->updateClockVisibility()V
-    
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/Clock;->readRenovateMods()V
-    
-    invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockCenterHeader;->printCustomClock()V
     
     :cond_right
     const-string v0, "right_clock"
@@ -17714,7 +17689,7 @@
 
     move-result-object v0
     
-    if-eqz v0, :cond_center2
+    if-eqz v0, :cond_center
 
     check-cast v0, Lcom/android/systemui/statusbar/policy/ClockRight;
     
@@ -17724,7 +17699,7 @@
     
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/policy/ClockRight;->printCustomClock()V
     
-    :cond_center2
+    :cond_center
     const-string v0, "center_clock"
 
     const-string v1, "id"

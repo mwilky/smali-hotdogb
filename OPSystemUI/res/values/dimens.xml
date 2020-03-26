@@ -1726,6 +1726,7 @@
     <dimen name="status_bar_clock_end_padding">0.0dip</dimen>
     <dimen name="status_bar_clock_size">14.0sp</dimen>
     <dimen name="status_bar_clock_starting_padding">7.0dip</dimen>
+    <dimen name="status_bar_clock_starting_padding_center">42.5dip</dimen>
     <dimen name="status_bar_connected_device_bt_indicator_size">17.0dip</dimen>
     <dimen name="status_bar_connected_device_signal_margin_end">16.0dip</dimen>
     <dimen name="status_bar_header_height_expanded">124.0dip</dimen>
