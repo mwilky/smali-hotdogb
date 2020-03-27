@@ -2411,25 +2411,9 @@
 
 .method public setIconColors()V
     .locals 2
+    
+    invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateCustomClock()V
 
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
-    
-    if-eqz v0, :cond_exit
-    
-    sget v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
-    
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    :cond_exit
-    iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mRightClockView:Lcom/android/systemui/statusbar/policy/ClockRight;
-    
-    if-eqz v0, :cond_exit4
-    
-    sget v1, Lcom/android/mwilky/Renovate;->mClockColorOP:I
-    
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextColor(I)V
-
-    :cond_exit4
     iget-object v0, p0, Lcom/android/systemui/qs/QuickStatusBarHeader;->mBatteryRemainingIcon:Lcom/android/systemui/BatteryMeterView;
     
     if-eqz v0, :cond_exit2

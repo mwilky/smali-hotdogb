@@ -1391,9 +1391,7 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I #custom color
 
-    :cond_0
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
-    
+    :cond_0    
     iput v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mAmPmTint:I
     
     iput v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDateTint:I
@@ -1904,9 +1902,7 @@
 
     iget v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mClockColor:I #custom color
 
-    :cond_dark
-    invoke-virtual {p0, v1}, Lcom/android/systemui/statusbar/policy/Clock;->setTextColor(I)V
-    
+    :cond_dark    
     iput v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mAmPmTint:I
     
     iput v1, p0, Lcom/android/systemui/statusbar/policy/Clock;->mDateTint:I
