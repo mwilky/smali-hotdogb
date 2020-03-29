@@ -1820,17 +1820,15 @@
 .end method
 
 .method public setVibrateTweak()V
-	.locals 3
+	.locals 2
 	
 	sget-boolean v0, Lcom/android/mwilky/Renovate;->mQsVibration:Z
 	
 	if-eqz v0, :cond_stock
 
-	iget-object v0, p0, Lcom/android/systemui/qs/tileimpl/QSTileImpl;->mVibrator:Landroid/os/Vibrator;
-	
-    const-wide/16 v1, 0x64
+	const/16 v1, 0x3ff
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(J)V
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/StatusBar;->vibrate(I)V
     
     :cond_stock
     return-void
