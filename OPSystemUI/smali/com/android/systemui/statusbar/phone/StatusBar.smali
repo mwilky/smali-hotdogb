@@ -31,6 +31,8 @@
 
 
 # static fields
+.field private static final VIBRATION_ATTRIBUTES:Landroid/media/AudioAttributes;
+
 .field protected static final APP_OPS:[I
 
 .field public static final DEBUG_CAMERA_LIFT:Z
@@ -799,6 +801,28 @@
     invoke-direct {v0, p0}, Lcom/android/systemui/statusbar/phone/StatusBar$BrightnessRunnable;-><init>(Lcom/android/systemui/statusbar/phone/StatusBar;)V
 
     iput-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBar;->mLongPressBrightnessChange:Ljava/lang/Runnable;
+    
+    new-instance v0, Landroid/media/AudioAttributes$Builder;
+
+    invoke-direct {v0}, Landroid/media/AudioAttributes$Builder;-><init>()V
+
+    const/4 v1, 0x4
+
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setContentType(I)Landroid/media/AudioAttributes$Builder;
+
+    move-result-object v0
+
+    const/16 v1, 0xd
+
+    invoke-virtual {v0, v1}, Landroid/media/AudioAttributes$Builder;->setUsage(I)Landroid/media/AudioAttributes$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/media/AudioAttributes$Builder;->build()Landroid/media/AudioAttributes;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/statusbar/phone/StatusBar;->VIBRATION_ATTRIBUTES:Landroid/media/AudioAttributes;
 
     return-void
 .end method
@@ -18683,5 +18707,77 @@
     
     invoke-virtual {v0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setViewsVisibility()V
 
+    return-void
+.end method
+
+.method public static vibrate(I)V
+    .registers 4
+    .param p0, "i"    # I
+
+    .line 197
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    const-string v1, "vibrator"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/Vibrator;
+
+    .line 198
+    .local v0, "vibrator":Landroid/os/Vibrator;
+    invoke-static {}, Lcom/oneplus/util/OpUtils;->isSupportLinearVibration()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1a
+
+    .line 199
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1, v0, p0}, Lcom/oneplus/util/VibratorSceneUtils;->doVibrateWithSceneIfNeeded(Landroid/content/Context;Landroid/os/Vibrator;I)Z
+    
+    goto :goto_2d
+
+    .line 200
+    :cond_1a
+    invoke-static {}, Lcom/oneplus/util/OpUtils;->isSupportZVibrationMotor()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_28
+
+    .line 201
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Landroid/os/VibrationEffect;->get(I)Landroid/os/VibrationEffect;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/StatusBar;->VIBRATION_ATTRIBUTES:Landroid/media/AudioAttributes;
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
+
+    goto :goto_2d
+
+    .line 203
+    :cond_28
+    const/4 v1, 0x5
+
+    invoke-static {v1}, Landroid/os/VibrationEffect;->get(I)Landroid/os/VibrationEffect;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/systemui/statusbar/phone/StatusBar;->VIBRATION_ATTRIBUTES:Landroid/media/AudioAttributes;
+
+    invoke-virtual {v0, v1, v2}, Landroid/os/Vibrator;->vibrate(Landroid/os/VibrationEffect;Landroid/media/AudioAttributes;)V
+
+    .line 205
+    :goto_2d
     return-void
 .end method
