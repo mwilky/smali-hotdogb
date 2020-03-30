@@ -2371,7 +2371,7 @@
     .line 39
     iget-object v8, v0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/StatusBar;
 
-    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveClearableNotifications()Z
+    invoke-virtual {v8}, Lcom/android/systemui/statusbar/phone/StatusBar;->hasActiveHighPriorityNotifications()Z
 
     move-result v8
 
