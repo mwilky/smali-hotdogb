@@ -1057,8 +1057,12 @@
 
     sget v3, Lcom/android/mwilky/Renovate;->mNotificationActionButtonColor:I
     
+    if-eqz v3, :cond_stock
+    
+    :cond_custom
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setTextColor(I)V
 
+    :cond_stock
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
