@@ -387,84 +387,73 @@
 .end method
 
 .method public static getCircleColorForState(I)I
-    .locals 2
+    .registers 3
+    .param p0, "i"    # I
 
-    if-eqz p0, :cond_2
+    .line 53
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mOreoQs:Z
 
+    if-eqz v0, :cond_7
+
+    .line 54
+    const/high16 v0, 0x1000000
+
+    return v0
+
+    .line 56
+    :cond_7
+    if-nez p0, :cond_10
+
+    .line 57
+    sget v0, Lcom/oneplus/util/ThemeColorUtils;->QS_TILE_CIRCLE_DISABLE:I
+
+    invoke-static {v0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 59
+    :cond_10
     const/4 v0, 0x1
 
-    if-eq p0, v0, :cond_1
-    
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mOreoQs:Z
-    
-    if-nez v1, :cond_oreo
+    if-ne p0, v0, :cond_1a
 
+    .line 60
+    sget v0, Lcom/oneplus/util/ThemeColorUtils;->QS_TILE_CIRCLE_OFF:I
+
+    invoke-static {v0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+
+    move-result v0
+
+    return v0
+
+    .line 62
+    :cond_1a
     invoke-static {}, Lcom/oneplus/util/ThemeColorUtils;->getCurrentTheme()I
 
-    move-result p0
+    move-result v0
 
-    const/4 v0, 0x2
+    const/4 v1, 0x2
 
-    if-ne p0, v0, :cond_0
+    if-ne v0, v1, :cond_23
 
-    const/4 p0, -0x1
+    .line 63
+    const/4 v0, -0x1
 
-    goto :goto_0
+    return v0
 
-    :cond_0
-    sget p0, Lcom/oneplus/util/ThemeColorUtils;->QS_ACCENT:I
+    .line 65
+    :cond_23
+    sget v0, Lcom/oneplus/util/ThemeColorUtils;->QS_ACCENT:I
 
-    invoke-static {p0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
+    invoke-static {v0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
 
-    move-result p0
-    
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mOreoQs:Z
-    
-    if-eqz v1, :cond_stock3
-    
-    const p0, 0x0
+    move-result v0
 
-    :goto_0
-    :cond_stock3
-    return p0
-
-    :cond_1
-    sget p0, Lcom/oneplus/util/ThemeColorUtils;->QS_TILE_CIRCLE_OFF:I
-
-    invoke-static {p0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
-
-    move-result p0
-    
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mOreoQs:Z
-    
-    if-eqz v1, :cond_stock
-    
-    const p0, 0x0
-
-    :cond_stock
-    return p0
-    
-    :cond_oreo
-    const p0, 0x0
-    
-    goto :goto_0
-
-    :cond_2
-    sget p0, Lcom/oneplus/util/ThemeColorUtils;->QS_TILE_CIRCLE_DISABLE:I
-
-    invoke-static {p0}, Lcom/oneplus/util/ThemeColorUtils;->getColor(I)I
-
-    move-result p0
-    
-    sget-boolean v1, Lcom/android/mwilky/Renovate;->mOreoQs:Z
-    
-    if-eqz v1, :cond_stock2
-    
-    const p0, 0x0
-
-    :cond_stock2
-    return p0
+    return v0
 .end method
+
 
 .method public static getColorForState(Landroid/content/Context;I)I
     .registers 7
