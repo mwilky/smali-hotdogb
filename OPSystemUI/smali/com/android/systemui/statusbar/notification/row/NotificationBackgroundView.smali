@@ -486,6 +486,17 @@
     return-void
 
     :cond_0
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mUnlockNotificationColors:Z
+    
+    if-eqz v0, :cond_stock
+    
+    sget p1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
+    
+    invoke-static {p1}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result p1
+    
+    :cond_stock
     iget-object p0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;->mBackground:Landroid/graphics/drawable/Drawable;
 
     invoke-virtual {p0, p1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
@@ -758,28 +769,36 @@
 .end method
 
 .method public setTint(I)V
-    .locals 2
+    .registers 5
+    .param p1, "i"    # I
 
-    if-eqz p1, :cond_0
-
+    .line 18
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    sget-object v1, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    sget v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
 
-    invoke-virtual {v0, p1, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+    sget-object v2, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
 
-    goto :goto_0
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
 
-    :cond_0
+    .line 19
     iget-object v0, p0, Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+    sget v1, Lcom/android/mwilky/Renovate;->mNotificationbackgroundColor:I
 
-    :goto_0
+    invoke-static {v1}, Landroid/graphics/Color;->alpha(I)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setAlpha(I)V
+
+    .line 20
     iput p1, p0, Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;->mTintColor:I
 
-    invoke-virtual {p0}, Landroid/view/View;->invalidate()V
+    .line 21
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/notification/row/NotificationBackgroundView;->invalidate()V
 
+    .line 22
     return-void
 .end method
 
