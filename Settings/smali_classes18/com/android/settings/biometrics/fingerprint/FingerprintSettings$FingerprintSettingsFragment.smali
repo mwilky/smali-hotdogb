@@ -2239,6 +2239,8 @@
     const/16 v4, 0xb
 
     if-eqz v2, :cond_5
+    
+    goto :goto_mw
 
     nop
 
@@ -2282,6 +2284,7 @@
 
     invoke-static {v7, v8}, Lcom/oneplus/settings/gestures/OPGestureUtils;->set0(Landroid/content/Context;I)I
 
+    :goto_mw
     :cond_4
     invoke-virtual {p0}, Lcom/android/settings/biometrics/fingerprint/FingerprintSettings$FingerprintSettingsFragment;->getContext()Landroid/content/Context;
 

@@ -1182,6 +1182,8 @@
     const/4 v3, 0x7
 
     if-eqz v0, :cond_3
+    
+    goto :goto_mw
 
     invoke-static {}, Lcom/oneplus/settings/utils/OPUtils;->isSupportCustomFingerprint()Z
 
@@ -1233,6 +1235,7 @@
 
     invoke-static {v0, v2}, Lcom/oneplus/settings/utils/OPUtils;->sendAppTracker(Ljava/lang/String;I)V
 
+	:goto_mw
     :cond_2
     iget-object v0, p0, Lcom/oneplus/settings/OPGestureSettings;->mContext:Landroid/content/Context;
 
