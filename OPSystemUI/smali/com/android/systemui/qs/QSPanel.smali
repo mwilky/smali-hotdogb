@@ -651,7 +651,7 @@
 
 # virtual methods
 .method protected addTile(Lcom/android/systemui/plugins/qs/QSTile;Z)Lcom/android/systemui/qs/QSPanel$TileRecord;
-    .locals 1
+    .locals 2
 
     new-instance v0, Lcom/android/systemui/qs/QSPanel$TileRecord;
 
@@ -689,11 +689,17 @@
 
     invoke-virtual {p1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    iget-object p0, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+    iget-object v1, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
 
-    if-eqz p0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {p0, v0}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->addTile(Lcom/android/systemui/qs/QSPanel$TileRecord;)V
+    invoke-interface {v1, v0}, Lcom/android/systemui/qs/QSPanel$QSTileLayout;->addTile(Lcom/android/systemui/qs/QSPanel$TileRecord;)V
+    
+    iget-object p1, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tile:Lcom/android/systemui/plugins/qs/QSTile;
+
+    iget-object p2, v0, Lcom/android/systemui/qs/QSPanel$TileRecord;->tileView:Lcom/android/systemui/plugins/qs/QSTileView;
+    
+    invoke-direct {p0, p1, p2}, Lcom/android/systemui/qs/QSPanel;->configureTile(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
 
     :cond_0
     return-object v0
@@ -2830,4 +2836,36 @@
         :pswitch_6
         :pswitch_7
     .end packed-switch
+.end method
+
+.method private configureTile(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/qs/QSPanel;->mTileLayout:Lcom/android/systemui/qs/QSPanel$QSTileLayout;
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Lcom/android/systemui/qs/-$$Lambda$QSPanel$043mM7YoW2kzKbwNGN87ItB3Sic;
+
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/systemui/qs/-$$Lambda$QSPanel$043mM7YoW2kzKbwNGN87ItB3Sic;-><init>(Lcom/android/systemui/qs/QSPanel;Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;)V
+
+    invoke-virtual {p2, v0}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public synthetic lambda$configureTile$0$QSPanel(Lcom/android/systemui/plugins/qs/QSTile;Lcom/android/systemui/plugins/qs/QSTileView;Landroid/view/View;)V
+    .locals 1
+
+    invoke-interface {p1}, Lcom/android/systemui/plugins/qs/QSTile;->click()V
+    
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mQsAnimClick:Z
+    
+    if-eqz v0, :cond_mw
+
+    invoke-virtual {p0, p2}, Lcom/android/systemui/qs/QSPanel;->setSwipeAnimationTile(Lcom/android/systemui/plugins/qs/QSTileView;)V
+
+    :cond_mw
+    return-void
 .end method

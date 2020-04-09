@@ -1734,8 +1734,13 @@
 
     invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->updateEverything()V
     
+    sget-boolean v0, Lcom/android/mwilky/Renovate;->mQsAnimExpand:Z
+    
+    if-eqz v0, :cond_mw
+    
     invoke-virtual {p0}, Lcom/android/systemui/qs/QuickStatusBarHeader;->setSwipeTileAnimation()V
 
+    :cond_mw
     return-void
 .end method
 
