@@ -2263,7 +2263,7 @@
 
     iget-object p1, p0, Lcom/oneplus/volume/OpVolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040740
+    const v3, 0x1040741
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2313,7 +2313,7 @@
     :cond_2
     iget-object p1, p0, Lcom/oneplus/volume/OpVolumeDialogImpl;->mContext:Landroid/content/Context;
 
-    const v3, 0x104073f
+    const v3, 0x1040740
 
     invoke-virtual {p1, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
